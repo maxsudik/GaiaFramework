@@ -41,7 +41,6 @@ public class Verify_Login_Test extends TestBase {
 	
 	@Category({ login.class, user.class })
 	@Test
-	@Ignore //GA-947 but with supervisor panel not displaying
 	public void validate_user_login_as_supervisor() { 
 		UserObject user = new UserObject().withEmail(UserInfo.USER_PRODUCTION_SUPERVISOR).withPassword(UserInfo.PASSWORD_PRODUCTION_SUPERVISOR);
 		
