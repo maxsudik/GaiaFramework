@@ -48,6 +48,6 @@ public class Verify_Login_Test extends TestBase {
 		app.customerPanel.login.login(user);
 		
 		TestLog.Then("I verify people list is displayed");
-		Helper.verifyElementIsDisplayed(app.customerPanel.sites.byAddSiteButton());
+		Helper.verifyElementIsDisplayed(app.customerPanel.login.byLogout());
 	}
 }
