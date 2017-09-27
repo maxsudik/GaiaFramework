@@ -53,7 +53,15 @@ public class Verify_Site_Test extends TestBase {
 
 		// add site
 		String siteName = "zzz_site" + UtilityHelper.generateRandomString(3);
-		SiteObject site = new SiteObject().withName(siteName).withRadius("33").withCompany(company.name);
+		SiteObject site = new SiteObject()
+				.withName(siteName)
+				.withRadius("33")
+				.withCompany(company.name)
+				.withAddress("knight street")
+				.withCity("vancouver")
+				.withCountry("canada")
+				.withPostalCode("v5s4p3")
+				.withstate("BC");
 
 		TestLog.And("I add site " + siteName);
 		app.customerPanel.sites.addSite(site);
