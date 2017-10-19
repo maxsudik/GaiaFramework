@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>seleniumCore</groupId>
 		<artifactId>seleniumCore</artifactId>
-		<version>1.0-pom-latest</version>
+		<version>1.0.4-pom</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>gaia-automation</artifactId>
@@ -28,7 +28,7 @@
 		<dependency>
 			<groupId>seleniumCore</groupId>
 			<artifactId>seleniumCore</artifactId>
-			<version>1.0-latest</version>
+			<version>1.0.4-pom</version>
 		</dependency>
 	</dependencies>
 	<profiles>

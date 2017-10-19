@@ -4,6 +4,7 @@ package main.customerPanel.Panels;
 import org.openqa.selenium.By;
 
 import core.helpers.ElementHelper;
+import core.helpers.FormHelper;
 import core.helpers.Helper;
 import core.helpers.WaitHelper;
 import core.webElement.EnhancedBy;
@@ -21,14 +22,19 @@ public class PanelNavigation {
 	}
 
 	// panel tabs
-	private final String COMPANY_TAB = "[href*='companies']";
+	private final String TAB = ".is-tab";
+	private final String TAB_DROPDOWN_LIST = ".dropdown-content li";
 	private final String SITE_TAB = "[href*='sites']";
 	private final String PEOPLE_TAB = "[href*='people']";
 	private final String REPORT_TAB = "[href*='reports']";
 	private final String PLANT_TAB = "[href*='plants']";
 
-	public EnhancedBy byCompanyTab() {
-		return ElementHelper.BySelector(By.cssSelector(COMPANY_TAB), "company tab");
+	public EnhancedBy byTab() {
+		return ElementHelper.BySelector(By.cssSelector(TAB), "tabs");
+	}
+	
+	public EnhancedBy byTabDropDownList() {
+		return ElementHelper.BySelector(By.cssSelector(TAB_DROPDOWN_LIST), "tabs dropdown");
 	}
 
 	public EnhancedBy bySitesTab() {
@@ -52,13 +58,13 @@ public class PanelNavigation {
 
 		switch (panelTab) {
 		case COMPANY:
-			Helper.clickAndExpect(byCompanyTab(), manager.company.byAddCompanyButton());
+			FormHelper.selectDropDown("Company Profile", byTab(), "COMPANY", byTabDropDownList());
 			break;
 		case SITES:
-			Helper.clickAndExpect(bySitesTab(), manager.sites.byAddSiteButton());
+			FormHelper.selectDropDown("Sites", byTab(), "COMPANY", byTabDropDownList());
 			break;
 		case PEOPLE:
-			Helper.clickAndExpect(byPeopleTab(), manager.people.byAddPeopleButton());
+			FormHelper.selectDropDown("People", byTab(), "COMPANY", byTabDropDownList());
 			break;
 		case REPORTS:
 			Helper.clickAndExpect(byReportTab(), manager.company.byCompanyListSection());
@@ -71,5 +77,4 @@ public class PanelNavigation {
 		}
 		WaitHelper.waitForSeconds(1);
 	}
-
 }

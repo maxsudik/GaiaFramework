@@ -14,7 +14,6 @@ import main.customerPanel.categories.user;
 import main.customerPanel.constants.PanelList;
 import main.customerPanel.constants.Roles;
 import main.customerPanel.constants.UserInfo;
-import main.customerPanel.objects.CompanyObject;
 import main.customerPanel.objects.PeopleObject;
 import main.customerPanel.objects.UserObject;
 import main.customerPanel.pages.CustomerPanel;
@@ -35,18 +34,10 @@ public class Verify_People_Test extends TestBase {
 	@Category({ login.class, user.class })
 	@Test
 	public void validate_add_people() {
-		UserObject user = new UserObject().withEmail(UserInfo.USER_ADMIN).withPassword(UserInfo.PASSWORD_ADMIN);
+		UserObject user = new UserObject().withEmail(UserInfo.USER_AUTO_MANAGER).withPassword(UserInfo.PASSWORD_AUTO_MANAGER);
 		
-		TestLog.When("I login with admin user");
+		TestLog.When("I login with manager user");
 		app.customerPanel.login.login(user);
-
-		// add company
-		String companyName = "zzz_company" + UtilityHelper.generateRandomString(3);
-		CompanyObject company = new CompanyObject().withNamel(companyName).withEmail("test@test.com")
-				.withLicenseLimit("3");
-
-		TestLog.Then("I add company " + companyName);
-		app.customerPanel.company.addCompany(company);
 
 		// select people panel
 		TestLog.When("I select people panel");
@@ -64,8 +55,8 @@ public class Verify_People_Test extends TestBase {
 				.withRoles(Roles.MANAGER)
 				.withUserName(userName)
 				.withEmail(email)
-				.withPassword("123")
-				.withCompany(company.name);
+				.withPassword("12345TestUser@")
+				.withCompany("AutoInc");
 
 		TestLog.And("I add person " + firstName);
 		app.customerPanel.people.addPeople(people);
