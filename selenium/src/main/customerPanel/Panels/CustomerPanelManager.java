@@ -5,7 +5,7 @@ public class CustomerPanelManager {
 
 
 	public LoginPanel login = new LoginPanel(this);
-	public PanelNavigation panel = new PanelNavigation(this);
+	public PanelNavigation navigate = new PanelNavigation(this);
 	public CompanyPanel company = new CompanyPanel(this);
 	public SitesPanel sites = new SitesPanel(this);
 	public PeoplePanel people = new PeoplePanel(this);

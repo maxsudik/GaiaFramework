@@ -41,7 +41,7 @@ public class Verify_People_Test extends TestBase {
 
 		// select people panel
 		TestLog.When("I select people panel");
-		app.customerPanel.panel.selectPanel(PanelList.PEOPLE_PANEL);
+		app.customerPanel.navigate.selectPanel(PanelList.PEOPLE_PANEL);
 
 		// add people
 		String firstName = "zzz_first" + UtilityHelper.generateRandomString(3);

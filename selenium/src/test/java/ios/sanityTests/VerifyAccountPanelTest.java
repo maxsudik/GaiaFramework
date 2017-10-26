@@ -5,9 +5,11 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
+import core.helpers.Helper;
 import core.helpers.UtilityHelper;
 import core.logger.TestLog;
 import core.runner.ParallelRunner;
+import main.main_ios.Panels.AccountsPanel;
 import main.main_ios.Panels.MainPanel;
 import main.main_ios.categories.login;
 import main.main_ios.categories.user;
@@ -38,19 +40,31 @@ public class VerifyAccountPanelTest extends TestBase {
 		
 		TestLog.Then("I navigate to accounts panel");
 		app.gaia.main.selectPanel(MainPanel.gaiaPanels.ACCOUNTS);
+	
 		
 		TestLog.Then("I add an accounts");
 		String username = "zzz_auto" + UtilityHelper.generateRandomString(3);
+		String firstName = "zzz_first" + UtilityHelper.generateRandomString(3);
 		String email = "fortify" + UtilityHelper.generateRandomString(3) + "@test.com";
 		AccountObject account = new AccountObject()
 				.withUsername(username)
 				.withEmail(email)
 				.withPassword("123")
-				.withFirstName("bob")
-				.withLastName("jones")
-				.withRoles(AccountsInfo.MANAGER);
+				.withFirstName(firstName)
+				.withLastName("auto")
+				.withRoles(AccountsInfo.SUPERVISOR);
 		app.gaia.accounts.addAccount(account);
+	
 		
 		TestLog.Then("I verify the account has been added");
+		Helper.verifyElementIsDisplayed(AccountsPanel.byAccountUser(account.lastName + ", " + account.firstName));
+		
+		/*
+		AccountObject account = new AccountObject();
+		account.firstName = "auto";
+		account.lastName = "supervisor";
+		TestLog.Then("I delete the account");
+		app.gaia.accounts.deleteAccount(account);
+		*/
 	}
 }

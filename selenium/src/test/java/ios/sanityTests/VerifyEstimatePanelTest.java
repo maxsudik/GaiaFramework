@@ -29,7 +29,7 @@ public class VerifyEstimatePanelTest extends TestBase {
 
 	@Category({ login.class, user.class })
 	@Test
-	public void verifyCreateAccount() {
+	public void verifyAddEstimation() {
 		UserObject_Ios user = new UserObject_Ios()
 				.withUsername(UserInfo_Ios.MANAGER_USERNAME)
 				.withPassword(UserInfo_Ios.MANAGER_PASSWORD);

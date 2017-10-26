@@ -4,6 +4,7 @@ import core.helpers.ElementHelper;
 import core.helpers.FormHelper;
 import core.helpers.Helper;
 import core.helpers.ListHelper;
+import core.helpers.MobileHelper;
 import core.webElement.EnhancedBy;
 import io.appium.java_client.MobileBy;
 import main.main_ios.objects.AccountObject;
@@ -39,12 +40,17 @@ public class AccountsPanel {
 	private static final String CANCEL_BUTTON = "Cancel";
 	private static final String CLOSE_BUTTON = "Close";
 
+	
 	public static EnhancedBy byAddAccountButton() {
 		return ElementHelper.BySelector(MobileBy.AccessibilityId(ADD_ACCOUNT), "add account button");
 	}
 	
 	public static EnhancedBy byAccountList() {
 		return ElementHelper.BySelector(MobileBy.className(ACCOUNT_LIST), "account list");
+	}
+	
+	public static EnhancedBy byAccountUser(String user) {
+		return ElementHelper.BySelector(MobileBy.AccessibilityId(user), user);
 	}
 
 	public static EnhancedBy bySupervisorTab() {
@@ -113,5 +119,9 @@ public class AccountsPanel {
 		FormHelper.setField(account.firstName, byFirstNameField(), 2);	
 		FormHelper.setField(account.lastName, byLastNameField(), 3);	
 		ListHelper.selectElementInList(byRoleButton(), account.roles);
+	}
+	
+	public void deleteAccount(AccountObject account) {
+		MobileHelper.swipeLeft(byAccountUser(account.lastName + ", " + account.firstName), byAccountUser("Supervisor3" + ", " + "Test"));
 	}
 }

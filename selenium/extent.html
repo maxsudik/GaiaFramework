@@ -44,7 +44,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Oct 19, 2017 02:17:24 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Oct 26, 2017 11:41:38 AM</span>
 				</a>
 			</li>
 			<li>
@@ -170,18 +170,18 @@
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>verify  login  test</span>
-						<span class='test-time'>Oct 19, 2017 02:17:24 PM</span>
+						<span class='test-time'>Oct 26, 2017 11:41:38 AM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='scenario node' test-id='2' status='pass'>
-	<span class='duration right label'>0h 0m 6s+965ms</span>
+	<span class='duration right label'>0h 0m 6s+622ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
 		<span class="desc-text">validate user login</span>
 	</div>
 	<ul class='steps'>
-		<li test-id='9' class='node given pass' status='pass'>
+		<li test-id='7' class='node given pass' status='pass'>
 			
 			<b>Given</b>
 			
@@ -217,10 +217,10 @@
 	</ul>
 </div>
 <div class='scenario node' test-id='3' status='pass'>
-	<span class='duration right label'>0h 0m 7s+353ms</span>
+	<span class='duration right label'>0h 0m 7s+467ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
-		<span class="desc-text">validate user login as manager</span>
+		<span class="desc-text">validate user logout</span>
 	</div>
 	<ul class='steps'>
 		<li test-id='10' class='node given pass' status='pass'>
@@ -231,6 +231,64 @@
 			
 		</li>
 		<li test-id='12' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">I am the site 'https://customerdev2.gaialandscape.com/'</span>
+			
+		</li>
+		<li test-id='17' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">I login with admin user</span>
+				<div class='pre'>I set field 'email field' with value 'admin'</div>
+				<div class='pre'>I set field 'password field' with value '# .Gaia$'</div>
+				<div class='pre'>I click submit button</div>
+				<div class='pre'>I click continue button</div>
+			
+		</li>
+		<li test-id='21' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">I verify company list is displayed</span>
+				<div class='pre'>I verify 'company list section' is displayed</div>
+			
+		</li>
+		<li test-id='23' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">I logout</span>
+				<div class='pre'>I click logout button</div>
+			
+		</li>
+		<li test-id='30' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">I should see the login panel</span>
+				<div class='pre'>I verify 'submit button' is displayed</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='4' status='pass'>
+	<span class='duration right label'>0h 0m 6s+631ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">validate user login as manager</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='9' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Test setup has been successful</span>
+			
+		</li>
+		<li test-id='14' class='node and pass' status='pass'>
 			
 			<b>And</b>
 			
@@ -248,31 +306,42 @@
 				<div class='pre'>I click continue button</div>
 			
 		</li>
-		<li test-id='21' class='node then pass' status='pass'>
+		<li test-id='22' class='node then pass' status='pass'>
 			
 			<b>Then</b>
 			
 			<span class="bdd-step-name">I verify people list is displayed</span>
-				<div class='pre'>I verify 'add site' is displayed</div>
+				<div class='pre'>I verify 'report tab' is displayed</div>
 			
 		</li>
 	</ul>
 </div>
-<div class='scenario node' test-id='4' status='pass'>
-	<span class='duration right label'>0h 0m 8s+337ms</span>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>verify  company  test</span>
+						<span class='test-time'>Oct 26, 2017 11:41:38 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='6' status='pass'>
+	<span class='duration right label'>0h 0m 8s+364ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
-		<span class="desc-text">validate user logout</span>
+		<span class="desc-text">validate add company</span>
 	</div>
 	<ul class='steps'>
-		<li test-id='7' class='node given pass' status='pass'>
+		<li test-id='8' class='node given pass' status='pass'>
 			
 			<b>Given</b>
 			
 			<span class="bdd-step-name">Test setup has been successful</span>
 			
 		</li>
-		<li test-id='14' class='node and pass' status='pass'>
+		<li test-id='13' class='node and pass' status='pass'>
 			
 			<b>And</b>
 			
@@ -294,88 +363,19 @@
 			
 			<b>Then</b>
 			
-			<span class="bdd-step-name">I verify company list is displayed</span>
-				<div class='pre'>I verify 'company list section' is displayed</div>
-			
-		</li>
-		<li test-id='26' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">I logout</span>
-				<div class='pre'>I click logout button</div>
-			
-		</li>
-		<li test-id='30' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I should see the login panel</span>
-				<div class='pre'>I verify 'submit button' is displayed</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='5'>
-					<div class='test-heading'>
-						<span class='test-name'>verify  company  test</span>
-						<span class='test-time'>Oct 19, 2017 02:17:24 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='6' status='pass'>
-	<span class='duration right label'>0h 0m 8s+531ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">validate add company</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='8' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Test setup has been successful</span>
-			
-		</li>
-		<li test-id='13' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">I am the site 'https://customerdev2.gaialandscape.com/'</span>
-			
-		</li>
-		<li test-id='17' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">I login with admin user</span>
-				<div class='pre'>I set field 'email field' with value 'admin'</div>
-				<div class='pre'>I set field 'password field' with value '# .Gaia$'</div>
-				<div class='pre'>I click submit button</div>
-				<div class='pre'>I click continue button</div>
-			
-		</li>
-		<li test-id='22' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I add company zzz_companyr38</span>
+			<span class="bdd-step-name">I add company zzz_companygdv</span>
 				<div class='pre'>I click add company</div>
-				<div class='pre'>I set field 'company name field' with value 'zzz_companyr38'</div>
+				<div class='pre'>I set field 'company name field' with value 'zzz_companygdv'</div>
 				<div class='pre'>I set field 'company email field' with value 'test@test.com'</div>
 				<div class='pre'>I set field 'company license limit field' with value '3'</div>
 				<div class='pre'>I click company add button</div>
 			
 		</li>
-		<li test-id='31' class='node then pass' status='pass'>
+		<li test-id='33' class='node then pass' status='pass'>
 			
 			<b>Then</b>
 			
-			<span class="bdd-step-name">company zzz_companyr38 should be added successfully</span>
+			<span class="bdd-step-name">company zzz_companygdv should be added successfully</span>
 				<div class='pre'>I verify 'company add success' is displayed</div>
 			
 		</li>
@@ -385,28 +385,28 @@
 				</li>
 				
 				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='23'>
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='24'>
 					<div class='test-heading'>
 						<span class='test-name'>verify  site  test</span>
-						<span class='test-time'>Oct 19, 2017 02:17:31 PM</span>
+						<span class='test-time'>Oct 26, 2017 11:41:45 AM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
-<div class='scenario node' test-id='24' status='pass'>
-	<span class='duration right label'>0h 0m 7s+648ms</span>
+<div class='scenario node' test-id='25' status='pass'>
+	<span class='duration right label'>0h 0m 7s+185ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
 		<span class="desc-text">validate add site</span>
 	</div>
 	<ul class='steps'>
-		<li test-id='25' class='node given pass' status='pass'>
+		<li test-id='26' class='node given pass' status='pass'>
 			
 			<b>Given</b>
 			
 			<span class="bdd-step-name">Test setup has been successful</span>
 			
 		</li>
-		<li test-id='32' class='node and pass' status='pass'>
+		<li test-id='31' class='node and pass' status='pass'>
 			
 			<b>And</b>
 			
@@ -434,13 +434,13 @@
 				<div class='pre'>I select drop down option 'Sites'</div>
 			
 		</li>
-		<li test-id='38' class='node and pass' status='pass'>
+		<li test-id='39' class='node and pass' status='pass'>
 			
 			<b>And</b>
 			
-			<span class="bdd-step-name">I add site zzz_site302</span>
+			<span class="bdd-step-name">I add site zzz_site2ol</span>
 				<div class='pre'>I click add site</div>
-				<div class='pre'>I set field 'site name field' with value 'zzz_site302'</div>
+				<div class='pre'>I set field 'site name field' with value 'zzz_site2ol'</div>
 				<div class='pre'>I set field 'site email field' with value '33'</div>
 				<div class='pre'>I set field 'site address field' with value '3067 east kent avenue north'</div>
 				<div class='pre'>I set field 'site postal code field' with value 'v5s4p6'</div>
@@ -455,7 +455,7 @@
 			
 			<b>Then</b>
 			
-			<span class="bdd-step-name">Site zzz_site302 should be added successfully</span>
+			<span class="bdd-step-name">Site zzz_site2ol should be added successfully</span>
 				<div class='pre'>I verify 'site add success' is displayed</div>
 			
 		</li>
@@ -468,12 +468,12 @@
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='27'>
 					<div class='test-heading'>
 						<span class='test-name'>verify  people  test</span>
-						<span class='test-time'>Oct 19, 2017 02:17:32 PM</span>
+						<span class='test-time'>Oct 26, 2017 11:41:45 AM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='scenario node' test-id='28' status='pass'>
-	<span class='duration right label'>0h 0m 8s+603ms</span>
+	<span class='duration right label'>0h 0m 8s+190ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
 		<span class="desc-text">validate add people</span>
@@ -486,7 +486,7 @@
 			<span class="bdd-step-name">Test setup has been successful</span>
 			
 		</li>
-		<li test-id='33' class='node and pass' status='pass'>
+		<li test-id='32' class='node and pass' status='pass'>
 			
 			<b>And</b>
 			
@@ -514,20 +514,20 @@
 				<div class='pre'>I select drop down option 'People'</div>
 			
 		</li>
-		<li test-id='39' class='node and pass' status='pass'>
+		<li test-id='38' class='node and pass' status='pass'>
 			
 			<b>And</b>
 			
-			<span class="bdd-step-name">I add person zzz_firstemj</span>
+			<span class="bdd-step-name">I add person zzz_firstxu0</span>
 				<div class='pre'>I click add people</div>
-				<div class='pre'>I set field 'first name field' with value 'zzz_firstemj'</div>
-				<div class='pre'>I set field 'last name field' with value 'zzz_lastg6m'</div>
+				<div class='pre'>I set field 'first name field' with value 'zzz_firstxu0'</div>
+				<div class='pre'>I set field 'last name field' with value 'zzz_last7e3'</div>
 				<div class='pre'>I set field 'note field' with value 'test note'</div>
 				<div class='pre'>I select list option 'Select a role' from list 'roles field'</div>
 				<div class='pre'>I select list option 'manager' from list 'roles options'</div>
 				<div class='pre'>I select drop down option 'manager'</div>
-				<div class='pre'>I set field 'user name field' with value 'zzz_useruyu'</div>
-				<div class='pre'>I set field 'email field' with value 'test@eerzx.com'</div>
+				<div class='pre'>I set field 'user name field' with value 'zzz_user6iw'</div>
+				<div class='pre'>I set field 'email field' with value 'test@5ynk1.com'</div>
 				<div class='pre'>I set field 'password field' with value '12345TestUser@'</div>
 				<div class='pre'>I set field 'repeat password field' with value '12345TestUser@'</div>
 				<div class='pre'>I select list option 'Select a company' from list 'people company field'</div>
@@ -601,19 +601,19 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Oct 19, 2017 02:17:24 PM</div>
+					<div class='panel-lead'>Oct 26, 2017 11:41:38 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Oct 19, 2017 02:17:40 PM</div>
+			 		<div class='panel-lead'>Oct 26, 2017 11:41:54 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>16,306ms</div>
+					<div class='panel-lead'>15,461ms</div>
 				</div>
 			</div>
 		</div>

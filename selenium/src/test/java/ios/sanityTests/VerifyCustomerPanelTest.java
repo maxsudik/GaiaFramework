@@ -5,13 +5,14 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
+import core.helpers.Helper;
 import core.helpers.UtilityHelper;
 import core.logger.TestLog;
 import core.runner.ParallelRunner;
+import main.main_ios.Panels.CustomersPanel;
 import main.main_ios.Panels.MainPanel;
 import main.main_ios.categories.customer;
 import main.main_ios.constants.CustomerInfo;
-import main.main_ios.constants.SiteInfo;
 import main.main_ios.constants.UserInfo_Ios;
 import main.main_ios.objects.CustomerObject;
 import main.main_ios.objects.UserObject_Ios;
@@ -28,7 +29,7 @@ public class VerifyCustomerPanelTest extends TestBase {
 
 	@Category({ customer.class })
 	@Test
-	public void verifyAddSite() {
+	public void verifyCustomerSite() {
 		UserObject_Ios user = new UserObject_Ios()
 				.withUsername(UserInfo_Ios.MANAGER_USERNAME)
 				.withPassword(UserInfo_Ios.MANAGER_PASSWORD);
@@ -41,16 +42,19 @@ public class VerifyCustomerPanelTest extends TestBase {
 		
 		TestLog.Then("I add a customer");
 		String userName = CustomerInfo.DEFAULT_USER_NAME + UtilityHelper.generateRandomString(3);
+		String firstName = CustomerInfo.DEFAULT_FIRST_NAME + UtilityHelper.generateRandomString(3);
 		String email = CustomerInfo.DEFAULT_EMAIL + UtilityHelper.generateRandomString(3) + "@test.com";
 		CustomerObject customer = new CustomerObject()
 				.withUserName(userName)
 				.withEmail(email)
-				.withPassword(SiteInfo.DEFAULT_POSTAL_CODE)
-				.withFirstName(SiteInfo.DEFAULT_STATE)
-				.withLastName(SiteInfo.DEFAULT_CITY)
-				.withPhoneNumber(SiteInfo.DEFAULT_PHONE_NUMBER);
+				.withPassword(CustomerInfo.DEFAULT_PASSWORD)
+				.withFirstName(firstName)
+				.withLastName(CustomerInfo.DEFAULT_LAST_NAME)
+				.withPhoneNumber(CustomerInfo.DEFAULT_PHONE_NUMBER);
 		app.gaia.customer.addCustomer(customer);
 		
 		TestLog.Then("I verify the customer has been added");
+		Helper.verifyElementIsDisplayed(CustomersPanel.byCustomerUser(app.gaia.customer.getCustomerFullName(customer)));
+		
 	}
 }

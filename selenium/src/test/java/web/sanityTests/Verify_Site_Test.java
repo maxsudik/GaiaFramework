@@ -40,7 +40,7 @@ public class Verify_Site_Test extends TestBase {
 
 		// select site panel
 		TestLog.When("I select site panel");
-		app.customerPanel.panel.selectPanel(PanelList.SITE_PANEL);
+		app.customerPanel.navigate.selectPanel(PanelList.SITE_PANEL);
 
 		// add site
 		String siteName = "zzz_site" + UtilityHelper.generateRandomString(3);

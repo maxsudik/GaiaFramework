@@ -41,6 +41,10 @@ public class CustomersPanel {
 	public static EnhancedBy byCustomerList() {
 		return ElementHelper.BySelector(MobileBy.className(CUSTOMER_LIST), "customer list");
 	}
+	
+	public static EnhancedBy byCustomerUser(String user) {
+		return ElementHelper.BySelector(MobileBy.AccessibilityId(user), user);
+	}
 
 	public static EnhancedBy byUserNameField() {
 		return ElementHelper.BySelector(MobileBy.className(USERNAME_FIELD), "username field");
@@ -96,5 +100,14 @@ public class CustomersPanel {
 		FormHelper.setField(customer.firstname, byFirstNameField(), 2);	
 		FormHelper.setField(customer.lastname, byLastNameField(), 3);	
 		FormHelper.setField(customer.phoneNumber, byPhoneNumberField(), 4);	
+	}
+	
+	/**
+	 * gets the customer full name as depicated on the customer list
+	 * @param customer
+	 * @return
+	 */
+	public String getCustomerFullName(CustomerObject customer) {
+		return customer.firstname + " " +customer.lastname;
 	}
 }

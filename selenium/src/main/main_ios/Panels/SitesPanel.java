@@ -41,6 +41,10 @@ public class SitesPanel {
 	public static EnhancedBy bySiteList() {
 		return ElementHelper.BySelector(MobileBy.className(SITE_LIST), "site list");
 	}
+	
+	public static EnhancedBy bySite(String site) {
+		return ElementHelper.BySelector(MobileBy.AccessibilityId(site), site);
+	}
 
 	public static EnhancedBy bySiteNameField() {
 		return ElementHelper.BySelector(MobileBy.className(SITENAME_FIELD), "site name field");

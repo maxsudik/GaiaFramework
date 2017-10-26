@@ -5,10 +5,12 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
+import core.helpers.Helper;
 import core.helpers.UtilityHelper;
 import core.logger.TestLog;
 import core.runner.ParallelRunner;
 import main.main_ios.Panels.MainPanel;
+import main.main_ios.Panels.SitesPanel;
 import main.main_ios.categories.site;
 import main.main_ios.constants.SiteInfo;
 import main.main_ios.constants.UserInfo_Ios;
@@ -50,5 +52,7 @@ public class VerifySitePanelTest extends TestBase {
 		app.gaia.sites.addSite(site);
 		
 		TestLog.Then("I verify the site has been added");
+		Helper.verifyElementIsDisplayed(SitesPanel.bySite(site.sitename));
+		
 	}
 }
