@@ -13,9 +13,7 @@ import main.main_ios.Panels.CustomersPanel;
 import main.main_ios.Panels.MainPanel;
 import main.main_ios.categories.customer;
 import main.main_ios.constants.CustomerInfo;
-import main.main_ios.constants.UserInfo_Ios;
 import main.main_ios.objects.CustomerObject;
-import main.main_ios.objects.UserObject_Ios;
 import main.main_ios.pages.GaiaIos;
 import test.java.TestBase;
 
@@ -30,12 +28,9 @@ public class VerifyCustomerPanelTest extends TestBase {
 	@Category({ customer.class })
 	@Test
 	public void verifyCustomerSite() {
-		UserObject_Ios user = new UserObject_Ios()
-				.withUsername(UserInfo_Ios.MANAGER_USERNAME)
-				.withPassword(UserInfo_Ios.MANAGER_PASSWORD);
 		
 		TestLog.When("I login with manager user");
-		app.gaia.login.login(user);
+		app.gaia.login.loginManager();
 		
 		TestLog.Then("I navigate to customer panel");
 		app.gaia.main.selectPanel(MainPanel.gaiaPanels.CUSTOMERS);

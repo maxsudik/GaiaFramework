@@ -39,7 +39,7 @@ public class GaiaIos {
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPad Air 2");
 		capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
 		//capabilities.setCapability(MobileCapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.ACCEPT);
-		capabilities.setCapability("orientation", ScreenOrientation.LANDSCAPE);
+		//capabilities.setCapability("orientation", ScreenOrientation.LANDSCAPE);
 		//capabilities.setCapability("bundleId", "com.conquermobile.HeadCheck");
 		capabilities.setCapability("fullReset", false);
 		capabilities.setCapability("noReset", false);

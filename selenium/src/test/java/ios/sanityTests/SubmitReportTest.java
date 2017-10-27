@@ -14,9 +14,7 @@ import core.runner.ParallelRunner;
 import main.main_ios.Panels.ReportsPanel;
 import main.main_ios.categories.report;
 import main.main_ios.constants.TaskInfo;
-import main.main_ios.constants.UserInfo_Ios;
 import main.main_ios.objects.TaskObject;
-import main.main_ios.objects.UserObject_Ios;
 import main.main_ios.pages.GaiaIos;
 import test.java.TestBase;
 
@@ -36,12 +34,9 @@ public class SubmitReportTest extends TestBase {
 	@Category({ report.class })
 	@Test
 	public void verifyCreateReport() {
-		UserObject_Ios user = new UserObject_Ios()
-				.withUsername(UserInfo_Ios.SUPERVISOR_USERNAME)
-				.withPassword(UserInfo_Ios.SUPERVISOR_PASSWORD);
 		
 		TestLog.When("I login with supervisor user");
-		app.gaia.login.login(user);
+		app.gaia.login.loginSupervisor();
 		
 		TestLog.Then("Reports panel will load for selected site");
 		WaitHelper.waitForElementToLoad(ReportsPanel.bySendToManager());

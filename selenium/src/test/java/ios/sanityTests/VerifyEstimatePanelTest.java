@@ -11,11 +11,9 @@ import core.runner.ParallelRunner;
 import main.main_ios.Panels.MainPanel;
 import main.main_ios.categories.login;
 import main.main_ios.categories.user;
-import main.main_ios.constants.UserInfo_Ios;
 import main.main_ios.objects.EstimateObject;
 import main.main_ios.objects.EstimateObject.paymentType;
 import main.main_ios.objects.ProductObject;
-import main.main_ios.objects.UserObject_Ios;
 import main.main_ios.pages.GaiaIos;
 import test.java.TestBase;
 
@@ -30,12 +28,9 @@ public class VerifyEstimatePanelTest extends TestBase {
 	@Category({ login.class, user.class })
 	@Test
 	public void verifyAddEstimation() {
-		UserObject_Ios user = new UserObject_Ios()
-				.withUsername(UserInfo_Ios.MANAGER_USERNAME)
-				.withPassword(UserInfo_Ios.MANAGER_PASSWORD);
 		
 		TestLog.When("I login with manager user");
-		app.gaia.login.login(user);
+		app.gaia.login.loginManager();
 		
 		TestLog.Then("I navigate to installs panel");
 		app.gaia.main.selectPanel(MainPanel.gaiaPanels.INSTALLS);
