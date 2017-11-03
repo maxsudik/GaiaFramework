@@ -1,10 +1,9 @@
 package main.main_ios.Panels;
 
-import core.helpers.ElementHelper;
+import core.helpers.ClickHelper;
+import core.helpers.Element;
 import core.helpers.FormHelper;
-import core.helpers.Helper;
 import core.helpers.ListHelper;
-import core.helpers.MobileHelper;
 import core.webElement.EnhancedBy;
 import io.appium.java_client.MobileBy;
 import main.main_ios.objects.AccountObject;
@@ -21,6 +20,8 @@ public class AccountsPanel {
 	// account list 
 	private static final String ADD_ACCOUNT = "+ Add Account";
 	private static final String ACCOUNT_LIST = "XCUIElementTypeStaticText";
+	private static final String SEARCH_FIELD = "XCUIElementTypeSearchField";
+	
 
 	//tabs
 	private static final String SUPERVISOR_TAB = "//XCUIElementTypeButton[@name='Supervisor']";
@@ -42,69 +43,73 @@ public class AccountsPanel {
 
 	
 	public static EnhancedBy byAddAccountButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(ADD_ACCOUNT), "add account button");
+		return Element.bySelector(MobileBy.AccessibilityId(ADD_ACCOUNT), "add account button");
 	}
 	
 	public static EnhancedBy byAccountList() {
-		return ElementHelper.BySelector(MobileBy.className(ACCOUNT_LIST), "account list");
+		return Element.bySelector(MobileBy.className(ACCOUNT_LIST), "account list");
 	}
 	
 	public static EnhancedBy byAccountUser(String user) {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(user), user);
+		return Element.bySelector(MobileBy.AccessibilityId(user), user);
 	}
 
 	public static EnhancedBy bySupervisorTab() {
-		return ElementHelper.BySelector(MobileBy.xpath(SUPERVISOR_TAB), "supervisor tab");
+		return Element.bySelector(MobileBy.xpath(SUPERVISOR_TAB), "supervisor tab");
 	}
 	
 	public static EnhancedBy byManagerTab() {
-		return ElementHelper.BySelector(MobileBy.xpath(MANAGER_TAB), "manager tab");
+		return Element.bySelector(MobileBy.xpath(MANAGER_TAB), "manager tab");
 	}
 	
 	public static EnhancedBy byInstallerTab() {
-		return ElementHelper.BySelector(MobileBy.xpath(INSTALLER_TAB), "installer tab");
+		return Element.bySelector(MobileBy.xpath(INSTALLER_TAB), "installer tab");
+	}
+	
+	public static EnhancedBy bySearchField() {
+		return Element.bySelector(MobileBy.className(SEARCH_FIELD), "search field");
 	}
 	
 	public static EnhancedBy byUserNameField() {
-		return ElementHelper.BySelector(MobileBy.className(USERNAME_FIELD), "username field");
+		return Element.bySelector(MobileBy.className(USERNAME_FIELD), "username field");
 	}
 	
 	public static EnhancedBy byEmailField() {
-		return ElementHelper.BySelector(MobileBy.className(EMAIL_FIELD), "email field");
+		return Element.bySelector(MobileBy.className(EMAIL_FIELD), "email field");
 	}
 	
 	public static EnhancedBy byPasswordField() {
-		return ElementHelper.BySelector(MobileBy.className(PASSWORD_FIELD), "password field");
+		return Element.bySelector(MobileBy.className(PASSWORD_FIELD), "password field");
 	}
 	
 	public static EnhancedBy byFirstNameField() {
-		return ElementHelper.BySelector(MobileBy.className(FIRST_NAME_FIELD), "first name field");
+		return Element.bySelector(MobileBy.className(FIRST_NAME_FIELD), "first name field");
 	}
 	
 	public static EnhancedBy byLastNameField() {
-		return ElementHelper.BySelector(MobileBy.className(LAST_NAME_FIELD), "last name field");
+		return Element.bySelector(MobileBy.className(LAST_NAME_FIELD), "last name field");
 	}
 	
 	public static EnhancedBy byRoleButton() {
-		return ElementHelper.BySelector(MobileBy.className(ROLE), "role");
+		return Element.bySelector(MobileBy.className(ROLE), "role");
 	}
 	
 	public static EnhancedBy byDoneButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(DONE_BUTTON), "done button");
+		return Element.bySelector(MobileBy.AccessibilityId(DONE_BUTTON), "done button");
 	}
 	
 	public static EnhancedBy byCancelButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(CANCEL_BUTTON), "cancel button");
+		return Element.bySelector(MobileBy.AccessibilityId(CANCEL_BUTTON), "cancel button");
 	}
 	
 	public static EnhancedBy byCloseButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(CLOSE_BUTTON), "close button");
+		return Element.bySelector(MobileBy.AccessibilityId(CLOSE_BUTTON), "close button");
 	}
 
 	
 	public void addAccount(AccountObject account) {
 		
-		Helper.clickAndExpect(byAddAccountButton(), byDoneButton());
+		ClickHelper.clickAndExpect(byAddAccountButton(), byDoneButton());
 		setField(account);
 		FormHelper.formSubmit(byDoneButton(), byCloseButton());
 		FormHelper.formSubmit(byCloseButton(), byAddAccountButton());
@@ -121,7 +126,11 @@ public class AccountsPanel {
 		ListHelper.selectElementInList(byRoleButton(), account.roles);
 	}
 	
+	public void searchAccount(AccountObject account) {
+		FormHelper.setField(account.fullName, bySearchField());	
+	}
+	
 	public void deleteAccount(AccountObject account) {
-		MobileHelper.swipeLeft(byAccountUser(account.lastName + ", " + account.firstName), byAccountUser("Supervisor3" + ", " + "Test"));
+		//MobileHelper.swipeLeft(byAccountUser(account.lastName + ", " + account.firstName), byAccountUser("Supervisor3" + ", " + "Test"));
 	}
 }

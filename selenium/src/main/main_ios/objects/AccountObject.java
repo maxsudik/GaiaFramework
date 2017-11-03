@@ -7,6 +7,7 @@ public class AccountObject {
 	public String password;
 	public String firstName;
 	public String lastName;
+	public String fullName;
 	public String notes;
 	public int roles;
 	
@@ -28,11 +29,13 @@ public class AccountObject {
 	
 	public AccountObject withFirstName(String firstName) {
 		this.firstName = firstName;
+		this.fullName = this.lastName + ", " + this.firstName;
 		return this;
 	}
 	
 	public AccountObject withLastName(String lastName) {
 		this.lastName = lastName;
+		this.fullName = this.lastName + ", " + this.firstName;
 		return this;
 	}
 	

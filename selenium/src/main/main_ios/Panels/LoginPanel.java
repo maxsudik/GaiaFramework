@@ -1,10 +1,7 @@
 package main.main_ios.Panels;
 
-import org.openqa.selenium.html5.Location;
-
-import core.helpers.ElementHelper;
+import core.helpers.Element;
 import core.helpers.FormHelper;
-import core.helpers.MobileHelper;
 import core.helpers.PageHelper;
 import core.helpers.WaitHelper;
 import core.webElement.EnhancedBy;
@@ -28,19 +25,19 @@ public class LoginPanel {
 
 
 	public static EnhancedBy byUserNameField() {
-		return ElementHelper.BySelector(MobileBy.className(USERNAME_FIELD), "email field");
+		return Element.bySelector(MobileBy.className(USERNAME_FIELD), "email field");
 	}
 
 	public static EnhancedBy byPasswordField() {
-		return ElementHelper.BySelector(MobileBy.className(PASSWORD_FIELD), "password field");
+		return Element.bySelector(MobileBy.className(PASSWORD_FIELD), "password field");
 	}
 
 	public static EnhancedBy byLoginSubmit() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(LOGIN_SUBMIT), "submit");
+		return Element.bySelector(MobileBy.AccessibilityId(LOGIN_SUBMIT), "submit");
 	}
 	
 	public static EnhancedBy byGoButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(GO_BUTTON), "go button");
+		return Element.bySelector(MobileBy.AccessibilityId(GO_BUTTON), "go button");
 	}
 
 	/**

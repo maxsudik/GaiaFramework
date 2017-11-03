@@ -2,7 +2,7 @@ package main.main_ios.Panels;
 
 import java.util.List;
 
-import core.helpers.ElementHelper;
+import core.helpers.Element;
 import core.helpers.FormHelper;
 import core.helpers.ListHelper;
 import core.webElement.EnhancedBy;
@@ -25,15 +25,15 @@ public class ReportsPanel {
 	private static final String CLOSE_BUTTON = "Close";
 
 	public static EnhancedBy byReportOption() {
-		return ElementHelper.BySelector(MobileBy.className(REPORT_OPTIONS), "report option");
+		return Element.bySelector(MobileBy.className(REPORT_OPTIONS), "report option");
 	}
 	
 	public static EnhancedBy bySendToManager() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(SEND_TO_MANAGER), "send to manager");
+		return Element.bySelector(MobileBy.AccessibilityId(SEND_TO_MANAGER), "send to manager");
 	}
 	
 	public static EnhancedBy byCloseButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(CLOSE_BUTTON), "close button");
+		return Element.bySelector(MobileBy.AccessibilityId(CLOSE_BUTTON), "close button");
 	}
 	
 	/**

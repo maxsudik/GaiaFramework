@@ -7,6 +7,8 @@ import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
 import core.helpers.Helper;
+import core.helpers.DatabaseHelper.MongoDbHelper;
+import core.helpers.DatabaseHelper.MongoObject;
 import core.logger.TestLog;
 import core.runner.ParallelRunner;
 import main.customerPanel.categories.login;
@@ -23,6 +25,20 @@ public class Verify_Login_Test extends TestBase {
 	@Before
 	public void beforeMethod() throws Exception {
  		setupWebDriver(CustomerPanel.GetDriver().withUrl(CustomerPanel.GAIA_SITE));
+	}
+	
+	@Category({ login.class, user.class })
+	@Test
+	public void databaseCleanupTest() throws Exception {
+		
+		String password = "@#Fortify$";
+		MongoObject mongo = new MongoObject()
+				.withUsername("Fortify")
+				.withPassword(password)
+				.withDatabase("gaia");
+		
+		TestLog.When("I delete all test users");
+		MongoDbHelper.deleteData(mongo);
 	}
 
 	@Category({ login.class, user.class })

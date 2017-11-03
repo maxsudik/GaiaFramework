@@ -3,9 +3,9 @@ package main.customerPanel.Panels;
 
 import org.openqa.selenium.By;
 
-import core.helpers.ElementHelper;
+import core.helpers.ClickHelper;
+import core.helpers.Element;
 import core.helpers.FormHelper;
-import core.helpers.Helper;
 import core.webElement.EnhancedBy;
 import main.customerPanel.objects.UserObject;
 
@@ -25,23 +25,23 @@ public class LoginPanel {
 	private static final String LOGOUT_BUTTON = "[href*='logout']";
 
 	public EnhancedBy byEmailField() {
-		return ElementHelper.BySelector(By.cssSelector(EMAIL_FIELD), "email field");
+		return Element.bySelector(By.cssSelector(EMAIL_FIELD), "email field");
 	}
 
 	public EnhancedBy byPasswordField() {
-		return ElementHelper.BySelector(By.cssSelector(PASSWORD_FIELD), "password field");
+		return Element.bySelector(By.cssSelector(PASSWORD_FIELD), "password field");
 	}
 
 	public EnhancedBy byLoginSubmit() {
-		return ElementHelper.BySelector(By.cssSelector(LOGIN_SUBMIT), "submit button");
+		return Element.bySelector(By.cssSelector(LOGIN_SUBMIT), "submit button");
 	}
 
 	public EnhancedBy byContinueButton() {
-		return ElementHelper.BySelector(By.cssSelector(CONTINUE_BUTTON), "continue button");
+		return Element.bySelector(By.cssSelector(CONTINUE_BUTTON), "continue button");
 	}
 	
 	public EnhancedBy byLogout() {
-		return ElementHelper.BySelector(By.cssSelector(LOGOUT_BUTTON), "logout button");
+		return Element.bySelector(By.cssSelector(LOGOUT_BUTTON), "logout button");
 	}
 
 	/**
@@ -62,6 +62,6 @@ public class LoginPanel {
 	}
 	
 	public void logout() {
-		Helper.clickAndExpect(byLogout(), byLoginSubmit());
+		ClickHelper.clickAndExpect(byLogout(), byLoginSubmit());
 	}
 }

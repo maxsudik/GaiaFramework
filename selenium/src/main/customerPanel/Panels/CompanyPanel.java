@@ -3,9 +3,9 @@ package main.customerPanel.Panels;
 
 import org.openqa.selenium.By;
 
-import core.helpers.ElementHelper;
+import core.helpers.ClickHelper;
+import core.helpers.Element;
 import core.helpers.FormHelper;
-import core.helpers.Helper;
 import core.helpers.ListHelper;
 import core.webElement.EnhancedBy;
 import main.customerPanel.objects.CompanyObject;
@@ -31,35 +31,35 @@ public class CompanyPanel {
 	private final String COMPANY_ADD_SUCCESS = ".message.is-success";
 
 	public EnhancedBy byCompanyListSection() {
-		return ElementHelper.BySelector(By.cssSelector(COMPANY_LIST_SECTION), "company list section");
+		return Element.bySelector(By.cssSelector(COMPANY_LIST_SECTION), "company list section");
 	}
 
 	public EnhancedBy byAddCompanyButton() {
-		return ElementHelper.BySelector(By.cssSelector(ADD_COMPANY_BUTTON), "add company");
+		return Element.bySelector(By.cssSelector(ADD_COMPANY_BUTTON), "add company");
 	}
 
 	public EnhancedBy byCompanyRows() {
-		return ElementHelper.BySelector(By.cssSelector(COMPANY_ROWS), "company rows");
+		return Element.bySelector(By.cssSelector(COMPANY_ROWS), "company rows");
 	}
 
 	public EnhancedBy byCompanyNameField() {
-		return ElementHelper.BySelector(By.cssSelector(COMPANY_NAME_FIELD), "company name field");
+		return Element.bySelector(By.cssSelector(COMPANY_NAME_FIELD), "company name field");
 	}
 
 	public EnhancedBy byCompanyEmailField() {
-		return ElementHelper.BySelector(By.cssSelector(COMPANY_EMAIL_FIELD), "company email field");
+		return Element.bySelector(By.cssSelector(COMPANY_EMAIL_FIELD), "company email field");
 	}
 
 	public EnhancedBy byCompanyLicenseLimitField() {
-		return ElementHelper.BySelector(By.cssSelector(COMPANY_LICENSE_LIMIT_FIELD), "company license limit field");
+		return Element.bySelector(By.cssSelector(COMPANY_LICENSE_LIMIT_FIELD), "company license limit field");
 	}
 
 	public EnhancedBy byCompanyAddButton() {
-		return ElementHelper.BySelector(By.cssSelector(COMPANY_ADD_BUTTON), "company add button");
+		return Element.bySelector(By.cssSelector(COMPANY_ADD_BUTTON), "company add button");
 	}
 
 	public EnhancedBy byCompanyAddSuccess() {
-		return ElementHelper.BySelector(By.cssSelector(COMPANY_ADD_SUCCESS), "company add success");
+		return Element.bySelector(By.cssSelector(COMPANY_ADD_SUCCESS), "company add success");
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class CompanyPanel {
 	 * @param company
 	 */
 	public void addCompany(CompanyObject company) {
-		Helper.clickAndExpect(byAddCompanyButton(), byCompanyNameField());
+		ClickHelper.clickAndExpect(byAddCompanyButton(), byCompanyNameField());
 		setCompanyFields(company);
 		FormHelper.formSubmit(byCompanyAddButton(), byCompanyAddSuccess());
 

@@ -1,8 +1,8 @@
 package main.main_ios.Panels;
 
-import core.helpers.ElementHelper;
+import core.helpers.ClickHelper;
+import core.helpers.Element;
 import core.helpers.FormHelper;
-import core.helpers.Helper;
 import core.webElement.EnhancedBy;
 import io.appium.java_client.MobileBy;
 import main.main_ios.objects.EstimateObject;
@@ -40,83 +40,83 @@ public class EstimatePanel {
 	private static final String TOTAL_FIELD = "total amount";
 	
 	public EnhancedBy byTitleField() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(TITLE), "title field");
+		return Element.bySelector(MobileBy.AccessibilityId(TITLE), "title field");
 	}
 
 	public EnhancedBy byCustomerNameField() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(CUSTOMER_NAME), "customer name field");
+		return Element.bySelector(MobileBy.AccessibilityId(CUSTOMER_NAME), "customer name field");
 	}
 	
 	public EnhancedBy byDropDownOption() {
-		return ElementHelper.BySelector(MobileBy.className(DROP_DOWN_OPTION), "drop down option");
+		return Element.bySelector(MobileBy.className(DROP_DOWN_OPTION), "drop down option");
 	}
 
 	public EnhancedBy byCustomerSiteField() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(CUSTOMER_SITE), "customer site field");
+		return Element.bySelector(MobileBy.AccessibilityId(CUSTOMER_SITE), "customer site field");
 	}
 
 	public EnhancedBy byAddressField() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(ADDRESS), "address field");
+		return Element.bySelector(MobileBy.AccessibilityId(ADDRESS), "address field");
 	}
 	
 	public EnhancedBy byCityField() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(CITY), "city field");
+		return Element.bySelector(MobileBy.AccessibilityId(CITY), "city field");
 	}
 	
 	public EnhancedBy byPostalCodeField() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(POSTAL_CODE), "postal code field");
+		return Element.bySelector(MobileBy.AccessibilityId(POSTAL_CODE), "postal code field");
 	}
 	
 	public EnhancedBy byPhoneNumberField() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(PHONE_NUMBER), "phone number field");
+		return Element.bySelector(MobileBy.AccessibilityId(PHONE_NUMBER), "phone number field");
 	}
 	
 	public EnhancedBy byEmailField() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(EMAIL), "email field");
+		return Element.bySelector(MobileBy.AccessibilityId(EMAIL), "email field");
 	}
 	
 	public EnhancedBy byDescriptionField() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(DESCRIPTION), "description field");
+		return Element.bySelector(MobileBy.AccessibilityId(DESCRIPTION), "description field");
 	}
 	
 	public EnhancedBy byPhotoField() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(PHOTOS), "photo field");
+		return Element.bySelector(MobileBy.AccessibilityId(PHOTOS), "photo field");
 	}
 	
 	public EnhancedBy byChooseProductField() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(CHOOSE_PRODUCT), "choose product field");
+		return Element.bySelector(MobileBy.AccessibilityId(CHOOSE_PRODUCT), "choose product field");
 	}
 	
 	public EnhancedBy bySaveButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(SAVE_BUTTON), "save button");
+		return Element.bySelector(MobileBy.AccessibilityId(SAVE_BUTTON), "save button");
 	}
 	
 	public EnhancedBy byDoneButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(DONE_BUTTON), "done button");
+		return Element.bySelector(MobileBy.AccessibilityId(DONE_BUTTON), "done button");
 	}
 	
 	public EnhancedBy byPayButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(PAY_BUTTON), "pay button");
+		return Element.bySelector(MobileBy.AccessibilityId(PAY_BUTTON), "pay button");
 	}
 	
 	public EnhancedBy byCloseButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(CLOSE_BUTTON), "close button");
+		return Element.bySelector(MobileBy.AccessibilityId(CLOSE_BUTTON), "close button");
 	}
 	
 	public EnhancedBy byCashButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(CASH_BUTTON), "cash button");
+		return Element.bySelector(MobileBy.AccessibilityId(CASH_BUTTON), "cash button");
 	}
 	
 	public EnhancedBy byChequeButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(CHEQUE_BUTTON), "cheque button");
+		return Element.bySelector(MobileBy.AccessibilityId(CHEQUE_BUTTON), "cheque button");
 	}
 	
 	public EnhancedBy byCreditButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(CREDIT_BUTTON), "credit button");
+		return Element.bySelector(MobileBy.AccessibilityId(CREDIT_BUTTON), "credit button");
 	}
 	
 	public EnhancedBy byTotalField() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(TOTAL_FIELD), "total field");
+		return Element.bySelector(MobileBy.AccessibilityId(TOTAL_FIELD), "total field");
 	}
 	
 	
@@ -126,7 +126,7 @@ public class EstimatePanel {
 	 */
 	public void addEstimate(EstimateObject estimate) {
 		
-		Helper.clickAndExpect(InstallsPanel.byAddEstimateButton(), byCustomerNameField());
+		ClickHelper.clickAndExpect(InstallsPanel.byAddEstimateButton(), byCustomerNameField());
 		setEstimateFields(estimate);
 		FormHelper.formSubmit(bySaveButton(), byCloseButton());
 		FormHelper.formSubmit(byCloseButton(), byPayButton());

@@ -9,6 +9,7 @@ public class CustomerObject {
 	public String password;
 	public String firstname;
 	public String lastname;
+	public String fullName;
 	public String phoneNumber;
 	public List<String> sites;
 	
@@ -29,11 +30,13 @@ public class CustomerObject {
 	
 	public CustomerObject withFirstName(String firstname) {
 		this.firstname = firstname;
+		this.fullName = this.firstname + " " + this.lastname;
 		return this;
 	}
 	
 	public CustomerObject withLastName(String lastname) {
 		this.lastname = lastname;
+		this.fullName = this.firstname + " " + this.lastname;
 		return this;
 	}
 	

@@ -1,7 +1,7 @@
 package main.main_ios.Panels;
 
-import core.helpers.ElementHelper;
-import core.helpers.Helper;
+import core.helpers.ClickHelper;
+import core.helpers.Element;
 import core.webElement.EnhancedBy;
 import io.appium.java_client.MobileBy;
 
@@ -32,31 +32,31 @@ public class MainPanel {
 	private static final String GAIA_LOGO = "gaia logo";
 
 	public static EnhancedBy byReportsPanel() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(REPORTS_PANEL), "reports panel");
+		return Element.bySelector(MobileBy.AccessibilityId(REPORTS_PANEL), "reports panel");
 	}
 
 	public static EnhancedBy bySitesPanel() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(SITES_PANEL), "sites panel");
+		return Element.bySelector(MobileBy.AccessibilityId(SITES_PANEL), "sites panel");
 	}
 
 	public static EnhancedBy byPlantsPanel() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(PLANTS_PANEL), "plants panel");
+		return Element.bySelector(MobileBy.AccessibilityId(PLANTS_PANEL), "plants panel");
 	}
 	
 	public static EnhancedBy byCustomersPanel() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(CUSTOMERS_PANEL), "customers panel");
+		return Element.bySelector(MobileBy.AccessibilityId(CUSTOMERS_PANEL), "customers panel");
 	}
 	
 	public static EnhancedBy byAccountsPanel() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(ACCOUNTS_PANEL), "accounts panel");
+		return Element.bySelector(MobileBy.AccessibilityId(ACCOUNTS_PANEL), "accounts panel");
 	}
 	
 	public static EnhancedBy byInstallsPanel() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(INSTALLS_PANEL), "installs panel");
+		return Element.bySelector(MobileBy.AccessibilityId(INSTALLS_PANEL), "installs panel");
 	}
 	
 	public static EnhancedBy byGaiaLogo() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(GAIA_LOGO), "gaia logo");
+		return Element.bySelector(MobileBy.AccessibilityId(GAIA_LOGO), "gaia logo");
 	}
 	
 	
@@ -64,16 +64,16 @@ public class MainPanel {
 	public void selectPanel(gaiaPanels panel) {
 		switch (panel) {
 		case ACCOUNTS:
-			Helper.clickAndExpect(byAccountsPanel(), AccountsPanel.bySupervisorTab());
+			ClickHelper.clickAndExpect(byAccountsPanel(), AccountsPanel.bySupervisorTab());
 			break;
 		case SITES:
-			Helper.clickAndExpect(bySitesPanel(), SitesPanel.byAddSiteButton());
+			ClickHelper.clickAndExpect(bySitesPanel(), SitesPanel.byAddSiteButton());
 			break;	
 		case CUSTOMERS:
-			Helper.clickAndExpect(byCustomersPanel(), CustomersPanel.byAddCustomerButton());
+			ClickHelper.clickAndExpect(byCustomersPanel(), CustomersPanel.byAddCustomerButton());
 			break;	
 		case INSTALLS:
-			Helper.clickAndExpect(byInstallsPanel(), InstallsPanel.byAddEstimateButton());
+			ClickHelper.clickAndExpect(byInstallsPanel(), InstallsPanel.byAddEstimateButton());
 			break;	
 		default:
 			throw new IllegalStateException("Unsupported panels " + panel);

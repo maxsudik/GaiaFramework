@@ -3,9 +3,9 @@ package main.customerPanel.Panels;
 
 import org.openqa.selenium.By;
 
-import core.helpers.ElementHelper;
+import core.helpers.ClickHelper;
+import core.helpers.Element;
 import core.helpers.FormHelper;
-import core.helpers.Helper;
 import core.helpers.ListHelper;
 import core.webElement.EnhancedBy;
 import main.customerPanel.objects.PeopleObject;
@@ -39,67 +39,67 @@ public class PeoplePanel {
 	private final String PEOPLE_ADD_SUCCESS = ".message.is-success";
 
 	public EnhancedBy byPeopleListSection() {
-		return ElementHelper.BySelector(By.cssSelector(PEOPLE_LIST_SECTION), "people list section");
+		return Element.bySelector(By.cssSelector(PEOPLE_LIST_SECTION), "people list section");
 	}
 
 	public EnhancedBy byAddPeopleButton() {
-		return ElementHelper.BySelector(By.cssSelector(ADD_PEOPLE_BUTTON), "add people");
+		return Element.bySelector(By.cssSelector(ADD_PEOPLE_BUTTON), "add people");
 	}
 
 	public EnhancedBy byPeopleRows() {
-		return ElementHelper.BySelector(By.cssSelector(PEOPLE_ROWS), "people rows");
+		return Element.bySelector(By.cssSelector(PEOPLE_ROWS), "people rows");
 	}
 
 	public EnhancedBy byPeopleFirstNameField() {
-		return ElementHelper.BySelector(By.cssSelector(PEOPLE_FIST_NAME_FIELD), "first name field");
+		return Element.bySelector(By.cssSelector(PEOPLE_FIST_NAME_FIELD), "first name field");
 	}
 
 	public EnhancedBy byPeopleLastNameField() {
-		return ElementHelper.BySelector(By.cssSelector(PEOPLE_LAST_NAME_FIELD), "last name field");
+		return Element.bySelector(By.cssSelector(PEOPLE_LAST_NAME_FIELD), "last name field");
 	}
 
 	public EnhancedBy byPeopleNoteField() {
-		return ElementHelper.BySelector(By.cssSelector(PEOPLE_NOTES_FIELD), "note field");
+		return Element.bySelector(By.cssSelector(PEOPLE_NOTES_FIELD), "note field");
 	}
 
 	public EnhancedBy byPeopleRolesField() {
-		return ElementHelper.BySelector(By.cssSelector(PEOPLE_ROLES_FIELD), "roles field");
+		return Element.bySelector(By.cssSelector(PEOPLE_ROLES_FIELD), "roles field");
 	}
 
 	public EnhancedBy byPeopleRolesOptions() {
-		return ElementHelper.BySelector(By.cssSelector(PEOPLE_ROLES_OPTIONS), "roles options");
+		return Element.bySelector(By.cssSelector(PEOPLE_ROLES_OPTIONS), "roles options");
 	}
 
 	public EnhancedBy byPeopleUserNameField() {
-		return ElementHelper.BySelector(By.cssSelector(PEOPLE_USERNAME_FIELD), "user name field");
+		return Element.bySelector(By.cssSelector(PEOPLE_USERNAME_FIELD), "user name field");
 	}
 
 	public EnhancedBy byPeopleEmailField() {
-		return ElementHelper.BySelector(By.cssSelector(PEOPLE_EMAIL_FIELD), "email field");
+		return Element.bySelector(By.cssSelector(PEOPLE_EMAIL_FIELD), "email field");
 	}
 
 	public EnhancedBy byPeoplePasswordField() {
-		return ElementHelper.BySelector(By.cssSelector(PEOPLE_PASSWORD_FIELD), "password field");
+		return Element.bySelector(By.cssSelector(PEOPLE_PASSWORD_FIELD), "password field");
 	}
 
 	public EnhancedBy byPeopleRepeatPasswordField() {
-		return ElementHelper.BySelector(By.cssSelector(PEOPLE_REPEAT_PASSWORD_FIELD), "repeat password field");
+		return Element.bySelector(By.cssSelector(PEOPLE_REPEAT_PASSWORD_FIELD), "repeat password field");
 	}
 
 	public EnhancedBy byPeopleCompanyField() {
-		return ElementHelper.BySelector(By.cssSelector(PEOPLE_COMPANY_FIELD), "people company field");
+		return Element.bySelector(By.cssSelector(PEOPLE_COMPANY_FIELD), "people company field");
 	}
 
 	public EnhancedBy byPeopleCompanyOptionField() {
-		return ElementHelper.BySelector(By.cssSelector(PEOPLE_COMPANY_OPTIONS), "people company options");
+		return Element.bySelector(By.cssSelector(PEOPLE_COMPANY_OPTIONS), "people company options");
 	}
 
 	public EnhancedBy byPeopleAddButton() {
-		return ElementHelper.BySelector(By.cssSelector(PEOPLE_ADD_BUTTON), "people add button");
+		return Element.bySelector(By.cssSelector(PEOPLE_ADD_BUTTON), "people add button");
 	}
 
 	public EnhancedBy byPeopleAddSuccess() {
-		return ElementHelper.BySelector(By.cssSelector(PEOPLE_ADD_SUCCESS), "people add success");
+		return Element.bySelector(By.cssSelector(PEOPLE_ADD_SUCCESS), "people add success");
 	}
 
 	/**
@@ -109,7 +109,7 @@ public class PeoplePanel {
 	 * @param people
 	 */
 	public void addPeople(PeopleObject people) {
-		Helper.clickAndExpect(byAddPeopleButton(), byPeopleFirstNameField());
+		ClickHelper.clickAndExpect(byAddPeopleButton(), byPeopleFirstNameField());
 
 		setPeopleFields(people);
 

@@ -49,18 +49,11 @@ public class VerifyAccountPanelTest extends TestBase {
 				.withLastName("auto")
 				.withRoles(AccountsInfo.SUPERVISOR);
 		app.gaia.accounts.addAccount(account);
-	
+
+		TestLog.Then("I search for account");
+		app.gaia.accounts.searchAccount(account);
 		
 		TestLog.Then("I verify the account has been added");
-		Helper.verifyElementIsDisplayed(AccountsPanel.byAccountUser(account.lastName + ", " + account.firstName));
-		
-		/*
-		AccountObject account = new AccountObject();
-		account.firstName = "auto";
-		account.lastName = "supervisor";
-		TestLog.Then("I delete the account");
-		app.gaia.accounts.deleteAccount(account);
-		*/
-		
+		Helper.verifyElementIsDisplayed(AccountsPanel.byAccountUser(account.fullName));
 	}
 }

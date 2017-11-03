@@ -1,8 +1,8 @@
 package main.main_ios.Panels;
 
-import core.helpers.ElementHelper;
+import core.helpers.ClickHelper;
+import core.helpers.Element;
 import core.helpers.FormHelper;
-import core.helpers.Helper;
 import core.webElement.EnhancedBy;
 import io.appium.java_client.MobileBy;
 import main.main_ios.objects.ProductObject;
@@ -35,67 +35,67 @@ public class ProductPanel {
 
 
 	public EnhancedBy byProductTypePlant() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(PRODUCT_TYPE_PLANT), "product type plant");
+		return Element.bySelector(MobileBy.AccessibilityId(PRODUCT_TYPE_PLANT), "product type plant");
 	}
 	
 	public EnhancedBy byProductTypeMaterial() {
-		return ElementHelper.BySelector(MobileBy.xpath(PRODUCT_TYPE_MATERIAL), "product type material");
+		return Element.bySelector(MobileBy.xpath(PRODUCT_TYPE_MATERIAL), "product type material");
 	}
 	
 	public EnhancedBy byProductTypeLabor() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(PRODUCT_TYPE_LABOR), "product type labor");
+		return Element.bySelector(MobileBy.AccessibilityId(PRODUCT_TYPE_LABOR), "product type labor");
 	}
 	
 	public EnhancedBy byProductTypeDelivery() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(PRODUCT_TYPE_DELIVERY), "product type delivery");
+		return Element.bySelector(MobileBy.AccessibilityId(PRODUCT_TYPE_DELIVERY), "product type delivery");
 	}
 	
 	public EnhancedBy byProductTypeDisposal() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(PRODUCT_TYPE_DISPOSAL), "product type disposal");
+		return Element.bySelector(MobileBy.AccessibilityId(PRODUCT_TYPE_DISPOSAL), "product type disposal");
 	}
 	
 	public EnhancedBy byProductTypeOther() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(PRODUCT_TYPE_OTHER), "product type other");
+		return Element.bySelector(MobileBy.AccessibilityId(PRODUCT_TYPE_OTHER), "product type other");
 	}
 
 	public EnhancedBy byProductNameField() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(PRODUCT_NAME), "product name");
+		return Element.bySelector(MobileBy.AccessibilityId(PRODUCT_NAME), "product name");
 	}
 
 	public EnhancedBy byPricePerUnitField() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(PRICE_PER_UNIT), "price per unit");
+		return Element.bySelector(MobileBy.AccessibilityId(PRICE_PER_UNIT), "price per unit");
 	}
 
 	public EnhancedBy byCurrencyDropDownButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(CURRENCY_DROPDOWN_BUTTON), "currency drop down button");
+		return Element.bySelector(MobileBy.AccessibilityId(CURRENCY_DROPDOWN_BUTTON), "currency drop down button");
 	}
 	
 	public EnhancedBy byCurrencyDropDownOption() {
-		return ElementHelper.BySelector(MobileBy.className(CURRENCY_DROPDOWN_OPTION), "currency drop down option");
+		return Element.bySelector(MobileBy.className(CURRENCY_DROPDOWN_OPTION), "currency drop down option");
 	}
 	
 	public EnhancedBy byUnitOption() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(UNIT), "unit option");
+		return Element.bySelector(MobileBy.AccessibilityId(UNIT), "unit option");
 	}
 	
 	public EnhancedBy bySupplierField() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(SUPPLIER), "supplier field");
+		return Element.bySelector(MobileBy.AccessibilityId(SUPPLIER), "supplier field");
 	}
 	
 	public EnhancedBy byAdditionalNotesField() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(ADDITIONAL_NOTES), "additional notes");
+		return Element.bySelector(MobileBy.AccessibilityId(ADDITIONAL_NOTES), "additional notes");
 	}
 	
 	public EnhancedBy bySaveButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(SAVE_BUTTON), "save button");
+		return Element.bySelector(MobileBy.AccessibilityId(SAVE_BUTTON), "save button");
 	}
 	
 	public EnhancedBy byCancelButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(CANCEL_BUTTON), "cancel button");
+		return Element.bySelector(MobileBy.AccessibilityId(CANCEL_BUTTON), "cancel button");
 	}
 	
 	public static EnhancedBy byCloseButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(CLOSE_BUTTON), "close button");
+		return Element.bySelector(MobileBy.AccessibilityId(CLOSE_BUTTON), "close button");
 	}
 
     /**
@@ -104,7 +104,7 @@ public class ProductPanel {
      */
 	public void addProduct(ProductObject product) {
 
-		Helper.clickAndExpect(InstallsPanel.byAddProductButton(), byProductNameField());
+		ClickHelper.clickAndExpect(InstallsPanel.byAddProductButton(), byProductNameField());
 		setProductFields(product);
 		FormHelper.formSubmit(bySaveButton(), byCloseButton());
 	}

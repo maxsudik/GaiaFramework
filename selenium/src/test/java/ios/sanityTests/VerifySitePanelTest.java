@@ -46,8 +46,10 @@ public class VerifySitePanelTest extends TestBase {
 				.withCountry(SiteInfo.DEFAULT_COUTRY);
 		app.gaia.sites.addSite(site);
 		
+		TestLog.Then("I search for customer");
+		app.gaia.sites.searchSite(site);
+		
 		TestLog.Then("I verify the site has been added");
 		Helper.verifyElementIsDisplayed(SitesPanel.bySite(site.sitename));
-		
 	}
 }

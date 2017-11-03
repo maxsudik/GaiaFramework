@@ -3,9 +3,9 @@ package main.customerPanel.Panels;
 
 import org.openqa.selenium.By;
 
-import core.helpers.ElementHelper;
+import core.helpers.ClickHelper;
+import core.helpers.Element;
 import core.helpers.FormHelper;
-import core.helpers.Helper;
 import core.helpers.WaitHelper;
 import core.webElement.EnhancedBy;
 
@@ -30,27 +30,27 @@ public class PanelNavigation {
 	private final String PLANT_TAB = "[href*='plants']";
 
 	public EnhancedBy byTab() {
-		return ElementHelper.BySelector(By.cssSelector(TAB), "tabs");
+		return Element.bySelector(By.cssSelector(TAB), "tabs");
 	}
 	
 	public EnhancedBy byTabDropDownList() {
-		return ElementHelper.BySelector(By.cssSelector(TAB_DROPDOWN_LIST), "tabs dropdown");
+		return Element.bySelector(By.cssSelector(TAB_DROPDOWN_LIST), "tabs dropdown");
 	}
 
 	public EnhancedBy bySitesTab() {
-		return ElementHelper.BySelector(By.cssSelector(SITE_TAB), "site tab");
+		return Element.bySelector(By.cssSelector(SITE_TAB), "site tab");
 	}
 
 	public EnhancedBy byPeopleTab() {
-		return ElementHelper.BySelector(By.cssSelector(PEOPLE_TAB), "people tab");
+		return Element.bySelector(By.cssSelector(PEOPLE_TAB), "people tab");
 	}
 
 	public EnhancedBy byReportTab() {
-		return ElementHelper.BySelector(By.cssSelector(REPORT_TAB), "report tab");
+		return Element.bySelector(By.cssSelector(REPORT_TAB), "report tab");
 	}
 
 	public EnhancedBy byPlantTab() {
-		return ElementHelper.BySelector(By.cssSelector(PLANT_TAB), "plant tab");
+		return Element.bySelector(By.cssSelector(PLANT_TAB), "plant tab");
 	}
 
 	public void selectPanel(String panel) {
@@ -67,10 +67,10 @@ public class PanelNavigation {
 			FormHelper.selectDropDown("People", byTab(), "COMPANY", byTabDropDownList());
 			break;
 		case REPORTS:
-			Helper.clickAndExpect(byReportTab(), manager.company.byCompanyListSection());
+			ClickHelper.clickAndExpect(byReportTab(), manager.company.byCompanyListSection());
 			break;
 		case PLANTS:
-			Helper.clickAndExpect(byPlantTab(), manager.company.byCompanyListSection());
+			ClickHelper.clickAndExpect(byPlantTab(), manager.company.byCompanyListSection());
 			break;
 		default:
 			throw new IllegalStateException("Unsupported browsertype " + panel);

@@ -3,7 +3,6 @@ package main.main_ios.pages;
 
 import java.io.File;
 
-import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import core.driver.DriverObject;

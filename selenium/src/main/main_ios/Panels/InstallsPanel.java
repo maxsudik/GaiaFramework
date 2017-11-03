@@ -1,6 +1,6 @@
 package main.main_ios.Panels;
 
-import core.helpers.ElementHelper;
+import core.helpers.Element;
 import core.webElement.EnhancedBy;
 import io.appium.java_client.MobileBy;
 
@@ -18,10 +18,10 @@ public class InstallsPanel {
 
 
 	public static EnhancedBy byAddProductButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(ADD_PRODUCT_BUTTON), "add products button");
+		return Element.bySelector(MobileBy.AccessibilityId(ADD_PRODUCT_BUTTON), "add products button");
 	}
 	
 	public static EnhancedBy byAddEstimateButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(ADD_ESTIMATE_BUTTON), "add estimate button");
+		return Element.bySelector(MobileBy.AccessibilityId(ADD_ESTIMATE_BUTTON), "add estimate button");
 	}
 }

@@ -1,8 +1,8 @@
 package main.main_ios.Panels;
 
-import core.helpers.ElementHelper;
+import core.helpers.ClickHelper;
+import core.helpers.Element;
 import core.helpers.FormHelper;
-import core.helpers.Helper;
 import core.webElement.EnhancedBy;
 import io.appium.java_client.MobileBy;
 import main.main_ios.objects.SiteObject;
@@ -19,6 +19,7 @@ public class SitesPanel {
 	// account list 
 	private static final String ADD_SITE = "+ Add New Site";
 	private static final String SITE_LIST = "XCUIElementTypeStaticText";
+	private static final String SEARCH_FIELD = "XCUIElementTypeSearchField";
 
 
 	//account details (information)
@@ -35,57 +36,61 @@ public class SitesPanel {
 	private static final String CLOSE_BUTTON = "Close";
 
 	public static EnhancedBy byAddSiteButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(ADD_SITE), "add account button");
+		return Element.bySelector(MobileBy.AccessibilityId(ADD_SITE), "add account button");
 	}
 	
 	public static EnhancedBy bySiteList() {
-		return ElementHelper.BySelector(MobileBy.className(SITE_LIST), "site list");
+		return Element.bySelector(MobileBy.className(SITE_LIST), "site list");
 	}
 	
 	public static EnhancedBy bySite(String site) {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(site), site);
+		return Element.bySelector(MobileBy.AccessibilityId(site), site);
 	}
 
 	public static EnhancedBy bySiteNameField() {
-		return ElementHelper.BySelector(MobileBy.className(SITENAME_FIELD), "site name field");
+		return Element.bySelector(MobileBy.className(SITENAME_FIELD), "site name field");
+	}
+	
+	public static EnhancedBy bySearchField() {
+		return Element.bySelector(MobileBy.className(SEARCH_FIELD), "search field");
 	}
 	
 	public static EnhancedBy byStreetField() {
-		return ElementHelper.BySelector(MobileBy.className(STREET_FIELD), "street field");
+		return Element.bySelector(MobileBy.className(STREET_FIELD), "street field");
 	}
 	
 	public static EnhancedBy byPostalCodeField() {
-		return ElementHelper.BySelector(MobileBy.className(POSTAL_CODE_FIELD), "postal code field");
+		return Element.bySelector(MobileBy.className(POSTAL_CODE_FIELD), "postal code field");
 	}
 	
 	public static EnhancedBy byCityField() {
-		return ElementHelper.BySelector(MobileBy.className(CITY_FIELD), "city field");
+		return Element.bySelector(MobileBy.className(CITY_FIELD), "city field");
 	}
 	
 	public static EnhancedBy byStateField() {
-		return ElementHelper.BySelector(MobileBy.className(STATE_FIELD), "state field");
+		return Element.bySelector(MobileBy.className(STATE_FIELD), "state field");
 	}
 	
 	public static EnhancedBy byCountryField() {
-		return ElementHelper.BySelector(MobileBy.className(COUNTRY_FIELD), "country field");
+		return Element.bySelector(MobileBy.className(COUNTRY_FIELD), "country field");
 	}
 	
 	public static EnhancedBy byDoneButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(DONE_BUTTON), "done button");
+		return Element.bySelector(MobileBy.AccessibilityId(DONE_BUTTON), "done button");
 	}
 	
 	public static EnhancedBy byCancelButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(CANCEL_BUTTON), "cancel button");
+		return Element.bySelector(MobileBy.AccessibilityId(CANCEL_BUTTON), "cancel button");
 	}
 	
 	public static EnhancedBy byCloseButton() {
-		return ElementHelper.BySelector(MobileBy.AccessibilityId(CLOSE_BUTTON), "close button");
+		return Element.bySelector(MobileBy.AccessibilityId(CLOSE_BUTTON), "close button");
 	}
 
 	
 	public void addSite(SiteObject site) {
 		
-		Helper.clickAndExpect(byAddSiteButton(), byDoneButton());
+		ClickHelper.clickAndExpect(byAddSiteButton(), byDoneButton());
 		setField(site);
 		FormHelper.formSubmit(byDoneButton(), byCloseButton());
 		FormHelper.formSubmit(byCloseButton(), byAddSiteButton());
@@ -99,5 +104,9 @@ public class SitesPanel {
 		FormHelper.setField(site.city, byCityField(), 3);	
 		FormHelper.setField(site.state, byStateField(), 4);	
 		FormHelper.setField(site.country, byCountryField(), 5);	
+	}
+	
+	public void searchSite(SiteObject site) {
+		FormHelper.setField(site.sitename, bySearchField());	
 	}
 }
