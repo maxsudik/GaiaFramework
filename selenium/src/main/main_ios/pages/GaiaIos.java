@@ -33,7 +33,7 @@ public class GaiaIos {
 		File appDir = new File(classpathRoot, "../apps/");
 		File app = new File(appDir, "Gaia.app");
 		capabilities.setCapability("platformName", "iOS");
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.0");
+		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.1");
 		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.IOS_XCUI_TEST);
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPad Air 2");
 		capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
