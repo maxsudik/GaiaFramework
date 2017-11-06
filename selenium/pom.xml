@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>seleniumCore</groupId>
 		<artifactId>seleniumCore</artifactId>
-		<version>1.0.5-pom</version>
+		<version>1.0.61-pom</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>headcheck-automation</artifactId>
@@ -28,7 +28,7 @@
 		<dependency>
 			<groupId>seleniumCore</groupId>
 			<artifactId>seleniumCore</artifactId>
-			<version>1.0.6</version>
+			<version>1.0.61</version>
 		</dependency>
 	</dependencies>
 	
