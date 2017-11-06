@@ -3,11 +3,11 @@
 	<parent>
 		<groupId>seleniumCore</groupId>
 		<artifactId>seleniumCore</artifactId>
-		<version>1.0.6-pom</version>
+		<version>1.0.5-pom</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>gaia-automation</artifactId>
-	
+	<artifactId>headcheck-automation</artifactId>
+
 	<repositories>
 		<repository>
 			<id>seleniumCore</id>
@@ -98,5 +98,4 @@
 		</profile>
 
 	</profiles>
-	<packaging>pom</packaging>
 </project>

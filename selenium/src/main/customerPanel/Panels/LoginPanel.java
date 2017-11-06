@@ -52,7 +52,7 @@ public class LoginPanel {
 	public void login(UserObject user) {
 		setLoginFields(user);
 		FormHelper.formSubmit(byLoginSubmit(), byContinueButton());
-		FormHelper.formSubmit(byContinueButton(), manager.company.byCompanyListSection());
+		FormHelper.formSubmit(byContinueButton(), CompanyPanel.element.COMPANY_LIST_SECTION);
 
 	}
 

@@ -5,7 +5,6 @@ import core.helpers.Element;
 import core.helpers.FormHelper;
 import core.webElement.EnhancedBy;
 import io.appium.java_client.MobileBy;
-import main.main_ios.objects.AccountObject;
 import main.main_ios.objects.CustomerObject;
 
 public class CustomersPanel {

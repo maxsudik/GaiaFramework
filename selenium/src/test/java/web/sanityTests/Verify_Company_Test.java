@@ -9,8 +9,10 @@ import core.helpers.Helper;
 import core.helpers.UtilityHelper;
 import core.logger.TestLog;
 import core.runner.ParallelRunner;
+import main.customerPanel.Panels.CompanyPanel;
 import main.customerPanel.categories.login;
 import main.customerPanel.categories.user;
+import main.customerPanel.constants.CompanyInfo;
 import main.customerPanel.constants.UserInfo;
 import main.customerPanel.objects.CompanyObject;
 import main.customerPanel.objects.UserObject;
@@ -34,13 +36,21 @@ public class Verify_Company_Test extends TestBase {
 		app.customerPanel.login.login(user);
 
 		String companyName = "zzz_company" + UtilityHelper.generateRandomString(3);
-		CompanyObject company = new CompanyObject().withNamel(companyName).withEmail("test@test.com")
-				.withLicenseLimit("3");
+		CompanyObject company = new CompanyObject()
+				.withName(companyName)
+				.withEmail("test@test.com")
+				.withTaxNumber(CompanyInfo.DEFAULT_TAX_NUMBER)
+				.withAddress(CompanyInfo.ADDRESS)
+				.withCity(CompanyInfo.CITY)
+				.withCountry(CompanyInfo.COUNTRY)
+				.withState(CompanyInfo.STATE)
+				.withLicenseLimit(CompanyInfo.LICENSE_LIMIT);
 
 		TestLog.Then("I add company " + companyName);
 		app.customerPanel.company.addCompany(company);
 		
+		//TODO: find a way to clear out company data
 		TestLog.Then("company " + companyName + " should be added successfully");
-		Helper.verifyElementIsDisplayed(app.customerPanel.company.byCompanyAddSuccess());
+		//Helper.verifyContainsIsInList(CompanyPanel.element.COMPANY_ROWS, companyName);
 	}
 }

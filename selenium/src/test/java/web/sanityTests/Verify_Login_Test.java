@@ -7,10 +7,9 @@ import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
 import core.helpers.Helper;
-import core.helpers.DatabaseHelper.MongoDbHelper;
-import core.helpers.DatabaseHelper.MongoObject;
 import core.logger.TestLog;
 import core.runner.ParallelRunner;
+import main.customerPanel.Panels.CompanyPanel;
 import main.customerPanel.categories.login;
 import main.customerPanel.categories.user;
 import main.customerPanel.constants.UserInfo;
@@ -26,20 +25,6 @@ public class Verify_Login_Test extends TestBase {
 	public void beforeMethod() throws Exception {
  		setupWebDriver(CustomerPanel.GetDriver().withUrl(CustomerPanel.GAIA_SITE));
 	}
-	
-	@Category({ login.class, user.class })
-	@Test
-	public void databaseCleanupTest() throws Exception {
-		
-		String password = "@#Fortify$";
-		MongoObject mongo = new MongoObject()
-				.withUsername("Fortify")
-				.withPassword(password)
-				.withDatabase("gaia");
-		
-		TestLog.When("I delete all test users");
-		MongoDbHelper.deleteData(mongo);
-	}
 
 	@Category({ login.class, user.class })
 	@Test
@@ -50,7 +35,7 @@ public class Verify_Login_Test extends TestBase {
 		app.customerPanel.login.login(user);
 		
 		TestLog.Then("I verify company list is displayed");
-		Helper.verifyElementIsDisplayed(app.customerPanel.company.byCompanyListSection());
+		Helper.verifyElementIsDisplayed(CompanyPanel.element.COMPANY_LIST_SECTION);
 	}
 	
 	@Category({ login.class, user.class })
@@ -87,7 +72,7 @@ public class Verify_Login_Test extends TestBase {
 		app.customerPanel.login.login(user);
 		
 		TestLog.Then("I verify company list is displayed");
-		Helper.verifyElementIsDisplayed(app.customerPanel.company.byCompanyListSection());
+		Helper.verifyElementIsDisplayed(CompanyPanel.element.COMPANY_LIST_SECTION);
 		
 		TestLog.When("I logout");
 		app.customerPanel.login.logout();

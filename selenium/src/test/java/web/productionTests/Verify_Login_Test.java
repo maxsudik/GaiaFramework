@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import core.helpers.Helper;
 import core.logger.TestLog;
 import core.runner.ParallelRunner;
+import main.customerPanel.Panels.CompanyPanel;
 import main.customerPanel.categories.login;
 import main.customerPanel.categories.user;
 import main.customerPanel.constants.UserInfo;
@@ -34,7 +35,7 @@ public class Verify_Login_Test extends TestBase {
 		app.customerPanel.login.login(user);
 		
 		TestLog.Then("I verify company list is displayed");
-		Helper.verifyElementIsDisplayed(app.customerPanel.company.byCompanyListSection());
+		Helper.verifyElementIsDisplayed(CompanyPanel.element.COMPANY_LIST_SECTION);
 	}
 
 	

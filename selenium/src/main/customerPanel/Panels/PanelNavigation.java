@@ -67,10 +67,10 @@ public class PanelNavigation {
 			FormHelper.selectDropDown("People", byTab(), "COMPANY", byTabDropDownList());
 			break;
 		case REPORTS:
-			ClickHelper.clickAndExpect(byReportTab(), manager.company.byCompanyListSection());
+			ClickHelper.clickAndExpect(byReportTab(), CompanyPanel.element.COMPANY_LIST_SECTION);
 			break;
 		case PLANTS:
-			ClickHelper.clickAndExpect(byPlantTab(), manager.company.byCompanyListSection());
+			ClickHelper.clickAndExpect(byPlantTab(), CompanyPanel.element.COMPANY_LIST_SECTION);
 			break;
 		default:
 			throw new IllegalStateException("Unsupported browsertype " + panel);
