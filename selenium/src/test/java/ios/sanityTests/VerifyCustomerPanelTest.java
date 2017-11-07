@@ -48,9 +48,6 @@ public class VerifyCustomerPanelTest extends TestBase {
 				.withPhoneNumber(CustomerInfo.DEFAULT_PHONE_NUMBER);
 		app.gaia.customer.addCustomer(customer);
 		
-		TestLog.Then("I search for customer");
-		app.gaia.customer.searchCustomer(customer);
-		
 		TestLog.Then("I verify the customer has been added");
 		Helper.verifyElementIsDisplayed(CustomersPanel.byCustomerUser(customer.fullName));
 		

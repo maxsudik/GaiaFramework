@@ -49,9 +49,6 @@ public class VerifyAccountPanelTest extends TestBase {
 				.withLastName("auto")
 				.withRoles(AccountsInfo.SUPERVISOR);
 		app.gaia.accounts.addAccount(account);
-
-		TestLog.Then("I search for account");
-		app.gaia.accounts.searchAccount(account);
 		
 		TestLog.Then("I verify the account has been added");
 		Helper.verifyElementIsDisplayed(AccountsPanel.byAccountUser(account.fullName));
