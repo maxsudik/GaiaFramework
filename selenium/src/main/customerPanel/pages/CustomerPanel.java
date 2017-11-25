@@ -31,7 +31,7 @@ public class CustomerPanel {
 	public static String getUrl() {
 	   if (!getUrlFromMaven().isEmpty()) { return getUrlFromMaven(); }
 	   else if (!getUrlFromProperties().isEmpty()) { return getUrlFromProperties(); }
-	   else return "https://customerdev3.gaialandscape.com/"; 
+	   else return "https://customerdev2.gaialandscape.com/"; 
 	}
 	
 	public static String getUrlFromMaven() {

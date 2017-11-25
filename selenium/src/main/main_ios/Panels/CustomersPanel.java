@@ -31,7 +31,7 @@ public class CustomersPanel {
 	private static final String LAST_NAME_FIELD = "XCUIElementTypeTextField";
 	private static final String PHONE_NUMBER_FIELD = "XCUIElementTypeTextField";
 
-	private static final String DONE_BUTTON = "Done";
+	private static final String SAVE_BUTTON = "Save";
 	private static final String CANCEL_BUTTON = "Cancel";
 	private static final String CLOSE_BUTTON = "Close";
 
@@ -75,8 +75,8 @@ public class CustomersPanel {
 		return Element.bySelector(MobileBy.className(PHONE_NUMBER_FIELD), "phone number field");
 	}
 	
-	public static EnhancedBy byDoneButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(DONE_BUTTON), "done button");
+	public static EnhancedBy bySaveButton() {
+		return Element.bySelector(MobileBy.AccessibilityId(SAVE_BUTTON), "done button");
 	}
 	
 	public static EnhancedBy byCancelButton() {
@@ -90,9 +90,9 @@ public class CustomersPanel {
 	
 	public void addCustomer(CustomerObject customer) {
 		
-		ClickHelper.clickAndExpect(byAddCustomerButton(), byDoneButton());
+		ClickHelper.clickAndExpect(byAddCustomerButton(), bySaveButton());
 		setField(customer);
-		FormHelper.formSubmit(byDoneButton(), byCloseButton());
+		FormHelper.formSubmit(bySaveButton(), byCloseButton());
 		FormHelper.formSubmit(byCloseButton(), byAddCustomerButton());
 	}
 	

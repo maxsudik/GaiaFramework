@@ -5,11 +5,9 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
-import core.helpers.Helper;
 import core.helpers.UtilityHelper;
 import core.logger.TestLog;
 import core.runner.ParallelRunner;
-import main.customerPanel.Panels.CompanyPanel;
 import main.customerPanel.categories.login;
 import main.customerPanel.categories.user;
 import main.customerPanel.constants.CompanyInfo;
@@ -39,12 +37,7 @@ public class Verify_Company_Test extends TestBase {
 		CompanyObject company = new CompanyObject()
 				.withName(companyName)
 				.withEmail("test@test.com")
-				.withTaxNumber(CompanyInfo.DEFAULT_TAX_NUMBER)
-				.withAddress(CompanyInfo.ADDRESS)
-				.withCity(CompanyInfo.CITY)
-				.withCountry(CompanyInfo.COUNTRY)
-				.withState(CompanyInfo.STATE)
-				.withLicenseLimit(CompanyInfo.LICENSE_LIMIT);
+				.withTaxNumber(CompanyInfo.DEFAULT_TAX_NUMBER);
 
 		TestLog.Then("I add company " + companyName);
 		app.customerPanel.company.addCompany(company);

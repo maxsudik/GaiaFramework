@@ -1,8 +1,6 @@
 package main.customerPanel.Panels;
 
 
-import org.openqa.selenium.By;
-
 import core.helpers.ClickHelper;
 import core.helpers.Element;
 import core.helpers.FormHelper;
@@ -28,7 +26,7 @@ public class CompanyPanel {
 	    
 	    // add company fields
 	    public static EnhancedBy COMPANY_NAME_FIELD = Element.byCss("[placeholder='Name']", "company name field");
-	    public static EnhancedBy COMPANY_EMAIL_FIELD = Element.byCss("[placeholder='Email']", "company email field");
+	    public static EnhancedBy COMPANY_EMAIL_FIELD = Element.byCss("[name='email']", "company email field");
 	    public static EnhancedBy COMPANY_TAX_NUMBER_FIELD = Element.byCss("[placeholder='Tax number']", "tax number field");
 	    public static EnhancedBy COMPANY_ADDRESS_FIELD = Element.byCss("[placeholder='Address']", "address field");
 	    public static EnhancedBy COMPANY_CITY_FIELD = Element.byCss("[placeholder='Enter the name of the city']", "city field");

@@ -1,7 +1,6 @@
 package test.java.web.sanityTests;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -52,7 +51,6 @@ public class Verify_Login_Test extends TestBase {
 	
 	@Category({ login.class, user.class })
 	@Test
-	@Ignore //GA-947 but with supervisor panel not displaying
 	public void validate_user_login_as_supervisor() { 
 		UserObject user = new UserObject().withEmail(UserInfo.USER_AUTO_SUPERVISOR).withPassword(UserInfo.PASSWORD_AUTO_SUPERVISOR);
 		
@@ -60,7 +58,7 @@ public class Verify_Login_Test extends TestBase {
 		app.customerPanel.login.login(user);
 		
 		TestLog.Then("I verify people list is displayed");
-		Helper.verifyElementIsDisplayed(app.customerPanel.sites.byAddSiteButton());
+		Helper.verifyElementIsDisplayed(app.customerPanel.navigate.byPlantTab());
 	}
 	
 	@Category({ login.class, user.class })

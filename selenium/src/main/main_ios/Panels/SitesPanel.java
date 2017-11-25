@@ -17,7 +17,7 @@ public class SitesPanel {
 	}
 
 	// account list 
-	private static final String ADD_SITE = "+ Add New Site";
+	private static final String ADD_SITE = "+ Add Site";
 	private static final String SITE_LIST = "XCUIElementTypeStaticText";
 	private static final String SEARCH_FIELD = "XCUIElementTypeSearchField";
 
@@ -31,7 +31,7 @@ public class SitesPanel {
 	private static final String STATE_FIELD = "XCUIElementTypeTextField";
 	private static final String COUNTRY_FIELD = "XCUIElementTypeTextField";
 	
-	private static final String DONE_BUTTON = "Done";
+	private static final String Save_BUTTON = "Save";
 	private static final String CANCEL_BUTTON = "Cancel";
 	private static final String CLOSE_BUTTON = "Close";
 
@@ -75,8 +75,8 @@ public class SitesPanel {
 		return Element.bySelector(MobileBy.className(COUNTRY_FIELD), "country field");
 	}
 	
-	public static EnhancedBy byDoneButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(DONE_BUTTON), "done button");
+	public static EnhancedBy bySaveButton() {
+		return Element.bySelector(MobileBy.AccessibilityId(Save_BUTTON), "save button");
 	}
 	
 	public static EnhancedBy byCancelButton() {
@@ -90,9 +90,9 @@ public class SitesPanel {
 	
 	public void addSite(SiteObject site) {
 		
-		ClickHelper.clickAndExpect(byAddSiteButton(), byDoneButton());
+		ClickHelper.clickAndExpect(byAddSiteButton(), bySaveButton());
 		setField(site);
-		FormHelper.formSubmit(byDoneButton(), byCloseButton());
+		FormHelper.formSubmit(bySaveButton(), byCloseButton());
 		FormHelper.formSubmit(byCloseButton(), byAddSiteButton());
 	}
 	

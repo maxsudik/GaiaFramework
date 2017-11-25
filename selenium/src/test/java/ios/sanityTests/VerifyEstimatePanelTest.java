@@ -42,6 +42,7 @@ public class VerifyEstimatePanelTest extends TestBase {
 		String estimateTitle = "zzz_estimate" + UtilityHelper.generateRandomString(3);
 		EstimateObject estimate = new EstimateObject()
 				.withTitle(estimateTitle)
+				.withCustomerSite(0)
 				.withEmail("ehsan.matean+3@fortify.pro")
 				.withAddDescription("description")
 				.withCustomerName(0)
