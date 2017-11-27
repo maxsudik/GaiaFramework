@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>seleniumCore</groupId>
 		<artifactId>seleniumCore</artifactId>
-		<version>1.0.71-pom</version>
+		<version>1.0.721-pom</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>headcheck-automation</artifactId>
@@ -28,15 +28,9 @@
 		<dependency>
 			<groupId>seleniumCore</groupId>
 			<artifactId>seleniumCore</artifactId>
-			<version>1.0.71</version>
+			<version>1.0.72</version>
 		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-	<dependency>
-	    <groupId>org.projectlombok</groupId>
-	    <artifactId>lombok</artifactId>
-	    <version>1.16.18</version>
-	</dependency>
+	
 		
 	</dependencies>
 	
