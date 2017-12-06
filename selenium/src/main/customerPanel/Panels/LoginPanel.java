@@ -52,8 +52,13 @@ public class LoginPanel {
 	public void login(UserObject user) {
 		setLoginFields(user);
 		FormHelper.formSubmit(byLoginSubmit(), byContinueButton());
-		FormHelper.formSubmit(byContinueButton(), CompanyPanel.element.COMPANY_LIST_SECTION);
+		FormHelper.formSubmit(byContinueButton(), CompanyPanel.elements.COMPANY_LIST_SECTION);
 
+	}
+	
+	public void relogin(UserObject user) {
+		logout();
+		login(user);
 	}
 
 	public void setLoginFields(UserObject user) {

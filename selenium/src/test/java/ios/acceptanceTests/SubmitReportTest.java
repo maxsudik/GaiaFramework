@@ -1,4 +1,4 @@
-package test.java.ios.sanityTests;
+package test.java.ios.acceptanceTests;
 
 import java.util.ArrayList;
 import java.util.List;

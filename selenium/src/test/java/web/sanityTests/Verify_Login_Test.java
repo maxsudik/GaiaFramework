@@ -34,7 +34,7 @@ public class Verify_Login_Test extends TestBase {
 		app.customerPanel.login.login(user);
 		
 		TestLog.Then("I verify company list is displayed");
-		Helper.verifyElementIsDisplayed(CompanyPanel.element.COMPANY_LIST_SECTION);
+		Helper.verifyElementIsDisplayed(CompanyPanel.elements.COMPANY_LIST_SECTION);
 	}
 	
 	@Category({ login.class, user.class })
@@ -70,7 +70,7 @@ public class Verify_Login_Test extends TestBase {
 		app.customerPanel.login.login(user);
 		
 		TestLog.Then("I verify company list is displayed");
-		Helper.verifyElementIsDisplayed(CompanyPanel.element.COMPANY_LIST_SECTION);
+		Helper.verifyElementIsDisplayed(CompanyPanel.elements.COMPANY_LIST_SECTION);
 		
 		TestLog.When("I logout");
 		app.customerPanel.login.logout();
