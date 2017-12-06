@@ -1,4 +1,4 @@
-package test.java.ios.sanityTests;
+package test.java.ios.acceptanceTests;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +26,7 @@ public class LoginTest extends TestBase {
 
 	@Category({ login.class, user.class })
 	@Test
-	public void verifyManagerLoginTest() {
+	public void verifyLoginTest() {
 		UserObject_Ios user = new UserObject_Ios().withUsername(UserInfo_Ios.MANAGER_USERNAME).withPassword(UserInfo_Ios.MANAGER_PASSWORD);
 		
 		TestLog.When("I login with default user");
@@ -34,17 +34,5 @@ public class LoginTest extends TestBase {
 		
 		TestLog.Then("I verify the user has logged in");
 		Helper.verifyElementIsDisplayed(MainPanel.byInstallsPanel());
-	}
-	
-	@Category({ login.class, user.class })
-	@Test
-	public void verifySupervisorLoginTest() {
-		UserObject_Ios user = new UserObject_Ios().withUsername(UserInfo_Ios.SUPERVISOR_USERNAME).withPassword(UserInfo_Ios.SUPERVISOR_PASSWORD);
-		
-		TestLog.When("I login with default user");
-		app.gaia.login.login(user);
-		
-		TestLog.Then("I verify the user has logged in");
-		Helper.verifyElementIsDisplayed(MainPanel.byGaiaLogo());
 	}
 }
