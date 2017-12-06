@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class SiteObject {
 
-	public static final String DEFAULT_SITE_NAME = "zzzApiSite";
+	public static final String DEFAULT_SITE_NAME = "zzz_ApiSite";
 
 	/**
 	 * object
@@ -37,7 +37,7 @@ public class SiteObject {
 				.lng("-123.044092")
 				.build();
 		
-		AddressObject address = AddressObject.builder()
+		 AddressObject.builder()
 				.street("3065 east kent avenue")
 				.city("vancouver")
 				.country("Canada")

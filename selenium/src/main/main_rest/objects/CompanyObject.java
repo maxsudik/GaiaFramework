@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class CompanyObject {
 
-	public static final String DEFAULT_COMPANY_NAME = "zzzApiCompany";
+	public static final String DEFAULT_COMPANY_NAME = "zzz_ApiCompany";
 	public static final String DEFAULT_TAX_NUMBER = "123456";
 	
 	/**

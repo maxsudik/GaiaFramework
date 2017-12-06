@@ -24,7 +24,7 @@ public class removeTestData extends TestBase {
 		UserObject user = new UserObject().withAdminLogin();
 		user = app.rest.login.login(user);
 		
-		app.rest.company.deleteAllCompanies(user, "zzz");
+		app.rest.company.deleteAllCompanies(user, "zzz_");
 	}
 	
 	@Test
@@ -34,7 +34,7 @@ public class removeTestData extends TestBase {
 		UserObject user = new UserObject().withAdminLogin();
 		user = app.rest.login.login(user);
 		
-		app.rest.site.deleteAllSites(user, "zzz");
+		app.rest.site.deleteAllSites(user, "zzz_");
 	}
 	
 	@Test
@@ -44,6 +44,6 @@ public class removeTestData extends TestBase {
 		UserObject user = new UserObject().withAdminLogin();
 		user = app.rest.login.login(user);
 		
-		app.rest.people.deleteAllPeople(user, "zzz");
+		app.rest.people.deleteAllPeople(user, "zzz_");
 	}
 }

@@ -3,6 +3,7 @@ package main.customerPanel.Panels;
 
 import org.openqa.selenium.By;
 
+import AdditionalHelper.AdditionalHelpers;
 import core.helpers.ClickHelper;
 import core.helpers.Element;
 import core.helpers.FormHelper;
@@ -127,11 +128,11 @@ public class PeoplePanel {
 		FormHelper.setField(people.lastName, byPeopleLastNameField());
 		FormHelper.setField(people.notes, byPeopleNoteField());
 		FormHelper.selectDropDown(people.roles, byPeopleRolesField(), "Select a role", byPeopleRolesOptions());
-		FormHelper.setField(people.userName, byPeopleUserNameField());
 		FormHelper.setField(people.email, byPeopleEmailField());
 		FormHelper.setField(people.password, byPeoplePasswordField());
 		FormHelper.setField(people.password, byPeopleRepeatPasswordField());
 		FormHelper.selectDropDown(people.company, byPeopleCompanyField(), "Select a company", byPeopleCompanyOptionField());
+		people.userName = AdditionalHelpers.getAttribute(byPeopleUserNameField(), "value");
 	}
 
 	/**
