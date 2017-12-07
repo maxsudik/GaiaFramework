@@ -44,7 +44,7 @@ public class VerifyAccountPanelTest extends TestBase {
 		AccountObject account = new AccountObject()
 				.withUsername(username)
 				.withEmail(email)
-				.withPassword("123")
+				.withPassword("1234567890")
 				.withFirstName(firstName)
 				.withLastName("auto")
 				.withRoles(AccountsInfo.SUPERVISOR);
