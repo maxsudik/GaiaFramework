@@ -44,7 +44,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Dec 6, 2017 05:40:27 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Dec 7, 2017 10:43:03 AM</span>
 				</a>
 			</li>
 			<li>
@@ -69,8 +69,7 @@
 					<i class='material-icons'>warning</i> Status
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
-											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
-					<li class='divider'></li>
+										<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
 			</div>
@@ -135,7 +134,7 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>4</span> scenario(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> scenario(s) passed</span>
 				</div>
 				<div class='block text-small'>
 					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -150,7 +149,7 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>18</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>17</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
 					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -169,191 +168,135 @@
 				
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>verify  login  test</span>
-						<span class='test-time'>Dec 6, 2017 05:40:27 PM</span>
+						<span class='test-name'>remove test data</span>
+						<span class='test-time'>Dec 7, 2017 10:43:03 AM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='scenario node' test-id='2' status='pass'>
-	<span class='duration right label'>0h 0m 6s+255ms</span>
+	<span class='duration right label'>0h 0m 4s+51ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
-		<span class="desc-text">validate user login as supervisor</span>
+		<span class="desc-text">delete all test sites</span>
 	</div>
 	<ul class='steps'>
-		<li test-id='6' class='node given pass' status='pass'>
+		<li test-id='3' class='node given pass' status='pass'>
 			
 			<b>Given</b>
 			
 			<span class="bdd-step-name">Test setup has been successful</span>
 			
 		</li>
-		<li test-id='11' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">I am the site 'https://customerdev3.gaialandscape.com/'</span>
-			
-		</li>
-		<li test-id='17' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">I login with supervisor user</span>
-				<div class='pre'>I set field 'email field' with value 'zzzauto1'</div>
-				<div class='pre'>I set field 'password field' with value 'zzzauto1'</div>
-				<div class='pre'>I click submit button</div>
-				<div class='pre'>I click continue button</div>
-			
-		</li>
-		<li test-id='18' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I verify people list is displayed</span>
-				<div class='pre'>I verify 'plant tab' is displayed</div>
-			
-		</li>
-	</ul>
-</div>
-<div class='scenario node' test-id='3' status='pass'>
-	<span class='duration right label'>0h 0m 6s+256ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">validate user login</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='9' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Test setup has been successful</span>
-			
-		</li>
-		<li test-id='13' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">I am the site 'https://customerdev3.gaialandscape.com/'</span>
-			
-		</li>
-		<li test-id='16' class='node when pass' status='pass'>
+		<li test-id='4' class='node when pass' status='pass'>
 			
 			<b>When</b>
 			
 			<span class="bdd-step-name">I login with admin user</span>
-				<div class='pre'>I set field 'email field' with value 'admin'</div>
-				<div class='pre'>I set field 'password field' with value '# .Gaia$'</div>
-				<div class='pre'>I click submit button</div>
-				<div class='pre'>I click continue button</div>
 			
 		</li>
-		<li test-id='19' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I verify company list is displayed</span>
-				<div class='pre'>I verify 'company list section' is displayed</div>
-			
-		</li>
-	</ul>
-</div>
-<div class='scenario node' test-id='4' status='pass'>
-	<span class='duration right label'>0h 0m 7s+97ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">validate user logout</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='8' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Test setup has been successful</span>
-			
-		</li>
-		<li test-id='12' class='node and pass' status='pass'>
+		<li test-id='5' class='node and pass' status='pass'>
 			
 			<b>And</b>
 			
-			<span class="bdd-step-name">I am the site 'https://customerdev3.gaialandscape.com/'</span>
+			<span class="bdd-step-name">I delete site: vancouver8vd</span>
 			
 		</li>
-		<li test-id='14' class='node when pass' status='pass'>
+		<li test-id='6' class='node and pass' status='pass'>
 			
-			<b>When</b>
+			<b>And</b>
 			
-			<span class="bdd-step-name">I login with admin user</span>
-				<div class='pre'>I set field 'email field' with value 'admin'</div>
-				<div class='pre'>I set field 'password field' with value '# .Gaia$'</div>
-				<div class='pre'>I click submit button</div>
-				<div class='pre'>I click continue button</div>
+			<span class="bdd-step-name">I delete site: vancouverhbx</span>
 			
 		</li>
-		<li test-id='20' class='node then pass' status='pass'>
+		<li test-id='7' class='node and pass' status='pass'>
 			
-			<b>Then</b>
+			<b>And</b>
 			
-			<span class="bdd-step-name">I verify company list is displayed</span>
-				<div class='pre'>I verify 'company list section' is displayed</div>
-			
-		</li>
-		<li test-id='21' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">I logout</span>
-				<div class='pre'>I click logout button</div>
+			<span class="bdd-step-name">I delete site: vancouvergq9</span>
 			
 		</li>
-		<li test-id='23' class='node then pass' status='pass'>
+		<li test-id='8' class='node and pass' status='pass'>
 			
-			<b>Then</b>
+			<b>And</b>
 			
-			<span class="bdd-step-name">I should see the login panel</span>
-				<div class='pre'>I verify 'submit button' is displayed</div>
+			<span class="bdd-step-name">I delete site: vancouver8ua</span>
 			
 		</li>
-	</ul>
-</div>
-<div class='scenario node' test-id='5' status='pass'>
-	<span class='duration right label'>0h 0m 6s+703ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">validate user login as manager</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='7' class='node given pass' status='pass'>
+		<li test-id='9' class='node and pass' status='pass'>
 			
-			<b>Given</b>
+			<b>And</b>
 			
-			<span class="bdd-step-name">Test setup has been successful</span>
+			<span class="bdd-step-name">I delete site: vancouvernib</span>
 			
 		</li>
 		<li test-id='10' class='node and pass' status='pass'>
 			
 			<b>And</b>
 			
-			<span class="bdd-step-name">I am the site 'https://customerdev3.gaialandscape.com/'</span>
+			<span class="bdd-step-name">I delete site: vancouverc6l</span>
 			
 		</li>
-		<li test-id='15' class='node when pass' status='pass'>
+		<li test-id='11' class='node and pass' status='pass'>
 			
-			<b>When</b>
+			<b>And</b>
 			
-			<span class="bdd-step-name">I login with manager user</span>
-				<div class='pre'>I set field 'email field' with value 'zzzautomanager1'</div>
-				<div class='pre'>I set field 'password field' with value 'zzzautomanager1'</div>
-				<div class='pre'>I click submit button</div>
-				<div class='pre'>I click continue button</div>
+			<span class="bdd-step-name">I delete site: vancouvertep</span>
 			
 		</li>
-		<li test-id='22' class='node then pass' status='pass'>
+		<li test-id='12' class='node and pass' status='pass'>
 			
-			<b>Then</b>
+			<b>And</b>
 			
-			<span class="bdd-step-name">I verify people list is displayed</span>
-				<div class='pre'>I verify 'report tab' is displayed</div>
+			<span class="bdd-step-name">I delete site: vancouverexy</span>
+			
+		</li>
+		<li test-id='13' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">I delete site: vancouver706</span>
+			
+		</li>
+		<li test-id='14' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">I delete site: vancouver8ob</span>
+			
+		</li>
+		<li test-id='15' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">I delete site: vancouver7ek</span>
+			
+		</li>
+		<li test-id='16' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">I delete site: vancouvernc1</span>
+			
+		</li>
+		<li test-id='17' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">I delete site: vancouverbzz</span>
+			
+		</li>
+		<li test-id='18' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">I delete site: vancouverlq9</span>
+			
+		</li>
+		<li test-id='19' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">I delete site: vancouverxmd</span>
 			
 		</li>
 	</ul>
@@ -401,31 +344,31 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>4</div>
+					<div class='panel-lead'>1</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>18</div>
+					<div class='panel-lead'>17</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Dec 6, 2017 05:40:27 PM</div>
+					<div class='panel-lead'>Dec 7, 2017 10:43:03 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Dec 6, 2017 05:40:34 PM</div>
+			 		<div class='panel-lead'>Dec 7, 2017 10:43:07 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>7,247ms</div>
+					<div class='panel-lead'>4,102ms</div>
 				</div>
 			</div>
 		</div>
@@ -446,7 +389,7 @@
 				skipParent: 0,
 				exceptionsParent: 0,
 				
-				passChild: 4,
+				passChild: 1,
 				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
@@ -455,7 +398,7 @@
 				infoChild: 0,
 				exceptionsChild: 0,
 				
-				passGrandChild: 18,
+				passGrandChild: 17,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
