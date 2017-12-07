@@ -22,34 +22,39 @@ public class PanelNavigation {
 	}
 
 	// panel tabs
-	private final String TAB = ".is-tab";
-	private final String TAB_DROPDOWN_LIST = ".dropdown-content li";
-	private final String SITE_TAB = "[href*='sites']";
-	private final String PEOPLE_TAB = "[href*='people']";
-	private final String REPORT_TAB = "[href*='reports']";
-	private final String PLANT_TAB = "[href*='plants']";
+	private static final String TAB = ".is-tab";
+	private static final String NAVIGATION_MENU = ".nav-menu";
+	private static final String TAB_DROPDOWN_LIST = ".dropdown-content li";
+	private static final String SITE_TAB = "[href*='sites']";
+	private static final String PEOPLE_TAB = "[href*='people']";
+	private static final String REPORT_TAB = "[href*='reports']";
+	private static final String PLANT_TAB = "[href*='plants']";
 
-	public EnhancedBy byTab() {
+	public static EnhancedBy byTab() {
 		return Element.bySelector(By.cssSelector(TAB), "tabs");
 	}
 	
-	public EnhancedBy byTabDropDownList() {
+	public static EnhancedBy byNavigationMenu() {
+		return Element.bySelector(By.cssSelector(NAVIGATION_MENU), "navigation menu");
+	}
+	
+	public static EnhancedBy byTabDropDownList() {
 		return Element.bySelector(By.cssSelector(TAB_DROPDOWN_LIST), "tabs dropdown");
 	}
 
-	public EnhancedBy bySitesTab() {
+	public static EnhancedBy bySitesTab() {
 		return Element.bySelector(By.cssSelector(SITE_TAB), "site tab");
 	}
 
-	public EnhancedBy byPeopleTab() {
+	public static EnhancedBy byPeopleTab() {
 		return Element.bySelector(By.cssSelector(PEOPLE_TAB), "people tab");
 	}
 
-	public EnhancedBy byReportTab() {
+	public static EnhancedBy byReportTab() {
 		return Element.bySelector(By.cssSelector(REPORT_TAB), "report tab");
 	}
 
-	public EnhancedBy byPlantTab() {
+	public static EnhancedBy byPlantTab() {
 		return Element.bySelector(By.cssSelector(PLANT_TAB), "plant tab");
 	}
 
