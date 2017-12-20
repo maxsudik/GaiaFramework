@@ -28,7 +28,7 @@
 		<dependency>
 			<groupId>seleniumCore</groupId>
 			<artifactId>seleniumCore</artifactId>
-			<version>1.0.722</version>
+			<version>1.0.723</version>
 		</dependency>
 		
 		<dependency>
