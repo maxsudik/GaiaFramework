@@ -20,6 +20,7 @@ public class CompanyObject {
 	public @Getter @Setter String companyEmail;
 	public @Getter @Setter String companyWebsite;
 	public @Getter @Setter String companyTaxNumber;
+	public @Getter @Setter String companyType;
 	
 	// company address
 	public @Getter @Setter String companyAddress1;
@@ -78,6 +79,7 @@ public class CompanyObject {
 				.companyName("zzz_auto" + rand)
 				.companyEmail("ehsan.matean+" + rand + "@fortify.pro")
 				.companyTaxNumber(randInt)
+				.companyType("Landscape")
 				.build();
 	}
 	

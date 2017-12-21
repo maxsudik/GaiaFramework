@@ -28,6 +28,8 @@ public class CompanyPanel {
 	    public static EnhancedBy COMPANYINFO_NAME = Element.byId("company_name", "company name field");
 	    public static EnhancedBy COMPANYINFO_EMAIL = Element.byId("company_email", "company email field");
 	    public static EnhancedBy COMPANYINFO_TAX_NUMBER = Element.byId("tax_number", "tax number field");
+	    public static EnhancedBy COMPANYINFO_TYPE = Element.byCss(".select", "company type field");
+	    public static EnhancedBy COMPANYINFO_TYPE_OPTIONS = Element.byCss(".select option", "companytype field options");
 	    public static EnhancedBy CCOMPANYINFO_WEBSITE = Element.byId("website", "website field");
 	    public static EnhancedBy COMPANYINFO_EDIT_BUTTON = Element.byCss(".tag", "company info edit");
 	   
@@ -142,6 +144,7 @@ public class CompanyPanel {
 		Helper.clearAndSetField(company.companyEmail, elements.COMPANYINFO_EMAIL);
 		Helper.setField(company.companyWebsite, elements.CCOMPANYINFO_WEBSITE);
 		Helper.setField(company.companyTaxNumber, elements.COMPANYINFO_TAX_NUMBER);
+		Helper.selectDropDown(company.companyType, elements.COMPANYINFO_TYPE, elements.COMPANYINFO_TYPE_OPTIONS);
 		
 		if(Helper.isPresent(elements.COMPANYINFO_EDIT_BUTTON))
 			Helper.clickAndExpect(elements.COMPANYINFO_EDIT_BUTTON, elements.COMPANY_ADDRESS1);
