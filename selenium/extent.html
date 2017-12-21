@@ -31,8 +31,7 @@
 		<!-- slideout menu -->
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
-						<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
-			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
 		</ul>
 
 		<!-- report name -->
@@ -45,7 +44,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Dec 19, 2017 10:05:04 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Dec 20, 2017 07:46:59 PM</span>
 				</a>
 			</li>
 			<li>
@@ -71,7 +70,6 @@
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
 											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
-						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -122,10 +120,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='83.333%'><span class='strong'>5</span> feature(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> feature(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='16.667%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -137,10 +135,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='83.333%'><span class='strong'>5</span> scenario(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> scenario(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='16.667%'>1</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -152,10 +150,10 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='96.296%'><span class='strong'>26</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>5</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='3.704%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -172,12 +170,12 @@
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>verify product panel test</span>
-						<span class='test-time'>Dec 19, 2017 10:05:04 PM</span>
+						<span class='test-time'>Dec 20, 2017 07:46:59 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='scenario node' test-id='2' status='pass'>
-	<span class='duration right label'>0h 2m 19s+919ms</span>
+	<span class='duration right label'>0h 1m 42s+635ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
 		<span class="desc-text">verify add product</span>
@@ -215,13 +213,12 @@
 			
 			<span class="bdd-step-name">I add a product</span>
 				<div class='pre'>I click add products button</div>
-				<div class='pre'>I set field 'product name' with value 'zzzhammerttk'</div>
+				<div class='pre'>I set field 'product name' with value 'zzzhammer9ez'</div>
 				<div class='pre'>I set field 'price per unit' with value '24'</div>
 				<div class='pre'>I click currency drop down button</div>
 				<div class='pre'>I select list option at index'0' from list 'currency drop down option'</div>
 				<div class='pre'>I select drop down option at index '0'</div>
 				<div class='pre'>I set field 'unit option' with value '3'</div>
-				<div class='pre'>I set field 'supplier field' with value 'Gaia'</div>
 				<div class='pre'>I set field 'additional notes' with value 'automation product'</div>
 				<div class='pre'>I click save button</div>
 			
@@ -231,359 +228,6 @@
 			<b>Then</b>
 			
 			<span class="bdd-step-name">I verify the product has been added</span>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='8'>
-					<div class='test-heading'>
-						<span class='test-name'>verify customer panel test</span>
-						<span class='test-time'>Dec 19, 2017 10:07:24 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='9' status='pass'>
-	<span class='duration right label'>0h 2m 23s+311ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">verify customer site</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='10' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Test setup has been successful</span>
-			
-		</li>
-		<li test-id='11' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">I login with manager user</span>
-				<div class='pre'>I set field 'email field' with value 'zzzautomanager1'</div>
-				<div class='pre'>I set field 'password field' with value 'zzzautomanager1'</div>
-				<div class='pre'>I click submit</div>
-				<div class='pre'>I click go button</div>
-			
-		</li>
-		<li test-id='12' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I navigate to customer panel</span>
-				<div class='pre'>I click customers panel</div>
-			
-		</li>
-		<li test-id='13' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I add a customer</span>
-				<div class='pre'>I click add account button</div>
-				<div class='pre'>I set field 'username field' with value 'zzz_customerl1j'</div>
-				<div class='pre'>I set field 'email field' with value 'zzz_emailed1@test.com'</div>
-				<div class='pre'>I set field 'password field' with value '1234567890'</div>
-				<div class='pre'>I set field 'password field' with value '1234567890'</div>
-				<div class='pre'>I set field 'first name field' with value 'zzz_firsthq5'</div>
-				<div class='pre'>I set field 'last name field' with value 'auto'</div>
-				<div class='pre'>I set field 'phone number field' with value '6043722381'</div>
-				<div class='pre'>I click done button</div>
-				<div class='pre'>I click close button</div>
-			
-		</li>
-		<li test-id='14' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I verify the customer has been added</span>
-				<div class='pre'>I verify 'zzz_firsthq5 auto' is displayed</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='15'>
-					<div class='test-heading'>
-						<span class='test-name'>verify estimate panel test</span>
-						<span class='test-time'>Dec 19, 2017 10:09:50 PM</span>
-						<span class='test-status right fail'>fail</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='16' status='fail'>
-	<span class='duration right label'>0h 4m 5s+276ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">verify add estimation</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='17' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Test setup has been successful</span>
-			
-		</li>
-		<li test-id='18' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">I login with manager user</span>
-				<div class='pre'>I set field 'email field' with value 'zzzautomanager1'</div>
-				<div class='pre'>I set field 'password field' with value 'zzzautomanager1'</div>
-				<div class='pre'>I click submit</div>
-				<div class='pre'>I click go button</div>
-			
-		</li>
-		<li test-id='19' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I navigate to installs panel</span>
-				<div class='pre'>I click installs panel</div>
-			
-		</li>
-		<li test-id='20' class='node then fail' status='fail'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I add an estimate</span>
-				<div class='pre'>I click add estimate button</div>
-				<div class='pre'>I set field 'title field' with value 'zzz_estimate6mk'</div>
-				<div class='pre'>I click customer name field</div>
-				<div class='pre'>I select list option at index'0' from list 'drop down option'</div>
-				<div class='pre'>I select drop down option at index '0'</div>
-				<div class='pre'>I click customer site field</div>
-				<div class='pre'>I select list option at index'0' from list 'drop down option'</div>
-				<div class='pre'>I select drop down option at index '0'</div>
-				<div class='pre'>I set field 'email field' with value 'ehsan.matean+3@fortify.pro'</div>
-				<div class='pre'>I set field 'description field' with value 'description'</div>
-				<div class='pre'>I click choose product field</div>
-				<div class='pre'>I select list option at index'0' from list 'drop down option'</div>
-				<div class='pre'>I select drop down option at index '0'</div>
-				<div class='pre'>I click save button</div>
-				<div class='pre'>I click close button</div>
-				<div class='pre'>run 1 failed</div>
-				<div class='pre'><pre>java.lang.AssertionError: expected element not found: cash button
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.Assert.assertTrue(Assert.java:41)
-	at core.helpers.AssertHelper.assertTrue(AssertHelper.java:14)
-	at core.helpers.ClickHelper.clickAndExpect(ClickHelper.java:42)
-	at core.helpers.ClickHelper.clickAndExpect(ClickHelper.java:17)
-	at core.helpers.FormHelper.formSubmit(FormHelper.java:132)
-	at main.main_ios.Panels.EstimatePanel.payEstimate(EstimatePanel.java:142)
-	at main.main_ios.Panels.EstimatePanel.addEstimate(EstimatePanel.java:133)
-	at test.java.ios.acceptanceTests.VerifyEstimatePanelTest.verifyAddEstimation(VerifyEstimatePanelTest.java:53)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
-	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.lang.Thread.run(Thread.java:844)
-</pre></div>
-				<div class='pre'>Screenshot<img data-featherlight='./extentReport/screenshots/verifyAddEstimation-2017-12-19T22-13-55.png' width='10%' src='./extentReport/screenshots/verifyAddEstimation-2017-12-19T22-13-55.png' data-src='./extentReport/screenshots/verifyAddEstimation-2017-12-19T22-13-55.png'></div>
-				<div class='pre'>giving up after 1 failures</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='21'>
-					<div class='test-heading'>
-						<span class='test-name'>verify account panel test</span>
-						<span class='test-time'>Dec 19, 2017 10:13:56 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='22' status='pass'>
-	<span class='duration right label'>0h 2m 22s+92ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">verify create account</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='23' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Test setup has been successful</span>
-			
-		</li>
-		<li test-id='24' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">I login with manager user</span>
-				<div class='pre'>I set field 'email field' with value 'zzzautomanager1'</div>
-				<div class='pre'>I set field 'password field' with value 'zzzautomanager1'</div>
-				<div class='pre'>I click submit</div>
-				<div class='pre'>I click go button</div>
-			
-		</li>
-		<li test-id='25' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I navigate to accounts panel</span>
-				<div class='pre'>I click accounts panel</div>
-			
-		</li>
-		<li test-id='26' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I add an accounts</span>
-				<div class='pre'>I click add account button</div>
-				<div class='pre'>I set field 'username field' with value 'zzz_auto3lp'</div>
-				<div class='pre'>I set field 'email field' with value 'fortifyg3n@test.com'</div>
-				<div class='pre'>I set field 'password field' with value '1234567890'</div>
-				<div class='pre'>I set field 'password field' with value '1234567890'</div>
-				<div class='pre'>I set field 'first name field' with value 'zzz_firstkl5'</div>
-				<div class='pre'>I set field 'last name field' with value 'auto'</div>
-				<div class='pre'>I click done button</div>
-				<div class='pre'>I click close button</div>
-			
-		</li>
-		<li test-id='27' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I verify the account has been added</span>
-				<div class='pre'>I verify 'auto, zzz_firstkl5' is displayed</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='28'>
-					<div class='test-heading'>
-						<span class='test-name'>login test</span>
-						<span class='test-time'>Dec 19, 2017 10:16:20 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='29' status='pass'>
-	<span class='duration right label'>0h 0m 37s+757ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">verify login test</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='30' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Test setup has been successful</span>
-			
-		</li>
-		<li test-id='31' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">I login with default user</span>
-				<div class='pre'>I set field 'email field' with value 'zzzautomanager1'</div>
-				<div class='pre'>I set field 'password field' with value 'zzzautomanager1'</div>
-				<div class='pre'>I click submit</div>
-				<div class='pre'>I click go button</div>
-			
-		</li>
-		<li test-id='32' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I verify the user has logged in</span>
-				<div class='pre'>I verify 'installs panel' is displayed</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='33'>
-					<div class='test-heading'>
-						<span class='test-name'>verify site panel test</span>
-						<span class='test-time'>Dec 19, 2017 10:16:59 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='34' status='pass'>
-	<span class='duration right label'>0h 2m 14s+177ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">verify add site</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='35' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Test setup has been successful</span>
-			
-		</li>
-		<li test-id='36' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">I login with manager user</span>
-				<div class='pre'>I set field 'email field' with value 'zzzautomanager1'</div>
-				<div class='pre'>I set field 'password field' with value 'zzzautomanager1'</div>
-				<div class='pre'>I click submit</div>
-				<div class='pre'>I click go button</div>
-			
-		</li>
-		<li test-id='37' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I navigate to sites panel</span>
-				<div class='pre'>I click sites panel</div>
-			
-		</li>
-		<li test-id='38' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I add a site</span>
-				<div class='pre'>I click add account button</div>
-				<div class='pre'>I set field 'site name field' with value 'zzz_vancouverclq'</div>
-				<div class='pre'>I set field 'street field' with value '123 main street'</div>
-				<div class='pre'>I set field 'postal code field' with value 'v5s_4p2'</div>
-				<div class='pre'>I set field 'city field' with value 'zzz_vancouver'</div>
-				<div class='pre'>I set field 'state field' with value 'BC'</div>
-				<div class='pre'>I set field 'country field' with value 'Canada'</div>
-				<div class='pre'>I click save button</div>
-				<div class='pre'>I click close button</div>
-			
-		</li>
-		<li test-id='39' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I verify the site has been added</span>
-				<div class='pre'>I verify 'zzz_vancouverclq' is displayed</div>
 			
 		</li>
 	</ul>
@@ -616,91 +260,6 @@
 </div>
 <!-- test view -->
 <!-- category view -->
-<div id='exception-view' class='view hide'>
-
-    <section id='controls'>
-        <div class='controls grey lighten-4'>
-            <!-- search -->
-            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
-                <a href="#" class='search-div'>
-                    <i class='material-icons'>search</i> Search
-                </a>
-
-                <div class='input-field left hide'>
-                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
-                </div>
-
-            </div>
-            <!-- search -->
-        </div>
-    </section>
-
-    <div class='subview-left left'>
-
-        <div class='view-summary'>
-            <h5>Exceptions</h3>
-                <ul id='exception-collection' class='exception-collection'>
-
-                        <li class='exception displayed active'>
-                            <div class='exception-heading'>
-                                <span class='exception-name'>java.lang.AssertionError</span>
-                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
-                            </div>
-                            <div class='exception-content hide'>
-                                <div class='exception-tests'>
-                                    <table class='bordered table-results'>
-                                        <thead>
-                                        <tr>
-                                            <th>Timestamp</th>
-                                            <th>TestName</th>
-                                            <th>Status</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                                    <tr>
-                                                        <td>Dec 19, 2017 10:10:32 PM</td>
-                                                        <td class='linked' test-id='20'>verify estimate panel test.verify add estimation.I add an estimate</td>
-                                                        <td><pre><pre>java.lang.AssertionError: expected element not found: cash button
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.Assert.assertTrue(Assert.java:41)
-	at core.helpers.AssertHelper.assertTrue(AssertHelper.java:14)
-	at core.helpers.ClickHelper.clickAndExpect(ClickHelper.java:42)
-	at core.helpers.ClickHelper.clickAndExpect(ClickHelper.java:17)
-	at core.helpers.FormHelper.formSubmit(FormHelper.java:132)
-	at main.main_ios.Panels.EstimatePanel.payEstimate(EstimatePanel.java:142)
-	at main.main_ios.Panels.EstimatePanel.addEstimate(EstimatePanel.java:133)
-	at test.java.ios.acceptanceTests.VerifyEstimatePanelTest.verifyAddEstimation(VerifyEstimatePanelTest.java:53)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
-	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.lang.Thread.run(Thread.java:844)
-</pre></pre></td>
-                                                    </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </li>
-                </ul>
-        </div>
-    </div>
-
-    <div class='subview-right left'>
-        <div class='view-summary'>
-            <h5 class='exception-name'></h5>
-        </div>
-    </div>
-</div>
 <!-- exception view -->
 <div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
@@ -710,37 +269,37 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Features
-					<div class='panel-lead'>6</div>
+					<div class='panel-lead'>1</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>6</div>
+					<div class='panel-lead'>1</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>27</div>
+					<div class='panel-lead'>5</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Dec 19, 2017 10:05:04 PM</div>
+					<div class='panel-lead'>Dec 20, 2017 07:46:59 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Dec 19, 2017 10:19:15 PM</div>
+			 		<div class='panel-lead'>Dec 20, 2017 07:48:42 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>850,908ms</div>
+					<div class='panel-lead'>102,954ms</div>
 				</div>
 			</div>
 		</div>
@@ -753,31 +312,31 @@
 
 		<script>
 			var statusGroup = {
-				passParent: 5,
-				failParent: 1,
+				passParent: 1,
+				failParent: 0,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 1,
+				exceptionsParent: 0,
 				
-				passChild: 5,
-				failChild: 1,
+				passChild: 1,
+				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
-				exceptionsChild: 1,
+				exceptionsChild: 0,
 				
-				passGrandChild: 26,
-				failGrandChild: 1,
+				passGrandChild: 5,
+				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
 				warningGrandChild: 0,
 				skipGrandChild: 0,
 				infoGrandChild: 0,
-				exceptionsGrandChild: 1,
+				exceptionsGrandChild: 0,
 			};
 		</script>
 		

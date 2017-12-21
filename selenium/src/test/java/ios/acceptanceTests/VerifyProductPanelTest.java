@@ -41,7 +41,6 @@ public class VerifyProductPanelTest extends TestBase {
 				.withPricePerUnit(ProductInfo.PRICE_PER_UNIT_DEFAULT)
 				.withCurrency(ProductInfo.CURRENCY_DEFAULT)
 				.withUnit(ProductInfo.UNIT_DEFAULT)
-				.withSupplier(ProductInfo.SUPPLIER_DEFAULT)
 				.withAdditionalNotes(ProductInfo.ADDITIONAL_NOTES);
 		app.gaia.product.addProduct(product);
 		
