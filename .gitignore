@@ -4,3 +4,5 @@ seleniumCL//logs/
 seleniumCL//target/
 seleniumCL//test-output/
 apps/
+apps/.DS_Store
+selenium/extent.html
