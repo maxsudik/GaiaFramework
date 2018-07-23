@@ -3,8 +3,9 @@ package main.customerPanel.Panels;
 
 import org.openqa.selenium.By;
 
-import core.helpers.ElementHelper;
-import core.helpers.Helper;
+import core.helpers.ClickHelper;
+import core.helpers.Element;
+import core.helpers.FormHelper;
 import core.helpers.WaitHelper;
 import core.webElement.EnhancedBy;
 
@@ -21,30 +22,40 @@ public class PanelNavigation {
 	}
 
 	// panel tabs
-	private final String COMPANY_TAB = "[href*='companies']";
-	private final String SITE_TAB = "[href*='sites']";
-	private final String PEOPLE_TAB = "[href*='people']";
-	private final String REPORT_TAB = "[href*='reports']";
-	private final String PLANT_TAB = "[href*='plants']";
+	private static final String TAB = ".is-tab";
+	private static final String NAVIGATION_MENU = ".nav-menu";
+	private static final String TAB_DROPDOWN_LIST = ".dropdown-content li";
+	private static final String SITE_TAB = "[href*='sites']";
+	private static final String PEOPLE_TAB = "[href*='people']";
+	private static final String REPORT_TAB = "[href*='reports']";
+	private static final String PLANT_TAB = "[href*='plants']";
 
-	public EnhancedBy byCompanyTab() {
-		return ElementHelper.BySelector(By.cssSelector(COMPANY_TAB), "company tab");
+	public static EnhancedBy byTab() {
+		return Element.bySelector(By.cssSelector(TAB), "tabs");
+	}
+	
+	public static EnhancedBy byNavigationMenu() {
+		return Element.bySelector(By.cssSelector(NAVIGATION_MENU), "navigation menu");
+	}
+	
+	public static EnhancedBy byTabDropDownList() {
+		return Element.bySelector(By.cssSelector(TAB_DROPDOWN_LIST), "tabs dropdown");
 	}
 
-	public EnhancedBy bySitesTab() {
-		return ElementHelper.BySelector(By.cssSelector(SITE_TAB), "site tab");
+	public static EnhancedBy bySitesTab() {
+		return Element.bySelector(By.cssSelector(SITE_TAB), "site tab");
 	}
 
-	public EnhancedBy byPeopleTab() {
-		return ElementHelper.BySelector(By.cssSelector(PEOPLE_TAB), "people tab");
+	public static EnhancedBy byPeopleTab() {
+		return Element.bySelector(By.cssSelector(PEOPLE_TAB), "people tab");
 	}
 
-	public EnhancedBy byReportTab() {
-		return ElementHelper.BySelector(By.cssSelector(REPORT_TAB), "report tab");
+	public static EnhancedBy byReportTab() {
+		return Element.bySelector(By.cssSelector(REPORT_TAB), "report tab");
 	}
 
-	public EnhancedBy byPlantTab() {
-		return ElementHelper.BySelector(By.cssSelector(PLANT_TAB), "plant tab");
+	public static EnhancedBy byPlantTab() {
+		return Element.bySelector(By.cssSelector(PLANT_TAB), "plant tab");
 	}
 
 	public void selectPanel(String panel) {
@@ -52,24 +63,23 @@ public class PanelNavigation {
 
 		switch (panelTab) {
 		case COMPANY:
-			Helper.clickAndExpect(byCompanyTab(), manager.company.byAddCompanyButton());
+			FormHelper.selectDropDown("Company Profile", byTab(), "COMPANY", byTabDropDownList());
 			break;
 		case SITES:
-			Helper.clickAndExpect(bySitesTab(), manager.sites.byAddSiteButton());
+			FormHelper.selectDropDown("Sites", byTab(), "COMPANY", byTabDropDownList());
 			break;
 		case PEOPLE:
-			Helper.clickAndExpect(byPeopleTab(), manager.people.byAddPeopleButton());
+			FormHelper.selectDropDown("People", byTab(), "COMPANY", byTabDropDownList());
 			break;
 		case REPORTS:
-			Helper.clickAndExpect(byReportTab(), manager.company.byCompanyListSection());
+			ClickHelper.clickAndExpect(byReportTab(), CompanyPanel.elements.COMPANY_LIST_SECTION);
 			break;
 		case PLANTS:
-			Helper.clickAndExpect(byPlantTab(), manager.company.byCompanyListSection());
+			ClickHelper.clickAndExpect(byPlantTab(), CompanyPanel.elements.COMPANY_LIST_SECTION);
 			break;
 		default:
 			throw new IllegalStateException("Unsupported browsertype " + panel);
 		}
 		WaitHelper.waitForSeconds(1);
 	}
-
 }

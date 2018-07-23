@@ -13,7 +13,6 @@ import main.customerPanel.categories.login;
 import main.customerPanel.categories.user;
 import main.customerPanel.constants.PanelList;
 import main.customerPanel.constants.UserInfo;
-import main.customerPanel.objects.CompanyObject;
 import main.customerPanel.objects.SiteObject;
 import main.customerPanel.objects.UserObject;
 import main.customerPanel.pages.CustomerPanel;
@@ -34,26 +33,25 @@ public class Verify_Site_Test extends TestBase {
 	@Category({ login.class, user.class })
 	@Test
 	public void validate_add_site() {
-		UserObject user = new UserObject().withEmail(UserInfo.USER_ADMIN).withPassword(UserInfo.PASSWORD_ADMIN);
+		UserObject user = new UserObject().withEmail(UserInfo.USER_AUTO_MANAGER).withPassword(UserInfo.PASSWORD_AUTO_MANAGER);
 		
-		TestLog.When("I login with admin user");
+		TestLog.When("I login with manager user");
 		app.customerPanel.login.login(user);
-
-		// add company
-		String companyName = "zzz_company" + UtilityHelper.generateRandomString(3);
-		CompanyObject company = new CompanyObject().withNamel(companyName).withEmail("test@test.com")
-				.withLicenseLimit("3");
-
-		TestLog.Then("I add company " + companyName);
-		app.customerPanel.company.addCompany(company);
 
 		// select site panel
 		TestLog.When("I select site panel");
-		app.customerPanel.panel.selectPanel(PanelList.SITE_PANEL);
+		app.customerPanel.navigate.selectPanel(PanelList.SITE_PANEL);
 
 		// add site
 		String siteName = "zzz_site" + UtilityHelper.generateRandomString(3);
-		SiteObject site = new SiteObject().withName(siteName).withRadius("33").withCompany(company.name);
+		SiteObject site = new SiteObject()
+				.withName(siteName)
+				.withRadius("33")
+				.withAddress("3067 east kent avenue north")
+				.withCity("vancouver")
+				.withCountry("canada")
+				.withPostalCode("v5s4p6")
+				.withstate("BC");
 
 		TestLog.And("I add site " + siteName);
 		app.customerPanel.sites.addSite(site);

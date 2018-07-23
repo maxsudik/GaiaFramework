@@ -45,7 +45,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Sep 8, 2017 09:55:42 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Jul 22, 2018 11:35:49 PM</span>
 				</a>
 			</li>
 			<li>
@@ -122,10 +122,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='75%'><span class='strong'>3</span> feature(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='25%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -137,10 +137,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='83.333%'><span class='strong'>5</span> scenario(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> scenario(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='16.667%'>1</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -152,10 +152,10 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='96.774%'><span class='strong'>30</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='50%'><span class='strong'>1</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='3.226%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='50%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -169,204 +169,47 @@
 			<ul id='test-collection' class='test-collection'>
 				
 				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>verify  login  test</span>
-						<span class='test-time'>Sep 8, 2017 09:55:42 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='2' status='pass'>
-	<span class='duration right label'>0h 0m 50s+767ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">validate user login as manager</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='7' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Test setup has been successful</span>
-			
-		</li>
-		<li test-id='11' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">I am the site 'https://customerdev2.gaialandscape.com/'</span>
-			
-		</li>
-		<li test-id='16' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">I login with manager user</span>
-				<div class='pre'>I set field 'email field' with value 'zzzautomanager1'</div>
-				<div class='pre'>I set field 'password field' with value 'zzzautomanager1'</div>
-				<div class='pre'>I click submit button</div>
-				<div class='pre'>I click continue button</div>
-			
-		</li>
-		<li test-id='20' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I verify people list is displayed</span>
-				<div class='pre'>I verify 'add site' is displayed</div>
-			
-		</li>
-	</ul>
-</div>
-<div class='scenario node' test-id='5' status='pass'>
-	<span class='duration right label'>0h 0m 53s+304ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">validate user logout</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='9' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Test setup has been successful</span>
-			
-		</li>
-		<li test-id='13' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">I am the site 'https://customerdev2.gaialandscape.com/'</span>
-			
-		</li>
-		<li test-id='18' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">I login with admin user</span>
-				<div class='pre'>I set field 'email field' with value 'admin'</div>
-				<div class='pre'>I set field 'password field' with value '# .Gaia$'</div>
-				<div class='pre'>I click submit button</div>
-				<div class='pre'>I click continue button</div>
-			
-		</li>
-		<li test-id='27' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I verify company list is displayed</span>
-				<div class='pre'>I verify 'company list section' is displayed</div>
-			
-		</li>
-		<li test-id='28' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">I logout</span>
-				<div class='pre'>I click logout button</div>
-			
-		</li>
-		<li test-id='31' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I should see the login panel</span>
-				<div class='pre'>I verify 'submit button' is displayed</div>
-			
-		</li>
-	</ul>
-</div>
-<div class='scenario node' test-id='6' status='pass'>
-	<span class='duration right label'>0h 0m 50s+755ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">validate user login</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='8' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Test setup has been successful</span>
-			
-		</li>
-		<li test-id='12' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">I am the site 'https://customerdev2.gaialandscape.com/'</span>
-			
-		</li>
-		<li test-id='15' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">I login with admin user</span>
-				<div class='pre'>I set field 'email field' with value 'admin'</div>
-				<div class='pre'>I set field 'password field' with value '# .Gaia$'</div>
-				<div class='pre'>I click submit button</div>
-				<div class='pre'>I click continue button</div>
-			
-		</li>
-		<li test-id='19' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I verify company list is displayed</span>
-				<div class='pre'>I verify 'company list section' is displayed</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='3'>
-					<div class='test-heading'>
-						<span class='test-name'>verify  company  test</span>
-						<span class='test-time'>Sep 8, 2017 09:55:42 PM</span>
+						<span class='test-name'>login test</span>
+						<span class='test-time'>Jul 22, 2018 11:35:50 PM</span>
 						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
-<div class='scenario node' test-id='4' status='fail'>
-	<span class='duration right label'>0h 1m 58s+245ms</span>
+<div class='scenario node' test-id='2' status='fail'>
+	<span class='duration right label'>0h 0m 18s+843ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
-		<span class="desc-text">validate add company</span>
+		<span class="desc-text">verify manager login test</span>
 	</div>
 	<ul class='steps'>
-		<li test-id='10' class='node given pass' status='pass'>
+		<li test-id='3' class='node given pass' status='pass'>
 			
 			<b>Given</b>
 			
 			<span class="bdd-step-name">Test setup has been successful</span>
-			
-		</li>
-		<li test-id='14' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">I am the site 'https://customerdev2.gaialandscape.com/'</span>
-			
-		</li>
-		<li test-id='17' class='node when fail' status='fail'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">I login with admin user</span>
-				<div class='pre'>I set field 'email field' with value 'admin'</div>
-				<div class='pre'>I set field 'password field' with value '# .Gaia$'</div>
 				<div class='pre'>run 1 failed</div>
-				<div class='pre'><pre>java.lang.AssertionError: expected element not found: continue button
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.Assert.assertTrue(Assert.java:41)
-	at core.helpers.AssertHelper.assertTrue(AssertHelper.java:14)
-	at core.helpers.Helper.clickAndExpect(Helper.java:45)
-	at core.helpers.Helper.clickAndExpect(Helper.java:20)
-	at core.helpers.FormHelper.formSubmit(FormHelper.java:52)
-	at main.customerPanel.Panels.LoginPanel.login(LoginPanel.java:54)
-	at test.java.web.sanityTests.Verify_Company_Test.validate_add_company(Verify_Company_Test.java:34)
+				<div class='pre'><textarea>org.openqa.selenium.WebDriverException: Connection refused (Connection refused)
+Build info: version: '3.6.0', revision: '6fbf3ec767', time: '2017-09-27T15:28:36.4Z'
+System info: host: 'Ehsans-MBP', ip: 'fe80:0:0:0:14ce:e0e8:f4b1:cc26%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.5', java.version: '1.8.0_162'
+Driver info: driver.version: AbstractDriver
+	at io.appium.java_client.remote.AppiumCommandExecutor.lambda$2(AppiumCommandExecutor.java:101)
+	at java.util.Optional.orElseGet(Optional.java:267)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:100)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:586)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.ios.IOSDriver.execute(IOSDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:217)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:140)
+	at io.appium.java_client.DefaultGenericMobileDriver.<init>(DefaultGenericMobileDriver.java:38)
+	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:83)
+	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:93)
+	at io.appium.java_client.ios.IOSDriver.<init>(IOSDriver.java:78)
+	at core.driver.WebDriverSetup.getWebDriverByType(WebDriverSetup.java:84)
+	at core.driver.AbstractDriver.createDriver(AbstractDriver.java:145)
+	at core.driver.AbstractDriver.setupWebDriver(AbstractDriver.java:70)
+	at test.java.ios.sanityTests.LoginTest.beforeMethod(LoginTest.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -374,198 +217,107 @@
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
 	at java.lang.Thread.run(Thread.java:748)
-</pre></div>
-				<div class='pre'>Screenshot<img data-featherlight='./extentReport/screenshots/validate_add_company-2017-09-08T21-57-38.png' width='10%' src='./extentReport/screenshots/validate_add_company-2017-09-08T21-57-38.png' data-src='./extentReport/screenshots/validate_add_company-2017-09-08T21-57-38.png'></div>
-				<div class='pre'>giving up after 1 failures</div>
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:359)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:381)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:138)
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:86)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:337)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:136)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:89)
+	... 27 more
+</textarea></div>
 			
 		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='21'>
-					<div class='test-heading'>
-						<span class='test-name'>verify  site  test</span>
-						<span class='test-time'>Sep 8, 2017 09:56:33 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='22' status='pass'>
-	<span class='duration right label'>0h 1m 17s+746ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">validate add site</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='23' class='node given pass' status='pass'>
+		<li test-id='4' class='node given fail' status='fail'>
 			
 			<b>Given</b>
 			
 			<span class="bdd-step-name">Test setup has been successful</span>
-			
-		</li>
-		<li test-id='29' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">I am the site 'https://customerdev2.gaialandscape.com/'</span>
-			
-		</li>
-		<li test-id='32' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">I login with admin user</span>
-				<div class='pre'>I set field 'email field' with value 'admin'</div>
-				<div class='pre'>I set field 'password field' with value '# .Gaia$'</div>
-				<div class='pre'>I click submit button</div>
-				<div class='pre'>I click continue button</div>
-			
-		</li>
-		<li test-id='33' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I add company zzz_companyp5b</span>
-				<div class='pre'>I click add company</div>
-				<div class='pre'>I set field 'company name field' with value 'zzz_companyp5b'</div>
-				<div class='pre'>I set field 'company email field' with value 'test@test.com'</div>
-				<div class='pre'>I set field 'company license limit field' with value '3'</div>
-				<div class='pre'>I click company add button</div>
-			
-		</li>
-		<li test-id='34' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">I select site panel</span>
-				<div class='pre'>I click site tab</div>
-			
-		</li>
-		<li test-id='35' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">I add site zzz_sitesae</span>
-				<div class='pre'>I click add site</div>
-				<div class='pre'>I set field 'site name field' with value 'zzz_sitesae'</div>
-				<div class='pre'>I set field 'site email field' with value '33'</div>
-				<div class='pre'>I click site company field</div>
-				<div class='pre'>I select list option 'zzz_companyp5b' from list 'site company options'</div>
-				<div class='pre'>I select drop down option 'zzz_companyp5b'</div>
-				<div class='pre'>I click site add button</div>
-			
-		</li>
-		<li test-id='41' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Site zzz_sitesae should be added successfully</span>
-				<div class='pre'>I verify 'site add success' is displayed</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='24'>
-					<div class='test-heading'>
-						<span class='test-name'>verify  people  test</span>
-						<span class='test-time'>Sep 8, 2017 09:56:33 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='25' status='pass'>
-	<span class='duration right label'>0h 0m 38s+445ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">validate add people</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='26' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Test setup has been successful</span>
-			
-		</li>
-		<li test-id='30' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">I am the site 'https://customerdev2.gaialandscape.com/'</span>
-			
-		</li>
-		<li test-id='36' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">I login with admin user</span>
-				<div class='pre'>I set field 'email field' with value 'admin'</div>
-				<div class='pre'>I set field 'password field' with value '# .Gaia$'</div>
-				<div class='pre'>I click submit button</div>
-				<div class='pre'>I click continue button</div>
-			
-		</li>
-		<li test-id='37' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">I add company zzz_company117</span>
-				<div class='pre'>I click add company</div>
-				<div class='pre'>I set field 'company name field' with value 'zzz_company117'</div>
-				<div class='pre'>I set field 'company email field' with value 'test@test.com'</div>
-				<div class='pre'>I set field 'company license limit field' with value '3'</div>
-				<div class='pre'>I click company add button</div>
-			
-		</li>
-		<li test-id='38' class='node when pass' status='pass'>
-			
-			<b>When</b>
-			
-			<span class="bdd-step-name">I select people panel</span>
-				<div class='pre'>I click people tab</div>
-			
-		</li>
-		<li test-id='39' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">I add person zzz_first9tb</span>
-				<div class='pre'>I click add people</div>
-				<div class='pre'>I set field 'first name field' with value 'zzz_first9tb'</div>
-				<div class='pre'>I set field 'last name field' with value 'zzz_lastuku'</div>
-				<div class='pre'>I set field 'note field' with value 'test note'</div>
-				<div class='pre'>I select list option 'Select a role' from list 'roles field'</div>
-				<div class='pre'>I select list option 'manager' from list 'roles options'</div>
-				<div class='pre'>I select drop down option 'manager'</div>
-				<div class='pre'>I set field 'user name field' with value 'zzz_userwgf'</div>
-				<div class='pre'>I set field 'email field' with value 'test@fpyn6.com'</div>
-				<div class='pre'>I set field 'password field' with value '123'</div>
-				<div class='pre'>I set field 'repeat password field' with value '123'</div>
-				<div class='pre'>I select list option 'Select a company' from list 'people company field'</div>
-				<div class='pre'>I select list option 'zzz_company117' from list 'people company options'</div>
-				<div class='pre'>I select drop down option 'zzz_company117'</div>
-				<div class='pre'>I click people add button</div>
-			
-		</li>
-		<li test-id='40' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Person should be added successfully</span>
-				<div class='pre'>I verify 'people add success' is displayed</div>
+				<div class='pre'>run 2 failed</div>
+				<div class='pre'><textarea>org.openqa.selenium.WebDriverException: Connection refused (Connection refused)
+Build info: version: '3.6.0', revision: '6fbf3ec767', time: '2017-09-27T15:28:36.4Z'
+System info: host: 'Ehsans-MBP', ip: 'fe80:0:0:0:14ce:e0e8:f4b1:cc26%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.5', java.version: '1.8.0_162'
+Driver info: driver.version: AbstractDriver
+	at io.appium.java_client.remote.AppiumCommandExecutor.lambda$2(AppiumCommandExecutor.java:101)
+	at java.util.Optional.orElseGet(Optional.java:267)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:100)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:586)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.ios.IOSDriver.execute(IOSDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:217)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:140)
+	at io.appium.java_client.DefaultGenericMobileDriver.<init>(DefaultGenericMobileDriver.java:38)
+	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:83)
+	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:93)
+	at io.appium.java_client.ios.IOSDriver.<init>(IOSDriver.java:78)
+	at core.driver.WebDriverSetup.getWebDriverByType(WebDriverSetup.java:84)
+	at core.driver.AbstractDriver.createDriver(AbstractDriver.java:145)
+	at core.driver.AbstractDriver.setupWebDriver(AbstractDriver.java:70)
+	at test.java.ios.sanityTests.LoginTest.beforeMethod(LoginTest.java:24)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:359)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:381)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:138)
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:86)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:337)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:136)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:89)
+	... 27 more
+</textarea></div>
+				<div class='pre'>giving up after 2 failures</div>
 			
 		</li>
 	</ul>
@@ -625,8 +377,8 @@
 
                         <li class='exception displayed active'>
                             <div class='exception-heading'>
-                                <span class='exception-name'>java.lang.AssertionError</span>
-                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                                <span class='exception-name'>org.openqa.selenium.WebDriverException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>2</span></span>
                             </div>
                             <div class='exception-content hide'>
                                 <div class='exception-tests'>
@@ -640,17 +392,29 @@
                                         </thead>
                                         <tbody>
                                                     <tr>
-                                                        <td>Sep 8, 2017 09:56:31 PM</td>
-                                                        <td class='linked' test-id='17'>verify  company  test.validate add company.I login with admin user</td>
-                                                        <td><pre><pre>java.lang.AssertionError: expected element not found: continue button
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.Assert.assertTrue(Assert.java:41)
-	at core.helpers.AssertHelper.assertTrue(AssertHelper.java:14)
-	at core.helpers.Helper.clickAndExpect(Helper.java:45)
-	at core.helpers.Helper.clickAndExpect(Helper.java:20)
-	at core.helpers.FormHelper.formSubmit(FormHelper.java:52)
-	at main.customerPanel.Panels.LoginPanel.login(LoginPanel.java:54)
-	at test.java.web.sanityTests.Verify_Company_Test.validate_add_company(Verify_Company_Test.java:34)
+                                                        <td>Jul 22, 2018 11:35:50 PM</td>
+                                                        <td class='linked' test-id='3'>login test.verify manager login test.Test setup has been successful</td>
+                                                        <td><pre><textarea>org.openqa.selenium.WebDriverException: Connection refused (Connection refused)
+Build info: version: '3.6.0', revision: '6fbf3ec767', time: '2017-09-27T15:28:36.4Z'
+System info: host: 'Ehsans-MBP', ip: 'fe80:0:0:0:14ce:e0e8:f4b1:cc26%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.5', java.version: '1.8.0_162'
+Driver info: driver.version: AbstractDriver
+	at io.appium.java_client.remote.AppiumCommandExecutor.lambda$2(AppiumCommandExecutor.java:101)
+	at java.util.Optional.orElseGet(Optional.java:267)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:100)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:586)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.ios.IOSDriver.execute(IOSDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:217)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:140)
+	at io.appium.java_client.DefaultGenericMobileDriver.<init>(DefaultGenericMobileDriver.java:38)
+	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:83)
+	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:93)
+	at io.appium.java_client.ios.IOSDriver.<init>(IOSDriver.java:78)
+	at core.driver.WebDriverSetup.getWebDriverByType(WebDriverSetup.java:84)
+	at core.driver.AbstractDriver.createDriver(AbstractDriver.java:145)
+	at core.driver.AbstractDriver.setupWebDriver(AbstractDriver.java:70)
+	at test.java.ios.sanityTests.LoginTest.beforeMethod(LoginTest.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -658,14 +422,102 @@
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
 	at java.lang.Thread.run(Thread.java:748)
-</pre></pre></td>
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:359)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:381)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:138)
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:86)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:337)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:136)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:89)
+	... 27 more
+</textarea></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jul 22, 2018 11:35:59 PM</td>
+                                                        <td class='linked' test-id='4'>login test.verify manager login test.Test setup has been successful</td>
+                                                        <td><pre><textarea>org.openqa.selenium.WebDriverException: Connection refused (Connection refused)
+Build info: version: '3.6.0', revision: '6fbf3ec767', time: '2017-09-27T15:28:36.4Z'
+System info: host: 'Ehsans-MBP', ip: 'fe80:0:0:0:14ce:e0e8:f4b1:cc26%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.5', java.version: '1.8.0_162'
+Driver info: driver.version: AbstractDriver
+	at io.appium.java_client.remote.AppiumCommandExecutor.lambda$2(AppiumCommandExecutor.java:101)
+	at java.util.Optional.orElseGet(Optional.java:267)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:100)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:586)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.ios.IOSDriver.execute(IOSDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:217)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:140)
+	at io.appium.java_client.DefaultGenericMobileDriver.<init>(DefaultGenericMobileDriver.java:38)
+	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:83)
+	at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:93)
+	at io.appium.java_client.ios.IOSDriver.<init>(IOSDriver.java:78)
+	at core.driver.WebDriverSetup.getWebDriverByType(WebDriverSetup.java:84)
+	at core.driver.AbstractDriver.createDriver(AbstractDriver.java:145)
+	at core.driver.AbstractDriver.setupWebDriver(AbstractDriver.java:70)
+	at test.java.ios.sanityTests.LoginTest.beforeMethod(LoginTest.java:24)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:359)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:381)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:138)
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:86)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:337)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:136)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:89)
+	... 27 more
+</textarea></pre></td>
                                                     </tr>
                                         </tbody>
                                     </table>
@@ -691,37 +543,37 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Features
-					<div class='panel-lead'>4</div>
+					<div class='panel-lead'>1</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>6</div>
+					<div class='panel-lead'>1</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>31</div>
+					<div class='panel-lead'>2</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Sep 8, 2017 09:55:42 PM</div>
+					<div class='panel-lead'>Jul 22, 2018 11:35:49 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Sep 8, 2017 09:57:51 PM</div>
+			 		<div class='panel-lead'>Jul 22, 2018 11:36:08 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>129,247ms</div>
+					<div class='panel-lead'>19,027ms</div>
 				</div>
 			</div>
 		</div>
@@ -734,7 +586,7 @@
 
 		<script>
 			var statusGroup = {
-				passParent: 3,
+				passParent: 0,
 				failParent: 1,
 				fatalParent: 0,
 				errorParent: 0,
@@ -742,7 +594,7 @@
 				skipParent: 0,
 				exceptionsParent: 1,
 				
-				passChild: 5,
+				passChild: 0,
 				failChild: 1,
 				fatalChild: 0,
 				errorChild: 0,
@@ -751,7 +603,7 @@
 				infoChild: 0,
 				exceptionsChild: 1,
 				
-				passGrandChild: 30,
+				passGrandChild: 1,
 				failGrandChild: 1,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,

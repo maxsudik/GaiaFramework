@@ -1,7 +1,6 @@
 package test.java.web.sanityTests;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -9,6 +8,8 @@ import org.junit.runner.RunWith;
 import core.helpers.Helper;
 import core.logger.TestLog;
 import core.runner.ParallelRunner;
+import main.customerPanel.Panels.CompanyPanel;
+import main.customerPanel.Panels.PanelNavigation;
 import main.customerPanel.categories.login;
 import main.customerPanel.categories.user;
 import main.customerPanel.constants.UserInfo;
@@ -34,7 +35,7 @@ public class Verify_Login_Test extends TestBase {
 		app.customerPanel.login.login(user);
 		
 		TestLog.Then("I verify company list is displayed");
-		Helper.verifyElementIsDisplayed(app.customerPanel.company.byCompanyListSection());
+		Helper.verifyElementIsDisplayed(CompanyPanel.elements.COMPANY_LIST_SECTION);
 	}
 	
 	@Category({ login.class, user.class })
@@ -46,12 +47,11 @@ public class Verify_Login_Test extends TestBase {
 		app.customerPanel.login.login(user);
 		
 		TestLog.Then("I verify people list is displayed");
-		Helper.verifyElementIsDisplayed(app.customerPanel.sites.byAddSiteButton());
+		Helper.verifyElementIsDisplayed(PanelNavigation.byReportTab());
 	}
 	
 	@Category({ login.class, user.class })
 	@Test
-	@Ignore //GA-947 but with supervisor panel not displaying
 	public void validate_user_login_as_supervisor() { 
 		UserObject user = new UserObject().withEmail(UserInfo.USER_AUTO_SUPERVISOR).withPassword(UserInfo.PASSWORD_AUTO_SUPERVISOR);
 		
@@ -59,7 +59,7 @@ public class Verify_Login_Test extends TestBase {
 		app.customerPanel.login.login(user);
 		
 		TestLog.Then("I verify people list is displayed");
-		Helper.verifyElementIsDisplayed(app.customerPanel.sites.byAddSiteButton());
+		Helper.verifyElementIsDisplayed(PanelNavigation.byPlantTab());
 	}
 	
 	@Category({ login.class, user.class })
@@ -71,7 +71,7 @@ public class Verify_Login_Test extends TestBase {
 		app.customerPanel.login.login(user);
 		
 		TestLog.Then("I verify company list is displayed");
-		Helper.verifyElementIsDisplayed(app.customerPanel.company.byCompanyListSection());
+		Helper.verifyElementIsDisplayed(CompanyPanel.elements.COMPANY_LIST_SECTION);
 		
 		TestLog.When("I logout");
 		app.customerPanel.login.logout();
