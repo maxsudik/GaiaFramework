@@ -3,36 +3,27 @@ package test.java.ios.acceptanceTests;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
+import org.testng.annotations.Test;
 
-import core.helpers.WaitHelper;
+import core.helpers.Helper;
 import core.logger.TestLog;
-import core.runner.ParallelRunner;
 import main.main_ios.Panels.ReportsPanel;
-import main.main_ios.categories.report;
-import main.main_ios.constants.TaskInfo;
 import main.main_ios.objects.TaskObject;
-import main.main_ios.pages.GaiaIos;
 import test.java.TestBase;
 
-@RunWith(ParallelRunner.class)
 public class SubmitReportTest extends TestBase {
 
-	@Before
+	@BeforeMethod
 	public void beforeMethod() throws Exception {
-		setupWebDriver(GaiaIos.GetDriver());
+		setupWebDriver(app.gaia.getDriver());
 	}
 	
-	@Category({ report.class })
 	public void verifyCreateReport2() {
 	
 	}
 
-	@Category({ report.class })
 	@Test
 	@Ignore // TODO: location detection on build machine not working, hence not going to reports right away
 	public void verifyCreateReport() {
@@ -41,20 +32,20 @@ public class SubmitReportTest extends TestBase {
 		app.gaia.login.loginSupervisor();
 		
 		TestLog.Then("Reports panel will load for selected site");
-		WaitHelper.waitForElementToLoad(ReportsPanel.bySendToManager());
+		Helper.waitForElementToLoad(ReportsPanel.elements.SEND_TO_MANAGER);
 		
 		TestLog.Then("I select task mow and edge with status complete");
 		// list of tasks
 	    List<TaskObject> tasks = new ArrayList<TaskObject>();
 		TaskObject task = new TaskObject()
-				.withTask(TaskInfo.LAWN_MOW_EDGE)
-				.withStatus(TaskInfo.TASK_COMPLETE);
+				.withTask(TaskObject.LAWN_MOW_EDGE)
+				.withStatus(TaskObject.TASK_COMPLETE);
 		tasks.add(task);
 		
 		TestLog.Then("I select task lime with status complete");
 		task = new TaskObject()
-				.withTask(TaskInfo.LAWN_LIME)
-				.withStatus(TaskInfo.TASK_COMPLETE);
+				.withTask(TaskObject.LAWN_LIME)
+				.withStatus(TaskObject.TASK_COMPLETE);
         tasks.add(task);
 		
 		app.gaia.report.addReport(tasks);

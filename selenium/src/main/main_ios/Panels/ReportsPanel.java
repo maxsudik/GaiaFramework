@@ -3,37 +3,24 @@ package main.main_ios.Panels;
 import java.util.List;
 
 import core.helpers.Element;
-import core.helpers.FormHelper;
-import core.helpers.ListHelper;
+import core.helpers.Helper;
 import core.webElement.EnhancedBy;
-import io.appium.java_client.MobileBy;
+import main.main_ios.GaiaIos;
 import main.main_ios.objects.TaskObject;
 
 public class ReportsPanel {
 
-	GaiaManager_ios manager;
+	GaiaIos manager;
 
-	public ReportsPanel( GaiaManager_ios manager) {
+	public ReportsPanel( GaiaIos manager) {
 		this.manager = manager;
 
 	}
 	
-	//report fields
-	private static final String REPORT_OPTIONS = "XCUIElementTypeButton";
-	
-	private static final String SEND_TO_MANAGER = "Send to Manager";
-	private static final String CLOSE_BUTTON = "Close";
-
-	public static EnhancedBy byReportOption() {
-		return Element.bySelector(MobileBy.className(REPORT_OPTIONS), "report option");
-	}
-	
-	public static EnhancedBy bySendToManager() {
-		return Element.bySelector(MobileBy.AccessibilityId(SEND_TO_MANAGER), "send to manager");
-	}
-	
-	public static EnhancedBy byCloseButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(CLOSE_BUTTON), "close button");
+	public static class elements {
+	    public static EnhancedBy REPORT_OPTIONS = Element.byClass("XCUIElementTypeButton", "report option");
+	    public static EnhancedBy SEND_TO_MANAGER = Element.byAccessibility("Send to Manager", "send to manager");
+	    public static EnhancedBy CLOSE_BUTTON = Element.byAccessibility("Close", "close button");
 	}
 	
 	/**
@@ -45,10 +32,10 @@ public class ReportsPanel {
 		for(TaskObject task : tasks) {
 			setTask(task); 
 		}
-		FormHelper.formSubmit(bySendToManager(), byCloseButton());
+		Helper.formSubmit(elements.SEND_TO_MANAGER, elements.CLOSE_BUTTON);
 	}
  	
    public void setTask(TaskObject task) {
-	   ListHelper.selectElementInList(byReportOption(), task.task + task.status); 
+	   Helper.selectElementInList(elements.REPORT_OPTIONS, task.task + task.status); 
    }
 }

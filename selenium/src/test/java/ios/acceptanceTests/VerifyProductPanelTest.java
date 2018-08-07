@@ -1,30 +1,21 @@
 package test.java.ios.acceptanceTests;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
-import core.helpers.UtilityHelper;
+import core.helpers.Helper;
 import core.logger.TestLog;
-import core.runner.ParallelRunner;
 import main.main_ios.Panels.MainPanel;
-import main.main_ios.categories.login;
-import main.main_ios.categories.user;
-import main.main_ios.constants.ProductInfo;
 import main.main_ios.objects.ProductObject;
-import main.main_ios.pages.GaiaIos;
 import test.java.TestBase;
 
-@RunWith(ParallelRunner.class)
 public class VerifyProductPanelTest extends TestBase {
 
-	@Before
+	@BeforeMethod
 	public void beforeMethod() throws Exception {
-		setupWebDriver(GaiaIos.GetDriver());
+		setupWebDriver(app.gaia.getDriver());
 	}
 
-	@Category({ login.class, user.class })
 	@Test
 	public void verifyAddProduct() {
 		
@@ -35,13 +26,13 @@ public class VerifyProductPanelTest extends TestBase {
 		app.gaia.main.selectPanel(MainPanel.gaiaPanels.INSTALLS);
 		
 		TestLog.Then("I add a product");
-		String productName = ProductInfo.PRODUCT_NAME_DEFAULT + UtilityHelper.generateRandomString(3);
+		String productName = ProductObject.PRODUCT_NAME_DEFAULT + Helper.generateRandomString(3);
 		ProductObject product = new ProductObject()
 				.withProductName(productName)
-				.withPricePerUnit(ProductInfo.PRICE_PER_UNIT_DEFAULT)
-				.withCurrency(ProductInfo.CURRENCY_DEFAULT)
-				.withUnit(ProductInfo.UNIT_DEFAULT)
-				.withAdditionalNotes(ProductInfo.ADDITIONAL_NOTES);
+				.withPricePerUnit(ProductObject.PRICE_PER_UNIT_DEFAULT)
+				.withCurrency(ProductObject.CURRENCY_DEFAULT)
+				.withUnit(ProductObject.UNIT_DEFAULT)
+				.withAdditionalNotes(ProductObject.ADDITIONAL_NOTES);
 		app.gaia.product.addProduct(product);
 		
 		TestLog.Then("I verify the product has been added");

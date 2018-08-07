@@ -1,49 +1,40 @@
 package test.java.web.sanityTests;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import core.helpers.Helper;
-import core.helpers.UtilityHelper;
 import core.logger.TestLog;
-import core.runner.ParallelRunner;
-import main.customerPanel.categories.login;
-import main.customerPanel.categories.user;
-import main.customerPanel.constants.PanelList;
-import main.customerPanel.constants.UserInfo;
+import main.customerPanel.Panels.PanelNavigation;
+import main.customerPanel.Panels.SitesPanel;
 import main.customerPanel.objects.SiteObject;
 import main.customerPanel.objects.UserObject;
-import main.customerPanel.pages.CustomerPanel;
 import test.java.TestBase;
 
-@RunWith(ParallelRunner.class)
 public class Verify_Site_Test extends TestBase {
 
-	@Before
+	@BeforeMethod
 	public void beforeMethod() throws Exception {
- 		setupWebDriver(CustomerPanel.GetDriver().withUrl(CustomerPanel.GAIA_SITE));
+		setupWebDriver(app.customerPanel.getDriver());
 	}
 
 	/**
 	 * When I login as admin Then I create a company And I create a site and add
 	 * to that company Then I should successfully create a site
 	 */
-	@Category({ login.class, user.class })
 	@Test
 	public void validate_add_site() {
-		UserObject user = new UserObject().withEmail(UserInfo.USER_AUTO_MANAGER).withPassword(UserInfo.PASSWORD_AUTO_MANAGER);
+		UserObject user = new UserObject().withEmail(UserObject.USER_AUTO_MANAGER).withPassword(UserObject.PASSWORD_AUTO_MANAGER);
 		
 		TestLog.When("I login with manager user");
 		app.customerPanel.login.login(user);
 
 		// select site panel
 		TestLog.When("I select site panel");
-		app.customerPanel.navigate.selectPanel(PanelList.SITE_PANEL);
+		app.customerPanel.navigate.selectPanel(PanelNavigation.SITE_PANEL);
 
 		// add site
-		String siteName = "zzz_site" + UtilityHelper.generateRandomString(3);
+		String siteName = "zzz_site" + Helper.generateRandomString(3);
 		SiteObject site = new SiteObject()
 				.withName(siteName)
 				.withRadius("33")
@@ -57,6 +48,6 @@ public class Verify_Site_Test extends TestBase {
 		app.customerPanel.sites.addSite(site);
 		
 		TestLog.Then("Site " + siteName + " should be added successfully");
-		Helper.verifyElementIsDisplayed(app.customerPanel.sites.bySiteAddSuccess());
+		Helper.verifyElementIsDisplayed(SitesPanel.elements.SITE_ADD_SUCCESS);
 	}
 }

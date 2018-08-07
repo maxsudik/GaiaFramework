@@ -1,123 +1,46 @@
 package main.main_ios.Panels;
 
-import core.helpers.ClickHelper;
 import core.helpers.Element;
-import core.helpers.FormHelper;
+import core.helpers.Helper;
 import core.webElement.EnhancedBy;
-import io.appium.java_client.MobileBy;
+import main.main_ios.GaiaIos;
 import main.main_ios.objects.EstimateObject;
 
 public class EstimatePanel {
 
-	GaiaManager_ios manager;
+	GaiaIos manager;
 
-	public EstimatePanel( GaiaManager_ios manager) {
+	public EstimatePanel( GaiaIos manager) {
 		this.manager = manager;
 
 	}
-
-	private static final String TITLE = "Estimation Title";
-	private static final String CUSTOMER_NAME = "Customer Dropdown";
-	private static final String DROP_DOWN_OPTION = "XCUIElementTypeCell";
-	private static final String CUSTOMER_SITE = "Site Dropdown";
-	private static final String ADDRESS = "Address Field";
-	private static final String CITY = "Address Two";
-	private static final String POSTAL_CODE = "Address Three";
-	private static final String PHONE_NUMBER = "Phone Number Field";
-	private static final String EMAIL = "Email Field";
-	private static final String DESCRIPTION = "Add Description Field";
-	private static final String PHOTOS = "Add Photo Button";
-	private static final String CHOOSE_PRODUCT = "Add Product Dropdown";
-	private static final String SAVE_BUTTON = "Save";
-	private static final String DONE_BUTTON = "Done";
-	private static final String PAY_BUTTON = "Pay";
-	private static final String CLOSE_BUTTON = "Close";
 	
-	//pay amount panel
-	private static final String CASH_BUTTON = "Cash";
-	private static final String CHEQUE_BUTTON = "Cheque";
-	private static final String CREDIT_BUTTON = "Credit";
-	private static final String TOTAL_FIELD = "total amount";
-	
-	public EnhancedBy byTitleField() {
-		return Element.bySelector(MobileBy.AccessibilityId(TITLE), "title field");
-	}
-
-	public EnhancedBy byCustomerNameField() {
-		return Element.bySelector(MobileBy.AccessibilityId(CUSTOMER_NAME), "customer name field");
-	}
-	
-	public EnhancedBy byDropDownOption() {
-		return Element.bySelector(MobileBy.className(DROP_DOWN_OPTION), "drop down option");
+	public static class elements {
+		// customer list 
+	    public static EnhancedBy TITLE = Element.byAccessibility("Estimation Title", "title field");
+	    public static EnhancedBy CUSTOMER_NAME = Element.byClass("Customer Dropdown", "customer name field");
+	    public static EnhancedBy DROP_DOWN_OPTION = Element.byClass("XCUIElementTypeCell", "drop down option");
+	    public static EnhancedBy CUSTOMER_SITE = Element.byClass("Site Dropdown", "customer site field");
+	    public static EnhancedBy ADDRESS = Element.byClass("Address Field", "address field");
+	    public static EnhancedBy CITY = Element.byClass("Address Two", "city field");
+	    public static EnhancedBy POSTAL_CODE = Element.byClass("Address Three", "postal code field");
+	    public static EnhancedBy PHONE_NUMBER = Element.byClass("Phone Number Field", "phone number field");
+	    public static EnhancedBy EMAIL = Element.byClass("Email Field", "email field");
+	    public static EnhancedBy DESCRIPTION = Element.byClass("Add Description Field", "add description field");
+	    public static EnhancedBy PHOTOS = Element.byClass("Add Photo Button", "photo field");
+	    public static EnhancedBy CHOOSE_PRODUCT = Element.byClass("Add Product Dropdown", "add product field");
+	    public static EnhancedBy SAVE_BUTTON = Element.byClass("Save", "save button");
+	    public static EnhancedBy DONE_BUTTON = Element.byClass("Done", "done button");
+	    public static EnhancedBy PAY_BUTTON = Element.byClass("Pay", "pay button");
+	    public static EnhancedBy CLOSE_BUTTON = Element.byClass("Close", "close button");
+	  
+	    //pay amount panel
+	    public static EnhancedBy CASH_BUTTON = Element.byClass("Cash", "cash button");
+	    public static EnhancedBy CHEQUE_BUTTON = Element.byClass("Cheque", "cheque button");
+	    public static EnhancedBy CREDIT_BUTTON = Element.byClass("Credit", "credit button");
+	    public static EnhancedBy TOTAL_FIELD = Element.byClass("total amount", "total field");
 	}
 
-	public EnhancedBy byCustomerSiteField() {
-		return Element.bySelector(MobileBy.AccessibilityId(CUSTOMER_SITE), "customer site field");
-	}
-
-	public EnhancedBy byAddressField() {
-		return Element.bySelector(MobileBy.AccessibilityId(ADDRESS), "address field");
-	}
-	
-	public EnhancedBy byCityField() {
-		return Element.bySelector(MobileBy.AccessibilityId(CITY), "city field");
-	}
-	
-	public EnhancedBy byPostalCodeField() {
-		return Element.bySelector(MobileBy.AccessibilityId(POSTAL_CODE), "postal code field");
-	}
-	
-	public EnhancedBy byPhoneNumberField() {
-		return Element.bySelector(MobileBy.AccessibilityId(PHONE_NUMBER), "phone number field");
-	}
-	
-	public EnhancedBy byEmailField() {
-		return Element.bySelector(MobileBy.AccessibilityId(EMAIL), "email field");
-	}
-	
-	public EnhancedBy byDescriptionField() {
-		return Element.bySelector(MobileBy.AccessibilityId(DESCRIPTION), "description field");
-	}
-	
-	public EnhancedBy byPhotoField() {
-		return Element.bySelector(MobileBy.AccessibilityId(PHOTOS), "photo field");
-	}
-	
-	public EnhancedBy byChooseProductField() {
-		return Element.bySelector(MobileBy.AccessibilityId(CHOOSE_PRODUCT), "choose product field");
-	}
-	
-	public EnhancedBy bySaveButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(SAVE_BUTTON), "save button");
-	}
-	
-	public EnhancedBy byDoneButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(DONE_BUTTON), "done button");
-	}
-	
-	public EnhancedBy byPayButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(PAY_BUTTON), "pay button");
-	}
-	
-	public EnhancedBy byCloseButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(CLOSE_BUTTON), "close button");
-	}
-	
-	public EnhancedBy byCashButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(CASH_BUTTON), "cash button");
-	}
-	
-	public EnhancedBy byChequeButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(CHEQUE_BUTTON), "cheque button");
-	}
-	
-	public EnhancedBy byCreditButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(CREDIT_BUTTON), "credit button");
-	}
-	
-	public EnhancedBy byTotalField() {
-		return Element.bySelector(MobileBy.AccessibilityId(TOTAL_FIELD), "total field");
-	}
 	
 	
 	/**
@@ -126,10 +49,10 @@ public class EstimatePanel {
 	 */
 	public void addEstimate(EstimateObject estimate) {
 		
-		ClickHelper.clickAndExpect(InstallsPanel.byAddEstimateButton(), byCustomerNameField());
+		Helper.clickAndExpect(InstallsPanel.byAddEstimateButton(), elements.CUSTOMER_NAME);
 		setEstimateFields(estimate);
-		FormHelper.formSubmit(bySaveButton(), byCloseButton());
-		FormHelper.formSubmit(byCloseButton(), byPayButton());
+		Helper.formSubmit(elements.SAVE_BUTTON, elements.CLOSE_BUTTON);
+		Helper.formSubmit(elements.CLOSE_BUTTON, elements.PAY_BUTTON);
 		payEstimate(estimate);
 	}
 	
@@ -139,8 +62,8 @@ public class EstimatePanel {
 	 */
 	public void payEstimate(EstimateObject estimate) {
 		
-		FormHelper.formSubmit(byPayButton(), byCashButton());
-		FormHelper.clearAndSetField(estimate.total, byTotalField());
+		Helper.formSubmit(elements.PAY_BUTTON, elements.CASH_BUTTON);
+		Helper.clearAndSetField(elements.TOTAL_FIELD, estimate.total);
 		selectPaymentMethod(estimate);
 	}
 	
@@ -150,33 +73,33 @@ public class EstimatePanel {
 	 */
 	public void setEstimateFields(EstimateObject estimate) {
 		
-		FormHelper.setField(estimate.title, byTitleField());
-		FormHelper.selectDropDown(estimate.customerName, byCustomerNameField(), byDropDownOption());
-		FormHelper.selectDropDown(estimate.customerSite, byCustomerSiteField(), byDropDownOption());
-		FormHelper.clearAndSetField(estimate.address, byAddressField());
-		FormHelper.clearAndSetField(estimate.city, byCityField());
-		FormHelper.clearAndSetField(estimate.postalCode, byPostalCodeField());
-		FormHelper.clearAndSetField(estimate.phoneNumber, byPhoneNumberField());
-		FormHelper.clearAndSetField(estimate.email, byEmailField());
-		FormHelper.setField(estimate.addDescription, byDescriptionField());
+		Helper.setField(elements.TITLE, estimate.title);
+		Helper.selectDropDown(estimate.customerName, elements.CUSTOMER_NAME, elements.DROP_DOWN_OPTION);
+		Helper.selectDropDown(estimate.customerSite, elements.CUSTOMER_SITE, elements.DROP_DOWN_OPTION);
+		Helper.clearAndSetField(elements.ADDRESS, estimate.address);
+		Helper.clearAndSetField(elements.CITY, estimate.city);
+		Helper.clearAndSetField(elements.POSTAL_CODE, estimate.postalCode);
+		Helper.clearAndSetField(elements.PHONE_NUMBER, estimate.phoneNumber);
+		Helper.clearAndSetField(elements.EMAIL, estimate.email);
+		Helper.setField(elements.DESCRIPTION, estimate.addDescription);
 		selectProduct(estimate);
 	}
 	
 	public void selectPaymentMethod(EstimateObject estimate) {
 		switch (estimate.payment) {
 		case CASH:
-			FormHelper.formSubmit(byCashButton(), byCloseButton());
+			Helper.formSubmit(elements.CASH_BUTTON, elements.CLOSE_BUTTON);
 			break;
 		case CHEQUE:
-			FormHelper.formSubmit(byChequeButton(), byCloseButton());
+			Helper.formSubmit(elements.CHEQUE_BUTTON, elements.CLOSE_BUTTON);
 			break;
 		case CREDIT:
-			FormHelper.formSubmit(byCreditButton(), byCloseButton());
+			Helper.formSubmit(elements.CREDIT_BUTTON, elements.CLOSE_BUTTON);
 			break;
 		}
 	}
 	
 	public void selectProduct(EstimateObject estimate) {
-		FormHelper.selectDropDown(estimate.product.productIndexInList, byChooseProductField(), byDropDownOption());
+		Helper.selectDropDown(estimate.product.productIndexInList, elements.CHOOSE_PRODUCT, elements.DROP_DOWN_OPTION);
 	}
 }

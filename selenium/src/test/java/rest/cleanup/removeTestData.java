@@ -1,18 +1,16 @@
 package test.java.rest.cleanup;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import core.logger.TestLog;
-import core.runner.ParallelRunner;
 import main.main_rest.objects.UserObject;
 import test.java.TestBase;
 
-@RunWith(ParallelRunner.class)
 public class removeTestData extends TestBase {
 
-	@Before
+	@BeforeMethod
 	public void beforeMethod() throws Exception {
 		setupWebDriver(app.rest.getDriver());
 	}

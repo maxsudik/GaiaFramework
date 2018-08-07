@@ -3,12 +3,13 @@ package main.main_ios.Panels;
 import core.helpers.Element;
 import core.webElement.EnhancedBy;
 import io.appium.java_client.MobileBy;
+import main.main_ios.GaiaIos;
 
 public class InstallsPanel {
 
-	GaiaManager_ios manager;
+	GaiaIos manager;
 
-	public InstallsPanel( GaiaManager_ios manager) {
+	public InstallsPanel( GaiaIos manager) {
 		this.manager = manager;
 
 	}

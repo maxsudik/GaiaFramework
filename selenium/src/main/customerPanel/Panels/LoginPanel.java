@@ -1,49 +1,30 @@
 package main.customerPanel.Panels;
 
 
-import org.openqa.selenium.By;
-
-import core.helpers.ClickHelper;
 import core.helpers.Element;
-import core.helpers.FormHelper;
+import core.helpers.Helper;
 import core.webElement.EnhancedBy;
+import main.customerPanel.CustomerPanel;
 import main.customerPanel.objects.UserObject;
 
 public class LoginPanel {
 
-	CustomerPanelManager manager;
+	CustomerPanel manager;
 
-	public LoginPanel(CustomerPanelManager manager) {
+	public LoginPanel(CustomerPanel manager) {
 		this.manager = manager;
 
 	}
 
-	private static final String EMAIL_FIELD = "[placeholder='Username']";
-	private static final String PASSWORD_FIELD = "[placeholder='Password']";
-	private static final String LOGIN_SUBMIT = ".control .is-success";
-	private static final String CONTINUE_BUTTON = ".subtitle + .is-success";
-	private static final String LOGOUT_BUTTON = "[href*='logout']";
-
-	public EnhancedBy byEmailField() {
-		return Element.bySelector(By.cssSelector(EMAIL_FIELD), "email field");
-	}
-
-	public EnhancedBy byPasswordField() {
-		return Element.bySelector(By.cssSelector(PASSWORD_FIELD), "password field");
-	}
-
-	public EnhancedBy byLoginSubmit() {
-		return Element.bySelector(By.cssSelector(LOGIN_SUBMIT), "submit button");
-	}
-
-	public EnhancedBy byContinueButton() {
-		return Element.bySelector(By.cssSelector(CONTINUE_BUTTON), "continue button");
+	public static class elements {
+	    public static EnhancedBy EMAIL_FIELD = Element.byCss("[placeholder='Username']", "email field");
+	    public static EnhancedBy PASSWORD_FIELD = Element.byCss("[placeholder='Password']", "password field");
+	    public static EnhancedBy LOGIN_SUBMIT = Element.byCss(".control .is-success", "submit button");
+	    public static EnhancedBy CONTINUE_BUTTON = Element.byCss(".subtitle + .is-success", "continue button");
+	    public static EnhancedBy LOGOUT_BUTTON = Element.byCss("[href*='logout']", "logout button");  
 	}
 	
-	public EnhancedBy byLogout() {
-		return Element.bySelector(By.cssSelector(LOGOUT_BUTTON), "logout button");
-	}
-
+	
 	/**
 	 * enter login info and click login button
 	 * 
@@ -51,8 +32,8 @@ public class LoginPanel {
 	 */
 	public void login(UserObject user) {
 		setLoginFields(user);
-		FormHelper.formSubmit(byLoginSubmit(), byContinueButton());
-		FormHelper.formSubmit(byContinueButton(), PanelNavigation.byNavigationMenu());
+		Helper.formSubmit(elements.LOGIN_SUBMIT, elements.CONTINUE_BUTTON);
+		Helper.formSubmit(elements.CONTINUE_BUTTON, PanelNavigation.elements.NAVIGATION_MENU);
 
 	}
 	
@@ -62,11 +43,11 @@ public class LoginPanel {
 	}
 
 	public void setLoginFields(UserObject user) {
-		FormHelper.setField(user.email, byEmailField());
-		FormHelper.setField(user.password, byPasswordField());
+		Helper.setField(elements.EMAIL_FIELD, user.email);
+		Helper.setField(elements.PASSWORD_FIELD, user.password);
 	}
 	
 	public void logout() {
-		ClickHelper.clickAndExpect(byLogout(), byLoginSubmit());
+		Helper.clickAndExpect(elements.LOGOUT_BUTTON, elements.LOGIN_SUBMIT);
 	}
 }

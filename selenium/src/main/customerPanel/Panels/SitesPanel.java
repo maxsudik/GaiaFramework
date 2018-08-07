@@ -1,106 +1,43 @@
 package main.customerPanel.Panels;
 
 
-import org.openqa.selenium.By;
-
-import core.helpers.ClickHelper;
 import core.helpers.Element;
-import core.helpers.FormHelper;
-import core.helpers.ListHelper;
+import core.helpers.Helper;
 import core.webElement.EnhancedBy;
+import main.customerPanel.CustomerPanel;
 import main.customerPanel.objects.SiteObject;
 
 public class SitesPanel {
 
-	CustomerPanelManager manager;
+	CustomerPanel manager;
 
-	public SitesPanel(CustomerPanelManager manager) {
+	public SitesPanel(CustomerPanel manager) {
 		this.manager = manager;
 	}
-
-	// site panel
-	private final String SITE_LIST_SECTION = ".card-content";
-	private final String ADD_SITE_BUTTON = ".card-content .is-success";
-	private final String SITE_ROWS = ".card-content tr";
-
-	// add site fields
-	private final String SITE_NAME_FIELD = "[placeholder='Name']";
-	private final String SITE_RADIUS_FIELD = "[placeholder='Detect radius']";
-	private final String SITE_COMPANY_FIELD = ".control .select";
-	private final String SITE_COMPANY_OPTIONS = ".control .select option";
-	private final String SITE_ADDRESS = "[placeholder='Address']";
-	private final String SITE_POSTAL_CODE = "[placeholder='Postal code']";
-	private final String SITE_CITY = "[placeholder='City']";
-	private final String SITE_STATE = "[placeholder='State/Province']";
-	private final String SITE_COUNTRY = "[placeholder='Country']";
-	private final String SITE_GPS_BUTTON = "[name='button']";
-	private final String SITE_MAP_BUTTON = ".fa-map-o";
-	private final String SITE_ADD_BUTTON = ".is-grouped .is-success";
-	private final String SITE_ADD_SUCCESS = ".message.is-success";
-
-	public EnhancedBy bySiteListSection() {
-		return Element.bySelector(By.cssSelector(SITE_LIST_SECTION), "site list section");
-	}
-
-	public EnhancedBy byAddSiteButton() {
-		return Element.bySelector(By.cssSelector(ADD_SITE_BUTTON), "add site");
-	}
-
-	public EnhancedBy bySiteRows() {
-		return Element.bySelector(By.cssSelector(SITE_ROWS), "site rows");
-	}
-
-	public EnhancedBy bySiteNameField() {
-		return Element.bySelector(By.cssSelector(SITE_NAME_FIELD), "site name field");
-	}
-
-	public EnhancedBy bySiteEmailField() {
-		return Element.bySelector(By.cssSelector(SITE_RADIUS_FIELD), "site email field");
-	}
-
-	public EnhancedBy bySiteCompanyField() {
-		return Element.bySelector(By.cssSelector(SITE_COMPANY_FIELD), "site company field");
-	}
 	
-	public EnhancedBy bySiteCompanyOptionField() {
-		return Element.bySelector(By.cssSelector(SITE_COMPANY_OPTIONS), "site company options");
+	public static class elements {
+		// site panel
+	    public static EnhancedBy SITE_LIST_SECTION = Element.byCss(".card-content", "site list section");
+	    public static EnhancedBy ADD_SITE_BUTTON = Element.byCss(".card-content .is-success",   "add site");
+	    public static EnhancedBy SITE_ROWS = Element.byCss(".card-content tr", "site rows");
+	    
+		// add site fields
+	    public static EnhancedBy SITE_NAME_FIELD = Element.byCss("[placeholder='Name']", "site name field");
+	    public static EnhancedBy SITE_RADIUS_FIELD = Element.byCss("[placeholder='Detect radius']", "site email field");  
+	    public static EnhancedBy SITE_COMPANY_FIELD = Element.byCss(".control .select", "site company field");  
+	    public static EnhancedBy SITE_COMPANY_OPTIONS = Element.byCss(".control .select option", "site company options");  
+	    public static EnhancedBy SITE_EMAIL = Element.byCss("[placeholder='Email']", "site email field");  
+	    public static EnhancedBy SITE_ADDRESS = Element.byCss("[placeholder='Address']", "site address field");  
+	    public static EnhancedBy SITE_POSTAL_CODE = Element.byCss("[placeholder='Postal code']", "site postal code field");  
+	    public static EnhancedBy SITE_CITY = Element.byCss("[placeholder='City']", "site city field");  
+	    public static EnhancedBy SITE_STATE = Element.byCss("[placeholder='State/Province']", "site state field");  
+	    public static EnhancedBy SITE_COUNTRY = Element.byCss("[placeholder='Country']", "site country field");  
+	    public static EnhancedBy SITE_GPS_BUTTON = Element.byCss( "[name='button']", "fetch gps coordinates button");  
+	    public static EnhancedBy SITE_MAP_BUTTON = Element.byCss(".fa-map-o",  "site map");  
+	    public static EnhancedBy SITE_ADD_BUTTON = Element.byCss(".is-grouped .is-success", "site add button");  
+	    public static EnhancedBy SITE_ADD_SUCCESS = Element.byCss(".message.is-success", "site add success");  
 	}
 
-	public EnhancedBy bySiteAddressField() {
-		return Element.bySelector(By.cssSelector(SITE_ADDRESS), "site address field");
-	}
-	
-	public EnhancedBy bySitePostalCodeField() {
-		return Element.bySelector(By.cssSelector(SITE_POSTAL_CODE), "site postal code field");
-	}
-	
-	public EnhancedBy bySiteCityField() {
-		return Element.bySelector(By.cssSelector(SITE_CITY), "site city field");
-	}
-	
-	public EnhancedBy bySiteStateField() {
-		return Element.bySelector(By.cssSelector(SITE_STATE), "site state field");
-	}
-	
-	public EnhancedBy bySiteCountryField() {
-		return Element.bySelector(By.cssSelector(SITE_COUNTRY), "site country field");
-	}
-	
-	public EnhancedBy byGpsFetchButton() {
-		return Element.bySelector(By.cssSelector(SITE_GPS_BUTTON), "fetch gps coordinates button");
-	}
-	
-	public EnhancedBy bySiteMap() {
-		return Element.bySelector(By.cssSelector(SITE_MAP_BUTTON), "site map");
-	}
-
-	public EnhancedBy bySiteAddButton() {
-		return Element.bySelector(By.cssSelector(SITE_ADD_BUTTON), "site add button");
-	}
-
-	public EnhancedBy bySiteAddSuccess() {
-		return Element.bySelector(By.cssSelector(SITE_ADD_SUCCESS), "site add success");
-	}
 
 	/**
 	 * adds site by selecting add site button and filling in the fields, then
@@ -109,9 +46,9 @@ public class SitesPanel {
 	 * @param site
 	 */
 	public void addSite(SiteObject site) {
-		ClickHelper.clickAndExpect(byAddSiteButton(), bySiteNameField());
+		Helper.clickAndExpect(elements.SITE_ADD_BUTTON, elements.SITE_NAME_FIELD);
 		setSiteFields(site);
-		FormHelper.formSubmit(bySiteAddButton(), bySiteAddSuccess());
+		Helper.formSubmit(elements.SITE_ADD_BUTTON, elements.SITE_ADD_SUCCESS);
 
 	}
 
@@ -121,15 +58,15 @@ public class SitesPanel {
 	 * @param site
 	 */
 	public void setSiteFields(SiteObject site) {
-		FormHelper.setField(site.name, bySiteNameField());
-		FormHelper.setField(site.radius, bySiteEmailField());
-		FormHelper.selectDropDown(site.company, bySiteCompanyField(), bySiteCompanyOptionField());
-		FormHelper.setField(site.address, bySiteAddressField());
-		FormHelper.setField(site.postalCode, bySitePostalCodeField());
-		FormHelper.setField(site.city, bySiteCityField());
-		FormHelper.setField(site.state, bySiteStateField());
-		FormHelper.setField(site.country, bySiteCountryField());
-		ClickHelper.clickAndExpect(byGpsFetchButton(), bySiteMap() );
+		Helper.setField(elements.SITE_NAME_FIELD, site.name);
+		Helper.setField(elements.SITE_EMAIL, site.radius);
+		Helper.selectDropDown(site.company,elements.SITE_COMPANY_FIELD,elements.SITE_COMPANY_OPTIONS);
+		Helper.setField(elements.SITE_ADDRESS, site.address);
+		Helper.setField(elements.SITE_POSTAL_CODE, site.postalCode);
+		Helper.setField(elements.SITE_CITY, site.city);
+		Helper.setField(elements.SITE_STATE, site.state);
+		Helper.setField(elements.SITE_COUNTRY, site.country);
+		Helper.clickAndExpect(elements.SITE_GPS_BUTTON, elements.SITE_MAP_BUTTON );
 	}
 
 	/**
@@ -138,7 +75,7 @@ public class SitesPanel {
 	 * @param site
 	 */
 	public void verifySite(SiteObject site) {
-		ListHelper.verifyIsInList(bySiteRows(), site.name);
+		Helper.verifyIsInList(elements.SITE_ROWS, site.name);
 	}
 
 }

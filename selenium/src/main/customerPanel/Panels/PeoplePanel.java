@@ -1,107 +1,46 @@
 package main.customerPanel.Panels;
 
 
-import org.openqa.selenium.By;
-
-import AdditionalHelper.AdditionalHelpers;
-import core.helpers.ClickHelper;
 import core.helpers.Element;
-import core.helpers.FormHelper;
-import core.helpers.ListHelper;
+import core.helpers.Helper;
 import core.webElement.EnhancedBy;
+import main.customerPanel.CustomerPanel;
 import main.customerPanel.objects.PeopleObject;
 
 public class PeoplePanel {
 
-	CustomerPanelManager manager;
+	CustomerPanel manager;
 
-	public PeoplePanel(CustomerPanelManager manager) {
+	public PeoplePanel(CustomerPanel manager) {
 		this.manager = manager;
 	}
-
-	// people panel
-	private final String PEOPLE_LIST_SECTION = ".card-content";
-	private final String ADD_PEOPLE_BUTTON = "[href*='add']";
-	private final String PEOPLE_ROWS = ".card-content tr";
-
-	// add people fields
-	private final String PEOPLE_FIST_NAME_FIELD = "[placeholder='First name']";
-	private final String PEOPLE_LAST_NAME_FIELD = "[placeholder='Last name']";
-	private final String PEOPLE_NOTES_FIELD = "[placeholder='Notes']";
-	private final String PEOPLE_ROLES_FIELD = ".control .select";
-	private final String PEOPLE_ROLES_OPTIONS = ".control .select option";
-	private final String PEOPLE_USERNAME_FIELD = "[placeholder='Username']";
-	private final String PEOPLE_EMAIL_FIELD = "[placeholder='Email']";
-	private final String PEOPLE_PASSWORD_FIELD = "[placeholder='Password']";
-	private final String PEOPLE_REPEAT_PASSWORD_FIELD = "[placeholder='Repeat password']";
-	private final String PEOPLE_COMPANY_FIELD = ".control .select";
-	private final String PEOPLE_COMPANY_OPTIONS = ".control .select option";
-	private final String PEOPLE_ADD_BUTTON = ".card-content button.is-success";
-	private final String PEOPLE_ADD_SUCCESS = ".message.is-success";
-
-	public EnhancedBy byPeopleListSection() {
-		return Element.bySelector(By.cssSelector(PEOPLE_LIST_SECTION), "people list section");
+	
+	public static final String CUSTOMER = "customer";
+	public static final String SUPERVISOR = "supervisor";
+	public static final String MANAGER = "manager";
+	
+	public static class elements {
+		// people panel
+	    public static EnhancedBy PEOPLE_LIST_SECTION = Element.byCss(".card-content", "people list section");
+	    public static EnhancedBy ADD_PEOPLE_BUTTON = Element.byCss("[href*='add']",  "add people");
+	    public static EnhancedBy PEOPLE_ROWS = Element.byCss(".card-content tr", "tabs dropdown");
+	    
+	 // add people fields
+	    public static EnhancedBy PEOPLE_FIRST_NAME_FIELD = Element.byCss("[placeholder='First name']", "site tab");
+	    public static EnhancedBy PEOPLE_LAST_NAME_FIELD = Element.byCss("[placeholder='Last name']", "people tab");  
+	    public static EnhancedBy PEOPLE_NOTES_FIELD = Element.byCss("[placeholder='Notes']", "people rows");  
+	    public static EnhancedBy PEOPLE_ROLES_FIELD = Element.byCss(".control .select", "first name field");  
+	    public static EnhancedBy PEOPLE_ROLES_OPTIONS = Element.byCss(".control .select option", "last name field");  
+	    public static EnhancedBy PEOPLE_USERNAME_FIELD = Element.byCss("[placeholder='Username']", "user name field");  
+	    public static EnhancedBy PEOPLE_EMAIL_FIELD = Element.byCss("[placeholder='Email']", "email field");  
+	    public static EnhancedBy PEOPLE_PASSWORD_FIELD = Element.byCss("[placeholder='Password']", "password field");  
+	    public static EnhancedBy PEOPLE_REPEAT_PASSWORD_FIELD = Element.byCss("[placeholder='Repeat password']", "repeat password field");  
+	    public static EnhancedBy PEOPLE_COMPANY_FIELD = Element.byCss(".control .select", "people company field");  
+	    public static EnhancedBy PEOPLE_COMPANY_OPTIONS = Element.byCss(".control .select option",  "people company options");  
+	    public static EnhancedBy PEOPLE_ADD_BUTTON = Element.byCss(".card-content button.is-success", "people add button");  
+	    public static EnhancedBy PEOPLE_ADD_SUCCESS = Element.byCss(".message.is-success", "people add success");  
 	}
 
-	public EnhancedBy byAddPeopleButton() {
-		return Element.bySelector(By.cssSelector(ADD_PEOPLE_BUTTON), "add people");
-	}
-
-	public EnhancedBy byPeopleRows() {
-		return Element.bySelector(By.cssSelector(PEOPLE_ROWS), "people rows");
-	}
-
-	public EnhancedBy byPeopleFirstNameField() {
-		return Element.bySelector(By.cssSelector(PEOPLE_FIST_NAME_FIELD), "first name field");
-	}
-
-	public EnhancedBy byPeopleLastNameField() {
-		return Element.bySelector(By.cssSelector(PEOPLE_LAST_NAME_FIELD), "last name field");
-	}
-
-	public EnhancedBy byPeopleNoteField() {
-		return Element.bySelector(By.cssSelector(PEOPLE_NOTES_FIELD), "note field");
-	}
-
-	public EnhancedBy byPeopleRolesField() {
-		return Element.bySelector(By.cssSelector(PEOPLE_ROLES_FIELD), "roles field");
-	}
-
-	public EnhancedBy byPeopleRolesOptions() {
-		return Element.bySelector(By.cssSelector(PEOPLE_ROLES_OPTIONS), "roles options");
-	}
-
-	public EnhancedBy byPeopleUserNameField() {
-		return Element.bySelector(By.cssSelector(PEOPLE_USERNAME_FIELD), "user name field");
-	}
-
-	public EnhancedBy byPeopleEmailField() {
-		return Element.bySelector(By.cssSelector(PEOPLE_EMAIL_FIELD), "email field");
-	}
-
-	public EnhancedBy byPeoplePasswordField() {
-		return Element.bySelector(By.cssSelector(PEOPLE_PASSWORD_FIELD), "password field");
-	}
-
-	public EnhancedBy byPeopleRepeatPasswordField() {
-		return Element.bySelector(By.cssSelector(PEOPLE_REPEAT_PASSWORD_FIELD), "repeat password field");
-	}
-
-	public EnhancedBy byPeopleCompanyField() {
-		return Element.bySelector(By.cssSelector(PEOPLE_COMPANY_FIELD), "people company field");
-	}
-
-	public EnhancedBy byPeopleCompanyOptionField() {
-		return Element.bySelector(By.cssSelector(PEOPLE_COMPANY_OPTIONS), "people company options");
-	}
-
-	public EnhancedBy byPeopleAddButton() {
-		return Element.bySelector(By.cssSelector(PEOPLE_ADD_BUTTON), "people add button");
-	}
-
-	public EnhancedBy byPeopleAddSuccess() {
-		return Element.bySelector(By.cssSelector(PEOPLE_ADD_SUCCESS), "people add success");
-	}
 
 	/**
 	 * adds people by selecting add people button and filling in the fields,
@@ -110,11 +49,9 @@ public class PeoplePanel {
 	 * @param people
 	 */
 	public void addPeople(PeopleObject people) {
-		ClickHelper.clickAndExpect(byAddPeopleButton(), byPeopleFirstNameField());
-
+		Helper.clickAndExpect(elements.ADD_PEOPLE_BUTTON, elements.PEOPLE_FIRST_NAME_FIELD );
 		setPeopleFields(people);
-
-		FormHelper.formSubmit(byPeopleAddButton(), byPeopleAddSuccess());
+		Helper.formSubmit(elements.ADD_PEOPLE_BUTTON, elements.PEOPLE_ADD_SUCCESS);
 
 	}
 
@@ -124,15 +61,15 @@ public class PeoplePanel {
 	 * @param people
 	 */
 	public void setPeopleFields(PeopleObject people) {
-		FormHelper.setField(people.firstName, byPeopleFirstNameField());
-		FormHelper.setField(people.lastName, byPeopleLastNameField());
-		FormHelper.setField(people.notes, byPeopleNoteField());
-		FormHelper.selectDropDown(people.roles, byPeopleRolesField(), "Select a role", byPeopleRolesOptions());
-		FormHelper.setField(people.email, byPeopleEmailField());
-		FormHelper.setField(people.password, byPeoplePasswordField());
-		FormHelper.setField(people.password, byPeopleRepeatPasswordField());
-		FormHelper.selectDropDown(people.company, byPeopleCompanyField(), "Select a company", byPeopleCompanyOptionField());
-		people.userName = AdditionalHelpers.getAttribute(byPeopleUserNameField(), "value");
+		Helper.setField(elements.PEOPLE_FIRST_NAME_FIELD, people.firstName);
+		Helper.setField(elements.PEOPLE_LAST_NAME_FIELD, people.lastName);
+		Helper.setField(elements.PEOPLE_NOTES_FIELD, people.notes);
+		Helper.selectDropDown(people.roles, elements.PEOPLE_ROLES_FIELD, "Select a role", elements.PEOPLE_ROLES_OPTIONS);
+		Helper.setField(elements.PEOPLE_EMAIL_FIELD, people.email);
+		Helper.setField(elements.PEOPLE_PASSWORD_FIELD, people.password);
+		Helper.setField(elements.PEOPLE_REPEAT_PASSWORD_FIELD, people.password);
+		Helper.selectDropDown(people.company, elements.PEOPLE_COMPANY_FIELD, "Select a company", elements.PEOPLE_COMPANY_OPTIONS);
+		people.userName = Helper.getAttribute(elements.PEOPLE_USERNAME_FIELD, "value");
 	}
 
 	/**
@@ -141,7 +78,7 @@ public class PeoplePanel {
 	 * @param people
 	 */
 	public void verifyPeople(PeopleObject people) {
-		ListHelper.verifyIsInList(byPeopleRows(), people.firstName);
+		Helper.verifyIsInList(elements.PEOPLE_ROWS, people.firstName);
 	}
 
 }

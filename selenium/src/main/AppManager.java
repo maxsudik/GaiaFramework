@@ -1,7 +1,7 @@
 package main;
 
-import main.customerPanel.Panels.CustomerPanelManager;
-import main.main_ios.Panels.GaiaManager_ios;
+import main.customerPanel.CustomerPanel;
+import main.main_ios.GaiaIos;
 import main.main_rest.GaiaRest;
 
 /**
@@ -11,7 +11,7 @@ import main.main_rest.GaiaRest;
 public class AppManager{
 
 
-	public CustomerPanelManager customerPanel = new CustomerPanelManager();
-	public GaiaManager_ios gaia = new GaiaManager_ios();
+	public CustomerPanel customerPanel = new CustomerPanel();
+	public GaiaIos gaia = new GaiaIos();
 	public GaiaRest rest = new GaiaRest();
 }

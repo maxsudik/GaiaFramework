@@ -1,113 +1,69 @@
 package main.main_ios.Panels;
 
-import core.helpers.ClickHelper;
 import core.helpers.Element;
-import core.helpers.FormHelper;
+import core.helpers.Helper;
 import core.webElement.EnhancedBy;
 import io.appium.java_client.MobileBy;
+import main.main_ios.GaiaIos;
 import main.main_ios.objects.CustomerObject;
 
 public class CustomersPanel {
 
-	GaiaManager_ios manager;
+	GaiaIos manager;
 
-	public CustomersPanel( GaiaManager_ios manager) {
+	public CustomersPanel( GaiaIos manager) {
 		this.manager = manager;
 
 	}
+	
+	public static class elements {
+		// customer list 
+	    public static EnhancedBy ADD_CUSTOMER = Element.byAccessibility("+ Add Account", "add customer button");
+	    public static EnhancedBy CUSTOMER_LIST = Element.byClass("XCUIElementTypeStaticText", "customer list");
+	    public static EnhancedBy SEARCH_FIELD = Element.byClass("XCUIElementTypeSearchField", "search field");
+	   
 
-	// customer list 
-	private static final String ADD_CUSTOMER = "+ Add Customer";
-	private static final String CUSTOMER_LIST = "XCUIElementTypeStaticText";
-	private static final String SEARCH_FIELD = "XCUIElementTypeSearchField";
+		//account details (information)
+	    public static EnhancedBy USERNAME_FIELD = Element.byClass("XCUIElementTypeTextField", "username field");
+	    public static EnhancedBy EMAIL_FIELD = Element.byClass("XCUIElementTypeTextField", "email field");
+	    public static EnhancedBy PASSWORD_FIELD = Element.byClass("XCUIElementTypeSecureTextField", "password field");
+	    
+	    public static EnhancedBy FIRST_NAME_FIELD = Element.byClass("XCUIElementTypeTextField", "first name field");
+	    public static EnhancedBy LAST_NAME_FIELD = Element.byClass("XCUIElementTypeTextField", "last name field");
+	    public static EnhancedBy PHONE_NUMBER_FIELD = Element.byClass("XCUIElementTypeTextField", "phone number field");
+	    
+	    public static EnhancedBy SAVE_BUTTON = Element.byAccessibility("Save", "save button");
+	    public static EnhancedBy CANCEL_BUTTON = Element.byAccessibility("Cancel", "cancel button");
+	    public static EnhancedBy CLOSE_BUTTON = Element.byAccessibility("Close", "close button");   
+		
+	    public static EnhancedBy byCustomerUser(String user) {
+			return Element.bySelector(MobileBy.AccessibilityId(user), user);
+		}
+	
+	}
+	
+	
 
-
-	//customer details (information)
-	private static final String USERNAME_FIELD = "XCUIElementTypeTextField";
-	private static final String EMAIL_FIELD = "XCUIElementTypeTextField";
-	private static final String PASSWORD_FIELD = "XCUIElementTypeSecureTextField";
-	
-	private static final String FIRST_NAME_FIELD = "XCUIElementTypeTextField";
-	private static final String LAST_NAME_FIELD = "XCUIElementTypeTextField";
-	private static final String PHONE_NUMBER_FIELD = "XCUIElementTypeTextField";
-
-	private static final String SAVE_BUTTON = "Save";
-	private static final String CANCEL_BUTTON = "Cancel";
-	private static final String CLOSE_BUTTON = "Close";
-
-	public static EnhancedBy byAddCustomerButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(ADD_CUSTOMER), "add account button");
-	}
-	
-	public static EnhancedBy byCustomerList() {
-		return Element.bySelector(MobileBy.className(CUSTOMER_LIST), "customer list");
-	}
-	
-	public static EnhancedBy bySearchField() {
-		return Element.bySelector(MobileBy.className(SEARCH_FIELD), "search field");
-	}
-	
-	public static EnhancedBy byCustomerUser(String user) {
-		return Element.bySelector(MobileBy.AccessibilityId(user), user);
-	}
-
-	public static EnhancedBy byUserNameField() {
-		return Element.bySelector(MobileBy.className(USERNAME_FIELD), "username field");
-	}
-	
-	public static EnhancedBy byEmailField() {
-		return Element.bySelector(MobileBy.className(EMAIL_FIELD), "email field");
-	}
-	
-	public static EnhancedBy byPasswordField() {
-		return Element.bySelector(MobileBy.className(PASSWORD_FIELD), "password field");
-	}
-	
-	public static EnhancedBy byFirstNameField() {
-		return Element.bySelector(MobileBy.className(FIRST_NAME_FIELD), "first name field");
-	}
-	
-	public static EnhancedBy byLastNameField() {
-		return Element.bySelector(MobileBy.className(LAST_NAME_FIELD), "last name field");
-	}
-	
-	public static EnhancedBy byPhoneNumberField() {
-		return Element.bySelector(MobileBy.className(PHONE_NUMBER_FIELD), "phone number field");
-	}
-	
-	public static EnhancedBy bySaveButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(SAVE_BUTTON), "done button");
-	}
-	
-	public static EnhancedBy byCancelButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(CANCEL_BUTTON), "cancel button");
-	}
-	
-	public static EnhancedBy byCloseButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(CLOSE_BUTTON), "close button");
-	}
-
-	
 	public void addCustomer(CustomerObject customer) {
 		
-		ClickHelper.clickAndExpect(byAddCustomerButton(), bySaveButton());
+		Helper.clickAndExpect(elements.ADD_CUSTOMER, elements.SAVE_BUTTON);
 		setField(customer);
-		FormHelper.formSubmit(bySaveButton(), byCloseButton());
-		FormHelper.formSubmit(byCloseButton(), byAddCustomerButton());
+		Helper.formSubmit(elements.SAVE_BUTTON, elements.CLOSE_BUTTON);
+		Helper.formSubmit(elements.CLOSE_BUTTON, elements.ADD_CUSTOMER);
 	}
 	
 	public void setField(CustomerObject customer) {
 		
-		FormHelper.setField(customer.username, byUserNameField(), 0);
-		FormHelper.setField(customer.email, byEmailField(), 1);	
-		FormHelper.setField(customer.password, byPasswordField(), 0);	
-		FormHelper.setField(customer.password, byPasswordField(), 1);	
-		FormHelper.setField(customer.firstname, byFirstNameField(), 2);	
-		FormHelper.setField(customer.lastname, byLastNameField(), 3);	
-		FormHelper.setField(customer.phoneNumber, byPhoneNumberField(), 4);	
+		Helper.setField(customer.username, elements.USERNAME_FIELD, 0);
+		Helper.setField(customer.email, elements.EMAIL_FIELD, 1);	
+		Helper.setField(customer.password, elements.PASSWORD_FIELD, 0);	
+		Helper.setField(customer.password, elements.PASSWORD_FIELD, 1);	
+		Helper.setField(customer.firstname, elements.FIRST_NAME_FIELD, 2);	
+		Helper.setField(customer.lastname, elements.LAST_NAME_FIELD , 3);	
+		Helper.setField(customer.phoneNumber, elements.PHONE_NUMBER_FIELD, 4);	
 	}
 	
 	public void searchCustomer(CustomerObject customer) {
-		FormHelper.setField(customer.firstname, bySearchField());	
+		Helper.setField(elements.SEARCH_FIELD, customer.firstname);	
 	}
 }

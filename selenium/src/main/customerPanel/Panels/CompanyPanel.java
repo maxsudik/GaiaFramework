@@ -3,15 +3,15 @@ package main.customerPanel.Panels;
 
 import core.helpers.Element;
 import core.helpers.Helper;
-import core.helpers.ListHelper;
 import core.webElement.EnhancedBy;
+import main.customerPanel.CustomerPanel;
 import main.customerPanel.objects.CompanyObject;
 
 public class CompanyPanel {
 
-	CustomerPanelManager manager;
+	CustomerPanel manager;
 
-	public CompanyPanel(CustomerPanelManager manager) {
+	public CompanyPanel(CustomerPanel manager) {
 		this.manager = manager;
 	}
 
@@ -140,62 +140,62 @@ public class CompanyPanel {
 	 * @param company
 	 */
 	public void setCompanyInfoFields(CompanyObject company) {
-		Helper.setField(company.companyName, elements.COMPANYINFO_NAME);
-		Helper.clearAndSetField(company.companyEmail, elements.COMPANYINFO_EMAIL);
-		Helper.setField(company.companyWebsite, elements.CCOMPANYINFO_WEBSITE);
-		Helper.setField(company.companyTaxNumber, elements.COMPANYINFO_TAX_NUMBER);
+		Helper.setField(elements.COMPANYINFO_NAME, company.companyName);
+		Helper.clearAndSetField(elements.COMPANYINFO_EMAIL, company.companyEmail);
+		Helper.setField(elements.CCOMPANYINFO_WEBSITE, company.companyWebsite);
+		Helper.setField(elements.COMPANYINFO_TAX_NUMBER, company.companyTaxNumber);
 		Helper.selectDropDown(company.companyType, elements.COMPANYINFO_TYPE, elements.COMPANYINFO_TYPE_OPTIONS);
 		
 		if(Helper.isPresent(elements.COMPANYINFO_EDIT_BUTTON))
 			Helper.clickAndExpect(elements.COMPANYINFO_EDIT_BUTTON, elements.COMPANY_ADDRESS1);
-		Helper.setField(company.companyAddress1, elements.COMPANY_ADDRESS1);
-		Helper.setField(company.companyAddress2, elements.COMPANY_ADDRESS2);
-		Helper.setField(company.companyCity, elements.COMPANY_CITY);
+		Helper.setField(elements.COMPANY_ADDRESS1, company.companyAddress1);
+		Helper.setField(elements.COMPANY_ADDRESS2, company.companyAddress2);
+		Helper.setField(elements.COMPANY_CITY, company.companyCity);
 		Helper.selectDropDown(company.companyCountry, elements.COMPANY_COUNTRY_DROPDOWN, elements.COMPANY_DROPDOWN_OPTIONS);
 		Helper.selectDropDown(company.companyState, elements.COMPANY_STATE_DROPDOWN, elements.COMPANY_STATE_DROPDOWN_OPTIONS);
-		Helper.setField(company.companyZipCode, elements.COMPANY_ZIP_CODE);
+		Helper.setField(elements.COMPANY_ZIP_CODE, company.companyZipCode);
 		
 	}
 	
 	public void setCreditCardInfoFields(CompanyObject company) {
 		
-		Helper.setField(company.cardLicenseLimit,elements.CARD_LICENSE_LIMIT);
-		Helper.setField(company.cardNumber,elements.CARD_NUMBER);
-		Helper.setField(company.cardName,elements.CARD_NAME);
+		Helper.setField(elements.CARD_LICENSE_LIMIT, company.cardLicenseLimit);
+		Helper.setField(elements.CARD_NUMBER, company.cardNumber);
+		Helper.setField(elements.CARD_NAME, company.cardName);
 		Helper.selectDropDown(company.cardExpirationMonth,elements.CARD_EXPIRATION_MONTH, elements.CARD_EXPIRATION_MONTH_OPTIONS);
 		Helper.selectDropDown(company.cardExpirationYear,elements.CARD_EXPIRATION_YEAR, elements.CARD_EXPIRATION_YEAR_OPTION);
-		Helper.setField(company.cardExpirationCvv,elements.CARD_EXPIRATION_CVV);
-		Helper.setField(company.cardAddress1,elements.CARD_ADDRESS1);
-		Helper.setField(company.cardAddress2,elements.CARD_ADDRESS2);
-		Helper.setField(company.cardCity,elements.CARD_CITY);
+		Helper.setField(elements.CARD_EXPIRATION_CVV, company.cardExpirationCvv);
+		Helper.setField(elements.CARD_ADDRESS1, company.cardAddress1);
+		Helper.setField(elements.CARD_ADDRESS2, company.cardAddress2);
+		Helper.setField(elements.CARD_CITY, company.cardCity);
 		Helper.selectDropDown(company.cardCountry,elements.CARD_COUNTRY_DROPDOWN, elements.CARD_COUNTRY_DROPDOWN_OPTIONS);
 		Helper.selectDropDown(company.cardState, elements.CARD_STATE, elements.CARD_STATE_OPTIONS);
-		Helper.setField(company.cardPostal,elements.CARD_POSTAL);
+		Helper.setField(elements.CARD_POSTAL, company.cardPostal);
 	}
 
 	public void setBankAccountInfoFields(CompanyObject company) {
 	
-		Helper.setField(company.bankInstitutionNumber,elements.BANK_INSTITUTION_NUMBER);
-		Helper.setField(company.bankTransitNumber,elements.BANK_TRANSIT_NUMBER);
-		Helper.setField(company.bankNumber,elements.BANK_NUMBER);
-		Helper.setField(company.bankHolder,elements.BANK_HOLDER);
+		Helper.setField(elements.BANK_INSTITUTION_NUMBER, company.bankInstitutionNumber);
+		Helper.setField(elements.BANK_TRANSIT_NUMBER, company.bankTransitNumber);
+		Helper.setField(elements.BANK_NUMBER, company.bankNumber);
+		Helper.setField(elements.BANK_HOLDER, company.bankHolder);
 		Helper.selectDropDown(company.bankType,elements.BANK_TYPE, elements.BANK_TYPE_OPTIONS);
 	}
 	
 	public void setLegalEntityInfoFields(CompanyObject company) {
 		
-		Helper.setField(company.legalFirstName,elements.LEGAL_FIRST_NAME);
-		Helper.setField(company.legalLastName,elements.LEGAL_LAST_NAME);
-		Helper.clearAndSetField(company.legalBirthYear,elements.LEGAL_BIRTH_YEAR);
-		Helper.clearAndSetField(company.legalBirthYear,elements.LEGAL_BIRTH_YEAR);
-		Helper.clearAndSetField(company.legalBirthMonth,elements.LEGAL_BIRTH_MONTH);
-		Helper.clearAndSetField(company.legalBirthDay,elements.LEGAL_BIRTH_DAY);
-		Helper.setField(company.legalAddress1,elements.LEGAL_ADDRESS1);
-		Helper.setField(company.legalAddress2,elements.LEGAL_ADDRESS2);
-		Helper.setField(company.legalCity,elements.LEGAL_CITY);
+		Helper.setField(elements.LEGAL_FIRST_NAME, company.legalFirstName);
+		Helper.setField(elements.LEGAL_LAST_NAME, company.legalLastName);
+		Helper.clearAndSetField(elements.LEGAL_BIRTH_YEAR, company.legalBirthYear);
+		Helper.clearAndSetField(elements.LEGAL_BIRTH_YEAR, company.legalBirthYear);
+		Helper.clearAndSetField(elements.LEGAL_BIRTH_MONTH, company.legalBirthMonth);
+		Helper.clearAndSetField(elements.LEGAL_BIRTH_DAY, company.legalBirthDay);
+		Helper.setField(elements.LEGAL_ADDRESS1, company.legalAddress1);
+		Helper.setField(elements.LEGAL_ADDRESS2, company.legalAddress2);
+		Helper.setField(elements.LEGAL_CITY, company.legalCity);
 		Helper.selectDropDown(company.legalCountry,elements.LEGAL_COUNTRY, elements.LEGAL_COUNTRY_OPTIONS);
 		Helper.selectDropDown(company.legalState,elements.LEGAL_STATE, elements.LEGAL_STATE_OPTIONS);
-		Helper.setField(company.legalZipCode,elements.LEGAL_ZIP_CODE);
+		Helper.setField(elements.LEGAL_ZIP_CODE, company.legalZipCode);
 		Helper.uploadFile(company.legalIdPath, elements.LEGAL_ID);
 	}
 	
@@ -205,7 +205,7 @@ public class CompanyPanel {
 	 * @param company
 	 */
 	public void verifyCompany(CompanyObject company) {
-		ListHelper.verifyIsInList(elements.COMPANY_ROWS, company.companyName);
+		Helper.verifyIsInList(elements.COMPANY_ROWS, company.companyName);
 	}
 
 }

@@ -1,101 +1,38 @@
 package main.main_ios.Panels;
 
-import core.helpers.ClickHelper;
 import core.helpers.Element;
-import core.helpers.FormHelper;
+import core.helpers.Helper;
 import core.webElement.EnhancedBy;
-import io.appium.java_client.MobileBy;
+import main.main_ios.GaiaIos;
 import main.main_ios.objects.ProductObject;
 
 public class ProductPanel {
 
-	GaiaManager_ios manager;
+	GaiaIos manager;
 
-	public ProductPanel( GaiaManager_ios manager) {
+	public ProductPanel( GaiaIos manager) {
 		this.manager = manager;
 
 	}
+	
+	public static class elements {
+	    public static EnhancedBy PRODUCT_TYPE_PLANT = Element.byAccessibility("Plant Button", "product type plant");
+	    public static EnhancedBy PRODUCT_TYPE_MATERIAL = Element.byXpath("//XCUIElementTypeButton[@name=\"Material\"])[2]", "product type material");
+	    public static EnhancedBy PRODUCT_TYPE_LABOR = Element.byAccessibility("Labor Button", "product type labor");
+	    public static EnhancedBy PRODUCT_TYPE_DELIVERY = Element.byAccessibility("Delivery Button", "product type delivery");
+	    public static EnhancedBy PRODUCT_TYPE_DISPOSAL = Element.byAccessibility("Disposal Button", "product type disposal");
+	    public static EnhancedBy PRODUCT_TYPE_OTHER = Element.byAccessibility("Other Button", "product type other");
+	    public static EnhancedBy PRODUCT_NAME = Element.byAccessibility("Product Name Field", "product name");
+	    public static EnhancedBy PRICE_PER_UNIT = Element.byAccessibility("Price Per Unit Field", "price per unit");
+	    public static EnhancedBy CURRENCY_DROPDOWN_BUTTON = Element.byAccessibility("CurrencyDropDown", "currency drop down button");
+	    public static EnhancedBy CURRENCY_DROPDOWN_OPTION = Element.byClass("XCUIElementTypeCell", "currency drop down option");
+	    public static EnhancedBy UNIT = Element.byAccessibility("Unit Field", "unit option");
+	    public static EnhancedBy SUPPLIER = Element.byAccessibility("Supplier Field", "supplier field");
+	    public static EnhancedBy ADDITIONAL_NOTES = Element.byAccessibility("Additional Notes Field", "additional notes");
+	    public static EnhancedBy SAVE_BUTTON = Element.byAccessibility("Save", "save button");
+	    public static EnhancedBy CANCEL_BUTTON = Element.byAccessibility("Cancel", "cancel button");
+	    public static EnhancedBy CLOSE_BUTTON = Element.byAccessibility("Close", "close button");
 
-	private static final String PRODUCT_TYPE_PLANT = "Plant Button";
-	private static final String PRODUCT_TYPE_MATERIAL	 = "(//XCUIElementTypeButton[@name=\"Material\"])[2]";
-	private static final String PRODUCT_TYPE_LABOR = "Labor Button";
-	private static final String PRODUCT_TYPE_DELIVERY = "Delivery Button";
-	private static final String PRODUCT_TYPE_DISPOSAL = "Disposal Button";
-	private static final String PRODUCT_TYPE_OTHER = "Other Button";
-	private static final String PRODUCT_NAME = "Product Name Field";
-	private static final String PRICE_PER_UNIT = "Price Per Unit Field";
-	private static final String CURRENCY_DROPDOWN_BUTTON = "CurrencyDropDown";
-	private static final String CURRENCY_DROPDOWN_OPTION = "XCUIElementTypeCell";
-	private static final String UNIT = "Unit Field";
-	private static final String SUPPLIER = "Supplier Field";
-	private static final String ADDITIONAL_NOTES = "Additional Notes Field";
-	private static final String SAVE_BUTTON = "Save";
-	private static final String CANCEL_BUTTON = "Cancel";
-	private static final String CLOSE_BUTTON = "Close";
-
-
-	public EnhancedBy byProductTypePlant() {
-		return Element.bySelector(MobileBy.AccessibilityId(PRODUCT_TYPE_PLANT), "product type plant");
-	}
-	
-	public EnhancedBy byProductTypeMaterial() {
-		return Element.bySelector(MobileBy.xpath(PRODUCT_TYPE_MATERIAL), "product type material");
-	}
-	
-	public EnhancedBy byProductTypeLabor() {
-		return Element.bySelector(MobileBy.AccessibilityId(PRODUCT_TYPE_LABOR), "product type labor");
-	}
-	
-	public EnhancedBy byProductTypeDelivery() {
-		return Element.bySelector(MobileBy.AccessibilityId(PRODUCT_TYPE_DELIVERY), "product type delivery");
-	}
-	
-	public EnhancedBy byProductTypeDisposal() {
-		return Element.bySelector(MobileBy.AccessibilityId(PRODUCT_TYPE_DISPOSAL), "product type disposal");
-	}
-	
-	public EnhancedBy byProductTypeOther() {
-		return Element.bySelector(MobileBy.AccessibilityId(PRODUCT_TYPE_OTHER), "product type other");
-	}
-
-	public EnhancedBy byProductNameField() {
-		return Element.bySelector(MobileBy.AccessibilityId(PRODUCT_NAME), "product name");
-	}
-
-	public EnhancedBy byPricePerUnitField() {
-		return Element.bySelector(MobileBy.AccessibilityId(PRICE_PER_UNIT), "price per unit");
-	}
-
-	public EnhancedBy byCurrencyDropDownButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(CURRENCY_DROPDOWN_BUTTON), "currency drop down button");
-	}
-	
-	public EnhancedBy byCurrencyDropDownOption() {
-		return Element.bySelector(MobileBy.className(CURRENCY_DROPDOWN_OPTION), "currency drop down option");
-	}
-	
-	public EnhancedBy byUnitOption() {
-		return Element.bySelector(MobileBy.AccessibilityId(UNIT), "unit option");
-	}
-	
-	public EnhancedBy bySupplierField() {
-		return Element.bySelector(MobileBy.AccessibilityId(SUPPLIER), "supplier field");
-	}
-	
-	public EnhancedBy byAdditionalNotesField() {
-		return Element.bySelector(MobileBy.AccessibilityId(ADDITIONAL_NOTES), "additional notes");
-	}
-	
-	public EnhancedBy bySaveButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(SAVE_BUTTON), "save button");
-	}
-	
-	public EnhancedBy byCancelButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(CANCEL_BUTTON), "cancel button");
-	}
-	
-	public static EnhancedBy byCloseButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(CLOSE_BUTTON), "close button");
 	}
 
     /**
@@ -104,42 +41,42 @@ public class ProductPanel {
      */
 	public void addProduct(ProductObject product) {
 
-		ClickHelper.clickAndExpect(InstallsPanel.byAddProductButton(), byProductNameField());
+		Helper.clickAndExpect(InstallsPanel.byAddProductButton(), elements.PRODUCT_NAME);
 		setProductFields(product);
-		FormHelper.formSubmit(bySaveButton(), byCloseButton());
+		Helper.formSubmit(elements.SAVE_BUTTON, elements.CLOSE_BUTTON);
 	}
 	
 	public void setProductFields(ProductObject product) {
 		
 		selectProductType(product);
-		FormHelper.setField(product.productName, byProductNameField());
-		FormHelper.setField(product.pricePerUnit, byPricePerUnitField());
-		FormHelper.selectDropDown(product.currency, byCurrencyDropDownButton(), byCurrencyDropDownOption());
-		FormHelper.setField(product.unit, byUnitOption());
-		FormHelper.setField(product.supplier, bySupplierField());
-		FormHelper.setField(product.additionalNotes, byAdditionalNotesField());
+		Helper.setField(elements.PRODUCT_NAME, product.productName);
+		Helper.setField(elements.PRICE_PER_UNIT, product.pricePerUnit);
+		Helper.selectDropDown(product.currency, elements.CURRENCY_DROPDOWN_BUTTON, elements.CURRENCY_DROPDOWN_OPTION);
+		Helper.setField(elements.UNIT, product.unit);
+		Helper.setField(elements.SUPPLIER, product.supplier);
+		Helper.setField(elements.ADDITIONAL_NOTES, product.additionalNotes);
 	}
 	
 	public void selectProductType(ProductObject product) {
 		if(product.productType == null) return;
 		switch (product.productType) {
 		case PLANT:
-			FormHelper.formSubmit(byProductTypePlant(), bySaveButton());
+			Helper.formSubmit(elements.PRODUCT_TYPE_PLANT, elements.SAVE_BUTTON);
 			break;
 		case MATERIAL:
-			FormHelper.formSubmit(byProductTypeMaterial(), bySaveButton());
+			Helper.formSubmit(elements.PRODUCT_TYPE_MATERIAL, elements.SAVE_BUTTON);
 			break;
 		case LABOR:
-			FormHelper.formSubmit(byProductTypeLabor(), bySaveButton());
+			Helper.formSubmit(elements.PRODUCT_TYPE_LABOR, elements.SAVE_BUTTON);
 			break;
 		case DELIVERY:
-			FormHelper.formSubmit(byProductTypeDelivery(), bySaveButton());
+			Helper.formSubmit(elements.PRODUCT_TYPE_DELIVERY, elements.SAVE_BUTTON);
 			break;
 		case DISPOSAL:
-			FormHelper.formSubmit(byProductTypeDisposal(), bySaveButton());
+			Helper.formSubmit(elements.PRODUCT_TYPE_DISPOSAL, elements.SAVE_BUTTON);
 			break;
 		case OTHER:
-			FormHelper.formSubmit(byProductTypeOther(), bySaveButton());
+			Helper.formSubmit(elements.PRODUCT_TYPE_OTHER, elements.SAVE_BUTTON);
 			break;
 		}
 	}

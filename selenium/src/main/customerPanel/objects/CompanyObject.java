@@ -2,7 +2,6 @@ package main.customerPanel.objects;
 
 import org.fluttercode.datafactory.impl.DataFactory;
 
-import AdditionalHelper.AdditionalHelpers;
 import core.helpers.Helper;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,6 +13,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CompanyObject {
+	
+	public static final String DEFAULT_TAX_NUMBER = "33";
+	public static final String ADDRESS = "3033 main street";
+	public static final String CITY = "Vancouver";
+	public static final String COUNTRY = "Canada";
+	public static final String STATE = "British Columbia";
+	public static final String ZIP_CODE = "v5s4p3";
+	public static final String LICENSE_LIMIT = "313";
 	
 	// company info
 	public @Getter @Setter String companyName;
@@ -74,7 +81,7 @@ public class CompanyObject {
 	
 	public CompanyObject withCreateDefaultCompany() {
 		String rand = Helper.generateRandomString(3);
-		String randInt = AdditionalHelpers.generateRandomInteger(5);
+		String randInt = Helper.generateRandomInteger(5);
 		return CompanyObject.builder()
 				.companyName("zzz_auto" + rand)
 				.companyEmail("ehsan.matean+" + rand + "@fortify.pro")
@@ -85,7 +92,7 @@ public class CompanyObject {
 	
 	public CompanyObject withEditDefaultCompany() {
 		String rand = Helper.generateRandomString(5);
-		String randInt = AdditionalHelpers.generateRandomInteger(5);
+		String randInt = Helper.generateRandomInteger(5);
 		return CompanyObject.builder()
 				.companyName("zzz_auto" + rand)
 				//.companyEmail("ehsan.matean+" + rand + "@fortify.pro")

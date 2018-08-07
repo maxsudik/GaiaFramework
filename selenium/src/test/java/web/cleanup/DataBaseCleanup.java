@@ -1,29 +1,21 @@
 package test.java.web.cleanup;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import core.helpers.DatabaseHelper.MongoDbHelper;
 import core.helpers.DatabaseHelper.MongoObject;
 import core.logger.TestLog;
-import core.runner.ParallelRunner;
-import main.customerPanel.categories.login;
-import main.customerPanel.categories.user;
-import main.customerPanel.pages.CustomerPanel;
 import test.java.TestBase;
 
 
-@RunWith(ParallelRunner.class)
 public class DataBaseCleanup extends TestBase {
 
-	@Before
+	@BeforeMethod
 	public void beforeMethod() throws Exception {
- 		setupWebDriver(CustomerPanel.GetDriver().withUrl(CustomerPanel.GAIA_SITE));
+		setupWebDriver(app.rest.getDriver());
 	}
 	
-	@Category({ login.class, user.class })
 	@Test
 	public void databaseCleanupTest() throws Exception {
 		

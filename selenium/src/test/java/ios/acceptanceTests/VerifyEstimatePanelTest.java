@@ -1,32 +1,25 @@
 package test.java.ios.acceptanceTests;
 
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
 
-import core.helpers.UtilityHelper;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
+import org.testng.annotations.Test;
+
+import core.helpers.Helper;
 import core.logger.TestLog;
-import core.runner.ParallelRunner;
 import main.main_ios.Panels.MainPanel;
-import main.main_ios.categories.login;
-import main.main_ios.categories.user;
 import main.main_ios.objects.EstimateObject;
 import main.main_ios.objects.EstimateObject.paymentType;
 import main.main_ios.objects.ProductObject;
-import main.main_ios.pages.GaiaIos;
 import test.java.TestBase;
 
-@RunWith(ParallelRunner.class)
 public class VerifyEstimatePanelTest extends TestBase {
 
-	@Before
+	@BeforeMethod
 	public void beforeMethod() throws Exception {
-		setupWebDriver(GaiaIos.GetDriver());
+		setupWebDriver(app.gaia.getDriver());
 	}
 
-	@Category({ login.class, user.class })
 	@Test
 	@Ignore //TODO test needs to be updated from products selection
 	public void verifyAddEstimation() {
@@ -41,7 +34,7 @@ public class VerifyEstimatePanelTest extends TestBase {
 		ProductObject product = new ProductObject()
 				.withProductIndex(0);
 		
-		String estimateTitle = "zzz_estimate" + UtilityHelper.generateRandomString(3);
+		String estimateTitle = "zzz_estimate" + Helper.generateRandomString(3);
 		EstimateObject estimate = new EstimateObject()
 				.withTitle(estimateTitle)
 				.withCustomerSite(0)

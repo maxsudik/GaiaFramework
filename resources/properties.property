@@ -1,0 +1,37 @@
+# global configuration
+global_timeout_seconds=30
+parallel_test_count = 1
+retry_count = 2
+isSingleSignIn = true
+audio_commentary = false
+
+#Android
+androidApp = "mobile-qe-release.apk"
+androidDeviceName1 = "Pixel_C_API_24"
+androidDeviceName2 = "Pixel_2_XL_API_25"
+androidUnicodeKeyboard = true
+androidResetKeyboard = true
+androidFullReset = false
+androidNoReset = false
+androidHome = "/Users/Shared/Jenkins/Library/Android/sdk"
+javaHome = "/Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home"
+
+#iOS
+iosApp = "Gaia.app"
+iosDeviceName = "iPad Air 2"
+iosDeviceVersion = "11.4"
+iosFullReset = false
+iosNoReset = false
+iosOrientation = "landscape"
+
+# Web. Options: REMOTE_WEBDRIVER, LOCAL_WEBDRIVER
+webdriverType = LOCAL_WEBDRIVER
+# Options: CHROME,FIREFOX, INTERNET_EXPLORER, MICROSOFT_EDGE, Opera, PHANTOMJS
+browserType = CHROME
+# Options: LATEST or version number. eg. 56.4
+driverVersion = LATEST
+
+# valid when REMOTE_WEBDRIVER is selected
+#driverType = REMOTE_WEBDRIVER
+server_url = localhost
+server_port = 4444

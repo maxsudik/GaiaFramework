@@ -3,8 +3,8 @@ package main.main_rest;
 
 import com.jayway.restassured.RestAssured;
 
-import core.driver.DriverObject;
-import core.driver.DriverObject.WebDriverType;
+import core.driver.driverProperties.driverType.DriverType;
+import core.driver.objects.DriverObject;
 import main.main_rest.Panels.CompaniesPanel;
 import main.main_rest.Panels.LoginPanel;
 import main.main_rest.Panels.PeoplePanel;
@@ -34,7 +34,7 @@ public class GaiaRest {
 		RestAssured.baseURI = URL;
 		RestAssured.basePath = BASE_PATH;
 		
-		return new DriverObject().withDriverType(WebDriverType.API)
+		return new DriverObject().withDriverType(DriverType.API)
 				.withApp(APP);
 	}	
 }

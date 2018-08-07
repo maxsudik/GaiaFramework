@@ -1,35 +1,28 @@
 package test.java.web.sanityTests;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import core.helpers.Helper;
 import core.logger.TestLog;
-import core.runner.ParallelRunner;
 import main.customerPanel.Panels.CompanyPanel;
+import main.customerPanel.Panels.LoginPanel;
 import main.customerPanel.Panels.PanelNavigation;
-import main.customerPanel.categories.login;
-import main.customerPanel.categories.user;
-import main.customerPanel.constants.UserInfo;
 import main.customerPanel.objects.UserObject;
-import main.customerPanel.pages.CustomerPanel;
 import test.java.TestBase;
 
 
-@RunWith(ParallelRunner.class)
 public class Verify_Login_Test extends TestBase {
 
-	@Before
+	@BeforeMethod
 	public void beforeMethod() throws Exception {
- 		setupWebDriver(CustomerPanel.GetDriver().withUrl(CustomerPanel.GAIA_SITE));
+		setupWebDriver(app.customerPanel.getDriver());
 	}
 
-	@Category({ login.class, user.class })
 	@Test
 	public void validate_user_login() {
-		UserObject user = new UserObject().withEmail(UserInfo.USER_ADMIN).withPassword(UserInfo.PASSWORD_ADMIN);
+		UserObject user = new UserObject().withEmail(UserObject.USER_ADMIN).withPassword(UserObject.PASSWORD_ADMIN);
 		
 		TestLog.When("I login with admin user");
 		app.customerPanel.login.login(user);
@@ -38,34 +31,31 @@ public class Verify_Login_Test extends TestBase {
 		Helper.verifyElementIsDisplayed(CompanyPanel.elements.COMPANY_LIST_SECTION);
 	}
 	
-	@Category({ login.class, user.class })
 	@Test
 	public void validate_user_login_as_manager() {
-		UserObject user = new UserObject().withEmail(UserInfo.USER_AUTO_MANAGER).withPassword(UserInfo.PASSWORD_AUTO_MANAGER);
+		UserObject user = new UserObject().withEmail(UserObject.USER_AUTO_MANAGER).withPassword(UserObject.PASSWORD_AUTO_MANAGER);
 		
 		TestLog.When("I login with manager user");
 		app.customerPanel.login.login(user);
 		
 		TestLog.Then("I verify people list is displayed");
-		Helper.verifyElementIsDisplayed(PanelNavigation.byReportTab());
+		Helper.verifyElementIsDisplayed(PanelNavigation.elements.REPORT_TAB);
 	}
 	
-	@Category({ login.class, user.class })
 	@Test
 	public void validate_user_login_as_supervisor() { 
-		UserObject user = new UserObject().withEmail(UserInfo.USER_AUTO_SUPERVISOR).withPassword(UserInfo.PASSWORD_AUTO_SUPERVISOR);
+		UserObject user = new UserObject().withEmail(UserObject.USER_AUTO_SUPERVISOR).withPassword(UserObject.PASSWORD_AUTO_SUPERVISOR);
 		
 		TestLog.When("I login with supervisor user");
 		app.customerPanel.login.login(user);
 		
 		TestLog.Then("I verify people list is displayed");
-		Helper.verifyElementIsDisplayed(PanelNavigation.byPlantTab());
+		Helper.verifyElementIsDisplayed(PanelNavigation.elements.PLANT_TAB);
 	}
 	
-	@Category({ login.class, user.class })
 	@Test
 	public void validate_user_logout() {
-		UserObject user = new UserObject().withEmail(UserInfo.USER_ADMIN).withPassword(UserInfo.PASSWORD_ADMIN);
+		UserObject user = new UserObject().withEmail(UserObject.USER_ADMIN).withPassword(UserObject.PASSWORD_ADMIN);
 		
 		TestLog.When("I login with admin user");
 		app.customerPanel.login.login(user);
@@ -77,6 +67,6 @@ public class Verify_Login_Test extends TestBase {
 		app.customerPanel.login.logout();
 		
 		TestLog.Then("I should see the login panel");
-		Helper.verifyElementIsDisplayed(app.customerPanel.login.byLoginSubmit());	
+		Helper.verifyElementIsDisplayed(LoginPanel.elements.LOGIN_SUBMIT);	
 	}
 }

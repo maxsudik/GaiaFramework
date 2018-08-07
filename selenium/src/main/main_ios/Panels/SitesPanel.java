@@ -1,112 +1,66 @@
 package main.main_ios.Panels;
 
-import core.helpers.ClickHelper;
 import core.helpers.Element;
-import core.helpers.FormHelper;
+import core.helpers.Helper;
 import core.webElement.EnhancedBy;
 import io.appium.java_client.MobileBy;
+import main.main_ios.GaiaIos;
 import main.main_ios.objects.SiteObject;
 
 public class SitesPanel {
 
-	GaiaManager_ios manager;
+	GaiaIos manager;
 
-	public SitesPanel( GaiaManager_ios manager) {
+	public SitesPanel( GaiaIos manager) {
 		this.manager = manager;
 
 	}
-
-	// account list 
-	private static final String ADD_SITE = "+ Add Site";
-	private static final String SITE_LIST = "XCUIElementTypeStaticText";
-	private static final String SEARCH_FIELD = "XCUIElementTypeSearchField";
-
-
-	//account details (information)
-	private static final String SITENAME_FIELD = "XCUIElementTypeTextField";
-	private static final String STREET_FIELD = "XCUIElementTypeTextField";
-	private static final String POSTAL_CODE_FIELD = "XCUIElementTypeTextField";
 	
-	private static final String CITY_FIELD = "XCUIElementTypeTextField";
-	private static final String STATE_FIELD = "XCUIElementTypeTextField";
-	private static final String COUNTRY_FIELD = "XCUIElementTypeTextField";
-	
-	private static final String Save_BUTTON = "Save";
-	private static final String CANCEL_BUTTON = "Cancel";
-	private static final String CLOSE_BUTTON = "Close";
+	public static class elements {
+		// account list 
+	    public static EnhancedBy ADD_SITE = Element.byAccessibility("+ Add Site", "add account button");
+	    public static EnhancedBy SITE_LIST = Element.byClass("XCUIElementTypeStaticText", "site list");
+	    public static EnhancedBy SEARCH_FIELD = Element.byClass("XCUIElementTypeSearchField", "search field");
+	    
+		//account details (information)
+	    public static EnhancedBy SITENAME_FIELD = Element.byClass("XCUIElementTypeTextField", "site name field");
+	    public static EnhancedBy STREET_FIELD = Element.byClass("XCUIElementTypeTextField", "street field");
+	    public static EnhancedBy POSTAL_CODE_FIELD = Element.byClass("XCUIElementTypeTextField", "postal code field");
+	    
+	    public static EnhancedBy CITY_FIELD = Element.byClass("XCUIElementTypeTextField", "city field");
+	    public static EnhancedBy STATE_FIELD = Element.byClass("XCUIElementTypeTextField", "state field");
+	    public static EnhancedBy COUNTRY_FIELD = Element.byClass("XCUIElementTypeTextField", "country field");
+	    
+	    public static EnhancedBy Save_BUTTON = Element.byAccessibility("Save", "save button");
+	    public static EnhancedBy CANCEL_BUTTON = Element.byAccessibility("Cancel", "cancel button");
+	    public static EnhancedBy CLOSE_BUTTON = Element.byAccessibility("Close", "close button");
 
-	public static EnhancedBy byAddSiteButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(ADD_SITE), "add account button");
-	}
-	
-	public static EnhancedBy bySiteList() {
-		return Element.bySelector(MobileBy.className(SITE_LIST), "site list");
-	}
-	
-	public static EnhancedBy bySite(String site) {
-		return Element.bySelector(MobileBy.AccessibilityId(site), site);
+		public static EnhancedBy bySite(String site) {
+			return Element.bySelector(MobileBy.AccessibilityId(site), site);
+		} 
 	}
 
-	public static EnhancedBy bySiteNameField() {
-		return Element.bySelector(MobileBy.className(SITENAME_FIELD), "site name field");
-	}
-	
-	public static EnhancedBy bySearchField() {
-		return Element.bySelector(MobileBy.className(SEARCH_FIELD), "search field");
-	}
-	
-	public static EnhancedBy byStreetField() {
-		return Element.bySelector(MobileBy.className(STREET_FIELD), "street field");
-	}
-	
-	public static EnhancedBy byPostalCodeField() {
-		return Element.bySelector(MobileBy.className(POSTAL_CODE_FIELD), "postal code field");
-	}
-	
-	public static EnhancedBy byCityField() {
-		return Element.bySelector(MobileBy.className(CITY_FIELD), "city field");
-	}
-	
-	public static EnhancedBy byStateField() {
-		return Element.bySelector(MobileBy.className(STATE_FIELD), "state field");
-	}
-	
-	public static EnhancedBy byCountryField() {
-		return Element.bySelector(MobileBy.className(COUNTRY_FIELD), "country field");
-	}
-	
-	public static EnhancedBy bySaveButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(Save_BUTTON), "save button");
-	}
-	
-	public static EnhancedBy byCancelButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(CANCEL_BUTTON), "cancel button");
-	}
-	
-	public static EnhancedBy byCloseButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(CLOSE_BUTTON), "close button");
-	}
 
 	
 	public void addSite(SiteObject site) {
 		
-		ClickHelper.clickAndExpect(byAddSiteButton(), bySaveButton());
+		Helper.clickAndExpect(elements.ADD_SITE, elements.Save_BUTTON);
 		setField(site);
-		FormHelper.formSubmit(bySaveButton(), byCloseButton());
-		FormHelper.formSubmit(byCloseButton(), byAddSiteButton());
+		Helper.formSubmit(elements.Save_BUTTON, elements.CLOSE_BUTTON);
+		Helper.formSubmit(elements.CLOSE_BUTTON, elements.ADD_SITE);
 	}
 	
 	public void setField(SiteObject site) {
 		
-		FormHelper.setField(site.sitename, bySiteNameField(), 0);
-		FormHelper.setField(site.street, byStreetField(), 1);	
-		FormHelper.setField(site.postalCode, byPostalCodeField(), 2);	
-		FormHelper.setField(site.city, byCityField(), 3);	
-		FormHelper.setField(site.state, byStateField(), 4);	
-		FormHelper.setField(site.country, byCountryField(), 5);	
+		Helper.setField(site.sitename, elements.SITENAME_FIELD, 0);
+		Helper.setField(site.street, elements.STREET_FIELD, 1);	
+		Helper.setField(site.postalCode, elements.POSTAL_CODE_FIELD, 2);	
+		Helper.setField(site.city, elements.CITY_FIELD, 3);	
+		Helper.setField(site.state, elements.STATE_FIELD, 4);	
+		Helper.setField(site.country, elements.COUNTRY_FIELD, 5);	
 	}
 	
 	public void searchSite(SiteObject site) {
-		FormHelper.setField(site.sitename, bySearchField());	
+		Helper.setField(elements.SEARCH_FIELD, site.sitename);	
 	}
 }

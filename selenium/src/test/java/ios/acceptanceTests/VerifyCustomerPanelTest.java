@@ -1,31 +1,23 @@
 package test.java.ios.acceptanceTests;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import core.helpers.Helper;
-import core.helpers.UtilityHelper;
 import core.logger.TestLog;
-import core.runner.ParallelRunner;
 import main.main_ios.Panels.CustomersPanel;
 import main.main_ios.Panels.MainPanel;
-import main.main_ios.categories.customer;
-import main.main_ios.constants.CustomerInfo;
 import main.main_ios.objects.CustomerObject;
-import main.main_ios.pages.GaiaIos;
 import test.java.TestBase;
 
-@RunWith(ParallelRunner.class)
 public class VerifyCustomerPanelTest extends TestBase {
 
-	@Before
+	@BeforeMethod
 	public void beforeMethod() throws Exception {
-		setupWebDriver(GaiaIos.GetDriver());
+		setupWebDriver(app.gaia.getDriver());
 	}
 
-	@Category({ customer.class })
 	@Test
 	public void verifyCustomerSite() {
 		
@@ -36,20 +28,20 @@ public class VerifyCustomerPanelTest extends TestBase {
 		app.gaia.main.selectPanel(MainPanel.gaiaPanels.CUSTOMERS);
 		
 		TestLog.Then("I add a customer");
-		String userName = CustomerInfo.DEFAULT_USER_NAME + UtilityHelper.generateRandomString(3);
-		String firstName = CustomerInfo.DEFAULT_FIRST_NAME + UtilityHelper.generateRandomString(3);
-		String email = CustomerInfo.DEFAULT_EMAIL + UtilityHelper.generateRandomString(3) + "@test.com";
+		String userName = CustomerObject.DEFAULT_USER_NAME + Helper.generateRandomString(3);
+		String firstName = CustomerObject.DEFAULT_FIRST_NAME + Helper.generateRandomString(3);
+		String email = CustomerObject.DEFAULT_EMAIL + Helper.generateRandomString(3) + "@test.com";
 		CustomerObject customer = new CustomerObject()
 				.withUserName(userName)
 				.withEmail(email)
-				.withPassword(CustomerInfo.DEFAULT_PASSWORD)
+				.withPassword(CustomerObject.DEFAULT_PASSWORD)
 				.withFirstName(firstName)
-				.withLastName(CustomerInfo.DEFAULT_LAST_NAME)
-				.withPhoneNumber(CustomerInfo.DEFAULT_PHONE_NUMBER);
+				.withLastName(CustomerObject.DEFAULT_LAST_NAME)
+				.withPhoneNumber(CustomerObject.DEFAULT_PHONE_NUMBER);
 		app.gaia.customer.addCustomer(customer);
 		
 		TestLog.Then("I verify the customer has been added");
-		Helper.verifyElementIsDisplayed(CustomersPanel.byCustomerUser(customer.fullName));
+		Helper.verifyElementIsDisplayed(CustomersPanel.elements.byCustomerUser(customer.fullName));
 		
 	}
 }

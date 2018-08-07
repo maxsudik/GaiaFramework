@@ -11,6 +11,11 @@ public class AccountObject {
 	public String notes;
 	public int roles;
 	
+   // account panel user role button index
+	public static final int SUPERVISOR = 9;
+	public static final int MANAGER = 10;
+	public static final int INSTALLER = 11;
+	
 
 	public AccountObject withEmail(String email) {
 		this.email = email;

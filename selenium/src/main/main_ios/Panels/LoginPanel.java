@@ -1,43 +1,25 @@
 package main.main_ios.Panels;
 
 import core.helpers.Element;
-import core.helpers.FormHelper;
-import core.helpers.PageHelper;
-import core.helpers.WaitHelper;
+import core.helpers.Helper;
 import core.webElement.EnhancedBy;
-import io.appium.java_client.MobileBy;
-import main.main_ios.constants.UserInfo_Ios;
+import main.main_ios.GaiaIos;
 import main.main_ios.objects.UserObject_Ios;
 
 public class LoginPanel {
 
-	GaiaManager_ios manager;
+	GaiaIos manager;
 
-	public LoginPanel( GaiaManager_ios manager) {
+	public LoginPanel( GaiaIos manager) {
 		this.manager = manager;
 
 	}
-
-	private static final String USERNAME_FIELD = "XCUIElementTypeTextField";
-	private static final String PASSWORD_FIELD = "XCUIElementTypeSecureTextField";
-	private static final String LOGIN_SUBMIT = "Authenticate";
-	private static final String GO_BUTTON = "Go";
-
-
-	public static EnhancedBy byUserNameField() {
-		return Element.bySelector(MobileBy.className(USERNAME_FIELD), "email field");
-	}
-
-	public static EnhancedBy byPasswordField() {
-		return Element.bySelector(MobileBy.className(PASSWORD_FIELD), "password field");
-	}
-
-	public static EnhancedBy byLoginSubmit() {
-		return Element.bySelector(MobileBy.AccessibilityId(LOGIN_SUBMIT), "submit");
-	}
 	
-	public static EnhancedBy byGoButton() {
-		return Element.bySelector(MobileBy.AccessibilityId(GO_BUTTON), "go button");
+	public static class elements {
+	    public static EnhancedBy USERNAME_FIELD = Element.byClass("XCUIElementTypeTextField", "email field");
+	    public static EnhancedBy PASSWORD_FIELD = Element.byClass("XCUIElementTypeSecureTextField", "password field");
+	    public static EnhancedBy LOGIN_SUBMIT = Element.byAccessibility("Authenticate", "submit");
+	    public static EnhancedBy GO_BUTTON = Element.byAccessibility("Go", "go button");
 	}
 
 	/**
@@ -47,14 +29,14 @@ public class LoginPanel {
 	 */
 	public void login(UserObject_Ios user) {
 		// dismiss alerts
-		PageHelper.dimissAlert();
-		WaitHelper.waitForSeconds(1);
-		PageHelper.dimissAlert();
+		Helper.dimissAlert();
+		Helper.waitForSeconds(1);
+		Helper.dimissAlert();
 		
-			FormHelper.setField(user.username, byUserNameField());
-			FormHelper.setField(user.password, byPasswordField());
-			FormHelper.formSubmit(byLoginSubmit(), byGoButton());
-			FormHelper.formSubmit(byGoButton(), MainPanel.byGaiaLogo());
+		Helper.setField(elements.USERNAME_FIELD, user.username);
+		Helper.setField(elements.PASSWORD_FIELD, user.password);
+		Helper.formSubmit(elements.LOGIN_SUBMIT, elements.GO_BUTTON);
+		Helper.formSubmit(elements.GO_BUTTON, MainPanel.elements.GAIA_LOGO);
 	}
 	
 	/**
@@ -62,8 +44,8 @@ public class LoginPanel {
 	 */
 	public void loginSupervisor() {
 		UserObject_Ios user = new UserObject_Ios()
-				.withUsername(UserInfo_Ios.SUPERVISOR_USERNAME)
-				.withPassword(UserInfo_Ios.SUPERVISOR_PASSWORD);
+				.withUsername(UserObject_Ios.SUPERVISOR_USERNAME)
+				.withPassword(UserObject_Ios.SUPERVISOR_PASSWORD);
 		login(user);
 	}
 	
@@ -72,8 +54,8 @@ public class LoginPanel {
 	 */
 	public void loginManager() {
 		UserObject_Ios user = new UserObject_Ios()
-				.withUsername(UserInfo_Ios.MANAGER_USERNAME)
-				.withPassword(UserInfo_Ios.MANAGER_PASSWORD);
+				.withUsername(UserObject_Ios.MANAGER_USERNAME)
+				.withPassword(UserObject_Ios.MANAGER_PASSWORD);
 		login(user);
 	}
 }
