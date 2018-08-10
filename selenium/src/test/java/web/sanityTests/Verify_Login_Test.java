@@ -19,6 +19,23 @@ public class Verify_Login_Test extends TestBase {
 	public void beforeMethod() throws Exception {
 		setupWebDriver(app.customerPanel.getDriver());
 	}
+	
+	@Test
+	public void validate_user_logout() {
+		UserObject user = new UserObject().withEmail(UserObject.USER_AUTO_MANAGER).withPassword(UserObject.PASSWORD_AUTO_MANAGER);
+		
+		TestLog.When("I login with manager user");
+		app.customerPanel.login.login(user);
+		
+		TestLog.Then("I verify company dashboard is displayed");
+		Helper.verifyElementIsDisplayed(CompanyPanel.elements.COMPANY_LIST_SECTION);
+		
+		TestLog.When("I logout");
+		app.customerPanel.login.logout();
+		
+		TestLog.Then("I should see the login panel");
+		Helper.verifyElementIsDisplayed(LoginPanel.elements.LOGIN_SUBMIT);	
+	}
 
 	@Test
 	public void validate_user_login() {
@@ -51,22 +68,5 @@ public class Verify_Login_Test extends TestBase {
 		
 		TestLog.Then("I verify people list is displayed");
 		Helper.verifyElementIsDisplayed(PanelNavigation.elements.PLANT_TAB);
-	}
-	
-	@Test
-	public void validate_user_logout() {
-		UserObject user = new UserObject().withEmail(UserObject.USER_ADMIN).withPassword(UserObject.PASSWORD_ADMIN);
-		
-		TestLog.When("I login with admin user");
-		app.customerPanel.login.login(user);
-		
-		TestLog.Then("I verify company list is displayed");
-		Helper.verifyElementIsDisplayed(CompanyPanel.elements.COMPANY_LIST_SECTION);
-		
-		TestLog.When("I logout");
-		app.customerPanel.login.logout();
-		
-		TestLog.Then("I should see the login panel");
-		Helper.verifyElementIsDisplayed(LoginPanel.elements.LOGIN_SUBMIT);	
 	}
 }

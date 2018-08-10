@@ -21,7 +21,7 @@ public class LoginTest extends TestBase {
 	public void verifyManagerLoginTest() {
 		UserObject_Ios user = new UserObject_Ios().withUsername(UserObject_Ios.MANAGER_USERNAME).withPassword(UserObject_Ios.MANAGER_PASSWORD);
 		
-		TestLog.When("I login with default user");
+		TestLog.When("I login with manager user");
 		app.gaia.login.login(user);
 		
 		TestLog.Then("I verify the user has logged in");

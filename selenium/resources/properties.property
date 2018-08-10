@@ -3,7 +3,9 @@ global_timeout_seconds=30
 parallel_test_count = 1
 retry_count = 2
 isSingleSignIn = true
-audio_commentary = false
+audio_commentary = true
+# Options: MARY or WATSON (limited usage per month)
+audio_commentary_type = "WATSON"
 
 #Android
 androidApp = "mobile-qe-release.apk"
