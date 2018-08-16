@@ -30,7 +30,7 @@ public class LoginPanel {
 	public void login(UserObject_Ios user) {
 		// dismiss alerts
 		Helper.dimissAlert();
-		Helper.waitForSeconds(1);
+		Helper.waitForSeconds(2);
 		Helper.dimissAlert();
 		
 		Helper.setField(elements.USERNAME_FIELD, user.username);

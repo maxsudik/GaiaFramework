@@ -25,6 +25,11 @@ iosDeviceVersion = "11.4"
 iosFullReset = false
 iosNoReset = false
 iosOrientation = "landscape"
+iosWaitForQuiescence = false
+iosUseNewWDA = true
+iosclearSystemFiles = false
+iosShouldUseSingletonTestManager = true
+iosShouldUseTestManagerForVisibilityDetection = true
 
 #Appium
 path = "/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
