@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="com.abb.wfm_WEBTest_jar_1.0">
+
+  <test name="com.abb.wfm.webtest.tests suit">
+    <classes>
+      <class name="com.abb.wfm.webtest.tests.web.sanityTests.verifySearchTest" >
+           <methods>          				
+                    <include name="verifyDefaultSearchTest1" />  
+                    <include name="verifyDefaultSearchTest2" /> 
+            </methods>
+        </class>
+    </classes>
+  </test>
+</suite>

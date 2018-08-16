@@ -58,7 +58,6 @@
 			<groupId>com.core</groupId>
 			<artifactId>SeleniumCore</artifactId>
 			<version>2.0.4</version>
-			<scope>test</scope>
 		</dependency>
 		
 		<dependency>
@@ -111,8 +110,4 @@
 		</profile>
 
 	</profiles>
-
-	<modules>
-		<module>../../seleniumcore/selenium</module>
-	</modules>
 </project>
