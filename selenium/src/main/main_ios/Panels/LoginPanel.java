@@ -57,5 +57,7 @@ public class LoginPanel {
 				.withUsername(UserObject_Ios.MANAGER_USERNAME)
 				.withPassword(UserObject_Ios.MANAGER_PASSWORD);
 		login(user);
+		
+		
 	}
 }

@@ -15,8 +15,8 @@ public class PanelNavigation {
 	}
 
 	public enum Panels {
-		COMPANY, SITES, PEOPLE, REPORTS, PLANTS;
-	}
+		COMPANY, SITES, PEOPLE, REPORTS, PLANTS
+    }
 	
 	public static final String COMPANY_PANEL = "COMPANY";
 	public static final String SITE_PANEL = "SITES";
