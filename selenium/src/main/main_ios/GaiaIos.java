@@ -13,6 +13,7 @@ import main.main_ios.Panels.MainPanel;
 import main.main_ios.Panels.ProductPanel;
 import main.main_ios.Panels.ReportsPanel;
 import main.main_ios.Panels.SitesPanel;
+import main.main_ios.Panels.OnboardingPanels.CompanyAddressPanel;
 import main.main_ios.Panels.OnboardingPanels.CreditCardInfoPanel;
 
 
@@ -25,6 +26,7 @@ public class GaiaIos {
 	// panel list
 	public LoginPanel login = new LoginPanel(this);
 	public CreditCardInfoPanel creditCardInfo = new CreditCardInfoPanel(this);
+	public CompanyAddressPanel companyAddress = new CompanyAddressPanel(this);
 	public MainPanel main = new MainPanel(this);
 	public InstallsPanel installs = new InstallsPanel(this);
 	public ProductPanel product = new ProductPanel(this);

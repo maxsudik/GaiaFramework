@@ -20,7 +20,7 @@ public class ManagerLogsInAndOnboardsCompany extends TestBase{
 	 UserObject_Ios user = new UserObject_Ios();
 	 
 	 TestLog.When("I login with created user");
-	 app.gaia.
+
 	}
 
 }
