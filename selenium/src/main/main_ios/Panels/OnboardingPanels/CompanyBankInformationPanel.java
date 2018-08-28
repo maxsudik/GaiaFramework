@@ -15,13 +15,12 @@ GaiaIos manager;
 	}
 	
 	public static class elements {
-		public static EnhancedBy INSTITUTION_NUMBER_FIELD = Element.byId("Address Field ", "Institution Number");
-		public static EnhancedBy TRANSIT_NUMBER_FIELD = Element.byClass("XCUIElementTypeTextField ", "Transit Number");
-		public static EnhancedBy ACCOUNT_NUMBER_FIELD = Element.byClass("XCUIElementTypeTextField ", "Account Number");
-		public static EnhancedBy ACCOUNT_HOLDER_NAME_FIELD = Element.byClass("XCUIElementTypeTextField ", "Account Holder Name");
+		public static EnhancedBy INSTITUTION_NUMBER_FIELD = Element.byAccessibility("Address Field", "Institution Number");
+		public static EnhancedBy TRANSIT_NUMBER_FIELD = Element.byClass("XCUIElementTypeTextField", "Transit Number");
+		public static EnhancedBy ACCOUNT_NUMBER_FIELD = Element.byClass("XCUIElementTypeTextField", "Account Number");
+		public static EnhancedBy ACCOUNT_HOLDER_NAME_FIELD = Element.byClass("XCUIElementTypeTextField", "Account Holder Name");
 		
 		public static EnhancedBy ACCOUNT_TYPE_DDL = Element.byClass("XCUIElementTypeButton", "Account Type");
-		
 		public static EnhancedBy withAccountTypeDDLMI(String companyType) {
 			return Element.byAccessibility(companyType, companyType);
 	}
@@ -37,7 +36,7 @@ GaiaIos manager;
 			Helper.setField(company.accountHolderName().get(), elements.ACCOUNT_HOLDER_NAME_FIELD, 3);
 			Helper.clickAndExpect(elements.ACCOUNT_TYPE_DDL, elements.withAccountTypeDDLMI(company.accountType().get()));
 			Helper.clickAndExpect(elements.withAccountTypeDDLMI(company.accountType().get()), elements.AUTHENTICATE_BUTTON);
-			Helper.clickAndNotExpect(elements.AUTHENTICATE_BUTTON, elements.AUTHENTICATE_BUTTON);
+			Helper.clickAndExpect(elements.AUTHENTICATE_BUTTON, LegalEntityPanel.elements.AUTHENTICATE_BUTTON);
 		
 		}
 }

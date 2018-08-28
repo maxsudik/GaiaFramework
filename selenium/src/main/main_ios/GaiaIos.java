@@ -1,6 +1,7 @@
 package main.main_ios;
 
 
+import bsh.This;
 import core.driver.driverProperties.driverType.DriverType;
 import core.driver.driverProperties.capabilities.IosCapability;
 import core.driver.objects.DriverObject;
@@ -16,7 +17,9 @@ import main.main_ios.Panels.SitesPanel;
 import main.main_ios.Panels.OnboardingPanels.CompanyAddressPanel;
 import main.main_ios.Panels.OnboardingPanels.CompanyBankInformationPanel;
 import main.main_ios.Panels.OnboardingPanels.CreditCardInfoPanel;
+import main.main_ios.Panels.OnboardingPanels.CreditCardInformationPanel;
 import main.main_ios.Panels.OnboardingPanels.LegalEntityPanel;
+import main.main_ios.Panels.OnboardingPanels.ScanCreditCardPanel;
 
 
 
@@ -31,6 +34,8 @@ public class GaiaIos {
 	public CompanyAddressPanel companyAddress = new CompanyAddressPanel(this);
 	public CompanyBankInformationPanel companyBankInformation = new CompanyBankInformationPanel(this);
 	public LegalEntityPanel legalEntity = new LegalEntityPanel(this);
+	public ScanCreditCardPanel scanCreditCard = new ScanCreditCardPanel(this);
+	public CreditCardInformationPanel creditCardInformation = new CreditCardInformationPanel(this);
 	public MainPanel main = new MainPanel(this);
 	public InstallsPanel installs = new InstallsPanel(this);
 	public ProductPanel product = new ProductPanel(this);

@@ -33,8 +33,15 @@ public class ManagerLogsInAndOnboardsCompany extends TestBase{
 	 TestLog.Then("I enter bank inforamtion");
 	 app.gaia.companyBankInformation.enterCompanyBankInformation(company);
 	 
+	 TestLog.Then("I enter legal entity information");
+	 app.gaia.legalEntity.enterLegalEntity(company);
 	 
-
+	 TestLog.Then("I scan credit card");
+	 app.gaia.scanCreditCard.scanCreditCard(company);
+	 
+	 TestLog.Then("I enter credit card information");
+	 app.gaia.creditCardInformation.enterCreditcardInformation(company);
+	 
 	}
 
 }
