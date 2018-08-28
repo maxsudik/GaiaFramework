@@ -4,6 +4,7 @@ import core.helpers.Element;
 import core.helpers.Helper;
 import core.webElement.EnhancedBy;
 import main.main_ios.GaiaIos;
+import main.main_ios.Panels.OnboardingPanels.CreditCardInfoPanel;
 import main.main_ios.objects.UserObject_Ios;
 
 public class LoginPanel {
@@ -29,14 +30,33 @@ public class LoginPanel {
 	 */
 	public void login(UserObject_Ios user) {
 		// dismiss alerts
-		Helper.dimissAlert();
+		Helper.waitForSeconds(5);
+		Helper.acceptAlert();
 		Helper.waitForSeconds(2);
-		Helper.dimissAlert();
+		Helper.acceptAlert();
 		
 		Helper.setField(elements.USERNAME_FIELD, user.username);
 		Helper.setField(elements.PASSWORD_FIELD, user.password);
 		Helper.formSubmit(elements.LOGIN_SUBMIT, elements.GO_BUTTON);
 		Helper.formSubmit(elements.GO_BUTTON, MainPanel.elements.GAIA_LOGO);
+	}
+	
+	/**
+	 * enter login info and click login button
+	 * 
+	 * @param user
+	 */
+	public void loginManagerOnboarding(UserObject_Ios user) {
+		// dismiss alerts
+		Helper.waitForSeconds(5);
+		Helper.acceptAlert();
+		Helper.waitForSeconds(2);
+		Helper.acceptAlert();
+		
+		Helper.setField(elements.USERNAME_FIELD, user.username);
+		Helper.setField(elements.PASSWORD_FIELD, user.password);
+		Helper.formSubmit(elements.LOGIN_SUBMIT, elements.GO_BUTTON);
+		Helper.formSubmit(elements.GO_BUTTON, CreditCardInfoPanel.elements.SCAN_ID);
 	}
 	
 	/**

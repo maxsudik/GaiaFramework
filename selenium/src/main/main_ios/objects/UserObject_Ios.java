@@ -8,8 +8,8 @@ public class UserObject_Ios {
 	public String firstName;
 	public String lastName;
 	
-	public static final String MANAGER_USERNAME = "zzzautomanager1";
-	public static final String MANAGER_PASSWORD = "zzzautomanager1";
+	public static final String MANAGER_USERNAME = "111.qqqq";
+	public static final String MANAGER_PASSWORD = "1111111111";
 	
 	public static final String SUPERVISOR_USERNAME = "zzzauto1";
 	public static final String SUPERVISOR_PASSWORD = "zzzautosupervisor1";
