@@ -30,7 +30,7 @@ public class VerifySitePanelTest extends TestBase {
 		app.gaia.main.selectPanel(MainPanel.gaiaPanels.SITES);
 		
 		TestLog.Then("I add a site");
-		String sitename = SiteObject.DEFAULT_CITY + Helper.generateRandomString(3);
+		String sitename = SiteObject.DEFAULT_SITE + Helper.generateRandomString(3);
 		SiteObject site = new SiteObject()
 				.withSiteName(sitename)
 				.withStreetName(SiteObject.DEFAULT_STREET)
