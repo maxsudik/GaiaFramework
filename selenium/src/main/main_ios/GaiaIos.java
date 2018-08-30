@@ -1,12 +1,12 @@
 package main.main_ios;
 
 
-import bsh.This;
 import core.driver.driverProperties.driverType.DriverType;
 import core.driver.driverProperties.capabilities.IosCapability;
 import core.driver.objects.DriverObject;
 import main.main_ios.Panels.AccountsPanel;
 import main.main_ios.Panels.CustomersPanel;
+import main.main_ios.Panels.EquipmentPanel;
 import main.main_ios.Panels.EstimatePanel;
 import main.main_ios.Panels.InstallsPanel;
 import main.main_ios.Panels.LoginPanel;
@@ -37,13 +37,14 @@ public class GaiaIos {
 	public ScanCreditCardPanel scanCreditCard = new ScanCreditCardPanel(this);
 	public CreditCardInformationPanel creditCardInformation = new CreditCardInformationPanel(this);
 	public MainPanel main = new MainPanel(this);
+	public ReportsPanel report = new ReportsPanel(this);
+	public SitesPanel sites = new SitesPanel(this);
+	public EquipmentPanel equipment = new EquipmentPanel(this);
 	public InstallsPanel installs = new InstallsPanel(this);
+	public CustomersPanel customer = new CustomersPanel(this);
 	public ProductPanel product = new ProductPanel(this);
 	public EstimatePanel estimate = new EstimatePanel(this);
 	public AccountsPanel accounts = new AccountsPanel(this);
-	public SitesPanel sites = new SitesPanel(this);
-	public CustomersPanel customer = new CustomersPanel(this);
-	public ReportsPanel report = new ReportsPanel(this);
 	
 
     /**

@@ -35,6 +35,8 @@ public class SitesPanel {
 	    public static EnhancedBy CANCEL_BUTTON = Element.byAccessibility("Cancel", "cancel button");
 	    public static EnhancedBy CLOSE_BUTTON = Element.byAccessibility("Close", "close button");
 
+	    
+	    //CHECK THIS CODE!!!!!!!!
 		public static EnhancedBy bySite(String site) {
 			return Element.bySelector(MobileBy.AccessibilityId(site), site);
 		} 

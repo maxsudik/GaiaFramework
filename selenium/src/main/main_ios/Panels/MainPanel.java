@@ -51,9 +51,8 @@ public class MainPanel {
 		case SITES:
 			Helper.clickAndExpect(elements.SITES_PANEL, SitesPanel.elements.ADD_SITE);
 			break;
-			//Change to expect
 		case EQUIPMENT:
-			Helper.clickAndNotExpect(elements.EQUIPMENT_PANEL, elements.EQUIPMENT_PANEL);
+			Helper.clickAndExpect(elements.EQUIPMENT_PANEL, EquipmentPanel.elements.ADD_PRODUCT_BUTTON);
 			break;
 		case INSTALLS:
 			Helper.clickAndExpect(elements.INSTALLS_PANEL, InstallsPanel.byAddEstimateButton());

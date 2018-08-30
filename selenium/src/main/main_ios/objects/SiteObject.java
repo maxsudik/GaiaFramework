@@ -9,7 +9,7 @@ public class SiteObject {
 	public String state;
 	public String country;
 	
-	 // default value for fields
+	// Default value for fields
 	public static final String DEFAULT_SITE = "SiteName";
 	public static final String DEFAULT_STREET = "123 main street";
 	public static final String DEFAULT_POSTAL_CODE = "V0V0V0";
