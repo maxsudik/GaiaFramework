@@ -43,5 +43,4 @@ public class ManagerLogsInAndOnboardsCompany extends TestBase{
 	 app.gaia.creditCardInformation.enterCreditcardInformation(company);
 	 
 	}
-
 }

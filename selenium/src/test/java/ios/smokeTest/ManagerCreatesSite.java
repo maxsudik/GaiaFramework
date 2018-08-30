@@ -3,8 +3,12 @@ package test.java.ios.smokeTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import core.helpers.Helper;
 import main.main_ios.Panels.MainPanel;
+import main.main_ios.objects.SiteObject;
 import test.java.TestBase;
+
+
 
 public class ManagerCreatesSite extends TestBase{
 	
@@ -20,8 +24,14 @@ public class ManagerCreatesSite extends TestBase{
 		
 		app.gaia.main.selectPanel(MainPanel.gaiaPanels.SITES);
 		
-		
-		
-		
+		String sitename = SiteObject.DEFAULT_SITE + Helper.generateRandomInteger(3);
+		SiteObject site = new SiteObject()
+				.withSiteName(sitename)
+				.withStreetName(SiteObject.DEFAULT_STREET)
+				.withPostalCode(SiteObject.DEFAULT_POSTAL_CODE)
+				.withState(SiteObject.DEFAULT_STATE)
+				.withCity(SiteObject.DEFAULT_CITY)
+				.withCountry(SiteObject.DEFAULT_COUTRY);
+		app.gaia.sites.addSite(site);
 	}
 }

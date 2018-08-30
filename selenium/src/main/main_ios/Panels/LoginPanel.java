@@ -30,11 +30,6 @@ public class LoginPanel {
 
 	}
 
-	/**
-	 * enter login info and click login button
-	 * 
-	 * @param user
-	 */
 	public void login(UserObject_Ios user) {
 		// dismiss alerts
 		Helper.waitForSeconds(5);
@@ -47,12 +42,7 @@ public class LoginPanel {
 		Helper.formSubmit(elements.AUTHENTICATE_BUTTON, elements.GO_BUTTON);
 		Helper.formSubmit(elements.GO_BUTTON, MainPanel.elements.GAIA_LOGO);
 	}
-	
-	/**
-	 * enter login info and click login button
-	 * 
-	 * @param user
-	 */
+
 	public void loginManagerOnboarding(UserObject_Ios user) {
 		// dismiss alerts
 		Helper.waitForSeconds(5);
@@ -66,9 +56,6 @@ public class LoginPanel {
 		Helper.formSubmit(elements.GO_BUTTON, CreditCardInfoPanel.elements.SCAN_ID);
 	}
 	
-	/**
-	 * login as default manager
-	 */
 	public void loginManager() {
 		UserObject_Ios user = new UserObject_Ios()
 				.withUsername(UserObject_Ios.MANAGER_USERNAME)
@@ -76,9 +63,6 @@ public class LoginPanel {
 		login(user);
 	}
 	
-	/**
-	 * login as default supervisor
-	 */
 	public void loginSupervisor() {
 		UserObject_Ios user = new UserObject_Ios()
 				.withUsername(UserObject_Ios.SUPERVISOR_USERNAME)
@@ -86,9 +70,6 @@ public class LoginPanel {
 		login(user);
 	}
 	
-	/**
-	 * login as default manager
-	 */
 	public void recoverPassword(UserObject_Ios user) {
 		
 		Helper.clickAndExpect(elements.FORGOT_PASSWORD_BUTTON, elements.POP_UP_RESET_BUTTON);
