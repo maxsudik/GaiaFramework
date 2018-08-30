@@ -6,3 +6,6 @@ seleniumCL//test-output/
 apps/
 apps/.DS_Store
 selenium/extent.html
+.idea
+.metadata
+.swp

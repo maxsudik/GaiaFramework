@@ -9,15 +9,7 @@ import core.webElement.EnhancedWebElement;
 public class HelperExt extends Helper {
 
 	
-    /**
-     * gets specified attribute of the element
-     * @param byValue
-     * @param index
-     * @param attribute
-     */
-	public static String getAttribute(EnhancedBy byValue, String attribute) {
-		return getAttribute(byValue, 0, attribute);
-	}
+
 	
     /**
      * gets specified attribute of the element based on index
