@@ -6,7 +6,7 @@
 	<dict>
 		<key>Info.plist</key>
 		<data>
-		wANLhOhiOg46yRX88G8ymTSCGbA=
+		ItSfy0+OnRsBDpBTn8UIjF4FR0A=
 		</data>
 		<key>Stripe.bundle/Images/stp_card_amex.png</key>
 		<data>
@@ -338,7 +338,7 @@
 		</data>
 		<key>Stripe.bundle/Info.plist</key>
 		<data>
-		8vsawR5kSM0XVxKNCW/mNdcGHMM=
+		uY4ZwSmzBSiYw4Bk8GR0Rz5gWDY=
 		</data>
 		<key>Stripe.bundle/Localizations/de.lproj/Localizable.strings</key>
 		<dict>
@@ -353,7 +353,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cUdgWX1YXqS0FESfbZsZmEcFD7A=
+			whIWYoL6/WeJ/gH+8XpxlAZ2aPQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -443,7 +443,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ndehyabjTQEwe8RVrbeE4XSYLQY=
+			lmxYYFIqXm1gpFeC9X/3pQcQ9Lk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1757,11 +1757,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8vsawR5kSM0XVxKNCW/mNdcGHMM=
+			uY4ZwSmzBSiYw4Bk8GR0Rz5gWDY=
 			</data>
 			<key>hash2</key>
 			<data>
-			5TtMAqFLmVaGGwQSahyCmtk/41xBGazA/yC5r2NmqMI=
+			bWvfiXo9WLiRVEmAMtNgNmR8Ste05m/+hJwa0kCbQF4=
 			</data>
 		</dict>
 		<key>Stripe.bundle/Localizations/de.lproj/Localizable.strings</key>
@@ -1781,11 +1781,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cUdgWX1YXqS0FESfbZsZmEcFD7A=
+			whIWYoL6/WeJ/gH+8XpxlAZ2aPQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			MWeS1weKFXuNjcqjAYdgHmzD65SSv0PIudyhvxwuiaI=
+			pEO4iIcUEudPiPT54IknTVquQkiJGUnBtKIYLfItSFw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1911,11 +1911,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ndehyabjTQEwe8RVrbeE4XSYLQY=
+			lmxYYFIqXm1gpFeC9X/3pQcQ9Lk=
 			</data>
 			<key>hash2</key>
 			<data>
-			bTH96VpX34S6ZHpe/QZ02nTfxuVCU0wK1Jn5V8XAbwc=
+			13QQ/rDkOraDITHcV9ghpxPP7d2PifxMJNbmQSGxFpE=
 			</data>
 			<key>optional</key>
 			<true/>
