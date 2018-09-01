@@ -2,24 +2,33 @@ package main.main_ios.objects;
 
 import java.util.List;
 
+import core.helpers.Helper;
+
 public class CustomerObject {
 
 	public String username;
 	public String email;
 	public String password;
+	public String confirmPassword;
 	public String firstname;
 	public String lastname;
 	public String fullName;
 	public String phoneNumber;
-	public List<String> sites;
+	//public List<String> sites;
 	
-	 // default value for fields
-	public static final String DEFAULT_USER_NAME = "zzz_customer";
-	public static final String DEFAULT_EMAIL = "zzz_email";
-	public static final String DEFAULT_PASSWORD = "1234567890";
-	public static final String DEFAULT_FIRST_NAME = "zzz_first";
-	public static final String DEFAULT_LAST_NAME= "auto";
-	public static final String DEFAULT_PHONE_NUMBER= "6043722381";
+	 //Default value for fields
+	public static final String DEFAULT_CUSTOMER_USERNAME = "Username";
+	public static final String DEFAULT_CUSTOMER_EMAIL = "maksym.sudik+1@fortify.pro";
+	public static final String DEFAULT_CUSTOMER_PASSWORD = "1111111111";
+	public static final String DEFAULT_CUSTOMER__CONFIRM_PASSWORD = "1111111111";
+	public static final String DEFAULT_CUSTOMER_FIRST_NAME = "First";
+	public static final String DEFAULT_CUSTOMER_LAST_NAME= "Last";
+	public static final String DEFAULT_CUSTOMER_PHONE_NUMBER= "7781111111";
+	
+	//Random value for fields
+	public static final String RANDOW_CUSTOMER_USERNAME = DEFAULT_CUSTOMER_USERNAME + Helper.generateRandomInteger(3);
+	
+	
 	
 	public CustomerObject withUserName(String username) {
 		this.username = username;
@@ -36,6 +45,11 @@ public class CustomerObject {
 		return this;
 	}
 	
+	public CustomerObject withConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+		return this;
+	}
+	
 	public CustomerObject withFirstName(String firstname) {
 		this.firstname = firstname;
 		this.fullName = this.firstname + " " + this.lastname;
@@ -44,7 +58,7 @@ public class CustomerObject {
 	
 	public CustomerObject withLastName(String lastname) {
 		this.lastname = lastname;
-		this.fullName = this.firstname + " " + this.lastname;
+		/*this.fullName = this.firstname + " " + this.lastname;*/
 		return this;
 	}
 	
@@ -53,8 +67,8 @@ public class CustomerObject {
 		return this;
 	}
 	
-	public CustomerObject withSites(List<String> sites) {
+/*	public CustomerObject withSites(List<String> sites) {
 		this.sites = sites;
 		return this;
-	}
+	}*/
 }

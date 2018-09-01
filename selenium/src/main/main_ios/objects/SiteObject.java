@@ -1,5 +1,7 @@
 package main.main_ios.objects;
 
+import core.helpers.Helper;
+
 public class SiteObject {
 
 	public String sitename;
@@ -17,6 +19,11 @@ public class SiteObject {
 	public static final String DEFAULT_STATE = "BC";
 	public static final String DEFAULT_COUTRY = "Canada";
 	public static final String DEFAULT_PHONE_NUMBER = "7781111111";
+	
+	//Random value for fields
+	public static final String RANDOM_SITE = DEFAULT_SITE + Helper.generateRandomInteger(3);
+	
+	
 
 	public SiteObject withSiteName(String sitename) {
 		this.sitename = sitename;

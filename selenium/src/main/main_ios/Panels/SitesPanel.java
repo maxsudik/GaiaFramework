@@ -18,12 +18,12 @@ public class SitesPanel {
 	
 	public static class elements {
 		
-		// account list 
+		//Accounts list
 	    public static EnhancedBy ADD_SITE = Element.byAccessibility("+ Add Site", "add account button");
 	    public static EnhancedBy SITE_LIST = Element.byClass("XCUIElementTypeStaticText", "site list");
 	    public static EnhancedBy SEARCH_FIELD = Element.byClass("XCUIElementTypeSearchField", "search field");
 	    
-		//account details (information)
+		//Account details (information)
 	    public static EnhancedBy SITENAME_FIELD = Element.byClass("XCUIElementTypeTextField", "site name field");
 	    public static EnhancedBy STREET_FIELD = Element.byClass("XCUIElementTypeTextField", "street field");
 	    public static EnhancedBy CITY_FIELD = Element.byClass("XCUIElementTypeTextField", "city field");

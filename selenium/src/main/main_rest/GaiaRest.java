@@ -15,7 +15,7 @@ public class GaiaRest {
 	// app info
 	
 	public static String APP = "gaiaApi";
-	public static String URL = "https://apidev2.gaialandscape.com/";
+	public static String URL = "https://apidev7.gaialandscape.com/";
 	public static String BASE_PATH ="/api";
 	
 	// panel list

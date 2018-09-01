@@ -17,20 +17,28 @@ public class CustomersPanel {
 	}
 	
 	public static class elements {
-		// customer list 
-	    public static EnhancedBy ADD_CUSTOMER = Element.byAccessibility("+ Add Account", "add customer button");
+		//Customer list 
+	    public static EnhancedBy ADD_CUSTOMER = Element.byAccessibility("+ Add customer", "add customer button");
 	    public static EnhancedBy CUSTOMER_LIST = Element.byClass("XCUIElementTypeStaticText", "customer list");
 	    public static EnhancedBy SEARCH_FIELD = Element.byClass("XCUIElementTypeSearchField", "search field");
 	   
 
-		//account details (information)
+		//Account details (information)
 	    public static EnhancedBy USERNAME_FIELD = Element.byClass("XCUIElementTypeTextField", "username field");
 	    public static EnhancedBy EMAIL_FIELD = Element.byClass("XCUIElementTypeTextField", "email field");
 	    public static EnhancedBy PASSWORD_FIELD = Element.byClass("XCUIElementTypeSecureTextField", "password field");
+	    public static EnhancedBy CONFIRM_PASSWORD_FIELD = Element.byClass("XCUIElementTypeSecureTextField", "confirm password field");
+
 	    
 	    public static EnhancedBy FIRST_NAME_FIELD = Element.byClass("XCUIElementTypeTextField", "first name field");
 	    public static EnhancedBy LAST_NAME_FIELD = Element.byClass("XCUIElementTypeTextField", "last name field");
 	    public static EnhancedBy PHONE_NUMBER_FIELD = Element.byClass("XCUIElementTypeTextField", "phone number field");
+	    
+	    
+	    public static EnhancedBy ADD_NEW_SITE_BUTTON = Element.byAccessibility("", "");
+	    public static EnhancedBy CHOOSE_EXISTING_SITE_BUTTON = Element.byAccessibility("", "");
+	    public static EnhancedBy DIFFERENT_BILLING_ADDRESS_SWITCH = Element.byAccessibility("", "");
+
 	    
 	    public static EnhancedBy SAVE_BUTTON = Element.byAccessibility("Save", "save button");
 	    public static EnhancedBy CANCEL_BUTTON = Element.byAccessibility("Cancel", "cancel button");
@@ -57,7 +65,7 @@ public class CustomersPanel {
 		Helper.setField(customer.username, elements.USERNAME_FIELD, 0);
 		Helper.setField(customer.email, elements.EMAIL_FIELD, 1);	
 		Helper.setField(customer.password, elements.PASSWORD_FIELD, 0);	
-		Helper.setField(customer.password, elements.PASSWORD_FIELD, 1);	
+		Helper.setField(customer.confirmPassword, elements.CONFIRM_PASSWORD_FIELD, 1);	
 		Helper.setField(customer.firstname, elements.FIRST_NAME_FIELD, 2);	
 		Helper.setField(customer.lastname, elements.LAST_NAME_FIELD , 3);	
 		Helper.setField(customer.phoneNumber, elements.PHONE_NUMBER_FIELD, 4);	
