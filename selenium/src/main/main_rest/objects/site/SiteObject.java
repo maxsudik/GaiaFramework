@@ -1,29 +1,36 @@
 package main.main_rest.objects.site;
 
-import core.helpers.Helper;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.inferred.freebuilder.FreeBuilder;
 
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class SiteObject {
+import com.google.common.base.Optional;
+
+import core.helpers.Helper;
+import main.main_rest.objects.CompanyObject;
+import main.main_rest.objects.site.AddressObject.Builder;
+
+
+@FreeBuilder
+public abstract class SiteObject {
 
 	public static final String DEFAULT_SITE_NAME = "zzz_ApiSite";
 
 	/**
 	 * object
 	 */
-	public @Getter @Setter String name;
-	public @Getter @Setter String detectRadius;
-	public @Getter @Setter String id;
-	public @Getter @Setter String created;
-	public @Getter @Setter String companyId;
-	public @Getter @Setter String updated;
-//	public @Getter @Setter AddressObject address;
+	public abstract Optional<String> name();
+	public abstract Optional<String> detectRadius();
+	public abstract Optional<String> id();
+	public abstract Optional<String> created();
+	public abstract Optional<String> companyId();
+	public abstract Optional<String> updated();
+	//public abstract Optional<AddressObject> address();
+	
+	public abstract Builder toBuilder();
+	public static class Builder extends SiteObject_Builder{}
+
+	public static SiteObject site() {
+		return new SiteObject.Builder().buildPartial();
+	}
 	
 	/**
 	 * Predefined site
@@ -32,12 +39,12 @@ public class SiteObject {
 	public SiteObject withDefaultSite() {
 		String rand = Helper.generateRandomString(3);
 		
-		CoordinatesObject coordinates = CoordinatesObject.builder()
+		CoordinatesObject coordinates = new CoordinatesObject.Builder()
 				.lat("49.206875")
 				.lng("-123.044092")
 				.build();
 		
-		 AddressObject.builder()
+		AddressObject address = new AddressObject.Builder()
 				.street("3065 east kent avenue")
 				.city("vancouver")
 				.country("Canada")
@@ -46,11 +53,11 @@ public class SiteObject {
 				.coordinates(coordinates)
 				.build();
 				
-		SiteObject site = SiteObject.builder()
+		SiteObject site = new SiteObject.Builder()
 				.name(DEFAULT_SITE_NAME + rand)
 				.detectRadius("137")
 				//.address(address)
-        			.build();
+        			.buildPartial();
 		
 		return site;
 	}

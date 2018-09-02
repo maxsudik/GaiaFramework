@@ -1,11 +1,14 @@
 package main.main_rest.objects.site;
 
-import lombok.Builder;
-import lombok.Getter;
+import org.inferred.freebuilder.FreeBuilder;
+import com.google.common.base.Optional;
 
-@Builder
-public class CoordinatesObject {
+@FreeBuilder
+public abstract class CoordinatesObject {
 
-	private @Getter String lat;
-	private @Getter String lng;
+	public abstract Optional<String> lat();
+	public abstract Optional<String> lng();
+	
+	public abstract Builder toBuilder();
+    public static class Builder extends CoordinatesObject_Builder{}
 }

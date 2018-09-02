@@ -1,7 +1,12 @@
 package main.main_rest.objects;
 
+import org.inferred.freebuilder.FreeBuilder;
 
-public class UserObject {
+import com.google.common.base.Optional;
+
+
+@FreeBuilder
+public abstract class  UserObject {
 
 	public static final String ADMIN_USER = "admin";
 	public static final String ADMIN_PASSWORD = "# .Gaia$";
@@ -9,33 +14,26 @@ public class UserObject {
 	/**
 	 * object
 	 */
-	public String username;
-	public String password;
-	public String loginId;
+   public abstract Optional<String> username();
+   public abstract Optional<String> password();
+   public abstract Optional<String> loginId();
 	
+	public abstract Builder toBuilder();
+	public static class Builder extends UserObject_Builder{}
+	
+	public static UserObject user() {
+		return new UserObject.Builder().buildPartial();
+	}
 	/**
 	 * Predefined objects
 	 * @return
 	 */
 	public UserObject withAdminLogin() {
-		return withUsername(ADMIN_USER)
-				.withPassword(ADMIN_PASSWORD);
+		return new UserObject.Builder()
+				.username(ADMIN_USER)
+				.password(ADMIN_PASSWORD)
+				.buildPartial();
 	}
 
-	// define variable getters
-	
-	public UserObject withUsername(String username) {
-		this.username = username;
-		return this;
-	}
-	
-	public UserObject withPassword(String password) {
-		this.password = password;
-		return this;
-	}
-	
-	public UserObject withLoginId(String loginId) {
-		this.loginId = loginId;
-		return this;
-	}
+
 }

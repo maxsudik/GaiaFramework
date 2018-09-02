@@ -41,7 +41,8 @@ public class LoginPanel {
 				.then()
 					.contentType(ContentType.JSON).statusCode(200).extract().response();
        
-		user.loginId = response.path("login.id");
+		String id = response.path("login.id");
+		user = UserObject.Builder.from(user).loginId(id).buildPartial();
 		return user;	
 	}
 }

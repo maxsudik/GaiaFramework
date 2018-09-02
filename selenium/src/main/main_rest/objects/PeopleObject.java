@@ -1,40 +1,42 @@
 package main.main_rest.objects;
 
 
+
+import org.inferred.freebuilder.FreeBuilder;
+
+import com.google.common.base.Optional;
+
 import core.helpers.Helper;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
+@FreeBuilder
+public abstract class PeopleObject {
 
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class PeopleObject {
-
-	   public @Getter @Setter String firstName;
-	   public @Getter @Setter String lastName;
-	   public @Getter @Setter String notes;
-	   public @Getter @Setter String roleName;
-	   public @Getter @Setter String username;
-	   public @Getter @Setter String email;
-	   public @Getter @Setter String companyId;
-	   public @Getter @Setter String id;
-	   public @Getter @Setter Boolean emailVerified;
-	   public @Getter @Setter String created;
-	   public @Getter @Setter String password;
-	   public @Getter @Setter ErrorObject error;
+	   public abstract Optional<String> firstName();
+	   public abstract Optional<String> lastName();
+	   public abstract Optional<String> notes();
+	   public abstract Optional<String> roleName();
+	   public abstract Optional<String> username();
+	   public abstract Optional<String> email();
+	   public abstract Optional<String> companyId();
+	   public abstract Optional<String> id();
+	   public abstract Optional<Boolean> emailVerified();
+	   public abstract Optional<String> created();
+	   public abstract Optional<String> password();
+	   public abstract Optional<String> error();
 	   
-
+		public abstract Builder toBuilder();
+		public static class Builder extends PeopleObject_Builder{}
+		
+		public static PeopleObject people() {
+			return new PeopleObject.Builder().buildPartial();
+		}
 		/**
 		 * Predefined objects
 		 * @return
 		 */
 		public PeopleObject withDefaultPerson() {
 			String rand = Helper.generateRandomString(3);
-			return PeopleObject.builder()
+			return new PeopleObject.Builder()
 					.firstName("zzz_apifirst" + rand)
 					.lastName("zzz_apilast" + rand)
 					.notes("auto notes")
@@ -43,6 +45,6 @@ public class PeopleObject {
 					.email("ehsan.matean+" + rand + "@fortify.pro")
 					.emailVerified(true)
 					.password("ZZZe123@@" + rand)
-					.build();
+					.buildPartial();
 		}
 }

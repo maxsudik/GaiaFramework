@@ -14,19 +14,19 @@ public class verifyCompaniesTest extends TestBase {
 	public void beforeMethod() throws Exception {
 		setupWebDriver(app.rest.getDriver());
 	}
-	
+
 	@Test
-	public void verifyCreateCompany1() {
-		
+	public void verifyCreateCompany() {
+
 		TestLog.When("I login with admin user");
-		UserObject user = new UserObject().withAdminLogin();
+		UserObject user = UserObject.user().withAdminLogin();
 		user = app.rest.login.login(user);
-		
-		CompanyObject company = new CompanyObject().withDefaultCompany();
-		TestLog.And("I create company '"  + company.name + "'");
+
+		CompanyObject company = CompanyObject.company().withDefaultCompany();
+		TestLog.And("I create company '" + company.name().get() + "'");
 		company = app.rest.company.createCompany(user, company);
-		
-		TestLog.Then("I delete the company '" + company.name + "'");
-		app.rest.company.deleteCompany(user, company);	
+
+		TestLog.Then("I delete the company '" + company.name().get() + "'");
+		app.rest.company.deleteCompany(user, company);
 	}
 }

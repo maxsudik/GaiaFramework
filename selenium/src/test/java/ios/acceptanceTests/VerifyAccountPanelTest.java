@@ -24,7 +24,7 @@ public class VerifyAccountPanelTest extends TestBase {
 		app.gaia.login.loginManager();
 		
 		TestLog.Then("I navigate to accounts panel");
-		app.gaia.main.selectPanel(MainPanel.gaiaPanels.ACCOUNTS);
+		//app.gaia.main.selectPanel(MainPanel.gaiaPanels.ACCOUNTS);
 	
 	
 		TestLog.Then("I add an accounts");

@@ -1,6 +1,5 @@
 package test.java.rest;
 
-
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -16,28 +15,28 @@ public class verifyPeopleTest extends TestBase {
 	public void beforeMethod() throws Exception {
 		setupWebDriver(app.rest.getDriver());
 	}
-	
+
 	@Test
 	public void verifyCreatePerson() {
-		
+
 		TestLog.When("I login with admin user");
-		UserObject user = new UserObject().withAdminLogin();
+		UserObject user = UserObject.user().withAdminLogin();
 		user = app.rest.login.login(user);
-		
-		CompanyObject company = new CompanyObject().withDefaultCompany();
-		TestLog.And("I create company '"  + company.name + "'");
+
+		CompanyObject company = CompanyObject.company().withDefaultCompany();
+		TestLog.And("I create company '" + company.name().get() + "'");
 		company = app.rest.company.createCompany(user, company);
-		
-		PeopleObject people = new PeopleObject().withDefaultPerson();
-		people.setCompanyId(company.id);
-		
-		TestLog.And("I create person '"  + people.firstName + "'");
+
+		PeopleObject people = PeopleObject.people().withDefaultPerson();
+		people = PeopleObject.Builder.from(people).companyId(company.id().get()).buildPartial();
+
+		TestLog.And("I create person '" + people.firstName().get() + "'");
 		people = app.rest.people.createPerson(user, people);
-		
-		TestLog.Then("I delete the person '" + people.firstName + "'");
-		app.rest.people.deletePerson(user, people);	
-		
-		TestLog.Then("I delete the company '" + company.name + "'");
-		app.rest.company.deleteCompany(user, company);	
+
+		TestLog.Then("I delete the person '" + people.firstName().get() + "'");
+		app.rest.people.deletePerson(user, people);
+
+		TestLog.Then("I delete the company '" + company.name().get() + "'");
+		app.rest.company.deleteCompany(user, company);
 	}
 }

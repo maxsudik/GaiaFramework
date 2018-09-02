@@ -3,6 +3,12 @@ package main.main_rest.Panels;
 
 import static com.jayway.restassured.RestAssured.given;
 
+import java.util.ArrayList;
+
+import org.json.JSONArray;
+
+import com.jayway.restassured.response.Response;
+
 import com.jayway.restassured.http.ContentType;
 
 import core.logger.TestLog;
@@ -26,49 +32,73 @@ public class PeoplePanel {
 	}
 	
 	public PeopleObject createPerson(UserObject user, PeopleObject people) {
-		PeopleObject person = 
+		Response response = 
 				given()
-					.header("Authorization", user.loginId)
+					.header("Authorization", user.loginId().get())
 					.contentType(ContentType.JSON)
 					.body(people)
 				.when().post(apis.PEOPLE_API)
 					.then()
-				.contentType(ContentType.JSON).extract().response().as(PeopleObject.class);	
+				.contentType(ContentType.JSON).extract().response();	
 		
-		return person;
+		String id = response.path("id");
+		people = PeopleObject.Builder.from(people).id(id).buildPartial();
+		
+		return people;
 	}
 	
 	public void deletePerson(UserObject user, PeopleObject people) {
 		 
 				given()
-					.header("Authorization", user.loginId)
+					.header("Authorization", user.loginId().get())
 					.contentType(ContentType.JSON)
 					.body(people)
-				.when().delete(apis.PEOPLE_API + "/" + people.id)
+				.when().delete(apis.PEOPLE_API + "/" + people.id().get())
 					.then()
 				.contentType(ContentType.JSON).statusCode(200).extract().response();	
 	}
 	
-  public PeopleObject[] getAllPeople(UserObject user) {
-	 PeopleObject[] people =
+  public ArrayList<PeopleObject> getAllPeople(UserObject user) {
+	  Response response = 
 	 given()
-		.header("Authorization", user.loginId)
+		.header("Authorization", user.loginId().get())
 		.contentType(ContentType.JSON)
 	 .when().get(apis.PEOPLE_API)
 		.then()
-	 .contentType(ContentType.JSON).statusCode(200).extract().response().as(PeopleObject[].class);	
+	 .contentType(ContentType.JSON).statusCode(200).extract().response();	
 	
-	  return people;
+	  JSONArray people = new  JSONArray(response.body().asString());
+	  return getPeopleFromJson(people);
+  }
+  
+  public PeopleObject getPersonFromJson(JSONArray people) {
+	  return getPeopleFromJson(people).get(0);
+  }
+
+  public ArrayList<PeopleObject> getPeopleFromJson(JSONArray people) {
+	  ArrayList<PeopleObject> personList = new ArrayList<PeopleObject>();
+	  for(int i= 0; i < people.length(); i++) {
+		  PeopleObject person = new PeopleObject.Builder()
+			.firstName(people.getJSONObject(i).getString("firstName"))
+			.lastName(people.getJSONObject(i).getString("lastName"))
+			.roleName(people.getJSONObject(i).getString("roleName"))
+			.username(people.getJSONObject(i).getString("username"))
+			.email(people.getJSONObject(i).getString("email"))
+			.id(people.getJSONObject(i).getString("id"))
+		    .buildPartial();
+		  personList.add(person);
+	  }
+	  return personList;
   }
   
   public void deleteAllPeople(UserObject user, String criteria) {
-	  PeopleObject[] people = getAllPeople(user);
+	  ArrayList<PeopleObject> people = getAllPeople(user);
 	    
-		for(int i= 0; i < people.length; i++) {
-			if(people[i].firstName.toLowerCase().contains(criteria)) {
-				deletePerson(user, people[i]);
-				TestLog.And("I delete person: " + people[i].firstName);
-				System.out.println("person deleted:" + people[i].firstName + " index: " + i);
+		for(int i= 0; i < people.size(); i++) {
+			if(people.get(i).firstName().get().toLowerCase().contains(criteria)) {
+				deletePerson(user, people.get(i));
+				TestLog.And("I delete person: " + people.get(i).firstName().get());
+				System.out.println("person deleted:" + people.get(i).firstName().get() + " index: " + i);
 			}
 		}	
   }

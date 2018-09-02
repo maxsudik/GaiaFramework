@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import core.logger.TestLog;
+import main.main_ios.objects.CompanyObjectIOS;
 import main.main_rest.objects.UserObject;
 import test.java.TestBase;
 
@@ -19,7 +20,8 @@ public class removeTestData extends TestBase {
 	public void deleteAllTestCompanies() {
 		
 		TestLog.When("I login with admin user");
-		UserObject user = new UserObject().withAdminLogin();
+		UserObject user = UserObject.user().withAdminLogin();
+
 		user = app.rest.login.login(user);
 		
 		app.rest.company.deleteAllCompanies(user, "zzz_");
@@ -29,7 +31,7 @@ public class removeTestData extends TestBase {
 	public void deleteAllTestSites() {
 		
 		TestLog.When("I login with admin user");
-		UserObject user = new UserObject().withAdminLogin();
+		UserObject user = UserObject.user().withAdminLogin();
 		user = app.rest.login.login(user);
 		
 		app.rest.site.deleteAllSites(user, "zzz_");
@@ -39,7 +41,7 @@ public class removeTestData extends TestBase {
 	public void deleteAllTestPeople() {
 		
 		TestLog.When("I login with admin user");
-		UserObject user = new UserObject().withAdminLogin();
+		UserObject user = UserObject.user().withAdminLogin();
 		user = app.rest.login.login(user);
 		
 		app.rest.people.deleteAllPeople(user, "zzz_");

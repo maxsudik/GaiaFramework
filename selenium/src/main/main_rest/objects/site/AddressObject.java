@@ -1,17 +1,21 @@
 package main.main_rest.objects.site;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import org.inferred.freebuilder.FreeBuilder;
 
-@Builder
-public class AddressObject {
+import com.google.common.base.Optional;
 
-		//public @Getter @Setter String address;
-		private @Getter @Setter String city;
-		private @Getter @Setter String country;
-		private @Getter @Setter String postalCode;
-		private @Getter @Setter String state;
-		private @Getter @Setter String street;
-		private @Getter @Setter CoordinatesObject coordinates;		
+
+@FreeBuilder
+public abstract class AddressObject {
+
+	   public abstract Optional<String> address();
+	   public abstract Optional<String> city();
+	   public abstract Optional<String> country();
+	   public abstract Optional<String> postalCode();
+	   public abstract Optional<String> state();
+	   public abstract Optional<String> street();
+	   public abstract Optional<CoordinatesObject> coordinates();
+	   
+	   public abstract Builder toBuilder();
+	   public static class Builder extends AddressObject_Builder{}
 }

@@ -15,27 +15,27 @@ public class verifySitesTest extends TestBase {
 	public void beforeMethod() throws Exception {
 		setupWebDriver(app.rest.getDriver());
 	}
-	
+
 	@Test
 	public void verifyCreateSite() {
-		
+
 		TestLog.When("I login with admin user");
-		UserObject user = new UserObject().withAdminLogin();
+		UserObject user = UserObject.user().withAdminLogin();
 		user = app.rest.login.login(user);
-		
-		CompanyObject company = new CompanyObject().withDefaultCompany();
-		TestLog.And("I create company '"  + company.name + "'");
+
+		CompanyObject company = CompanyObject.company().withDefaultCompany();
+		TestLog.And("I create company '" + company.name().get() + "'");
 		company = app.rest.company.createCompany(user, company);
-		
-		SiteObject site = new SiteObject().withDefaultSite();
-		site.setCompanyId(company.id);
-		TestLog.And("I create site '"  + site.name + "'");
+
+		SiteObject site = SiteObject.site().withDefaultSite();
+		site = SiteObject.Builder.from(site).companyId(company.id().get()).buildPartial();
+		TestLog.And("I create site '" + site.name().get() + "'");
 		site = app.rest.site.createSite(user, site);
-		
-		TestLog.Then("I delete the site '" + site.name + "'");
-		app.rest.site.deleteSite(user, site);	
-		
-		TestLog.Then("I delete the company '" + company.name + "'");
-		app.rest.company.deleteCompany(user, company);	
+
+		TestLog.Then("I delete the site '" + site.name().get() + "'");
+		app.rest.site.deleteSite(user, site);
+
+		TestLog.Then("I delete the company '" + company.name().get() + "'");
+		app.rest.company.deleteCompany(user, company);
 	}
 }

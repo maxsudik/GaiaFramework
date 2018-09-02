@@ -1,20 +1,18 @@
 package main.main_rest.objects;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.inferred.freebuilder.FreeBuilder;
 
+import com.google.common.base.Optional;
 
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class ErrorObject {
-
-	   public @Getter @Setter String message;
-	   public @Getter @Setter String name;
-	   public @Getter @Setter String stack;
-	   public @Getter @Setter String statusCode;
+@FreeBuilder
+public abstract class ErrorObject {
+	  
+	   public abstract Optional<String> message();
+	   public abstract Optional<String> name();
+	   public abstract Optional<String> stack();
+	   public abstract Optional<String> statusCode();
+		
+	   public abstract Builder toBuilder();
+	   public static class Builder extends ErrorObject_Builder{}
 }
