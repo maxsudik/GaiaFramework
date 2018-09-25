@@ -23,7 +23,8 @@ public class InstallsPanel {
 		//Main installs panel
 		public static EnhancedBy ADD_ESTIMATE_BUTTON = Element.byAccessibility("+ Add Estimate", "add estimate");
 		public static EnhancedBy SELECT_SITE_BUTTON = Element.byAccessibility("Select Site", "select side");
-		
+		public static EnhancedBy ADD_PRODUCTS_BUTTON = Element.byAccessibility("+ Add Product", "add estimate");
+
 		
 		//Pop-up pick a site window
 		public static EnhancedBy SITE_NAME_BUTTON = Element.byAccessibility(SiteObject.RANDOM_SITE, "site name");

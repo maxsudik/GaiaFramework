@@ -42,7 +42,7 @@ public class CreateManager extends TestBase{
 				.withPassword("1111111111");
 
 		TestLog.And("I add person " + firstName);
-		app.customerPanel.people.addPeople(people, company);
+		app.customerPanel.people.addPeople(people);
 		
 		TestLog.Then("Person should be added successfully");
 		Helper.verifyElementIsDisplayed(PeoplePanel.elements.PEOPLE_ADD_SUCCESS);
