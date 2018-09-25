@@ -32,6 +32,9 @@ public class CompanyPanel {
 	    public static EnhancedBy COMPANYINFO_TYPE_OPTIONS = Element.byCss(".select option", "companytype field options");
 	    public static EnhancedBy CCOMPANYINFO_WEBSITE = Element.byId("website", "website field");
 	    public static EnhancedBy COMPANYINFO_EDIT_BUTTON = Element.byCss(".tag", "company info edit");
+	    public static EnhancedBy COMPANYINFO_CURRENCY = Element.byXpath("//div[@class='card-content']//div[5]//p[1]//span[1]//select[1]", "company currency");
+	    public static EnhancedBy COMPANYINFO_CURRENCY_OPTIONS = Element.byCss(".select option", "CAD");
+
 	   
 	    // address info
 	    public static EnhancedBy COMPANY_ADDRESS1 = Element.byId("address_one", "address 1");
@@ -135,26 +138,16 @@ public class CompanyPanel {
 	}
 
 	/**
-	 * set company fields
+//	 * set company fields
 	 * 
 	 * @param company
 	 */
 	public void setCompanyInfoFields(CompanyObject company) {
 		Helper.setField(elements.COMPANYINFO_NAME, company.companyName);
 		Helper.clearAndSetField(elements.COMPANYINFO_EMAIL, company.companyEmail);
-		Helper.setField(elements.CCOMPANYINFO_WEBSITE, company.companyWebsite);
 		Helper.setField(elements.COMPANYINFO_TAX_NUMBER, company.companyTaxNumber);
 		Helper.selectDropDown(company.companyType, elements.COMPANYINFO_TYPE, elements.COMPANYINFO_TYPE_OPTIONS);
-		
-		if(Helper.isPresent(elements.COMPANYINFO_EDIT_BUTTON))
-			Helper.clickAndExpect(elements.COMPANYINFO_EDIT_BUTTON, elements.COMPANY_ADDRESS1);
-		Helper.setField(elements.COMPANY_ADDRESS1, company.companyAddress1);
-		Helper.setField(elements.COMPANY_ADDRESS2, company.companyAddress2);
-		Helper.setField(elements.COMPANY_CITY, company.companyCity);
-		Helper.selectDropDown(company.companyCountry, elements.COMPANY_COUNTRY_DROPDOWN, elements.COMPANY_DROPDOWN_OPTIONS);
-		Helper.selectDropDown(company.companyState, elements.COMPANY_STATE_DROPDOWN, elements.COMPANY_STATE_DROPDOWN_OPTIONS);
-		Helper.setField(elements.COMPANY_ZIP_CODE, company.companyZipCode);
-		
+		Helper.selectDropDown(company.companyCurrency, elements.COMPANYINFO_CURRENCY, elements.COMPANYINFO_CURRENCY_OPTIONS);	
 	}
 	
 	public void setCreditCardInfoFields(CompanyObject company) {

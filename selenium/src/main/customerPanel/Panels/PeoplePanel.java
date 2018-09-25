@@ -1,10 +1,13 @@
 package main.customerPanel.Panels;
 
 
+
+
 import core.helpers.Element;
 import core.helpers.Helper;
 import core.webElement.EnhancedBy;
 import main.customerPanel.CustomerPanel;
+import main.customerPanel.objects.CompanyObject;
 import main.customerPanel.objects.PeopleObject;
 
 public class PeoplePanel {
@@ -26,18 +29,22 @@ public class PeoplePanel {
 	    public static EnhancedBy PEOPLE_ROWS = Element.byCss(".card-content tr", "tabs dropdown");
 	    
 	 // add people fields
-	    public static EnhancedBy PEOPLE_FIRST_NAME_FIELD = Element.byCss("[placeholder='First name']", "site tab");
-	    public static EnhancedBy PEOPLE_LAST_NAME_FIELD = Element.byCss("[placeholder='Last name']", "people tab");  
-	    public static EnhancedBy PEOPLE_NOTES_FIELD = Element.byCss("[placeholder='Notes']", "people rows");  
+	    
+	    public static EnhancedBy COMPANY_FIELD = Element.byXpath("//form//div[1]//p[1]//span[1]//select[1]", "company");
+	    public static EnhancedBy COMPANY_FIELD_OPTION = Element.byCss(".select option", "company name");
+	    	    
+	    public static EnhancedBy PEOPLE_FIRST_NAME_FIELD = Element.byXpath("//input[@placeholder='First Name']", "site tab");
+	    public static EnhancedBy PEOPLE_LAST_NAME_FIELD = Element.byXpath("//input[@placeholder='Last Name']", "people tab");  
+	    public static EnhancedBy PEOPLE_NOTES_FIELD = Element.byXpath("//input[@placeholder='Notes']", "people rows");  
 	    public static EnhancedBy PEOPLE_ROLES_FIELD = Element.byCss(".control .select", "first name field");  
 	    public static EnhancedBy PEOPLE_ROLES_OPTIONS = Element.byCss(".control .select option", "last name field");  
 	    public static EnhancedBy PEOPLE_USERNAME_FIELD = Element.byCss("[placeholder='Username']", "user name field");  
-	    public static EnhancedBy PEOPLE_EMAIL_FIELD = Element.byCss("[placeholder='Email']", "email field");  
-	    public static EnhancedBy PEOPLE_PASSWORD_FIELD = Element.byCss("[placeholder='Password']", "password field");  
-	    public static EnhancedBy PEOPLE_REPEAT_PASSWORD_FIELD = Element.byCss("[placeholder='Repeat password']", "repeat password field");  
+	    public static EnhancedBy PEOPLE_EMAIL_FIELD = Element.byXpath("//input[@placeholder='Email']", "email field");  
+	    public static EnhancedBy PEOPLE_PASSWORD_FIELD = Element.byXpath("//input[@placeholder='Password']", "password field");  
+	    public static EnhancedBy PEOPLE_REPEAT_PASSWORD_FIELD = Element.byXpath("//input[@placeholder='Repeat Password']", "repeat password field");  
 	    public static EnhancedBy PEOPLE_COMPANY_FIELD = Element.byCss(".control .select", "people company field");  
 	    public static EnhancedBy PEOPLE_COMPANY_OPTIONS = Element.byCss(".control .select option",  "people company options");  
-	    public static EnhancedBy PEOPLE_ADD_BUTTON = Element.byCss(".card-content button.is-success", "people add button");  
+	    public static EnhancedBy PEOPLE_ADD_BUTTON = Element.byXpath("//button[@class='button is-success']", "people add button");  
 	    public static EnhancedBy PEOPLE_ADD_SUCCESS = Element.byCss(".message.is-success", "people add success");  
 	}
 
@@ -48,9 +55,9 @@ public class PeoplePanel {
 	 * 
 	 * @param people
 	 */
-	public void addPeople(PeopleObject people) {
+	public void addPeople(PeopleObject people, CompanyObject company) {
 		Helper.clickAndExpect(elements.ADD_PEOPLE_BUTTON, elements.PEOPLE_FIRST_NAME_FIELD );
-		setPeopleFields(people);
+		setPeopleFields(people, company);
 		Helper.formSubmit(elements.ADD_PEOPLE_BUTTON, elements.PEOPLE_ADD_SUCCESS);
 
 	}
@@ -60,16 +67,18 @@ public class PeoplePanel {
 	 * 
 	 * @param people
 	 */
-	public void setPeopleFields(PeopleObject people) {
+	public void setPeopleFields(PeopleObject people, CompanyObject company) {
+		Helper.selectDropDown(1, elements.PEOPLE_COMPANY_FIELD, elements.PEOPLE_COMPANY_OPTIONS);
+		//Helper.selectDropDown(company.companyName, elements.PEOPLE_COMPANY_FIELD, "Select a company", elements.PEOPLE_COMPANY_OPTIONS);
+		Helper.selectDropDown(people.roles, elements.PEOPLE_ROLES_FIELD, "Select a role", elements.PEOPLE_ROLES_OPTIONS);
 		Helper.setField(elements.PEOPLE_FIRST_NAME_FIELD, people.firstName);
 		Helper.setField(elements.PEOPLE_LAST_NAME_FIELD, people.lastName);
 		Helper.setField(elements.PEOPLE_NOTES_FIELD, people.notes);
-		Helper.selectDropDown(people.roles, elements.PEOPLE_ROLES_FIELD, "Select a role", elements.PEOPLE_ROLES_OPTIONS);
 		Helper.setField(elements.PEOPLE_EMAIL_FIELD, people.email);
 		Helper.setField(elements.PEOPLE_PASSWORD_FIELD, people.password);
 		Helper.setField(elements.PEOPLE_REPEAT_PASSWORD_FIELD, people.password);
-		Helper.selectDropDown(people.company, elements.PEOPLE_COMPANY_FIELD, "Select a company", elements.PEOPLE_COMPANY_OPTIONS);
 		people.userName = Helper.getAttribute(elements.PEOPLE_USERNAME_FIELD, "value");
+		Helper.clickAndExpect(elements.PEOPLE_ADD_BUTTON, elements.PEOPLE_ADD_SUCCESS);
 	}
 
 	/**

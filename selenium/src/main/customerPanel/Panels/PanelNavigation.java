@@ -32,7 +32,10 @@ public class PanelNavigation {
 	    public static EnhancedBy SITE_TAB = Element.byCss("[href*='sites']", "site tab");
 	    public static EnhancedBy PEOPLE_TAB = Element.byCss("[href*='people']", "people tab");  
 	    public static EnhancedBy REPORT_TAB = Element.byCss("[href*='reports']", "report tab");  
-	    public static EnhancedBy PLANT_TAB = Element.byCss("[href*='plants']", "plant tab");  
+	    public static EnhancedBy PLANT_TAB = Element.byCss("[href*='plants']", "plant tab");
+	    
+	    public static EnhancedBy COMPANY_TAB = Element.byXpath("//div[@class='web-style is-tab is-hidden-mobile web-style-active']", "company");
+	    public static EnhancedBy EMPLOYEES_OPTION = Element.byId("navEmployee", "employee");
 	}
 
 	public void selectPanel(String panel) {
@@ -58,5 +61,10 @@ public class PanelNavigation {
 			throw new IllegalStateException("Unsupported browsertype " + panel);
 		}
 		Helper.waitForSeconds(1);
+	}
+	
+	public void selectEmployee() {
+		Helper.clickAndExpect(elements.COMPANY_TAB, elements.EMPLOYEES_OPTION);
+		Helper.clickAndExpect(elements.EMPLOYEES_OPTION, PeoplePanel.elements.ADD_PEOPLE_BUTTON);
 	}
 }

@@ -1,29 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Smoke Test 1">
+<suite name="Smoke Test">
 
-  <test name="July 29">
+  <test name="Sep 24th">
+  
     <classes>
-    
-      <class name="test.java.ios.smokeTest.ManagerCreatesSite" >
-           <methods>          				
-                    <include name="verifyCreatingSite"/>
-            </methods>
-        </class>
-        
-        <class name="test.java.ios.smokeTest.ManagerRecoversPassword" >
-           <methods>          				
-                    <include name="verifyRecoveryPassword"/>
-            </methods>
-        </class>
-        
-        <class name="test.java.ios.smokeTest.ManagerCreatesEquipment" >
-           <methods>          				
-                    <include name="verifyCreatingEquipment"/>
-            </methods>
-        </class>    
-        
+       <class name="test.java.web.smokeTest.CreateCompany"/>
+       <class name="test.java.web.smokeTest.CreateManager"/>
+       <class name="test.java.ios.smokeTest.ManagerLogsInAndOnboardsCompany"/>
+       <class name="test.java.ios.smokeTest.ManagerRecoversPassword"/>
+       <class name="test.java.ios.smokeTest.ManagerCreatesSite"/>
+       <class name="test.java.ios.smokeTest.ManagerCreatesCustomer"/>
+       <class name="test.java.ios.smokeTest.ManagerCreatesEquipment"/>      
     </classes>
   </test>
 </suite>
