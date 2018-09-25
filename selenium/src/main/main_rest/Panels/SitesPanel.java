@@ -1,18 +1,17 @@
 package main.main_rest.Panels;
 
 
-import static com.jayway.restassured.RestAssured.given;
+import static io.restassured.RestAssured.given;
 
 import java.util.ArrayList;
 
 import org.json.JSONArray;
-
-import com.jayway.restassured.http.ContentType;
-import com.jayway.restassured.response.Response;
+import org.json.JSONException;
 
 import core.logger.TestLog;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import main.main_rest.GaiaRest;
-import main.main_rest.objects.CompanyObject;
 import main.main_rest.objects.UserObject;
 import main.main_rest.objects.site.SiteObject;
 
@@ -58,7 +57,7 @@ public class SitesPanel {
 				.contentType(ContentType.JSON).statusCode(200).extract().response();	
 	}
 	
-  public  ArrayList<SiteObject> getAllSites(UserObject user) {
+  public  ArrayList<SiteObject> getAllSites(UserObject user) throws JSONException {
 	  Response response = 
 	 given()
 		.header("Authorization", user.loginId().get())
@@ -67,15 +66,16 @@ public class SitesPanel {
 		.then()
 	 .contentType(ContentType.JSON).statusCode(200).extract().response();	
 	
-	  JSONArray sites = new  JSONArray(response.body().asString());
-	  return getSitesFromJson(sites);
+		JSONArray sites = new JSONArray();
+			sites = new JSONArray(response.body().asString());
+		return getSitesFromJson(sites);
   }
   
-  public SiteObject getSiteFromJson(JSONArray sites) {
+  public SiteObject getSiteFromJson(JSONArray sites) throws JSONException {
 	  return getSitesFromJson(sites).get(0);
   }
 
-  public ArrayList<SiteObject> getSitesFromJson(JSONArray sites) {
+  public ArrayList<SiteObject> getSitesFromJson(JSONArray sites) throws JSONException {
 	  ArrayList<SiteObject> siteList = new ArrayList<SiteObject>();
 	  for(int i= 0; i < sites.length(); i++) {
 		  SiteObject site = new SiteObject.Builder()
@@ -87,7 +87,7 @@ public class SitesPanel {
 	  return siteList;
   }
   
-  public void deleteAllSites(UserObject user, String criteria) {
+  public void deleteAllSites(UserObject user, String criteria) throws JSONException {
 	  ArrayList<SiteObject> sites = getAllSites(user);
 	    
 		for(int i= 0; i < sites.size(); i++) {

@@ -41,7 +41,7 @@ public class ProductPanel {
      */
 	public void addProduct(ProductObject product) {
 
-		Helper.clickAndExpect(InstallsPanel.byAddProductButton(), elements.PRODUCT_NAME);
+		Helper.clickAndExpect(InstallsPanel.elements.ADD_PRODUCTS_BUTTON, elements.PRODUCT_NAME);
 		setProductFields(product);
 		Helper.formSubmit(elements.SAVE_BUTTON, elements.CLOSE_BUTTON);
 	}

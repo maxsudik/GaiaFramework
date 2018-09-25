@@ -1,6 +1,7 @@
 package main.main_rest.objects.site;
 
 import org.inferred.freebuilder.FreeBuilder;
+
 import com.google.common.base.Optional;
 
 @FreeBuilder

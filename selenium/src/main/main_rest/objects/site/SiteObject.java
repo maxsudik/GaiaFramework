@@ -5,8 +5,6 @@ import org.inferred.freebuilder.FreeBuilder;
 import com.google.common.base.Optional;
 
 import core.helpers.Helper;
-import main.main_rest.objects.CompanyObject;
-import main.main_rest.objects.site.AddressObject.Builder;
 
 
 @FreeBuilder

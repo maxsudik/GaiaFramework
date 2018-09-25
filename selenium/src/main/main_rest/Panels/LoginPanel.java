@@ -1,11 +1,10 @@
 package main.main_rest.Panels;
 
 
-import static com.jayway.restassured.RestAssured.given;
+import static io.restassured.RestAssured.given;
 
-import com.jayway.restassured.http.ContentType;
-import com.jayway.restassured.response.Response;
-
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import main.main_rest.GaiaRest;
 import main.main_rest.objects.UserObject;
 
@@ -24,7 +23,6 @@ public class LoginPanel {
 		public static String LOGIN_API = "/people/login";
 		
 	}
-	
 	
 	/**
 	 * set login info and returns login id

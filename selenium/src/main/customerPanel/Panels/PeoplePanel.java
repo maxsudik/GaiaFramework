@@ -55,9 +55,9 @@ public class PeoplePanel {
 	 * 
 	 * @param people
 	 */
-	public void addPeople(PeopleObject people, CompanyObject company) {
+	public void addPeople(PeopleObject people) {
 		Helper.clickAndExpect(elements.ADD_PEOPLE_BUTTON, elements.PEOPLE_FIRST_NAME_FIELD );
-		setPeopleFields(people, company);
+		setPeopleFields(people);
 		Helper.formSubmit(elements.ADD_PEOPLE_BUTTON, elements.PEOPLE_ADD_SUCCESS);
 
 	}
@@ -67,7 +67,7 @@ public class PeoplePanel {
 	 * 
 	 * @param people
 	 */
-	public void setPeopleFields(PeopleObject people, CompanyObject company) {
+	public void setPeopleFields(PeopleObject people) {
 		Helper.selectDropDown(1, elements.PEOPLE_COMPANY_FIELD, elements.PEOPLE_COMPANY_OPTIONS);
 		//Helper.selectDropDown(company.companyName, elements.PEOPLE_COMPANY_FIELD, "Select a company", elements.PEOPLE_COMPANY_OPTIONS);
 		Helper.selectDropDown(people.roles, elements.PEOPLE_ROLES_FIELD, "Select a role", elements.PEOPLE_ROLES_OPTIONS);
