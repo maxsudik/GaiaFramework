@@ -8,7 +8,7 @@ public class UserObject_Ios {
 	public String firstName;
 	public String lastName;
 	
-	public static final String MANAGER_USERNAME = "111.qqqq";
+	public static final String MANAGER_USERNAME = "First.Name.Last.Name";
 	public static final String MANAGER_PASSWORD = "1111111111";
 	public static final String MANAGER_EMAIL = "maksym.sudik+1@fortify.pro";
 	

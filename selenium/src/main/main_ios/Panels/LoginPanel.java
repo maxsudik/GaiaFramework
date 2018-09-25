@@ -71,7 +71,11 @@ public class LoginPanel {
 	}
 	
 	public void recoverPassword(UserObject_Ios user) {
-		
+		Helper.waitForSeconds(5);
+		Helper.acceptAlert();
+		Helper.waitForSeconds(2);
+		Helper.acceptAlert();
+		Helper.waitForElementToBeClickable(elements.FORGOT_PASSWORD_BUTTON);
 		Helper.clickAndExpect(elements.FORGOT_PASSWORD_BUTTON, elements.POP_UP_RESET_BUTTON);
 		Helper.setField(elements.POP_UP_EMAIL_FIELD, user.email);
 		Helper.clickAndExpect(elements.POP_UP_RESET_BUTTON, elements.POP_UP_CLOSE);
