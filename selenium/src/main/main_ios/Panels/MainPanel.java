@@ -55,7 +55,7 @@ public class MainPanel {
 			Helper.clickAndExpect(elements.EQUIPMENT_PANEL, EquipmentPanel.elements.ADD_PRODUCT_BUTTON);
 			break;
 		case INSTALLS:
-			Helper.clickAndExpect(elements.INSTALLS_PANEL, InstallsPanel.byAddEstimateButton());
+			Helper.clickAndExpect(elements.INSTALLS_PANEL, InstallsPanel.elements.ADD_ESTIMATE_BUTTON);
 			break;
 		case CUSTOMERS:
 			Helper.clickAndExpect(elements.CUSTOMERS_PANEL, CustomersPanel.elements.ADD_CUSTOMER );

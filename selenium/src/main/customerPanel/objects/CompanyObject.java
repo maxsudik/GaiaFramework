@@ -28,6 +28,7 @@ public class CompanyObject {
 	public @Getter @Setter String companyWebsite;
 	public @Getter @Setter String companyTaxNumber;
 	public @Getter @Setter String companyType;
+	public @Getter @Setter String companyCurrency;
 	
 	// company address
 	public @Getter @Setter String companyAddress1;
@@ -83,10 +84,11 @@ public class CompanyObject {
 		String rand = Helper.generateRandomString(3);
 		String randInt = Helper.generateRandomInteger(5);
 		return CompanyObject.builder()
-				.companyName("zzz_auto" + rand)
-				.companyEmail("ehsan.matean+" + rand + "@fortify.pro")
+				.companyName("CompanyName" + rand)
+				.companyEmail("maksym.sudik+" + rand + "@fortify.pro")
 				.companyTaxNumber(randInt)
 				.companyType("Landscape")
+				.companyCurrency("CAD")
 				.build();
 	}
 	

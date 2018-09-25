@@ -16,7 +16,7 @@ public class CustomerPanel {
 
 	// app info
 	public static String APP = "customerPanel";
-	public static String URL = "https://customerdev3.gaialandscape.com/";
+	public static String URL = "https://customerdev7.gaialandscape.com/";
 	
 	// panel list
 	public LoginPanel login = new LoginPanel(this);

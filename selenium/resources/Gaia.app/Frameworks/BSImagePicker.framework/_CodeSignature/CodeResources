@@ -10,15 +10,15 @@
 		</data>
 		<key>BSImagePicker.bundle/Albums.storyboardc/Q9l-ou-0o0-view-6nu-Xx-FSD.nib</key>
 		<data>
-		OTrjfac4DCExSs3AiHLQWxHppSU=
+		XW8qssjb1FTEiZw2G47wf9msUgk=
 		</data>
 		<key>BSImagePicker.bundle/Albums.storyboardc/UITableViewController-Q9l-ou-0o0.nib</key>
 		<data>
-		Bc8wvEJMFZf+G+H3pqFQRsts0nk=
+		bRhjaJCKl9XQnSrIHE8pTjEKAaA=
 		</data>
 		<key>BSImagePicker.bundle/CameraCell.nib</key>
 		<data>
-		43Ug67ChpeGq7r0ZDd3qygtaq2s=
+		8mpRWtJ6gTKY4ZaWDIAbaDG9dnQ=
 		</data>
 		<key>BSImagePicker.bundle/Info.plist</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>BSImagePicker.bundle/PhotoCell.nib</key>
 		<data>
-		+5hgy1jELiy71OH9yCKKWCGeB40=
+		bEGI861+7fnwyvs33pLL7RyGzGw=
 		</data>
 		<key>BSImagePicker.bundle/add_photo.png</key>
 		<data>
@@ -74,33 +74,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OTrjfac4DCExSs3AiHLQWxHppSU=
+			XW8qssjb1FTEiZw2G47wf9msUgk=
 			</data>
 			<key>hash2</key>
 			<data>
-			N6R8gDmnSnvRppsjrdOnWTFcgNtoq+rdxgJ+FCN4T8w=
+			ukrP5hPEzID5Djlt6iNb+SphN9LbI5GFlaYhVL/8ikY=
 			</data>
 		</dict>
 		<key>BSImagePicker.bundle/Albums.storyboardc/UITableViewController-Q9l-ou-0o0.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Bc8wvEJMFZf+G+H3pqFQRsts0nk=
+			bRhjaJCKl9XQnSrIHE8pTjEKAaA=
 			</data>
 			<key>hash2</key>
 			<data>
-			LSsvuQm6rolf0z2THmOD/qf06PfT38GxwpVlgXPFTU8=
+			3cTFQqmOx+5qZS2t0d4IWeKwPWJPfxsu/fl0bdWF1Es=
 			</data>
 		</dict>
 		<key>BSImagePicker.bundle/CameraCell.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			43Ug67ChpeGq7r0ZDd3qygtaq2s=
+			8mpRWtJ6gTKY4ZaWDIAbaDG9dnQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			dAQDMzGrx9MPrK9vfM9LuMqjFtueotb1zMgy9xlLlY4=
+			QTdMQWtuXdp/ocfKb5p1PZZCg7zzcdATzotsM9h3q/I=
 			</data>
 		</dict>
 		<key>BSImagePicker.bundle/Info.plist</key>
@@ -118,11 +118,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+5hgy1jELiy71OH9yCKKWCGeB40=
+			bEGI861+7fnwyvs33pLL7RyGzGw=
 			</data>
 			<key>hash2</key>
 			<data>
-			lLaS0cCYmb7DAuLGZ8XjZen04ceegxnV/l96+8W+6Kc=
+			VD0R4MKm7XrCNI6ToobCw0vVntuo5gFRt5B9OfQCIGI=
 			</data>
 		</dict>
 		<key>BSImagePicker.bundle/add_photo.png</key>
