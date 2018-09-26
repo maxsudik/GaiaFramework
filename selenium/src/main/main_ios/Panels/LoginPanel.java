@@ -32,7 +32,7 @@ public class LoginPanel {
 
 	public void login(UserObject_Ios user) {
 		// dismiss alerts
-		Helper.waitForSeconds(5);
+		Helper.waitForSeconds(10);
 		Helper.acceptAlert();
 		Helper.waitForSeconds(2);
 		Helper.acceptAlert();
@@ -45,7 +45,7 @@ public class LoginPanel {
 
 	public void loginManagerOnboarding(UserObject_Ios user) {
 		// dismiss alerts
-		Helper.waitForSeconds(5);
+		Helper.waitForSeconds(10);
 		Helper.acceptAlert();
 		Helper.waitForSeconds(2);
 		Helper.acceptAlert();
@@ -71,7 +71,7 @@ public class LoginPanel {
 	}
 	
 	public void recoverPassword(UserObject_Ios user) {
-		Helper.waitForSeconds(5);
+		Helper.waitForSeconds(10);
 		Helper.acceptAlert();
 		Helper.waitForSeconds(2);
 		Helper.acceptAlert();
