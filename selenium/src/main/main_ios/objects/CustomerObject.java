@@ -15,12 +15,12 @@ public class CustomerObject {
 	//public List<String> sites;
 	
 	 //Default value for fields
-	public static final String DEFAULT_CUSTOMER_USERNAME = "Username";
-	public static final String DEFAULT_CUSTOMER_EMAIL = "maksym.sudik+1@fortify.pro";
+	public static final String DEFAULT_CUSTOMER_USERNAME = "Customer.Last.Name";
+	public static final String DEFAULT_CUSTOMER_EMAIL = "maksym.sudik+2@fortify.pro";
 	public static final String DEFAULT_CUSTOMER_PASSWORD = "1111111111";
 	public static final String DEFAULT_CUSTOMER__CONFIRM_PASSWORD = "1111111111";
-	public static final String DEFAULT_CUSTOMER_FIRST_NAME = "First";
-	public static final String DEFAULT_CUSTOMER_LAST_NAME= "Last";
+	public static final String DEFAULT_CUSTOMER_FIRST_NAME = "Customer";
+	public static final String DEFAULT_CUSTOMER_LAST_NAME= "LastName";
 	public static final String DEFAULT_CUSTOMER_PHONE_NUMBER= "7781111111";
 	
 	//Random value for fields
