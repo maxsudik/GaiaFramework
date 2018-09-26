@@ -1,11 +1,14 @@
 # global configuration
 global_timeout_seconds=60
-parallel_test_count = 1
-retry_count = 2
+parallel_test_count = 2
+retry_count = 1
 isSingleSignIn = false
 audio_commentary = false
 # Options: MARY or WATSON (limited usage per month)
 audio_commentary_type = "WATSON"
+enable_batch_logging=false
+# use either json file or csv for localization
+localization_file = localization.json
 
 #Android
 androidApp = "mobile-qe-release.apk"
@@ -33,6 +36,11 @@ iosShouldUseTestManagerForVisibilityDetection = true
 
 #Appium
 path = "/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+# set to DEFAULT or version. eg.2.41. version match: http://appium.io/docs/en/writing-running-appium/web/chromedriver/
+# appiumChromeAutoManage: false means user will download the driver manually. true: driver manager will download it based on version
+appiumChromeAutoManage = false
+appiumChromeDriverPath = "/gui/chromedriver.exe"
+appiumChromeVersion = "2.22"
 
 # Web. Options: REMOTE_WEBDRIVER, LOCAL_WEBDRIVER
 webdriverType = LOCAL_WEBDRIVER

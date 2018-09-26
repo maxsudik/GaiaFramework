@@ -1,10 +1,9 @@
 package main.main_rest;
 
 
-import com.jayway.restassured.RestAssured;
-
 import core.driver.driverProperties.driverType.DriverType;
 import core.driver.objects.DriverObject;
+import io.restassured.RestAssured;
 import main.main_rest.Panels.CompaniesPanel;
 import main.main_rest.Panels.LoginPanel;
 import main.main_rest.Panels.PeoplePanel;

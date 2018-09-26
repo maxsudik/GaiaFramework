@@ -43,6 +43,7 @@ public class CreateManager extends TestBase{
 		
 		TestLog.And("I add person " + PeopleObject.FIRST_NAME);
 		app.customerPanel.people.addPeople(people, company);
+
 		
 		TestLog.Then("Person should be added successfully");
 		Helper.verifyElementIsDisplayed(PeoplePanel.elements.PEOPLE_ADD_SUCCESS);

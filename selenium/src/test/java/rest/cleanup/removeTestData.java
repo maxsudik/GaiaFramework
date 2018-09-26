@@ -1,11 +1,11 @@
 package test.java.rest.cleanup;
 
 
+import org.json.JSONException;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import core.logger.TestLog;
-import main.main_ios.objects.CompanyObjectIOS;
 import main.main_rest.objects.UserObject;
 import test.java.TestBase;
 
@@ -17,7 +17,7 @@ public class removeTestData extends TestBase {
 	}
 	
 	@Test
-	public void deleteAllTestCompanies() {
+	public void deleteAllTestCompanies() throws JSONException {
 		
 		TestLog.When("I login with admin user");
 		UserObject user = UserObject.user().withAdminLogin();
@@ -28,7 +28,7 @@ public class removeTestData extends TestBase {
 	}
 	
 	@Test
-	public void deleteAllTestSites() {
+	public void deleteAllTestSites() throws JSONException {
 		
 		TestLog.When("I login with admin user");
 		UserObject user = UserObject.user().withAdminLogin();

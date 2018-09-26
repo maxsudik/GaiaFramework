@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import core.helpers.Helper;
 import core.logger.TestLog;
-import main.main_ios.Panels.CustomersPanel2;
+import main.main_ios.Panels.CustomersPanel;
 import main.main_ios.Panels.MainPanel;
 import main.main_ios.objects.CustomerObject;
 import test.java.TestBase;
@@ -41,7 +41,7 @@ public class VerifyCustomerPanelTest extends TestBase {
 		app.gaia.customer.addCustomer(customer);
 		
 		TestLog.Then("I verify the customer has been added");
-		Helper.verifyElementIsDisplayed(CustomersPanel2.elements.byCustomerUser(customer.fullName));
+		Helper.verifyElementIsDisplayed(CustomersPanel.elements.byCustomerUser(customer.fullName));
 		
 		app.gaia.customer.searchCustomer(customer);
 		

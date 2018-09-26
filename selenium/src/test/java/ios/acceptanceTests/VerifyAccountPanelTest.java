@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import core.helpers.Helper;
 import core.logger.TestLog;
 import main.main_ios.Panels.AccountsPanel;
-import main.main_ios.Panels.MainPanel;
 import main.main_ios.objects.AccountObject;
 import test.java.TestBase;
 

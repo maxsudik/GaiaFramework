@@ -49,7 +49,7 @@ public class EstimatePanel {
 	 */
 	public void addEstimate(EstimateObject estimate) {
 		
-		Helper.clickAndExpect(InstallsPanel.byAddEstimateButton(), elements.CUSTOMER_NAME);
+		Helper.clickAndExpect(InstallsPanel.elements.ADD_ESTIMATE_BUTTON, elements.CUSTOMER_NAME);
 		setEstimateFields(estimate);
 		Helper.formSubmit(elements.SAVE_BUTTON, elements.CLOSE_BUTTON);
 		Helper.formSubmit(elements.CLOSE_BUTTON, elements.PAY_BUTTON);
