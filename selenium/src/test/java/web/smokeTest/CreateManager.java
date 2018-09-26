@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 
 import core.helpers.Helper;
 import core.logger.TestLog;
-
 import main.customerPanel.Panels.PeoplePanel;
 import main.customerPanel.objects.CompanyObject;
 import main.customerPanel.objects.PeopleObject;

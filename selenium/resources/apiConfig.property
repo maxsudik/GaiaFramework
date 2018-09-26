@@ -10,7 +10,8 @@ parallelTestcasePath = "/api/testcases/"
 sequentialTestcasePath = "/api/testcases/"
 
 # set file name to run single csv file
-testCaseFile = ""
+testCaseFile = "TestCases_database.csv"
+testCase = "getUsers"
 
 # Database Server
 DBDRIVER = org.postgresql.Driver

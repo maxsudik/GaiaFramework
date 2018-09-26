@@ -1,7 +1,5 @@
 package main.main_ios.objects;
 
-import java.util.List;
-
 import core.helpers.Helper;
 
 public class CustomerObject {

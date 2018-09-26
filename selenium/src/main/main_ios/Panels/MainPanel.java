@@ -57,11 +57,7 @@ public class MainPanel {
 			Helper.clickAndExpect(elements.INSTALLS_PANEL, InstallsPanel.elements.ADD_ESTIMATE_BUTTON);
 			break;
 		case CUSTOMERS:
-			try {
-				Helper.clickAndExpect(elements.CUSTOMERS_PANEL, CustomersPanel.elements.ADD_CUSTOMER);
-			}catch(Exception except) {
-				except.getMessage();
-			}
+			Helper.clickAndExpect(elements.CUSTOMERS_PANEL, CustomersPanel.elements.ADD_CUSTOMER);	
 			break;
 			//Change to expect
 		case EMPLOYEES:

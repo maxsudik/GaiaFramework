@@ -1,15 +1,10 @@
 package test.java.web.sanityTests;
 
-import org.apache.log4j.helpers.OnlyOnceErrorHandler;
-import org.apache.poi.ss.formula.eval.MissingArgEval;
-import org.hamcrest.collection.IsMapContaining;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import core.helpers.Helper;
 import core.logger.TestLog;
-import lombok.Getter;
-import lombok.Setter;
 import main.customerPanel.Panels.CompanyPanel;
 import main.customerPanel.Panels.PanelNavigation;
 import main.customerPanel.Panels.PeoplePanel;

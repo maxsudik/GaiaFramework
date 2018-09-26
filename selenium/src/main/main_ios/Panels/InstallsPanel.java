@@ -4,7 +4,6 @@ package main.main_ios.Panels;
 import core.helpers.Element;
 import core.helpers.Helper;
 import core.webElement.EnhancedBy;
-
 import main.main_ios.GaiaIos;
 import main.main_ios.objects.InstallsObject;
 import main.main_ios.objects.SiteObject;

@@ -3,7 +3,6 @@ package test.java.ios.smokeTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-
 import main.main_ios.Panels.MainPanel;
 import main.main_ios.objects.SiteObject;
 import test.java.TestBase;
