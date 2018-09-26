@@ -42,6 +42,7 @@ public class GaiaIos {
 	public EquipmentPanel equipment = new EquipmentPanel(this);
 	public InstallsPanel installs = new InstallsPanel(this);
 	public CustomersPanel customer = new CustomersPanel(this);
+
 	public ProductPanel product = new ProductPanel(this);
 	public EstimatePanel estimate = new EstimatePanel(this);
 	public AccountsPanel accounts = new AccountsPanel(this);

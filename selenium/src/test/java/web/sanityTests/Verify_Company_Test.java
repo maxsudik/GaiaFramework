@@ -1,10 +1,15 @@
 package test.java.web.sanityTests;
 
+import org.apache.log4j.helpers.OnlyOnceErrorHandler;
+import org.apache.poi.ss.formula.eval.MissingArgEval;
+import org.hamcrest.collection.IsMapContaining;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import core.helpers.Helper;
 import core.logger.TestLog;
+import lombok.Getter;
+import lombok.Setter;
 import main.customerPanel.Panels.CompanyPanel;
 import main.customerPanel.Panels.PanelNavigation;
 import main.customerPanel.Panels.PeoplePanel;
@@ -28,12 +33,12 @@ public class Verify_Company_Test extends TestBase {
 		app.customerPanel.login.login(user);
 
 		// add company
-		CompanyObject company = new CompanyObject().withCreateDefaultCompany();
-		TestLog.Then("I add company " + company.companyName);
+		CompanyObject company = new CompanyObject();
+		TestLog.Then("I add company " + company.name);
 		app.customerPanel.company.addCompany(company);
 		
-		TestLog.Then("company " + company.companyName + " should be added successfully");
-		Helper.verifyContainsIsInList(CompanyPanel.elements.COMPANY_ROWS, company.companyName);
+		TestLog.Then("company " + company.name + " should be added successfully");
+		Helper.verifyContainsIsInList(CompanyPanel.elements.COMPANY_ROWS, company.name);
 	}
 	
 	@Test
@@ -45,13 +50,13 @@ public class Verify_Company_Test extends TestBase {
 		app.customerPanel.login.login(user);
 
 		// create company
-		CompanyObject company = new CompanyObject().withCreateDefaultCompany();
-		TestLog.Then("I add company " + company.companyName);
+		CompanyObject company = new CompanyObject();
+		TestLog.Then("I add company " + company.name);
 		app.customerPanel.company.addCompany(company);
 		
 		// verify company
-		TestLog.Then("company " + company.companyName + " should be added successfully");
-		Helper.verifyContainsIsInList(CompanyPanel.elements.COMPANY_ROWS, company.companyName);
+		TestLog.Then("company " + company.name + " should be added successfully");
+		Helper.verifyContainsIsInList(CompanyPanel.elements.COMPANY_ROWS, company.name);
 		
 		// select people panel
 		TestLog.When("I select people panel");
@@ -67,25 +72,22 @@ public class Verify_Company_Test extends TestBase {
 				.withLastName(lastName)
 				.withNotes("test note")
 				.withRoles(PeoplePanel.MANAGER)
-				.withUserName(userName)
 				.withEmail(email)
 				.withPassword("12345TestUser@")
-				.withCompany(company.companyName);
+				.withCompanyName(company.name);
 
 		TestLog.And("I add person " + firstName);
-		app.customerPanel.people.addPeople(people);
+		app.customerPanel.people.addPeople(people, company);
 		
 		// relogin  as admin
-		TestLog.Then("I relogin as admin user " +  people.userName);
-		user.email = people.userName;
+		TestLog.Then("I relogin as admin user " +  people.firstName);
+		user.email = people.firstName;
 		user.password = people.password;
 		app.customerPanel.login.relogin(user);
 		
 		TestLog.When("I navigate to company panel");
 		app.customerPanel.navigate.selectPanel(PanelNavigation.COMPANY_PANEL);
 		
-		TestLog.Then("I set add the additional info for the company " + company.companyName);
-		app.customerPanel.company.editCompany(company.withEditDefaultCompany());
 		
 		
 		

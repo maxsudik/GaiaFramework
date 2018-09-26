@@ -1,6 +1,7 @@
 package main.customerPanel.Panels;
 
 
+
 import core.helpers.Element;
 import core.helpers.Helper;
 import core.webElement.EnhancedBy;
@@ -23,6 +24,9 @@ public class CompanyPanel {
 	    public static EnhancedBy ADD_NEW_COMPANY_BUTTON = Element.byCss(".card-content .is-success", "add company");
 	    public static EnhancedBy COMPANY_ROWS = Element.byCss(".card-content tr", "company rows");
 	    public static EnhancedBy COMPANY_EDIT_BUTTON = Element.byCss(".fa-address-card-o", "company edit button");
+	    public static EnhancedBy COMPANY_DELETE_BUTTON = Element.byXpath("//tbody//tr[1]//td[6]//div[1]//button[2]//i[1]", "company delete button");
+	    public static EnhancedBy COMPANY_SEARCH_FIELD = Element.byXpath("//input[@placeholder='Search']", "search field");
+	    public static EnhancedBy POP_UP_DELETE_BUTTON = Element.byXpath("//span[contains(text(),'Delete')]", "delete pop up");
 	    
 	    // edit company info
 	    public static EnhancedBy COMPANYINFO_NAME = Element.byId("company_name", "company name field");
@@ -122,20 +126,7 @@ public class CompanyPanel {
 		Helper.formSubmit(elements.COMPANY_ADD_BUTTON, elements.ADD_NEW_COMPANY_BUTTON);
 
 	}
-	
-	public void editCompany(CompanyObject company) {
-		setCompanyInfoFields(company);
-		Helper.formSubmit(elements.COMPANY_ADDRESS_SAVE, elements.COMPANY_ADDRESS_SAVE_SUCCESS);
-		
-		setCreditCardInfoFields(company);
-		Helper.formSubmit(elements.CARD_SAVE_BUTTON, elements.CARD_SAVE_SUCCESS);
-		
-		setBankAccountInfoFields(company);
-		Helper.formSubmit(elements.BANK_SAVE_BUTTON, elements.BANK_SAVE_SUCCESS);
-		
-		setLegalEntityInfoFields(company);
-		Helper.formSubmit(elements.LEGAL_SAVE_BUTTON, elements.LEGAL_ID_SUCCESS);
-	}
+
 
 	/**
 //	 * set company fields
@@ -143,53 +134,11 @@ public class CompanyPanel {
 	 * @param company
 	 */
 	public void setCompanyInfoFields(CompanyObject company) {
-		Helper.setField(elements.COMPANYINFO_NAME, company.companyName);
-		Helper.clearAndSetField(elements.COMPANYINFO_EMAIL, company.companyEmail);
-		Helper.setField(elements.COMPANYINFO_TAX_NUMBER, company.companyTaxNumber);
-		Helper.selectDropDown(company.companyType, elements.COMPANYINFO_TYPE, elements.COMPANYINFO_TYPE_OPTIONS);
-		Helper.selectDropDown(company.companyCurrency, elements.COMPANYINFO_CURRENCY, elements.COMPANYINFO_CURRENCY_OPTIONS);	
-	}
-	
-	public void setCreditCardInfoFields(CompanyObject company) {
-		
-		Helper.setField(elements.CARD_LICENSE_LIMIT, company.cardLicenseLimit);
-		Helper.setField(elements.CARD_NUMBER, company.cardNumber);
-		Helper.setField(elements.CARD_NAME, company.cardName);
-		Helper.selectDropDown(company.cardExpirationMonth,elements.CARD_EXPIRATION_MONTH, elements.CARD_EXPIRATION_MONTH_OPTIONS);
-		Helper.selectDropDown(company.cardExpirationYear,elements.CARD_EXPIRATION_YEAR, elements.CARD_EXPIRATION_YEAR_OPTION);
-		Helper.setField(elements.CARD_EXPIRATION_CVV, company.cardExpirationCvv);
-		Helper.setField(elements.CARD_ADDRESS1, company.cardAddress1);
-		Helper.setField(elements.CARD_ADDRESS2, company.cardAddress2);
-		Helper.setField(elements.CARD_CITY, company.cardCity);
-		Helper.selectDropDown(company.cardCountry,elements.CARD_COUNTRY_DROPDOWN, elements.CARD_COUNTRY_DROPDOWN_OPTIONS);
-		Helper.selectDropDown(company.cardState, elements.CARD_STATE, elements.CARD_STATE_OPTIONS);
-		Helper.setField(elements.CARD_POSTAL, company.cardPostal);
-	}
-
-	public void setBankAccountInfoFields(CompanyObject company) {
-	
-		Helper.setField(elements.BANK_INSTITUTION_NUMBER, company.bankInstitutionNumber);
-		Helper.setField(elements.BANK_TRANSIT_NUMBER, company.bankTransitNumber);
-		Helper.setField(elements.BANK_NUMBER, company.bankNumber);
-		Helper.setField(elements.BANK_HOLDER, company.bankHolder);
-		Helper.selectDropDown(company.bankType,elements.BANK_TYPE, elements.BANK_TYPE_OPTIONS);
-	}
-	
-	public void setLegalEntityInfoFields(CompanyObject company) {
-		
-		Helper.setField(elements.LEGAL_FIRST_NAME, company.legalFirstName);
-		Helper.setField(elements.LEGAL_LAST_NAME, company.legalLastName);
-		Helper.clearAndSetField(elements.LEGAL_BIRTH_YEAR, company.legalBirthYear);
-		Helper.clearAndSetField(elements.LEGAL_BIRTH_YEAR, company.legalBirthYear);
-		Helper.clearAndSetField(elements.LEGAL_BIRTH_MONTH, company.legalBirthMonth);
-		Helper.clearAndSetField(elements.LEGAL_BIRTH_DAY, company.legalBirthDay);
-		Helper.setField(elements.LEGAL_ADDRESS1, company.legalAddress1);
-		Helper.setField(elements.LEGAL_ADDRESS2, company.legalAddress2);
-		Helper.setField(elements.LEGAL_CITY, company.legalCity);
-		Helper.selectDropDown(company.legalCountry,elements.LEGAL_COUNTRY, elements.LEGAL_COUNTRY_OPTIONS);
-		Helper.selectDropDown(company.legalState,elements.LEGAL_STATE, elements.LEGAL_STATE_OPTIONS);
-		Helper.setField(elements.LEGAL_ZIP_CODE, company.legalZipCode);
-		Helper.uploadFile(company.legalIdPath, elements.LEGAL_ID);
+		Helper.setField(elements.COMPANYINFO_NAME, company.name);
+		Helper.clearAndSetField(elements.COMPANYINFO_EMAIL, company.email);
+		Helper.setField(elements.COMPANYINFO_TAX_NUMBER, company.tax);
+		Helper.selectDropDown(company.type, elements.COMPANYINFO_TYPE, elements.COMPANYINFO_TYPE_OPTIONS);
+		Helper.selectDropDown(company.currency, elements.COMPANYINFO_CURRENCY, elements.COMPANYINFO_CURRENCY_OPTIONS);	
 	}
 	
 	/**
@@ -198,7 +147,14 @@ public class CompanyPanel {
 	 * @param company
 	 */
 	public void verifyCompany(CompanyObject company) {
-		Helper.verifyIsInList(elements.COMPANY_ROWS, company.companyName);
+		Helper.verifyIsInList(elements.COMPANY_ROWS, company.name);
+	}
+	
+	public void deleteCompanies(CompanyObject company) {
+		
+		Helper.setFieldAndEnter(elements.COMPANY_SEARCH_FIELD, company.name);
+		Helper.clickAndExpect(elements.COMPANY_DELETE_BUTTON, elements.POP_UP_DELETE_BUTTON);
+		Helper.clickAndExpect(elements.POP_UP_DELETE_BUTTON, elements.COMPANY_SEARCH_FIELD);
 	}
 
 }

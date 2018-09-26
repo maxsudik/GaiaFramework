@@ -17,8 +17,18 @@ public class CreateCompany extends TestBase{
 	
 	@Test
 	public void createCompany() {
-		UserObject user = new UserObject().withEmail(UserObject.USER_ADMIN).withPassword(UserObject.PASSWORD_ADMIN);
-		CompanyObject company = new CompanyObject().withCreateDefaultCompany();
+		
+		UserObject user = new UserObject()
+				.withEmail(UserObject.USER_ADMIN)
+				.withPassword(UserObject.PASSWORD_ADMIN);
+		
+		CompanyObject company = new CompanyObject()
+				.withName(CompanyObject.COMPANY_NAME)
+				.withEmail(CompanyObject.COMPANY_EMAIL)
+				.withTax(CompanyObject.COMPANY_TAX_NUMBER)
+				.withType(CompanyObject.COMPANY_TYPE)
+				.withCurrency(CompanyObject.COMPANY_CURRENCY)
+				.withDescription(CompanyObject.COMPANY_DESCRIPTION);
 		
 		TestLog.When("I login with manager user");
 		app.customerPanel.login.login(user);
@@ -27,6 +37,5 @@ public class CreateCompany extends TestBase{
 		app.customerPanel.company.addCompany(company);
 		
 	}
-	
 
 }

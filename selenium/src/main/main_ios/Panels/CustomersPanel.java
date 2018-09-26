@@ -54,7 +54,6 @@ public class CustomersPanel {
 
 	public void addCustomer(CustomerObject customer) {
 		
-		Helper.waitForElementToBeClickable(elements.ADD_CUSTOMER);
 		Helper.clickAndExpect(elements.ADD_CUSTOMER, elements.SAVE_BUTTON);
 		setField(customer);
 		Helper.formSubmit(elements.SAVE_BUTTON, elements.CLOSE_BUTTON);

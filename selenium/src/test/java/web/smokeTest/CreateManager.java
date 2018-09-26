@@ -21,28 +21,29 @@ public class CreateManager extends TestBase{
 	@Test
 	public void createManager() {
 		UserObject user = new UserObject().withEmail(UserObject.USER_ADMIN).withPassword(UserObject.PASSWORD_ADMIN);
-		CompanyObject company = new CompanyObject().withCreateDefaultCompany();
-		
+
 		TestLog.When("I login with manager user");
 		app.customerPanel.login.login(user);
 		
 		TestLog.When("I select people panel");
 		app.customerPanel.navigate.selectEmployee();
-
-		// add people
-		String firstName = "FirstName";
-		String lastName = "LastName";
-		String email = "maksym.sudik+1@fortify.pro";
+		
 		PeopleObject people = new PeopleObject()
-				.withFirstName(firstName)
-				.withLastName(lastName)
-				.withNotes("tsome notes")
-				.withRoles(PeoplePanel.MANAGER)
-				.withEmail(email)
-				.withPassword("1111111111");
+				.withCompanyName(CompanyObject.COMPANY_NAME)
+				.withRoles(PeopleObject.ROLES)
+				.withFirstName(PeopleObject.FIRST_NAME)
+				.withLastName(PeopleObject.LAST_NAME)
+				.withNotes(PeopleObject.NOTES)
+				.withEmail(PeopleObject.EMAIL)
+				.withPassword(PeopleObject.PASSWORD)
+				.withRepeatPassword(PeopleObject.REPEAT_PASSWORD);
+		
+		CompanyObject company = new CompanyObject()
+				.withName(CompanyObject.COMPANY_NAME);
+		
+		TestLog.And("I add person " + PeopleObject.FIRST_NAME);
+		app.customerPanel.people.addPeople(people, company);
 
-		TestLog.And("I add person " + firstName);
-		app.customerPanel.people.addPeople(people);
 		
 		TestLog.Then("Person should be added successfully");
 		Helper.verifyElementIsDisplayed(PeoplePanel.elements.PEOPLE_ADD_SUCCESS);

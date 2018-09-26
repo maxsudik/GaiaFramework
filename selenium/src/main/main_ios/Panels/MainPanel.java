@@ -1,6 +1,5 @@
 package main.main_ios.Panels;
 
-
 import core.helpers.Element;
 import core.helpers.Helper;
 import core.webElement.EnhancedBy;
@@ -58,7 +57,11 @@ public class MainPanel {
 			Helper.clickAndExpect(elements.INSTALLS_PANEL, InstallsPanel.elements.ADD_ESTIMATE_BUTTON);
 			break;
 		case CUSTOMERS:
-			Helper.clickAndExpect(elements.CUSTOMERS_PANEL, CustomersPanel.elements.ADD_CUSTOMER );
+			try {
+				Helper.clickAndExpect(elements.CUSTOMERS_PANEL, CustomersPanel.elements.ADD_CUSTOMER);
+			}catch(Exception except) {
+				except.getMessage();
+			}
 			break;
 			//Change to expect
 		case EMPLOYEES:
