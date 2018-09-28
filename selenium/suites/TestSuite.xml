@@ -17,6 +17,7 @@
 	   <class name="test.java.ios.smokeTest.ManagerCreatesEquipment"/>
 	   <class name="test.java.ios.smokeTest.ManagerCreatesProduct"/>
 	   <class name="test.java.ios.smokeTest.ManagerCreatesEstimate"/>
+	   <class name="test.java.ios.smokeTest.ManagerCreatesEstimate"/>
 	   <class name="test.java.web.smokeTest.CleanAfterTest"/> 
      
     </classes>
