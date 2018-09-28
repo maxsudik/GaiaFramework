@@ -3,6 +3,8 @@ package main.main_ios.Panels;
 
 
 
+import org.w3c.dom.css.ElementCSSInlineStyle;
+
 import core.helpers.Element;
 import core.helpers.Helper;
 import core.webElement.EnhancedBy;
@@ -104,10 +106,21 @@ public class InstallsPanel {
 
 
 
-		
 		public static EnhancedBy ESTIMATE_SAVE_BUTTON = Element.byAccessibility("Save", "save");
 		public static EnhancedBy ESTIMATE_SEND_BUTTON = Element.byAccessibility("Send", "send");
 		public static EnhancedBy ESTIMATE_PROCESS_PAYMENT_BUTTON = Element.byAccessibility("Process Payment", "process payment");
+		
+		
+		//Pay estimate objects
+		public static EnhancedBy ESTIMATE_NAME = Element.byXpath("(//XCUIElementTypeStaticText[@name=\"TitleName\"])[1]", "kukuku");
+		public static EnhancedBy ESTIMATE_CLOSE_BUTTON = Element.byAccessibility("close btn", "");
+		public static EnhancedBy ESTIMATE_TOTAL_FIELD = Element.byAccessibility("total amount", "");
+		public static EnhancedBy ESTIMATE_CASH_BUTTON = Element.byAccessibility("Cash", "");
+		public static EnhancedBy ESTIMATE_CHEQUE_BUTTON = Element.byAccessibility("Cheque", "cheque");
+		public static EnhancedBy ESTIMATE_CREDIT_BUTTON = Element.byAccessibility("Credit", "credit");
+		public static EnhancedBy ESTIMATE_POP_UP_CLOSE_BUTTON = Element.byAccessibility("Close", "close");
+		public static EnhancedBy ESTIMATE_FULLY_PAID = Element.byXpath("(//XCUIElementTypeStaticText[@name=\"FULLY PAID\"])[1]", "fully paid");
+
 		
 		
 	}
@@ -179,6 +192,16 @@ public class InstallsPanel {
 		Helper.setField(elements.PRODUCT_ADDITIONAL_NOTES_FIELD, installs.additionalNotes);
 		Helper.clickAndExpect(elements.PRODUCT_SAVE_BUTTON, elements.PRODUCT_POP_UP_CLOSE_BUTTON);
 		Helper.clickAndExpect(elements.PRODUCT_POP_UP_CLOSE_BUTTON, elements.ADD_PRODUCTS_BUTTON);
+	}
+	
+	public void payEstimate(InstallsObject installs) {
+		Helper.clickAndExpect(elements.ESTIMATE_NAME, elements.ESTIMATE_SEND_BUTTON);
+		Helper.clickAndExpect(elements.ESTIMATE_PROCESS_PAYMENT_BUTTON, elements.ESTIMATE_TOTAL_FIELD);
+		Helper.clearAndSetField(elements.ESTIMATE_TOTAL_FIELD, installs.paymentAmount);
+		Helper.clickAndExpect(elements.ESTIMATE_CASH_BUTTON, elements.ESTIMATE_POP_UP_CLOSE_BUTTON);
+		Helper.clickAndExpect(elements.ESTIMATE_POP_UP_CLOSE_BUTTON, elements.BACK_BUTTON);
+		Helper.clickAndExpect(elements.BACK_BUTTON, elements.ESTIMATE_FULLY_PAID);
+		Helper.verifyElementIsDisplayed(elements.ESTIMATE_FULLY_PAID);
 	}
 
 }
