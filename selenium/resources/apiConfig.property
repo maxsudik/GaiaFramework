@@ -4,14 +4,13 @@ webUserEmail = test@test.com
 webUserPassword = testPassword
 adminUserEmail = admin
 adminUserPassword = # .Gaia$
-#adminUserPassword = "password"
 
 parallelTestcasePath = "/api/testcases/"
 sequentialTestcasePath = "/api/testcases/"
 
 # set file name to run single csv file
-testCaseFile = "TestCases_database.csv"
-testCase = "getUsers"
+testCaseFile = ""
+testCase = ""
 
 # Database Server
 DBDRIVER = org.postgresql.Driver

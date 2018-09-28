@@ -6,6 +6,7 @@
   <test name="Sep 24th">
   
     <classes>
+<<<<<<< HEAD
        <class name="test.java.web.smokeTest.CreateCompany"/>
        <class name="test.java.web.smokeTest.CreateManager"/>
        <class name="test.java.ios.smokeTest.ManagerLogsInAndOnboardsCompany"/>
@@ -19,6 +20,14 @@
 	   <class name="test.java.ios.smokeTest.ManagerCreatesEstimate"/>
 	   <class name="test.java.web.smokeTest.CleanAfterTest"/> 
          
+=======
+       <class name="test.java.ios.smokeTest.ManagerCreatesCustomer"/>
+       <class name="test.java.ios.smokeTest.ManagerCreatesEquipment"/>
+       <class name="test.java.ios.smokeTest.ManagerCreatesSite"/>
+       <class name="test.java.ios.smokeTest.ManagerLogsInAndOnboardsCompany"/>
+       <class name="test.java.ios.smokeTest.ManagerRecoversPassword"/>
+                
+>>>>>>> 9c10a292cfc2416028cfa98f1909963a8bb89256
     </classes>
   </test>
 </suite>
