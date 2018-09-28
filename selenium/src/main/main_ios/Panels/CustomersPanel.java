@@ -6,6 +6,7 @@ import core.helpers.Helper;
 import core.webElement.EnhancedBy;
 import main.main_ios.GaiaIos;
 import main.main_ios.objects.CustomerObject;
+import main.main_ios.objects.SiteObject;
 
 public class CustomersPanel {
 
@@ -37,9 +38,13 @@ public class CustomersPanel {
 	    public static EnhancedBy PHONE_NUMBER_FIELD = Element.byClass("XCUIElementTypeTextField", "phone number field");
 	    
 	    
-	 //     public static EnhancedBy ADD_NEW_SITE_BUTTON = Element.byAccessibility("", "");
-	//    public static EnhancedBy CHOOSE_EXISTING_SITE_BUTTON = Element.byAccessibility("", "");
-	//    public static EnhancedBy DIFFERENT_BILLING_ADDRESS_SWITCH = Element.byAccessibility("", "");
+	    public static EnhancedBy ADD_NEW_SITE_BUTTON = Element.byAccessibility("Add New Site", "add new site");
+	    public static EnhancedBy CHOOSE_EXISTING_SITE_BUTTON = Element.byAccessibility("Choose an existing Site", "choose an existing site");
+	    //Internal Site Panel
+	    public static EnhancedBy SITE_NAME = Element.byAccessibility(SiteObject.DEFAULT_SITE, "site");
+	    public static EnhancedBy DONE_BUTTON = Element.byAccessibility("Done", "done");
+
+	    //public static EnhancedBy DIFFERENT_BILLING_ADDRESS_SWITCH = Element.byAccessibility("", "");
 
 	    
 	    public static EnhancedBy SAVE_BUTTON = Element.byAccessibility("Save", "save button");
@@ -56,6 +61,9 @@ public void addCustomer(CustomerObject customer) {
 		
 		Helper.clickAndExpect(elements.ADD_CUSTOMER, elements.SAVE_BUTTON);
 		setField(customer);
+		Helper.clickAndExpect(elements.CHOOSE_EXISTING_SITE_BUTTON, elements.SITE_NAME);
+		Helper.clickAndExpect(elements.SITE_NAME, elements.DONE_BUTTON);
+		Helper.clickAndExpect(elements.DONE_BUTTON, elements.SAVE_BUTTON);
 		Helper.formSubmit(elements.SAVE_BUTTON, elements.CLOSE_BUTTON);
 		Helper.formSubmit(elements.CLOSE_BUTTON, elements.ADD_CUSTOMER);
 		
