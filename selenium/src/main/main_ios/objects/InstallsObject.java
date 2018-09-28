@@ -27,6 +27,9 @@ public class InstallsObject {
 	public String end_minutes;
 	public String end_noon;
 	
+	//Payment amount
+	public String paymentAmount;
+	
 	//Default values for Estimate
 	public static final String DEFAULT_TITLE_NAME = "TitleName";
 	public static final String DEFAULT_PHONE_NUMBER = "7781111111";
@@ -41,7 +44,9 @@ public class InstallsObject {
 	public static final String END_HOURS = "6";
 	public static final String END_MINUTES = "00";
 	public static final String END_NOON = "PM";
-
+	
+	//Values for Payment amount
+	public static final String PAYMENT_AMOUNT = "10.5";
 
 	
 	//Default values for Products
@@ -123,6 +128,11 @@ public class InstallsObject {
 	
 	public InstallsObject withEndNoon(String end_noon) {
 		this.end_noon = end_noon;
+		return this;
+	}
+	
+	public InstallsObject withPaymentAmount(String paymentAmount) {
+		this.paymentAmount = paymentAmount;
 		return this;
 	}
 }
