@@ -6,15 +6,12 @@
   <test name="Sep 24th">
   
     <classes>
-       <class name="test.java.web.smokeTest.CreateCompany"/>
-       <class name="test.java.web.smokeTest.CreateManager"/>
-       <class name="test.java.ios.smokeTest.ManagerLogsInAndOnboardsCompany"/>
-       <!-- <class name="test.java.ios.smokeTest.ManagerRecoversPassword"/> -->
-       <class name="test.java.ios.smokeTest.ManagerCreatesSite"/>
        <class name="test.java.ios.smokeTest.ManagerCreatesCustomer"/>
-       <!-- <class name="test.java.ios.smokeTest.ManagerCreatesEquipment"/>
-       <class name="test.java.web.smokeTest.CleanAfterTest"/> -->
-         
+       <class name="test.java.ios.smokeTest.ManagerCreatesEquipment"/>
+       <class name="test.java.ios.smokeTest.ManagerCreatesSite"/>
+       <class name="test.java.ios.smokeTest.ManagerLogsInAndOnboardsCompany"/>
+       <class name="test.java.ios.smokeTest.ManagerRecoversPassword"/>
+                
     </classes>
   </test>
 </suite>
