@@ -25,13 +25,13 @@ public class ManagerCreatesSupervisor extends TestBase{
 		app.gaia.main.selectPanel(MainPanel.gaiaPanels.EMPLOYEES);
 		
 		EmployeesObject employees = new EmployeesObject()
-				.withUserName(EmployeesObject.USERNAME)
-				.withEmail(EmployeesObject.EMAIL)
-				.withFirstName(EmployeesObject.FIRST_NAME)
-				.withLastName(EmployeesObject.LAST_NAME)
-				.withPassword(EmployeesObject.PASSWORD)
-				.withConfirmPassword(EmployeesObject.CONFIRM_PASSWORD)
-				.withNotes(EmployeesObject.NOTES);
+				.withUserName(EmployeesObject.SUPERVISOR_USERNAME)
+				.withEmail(EmployeesObject.SUPERVISOR_EMAIL)
+				.withFirstName(EmployeesObject.SUPERVISOR_FIRST_NAME)
+				.withLastName(EmployeesObject.SUPERVISOR_LAST_NAME)
+				.withPassword(EmployeesObject.SUPERVISOR_PASSWORD)
+				.withConfirmPassword(EmployeesObject.SUPERVISOR_CONFIRM_PASSWORD)
+				.withNotes(EmployeesObject.SUPERVISOR_NOTES);
 		
 		TestLog.Then("I create a supervisor");
 		app.gaia.employees.addSupervisor(employees);

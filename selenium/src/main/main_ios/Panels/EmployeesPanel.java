@@ -5,6 +5,7 @@ import core.helpers.Helper;
 import core.webElement.EnhancedBy;
 import main.main_ios.GaiaIos;
 import main.main_ios.objects.EmployeesObject;
+import main.main_ios.objects.SiteObject;
 
 public class EmployeesPanel {
 
@@ -39,7 +40,13 @@ public class EmployeesPanel {
 	    public static EnhancedBy ROLE_SUPERVISOR = Element.byClass("XCUIElementTypeButton", "supervisor");//9
 	    public static EnhancedBy ROLE_MANAGER = Element.byClass("XCUIElementTypeButton", "manager");//10
 	    public static EnhancedBy ROLE_INSTALLER = Element.byClass("XCUIElementTypeButton", "installer");//11
+	    
 	    public static EnhancedBy SITES_BUTTON = Element.byAccessibility("More Info", "sites");
+	    //Sites Internal Panel
+	    public static EnhancedBy SITE_NAME = Element.byAccessibility(SiteObject.DEFAULT_SITE, "site name");
+	    public static EnhancedBy DONE_BUTTON_INTERNAL = Element.byAccessibility("Done", "internal done");
+	    
+	    public static EnhancedBy LICENSED_USER_SWITCHER = Element.byClass("XCUIElementTypeSwitch", "licensed user");
 	    
 	    public static EnhancedBy DONE_BUTTON = Element.byAccessibility("Done", "done button");
 	    public static EnhancedBy CANCEL_BUTTON = Element.byAccessibility("Cancel", "cancel button");
@@ -60,7 +67,24 @@ public class EmployeesPanel {
 		Helper.clickAndExpect(elements.ADD_ACCOUNT, elements.DONE_BUTTON);
 		setField(employees);
 		Helper.clickAndExpect(elements.ROLE_SUPERVISOR, 9, elements.SITES_BUTTON);
+		Helper.clickAndExpect(elements.SITES_BUTTON, elements.SITE_NAME);
+		Helper.clickAndExpect(elements.SITE_NAME, elements.DONE_BUTTON_INTERNAL);
+		Helper.clickAndExpect(elements.DONE_BUTTON_INTERNAL, elements.LICENSED_USER_SWITCHER);
+		Helper.clickAndExpect(elements.LICENSED_USER_SWITCHER, elements.DONE_BUTTON);
+		Helper.formSubmit(elements.DONE_BUTTON, elements.CLOSE_BUTTON);
+		Helper.formSubmit(elements.CLOSE_BUTTON,elements.ADD_ACCOUNT);
+	}
+	
+	public void addInstaller(EmployeesObject employees) {
 		
+		Helper.clickAndExpect(elements.INSTALLER_TAB, elements.ADD_ACCOUNT);
+		Helper.clickAndExpect(elements.ADD_ACCOUNT, elements.DONE_BUTTON);
+		setField(employees);
+		Helper.clickAndExpect(elements.ROLE_INSTALLER, 11, elements.SITES_BUTTON);
+		Helper.clickAndExpect(elements.SITES_BUTTON, elements.SITE_NAME);
+		Helper.clickAndExpect(elements.SITE_NAME, elements.DONE_BUTTON_INTERNAL);
+		Helper.clickAndExpect(elements.DONE_BUTTON_INTERNAL, elements.LICENSED_USER_SWITCHER);
+		Helper.clickAndExpect(elements.LICENSED_USER_SWITCHER, elements.DONE_BUTTON);
 		Helper.formSubmit(elements.DONE_BUTTON, elements.CLOSE_BUTTON);
 		Helper.formSubmit(elements.CLOSE_BUTTON,elements.ADD_ACCOUNT);
 	}

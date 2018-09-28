@@ -12,14 +12,26 @@ public class EmployeesObject {
 	public String notes;
 
 
-	//Default values
-	public static final String USERNAME = "Supervisor.Last.Name";
-	public static final String EMAIL = "maksym.sudik+3@fortify.pro";
-	public static final String PASSWORD = "1111111111";
-	public static final String CONFIRM_PASSWORD = "1111111111";
-	public static final String FIRST_NAME = "Supervisor";
-	public static final String LAST_NAME = "LastName";
-	public static final String NOTES = "Some Notes";
+	//Supervisor Values
+	public static final String SUPERVISOR_USERNAME = "Supervisor.Last.Name";
+	public static final String SUPERVISOR_EMAIL = "maksym.sudik+3@fortify.pro";
+	public static final String SUPERVISOR_PASSWORD = "1111111111";
+	public static final String SUPERVISOR_CONFIRM_PASSWORD = "1111111111";
+	public static final String SUPERVISOR_FIRST_NAME = "Supervisor";
+	public static final String SUPERVISOR_LAST_NAME = "LastName";
+	public static final String SUPERVISOR_NOTES = "Some Notes";
+	
+	//Full name
+	public static final String SUPERVISOR_FULL_NAME = SUPERVISOR_FIRST_NAME + " " + SUPERVISOR_LAST_NAME;
+	
+	//Installer Values
+	public static final String INSTALLER_USERNAME = "Installer.Last.Name";
+	public static final String INSTALLER_EMAIL = "maksym.sudik+4@fortify.pro";
+	public static final String INSTALLER_PASSWORD = "1111111111";
+	public static final String INSTALLER_CONFIRM_PASSWORD = "1111111111";
+	public static final String INSTALLER_FIRST_NAME = "Installer";
+	public static final String INSTALLER_LAST_NAME = "LastName";
+	public static final String INSTALLER_NOTES = "Some Notes";
 
 			
 	

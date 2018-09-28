@@ -26,7 +26,7 @@ public class ManagerCreatesSite extends TestBase{
 		app.gaia.main.selectPanel(MainPanel.gaiaPanels.SITES);
 		
 		SiteObject site = new SiteObject()
-				.withSiteName(SiteObject.RANDOM_SITE)
+				.withSiteName(SiteObject.DEFAULT_SITE)
 				.withStreetName(SiteObject.DEFAULT_STREET)
 				.withPostalCode(SiteObject.DEFAULT_POSTAL_CODE)
 				.withState(SiteObject.DEFAULT_STATE)

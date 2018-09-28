@@ -55,9 +55,11 @@ public class GaiaIos {
      * @return driver object
      */
     public DriverObject getDriver() {
+    	System.setProperty("isSingleSignIn", "true");
         IosCapability capability = new IosCapability()
                 .withIosCapability();
         return new DriverObject().withDriverType(DriverType.IOS_DRIVER)
                 .withCapabilities(capability.getCapability());
+        
     }
 }

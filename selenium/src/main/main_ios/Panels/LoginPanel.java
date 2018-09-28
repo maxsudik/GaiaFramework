@@ -33,9 +33,9 @@ public class LoginPanel {
 	public void login(UserObject_Ios user) {
 		// dismiss alerts
 		Helper.waitForSeconds(10);
-		Helper.acceptAlert();
+		Helper.dimissAlert();
 		Helper.waitForSeconds(2);
-		Helper.acceptAlert();
+		Helper.dimissAlert();
 		
 		Helper.setField(elements.USERNAME_FIELD, user.username);
 		Helper.setField(elements.PASSWORD_FIELD, user.password);
@@ -46,9 +46,9 @@ public class LoginPanel {
 	public void loginManagerOnboarding(UserObject_Ios user) {
 		// dismiss alerts
 		Helper.waitForSeconds(10);
-		Helper.acceptAlert();
+		Helper.dimissAlert();
 		Helper.waitForSeconds(2);
-		Helper.acceptAlert();
+		Helper.dimissAlert();
 		
 		Helper.setField(elements.USERNAME_FIELD, user.username);
 		Helper.setField(elements.PASSWORD_FIELD, user.password);
@@ -72,9 +72,9 @@ public class LoginPanel {
 	
 	public void recoverPassword(UserObject_Ios user) {
 		Helper.waitForSeconds(10);
-		Helper.acceptAlert();
+		Helper.dimissAlert();
 		Helper.waitForSeconds(2);
-		Helper.acceptAlert();
+		Helper.dimissAlert();
 		Helper.waitForElementToBeClickable(elements.FORGOT_PASSWORD_BUTTON);
 		Helper.clickAndExpect(elements.FORGOT_PASSWORD_BUTTON, elements.POP_UP_RESET_BUTTON);
 		Helper.setField(elements.POP_UP_EMAIL_FIELD, user.email);
