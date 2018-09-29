@@ -5,8 +5,7 @@ import org.testng.annotations.Test;
 
 import core.helpers.Helper;
 import core.logger.TestLog;
-import main.main_ios.Panels.AccountsPanel;
-import main.main_ios.objects.AccountObject;
+import main.main_ios.objects.EmployeesObject;
 import test.java.TestBase;
 
 public class VerifyAccountPanelTest extends TestBase {
@@ -30,16 +29,13 @@ public class VerifyAccountPanelTest extends TestBase {
 		String username = "zzz_auto" + Helper.generateRandomString(3);
 		String firstName = "zzz_first" + Helper.generateRandomString(3);
 		String email = "fortify" + Helper.generateRandomString(3) + "@test.com";
-		AccountObject account = new AccountObject()
-				.withUsername(username)
+		EmployeesObject account = new EmployeesObject()
+				.withFirstName(firstName)
 				.withEmail(email)
 				.withPassword("1234567890")
 				.withFirstName(firstName)
-				.withLastName("auto")
-				.withRoles(AccountObject.SUPERVISOR);
-		app.gaia.accounts.addAccount(account);
+				.withLastName("auto");
 		
-		TestLog.Then("I verify the account has been added");
-		Helper.verifyElementIsDisplayed(AccountsPanel.byAccountUser(account.fullName));
+		app.gaia.employees.addSupervisor(account);
 	}
 }

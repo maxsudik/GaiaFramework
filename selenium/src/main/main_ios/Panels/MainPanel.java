@@ -59,9 +59,8 @@ public class MainPanel {
 		case CUSTOMERS:
 			Helper.clickAndExpect(elements.CUSTOMERS_PANEL, CustomersPanel.elements.ADD_CUSTOMER);	
 			break;
-			//Change to expect
 		case EMPLOYEES:
-			Helper.clickAndNotExpect(elements.EMPLOYEES_PANEL, elements.EMPLOYEES_PANEL);
+			Helper.clickAndExpect(elements.EMPLOYEES_PANEL, EmployeesPanel.elements.ADD_ACCOUNT);
 			break;
 			//Change to expect
 		case STATISTICS:
