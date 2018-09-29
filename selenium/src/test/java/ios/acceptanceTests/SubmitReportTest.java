@@ -9,8 +9,8 @@ import org.testng.annotations.Test;
 
 import core.helpers.Helper;
 import core.logger.TestLog;
-import main.main_ios.Panels.ReportsPanel;
-import main.main_ios.objects.TaskObject;
+import main.java.main.main_ios.Panels.ReportsPanel;
+import main.java.main.main_ios.objects.TaskObject;
 import test.java.TestBase;
 
 public class SubmitReportTest extends TestBase {

@@ -4,8 +4,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import core.logger.TestLog;
-import main.main_rest.objects.CompanyObject;
-import main.main_rest.objects.UserObject;
+import main.java.main.main_rest.objects.CompanyObject;
+import main.java.main.main_rest.objects.UserObject;
 import test.java.TestBase;
 
 public class verifyCompaniesTest extends TestBase {

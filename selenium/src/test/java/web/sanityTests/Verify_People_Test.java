@@ -5,11 +5,11 @@ import org.testng.annotations.Test;
 
 import core.helpers.Helper;
 import core.logger.TestLog;
-import main.customerPanel.Panels.PanelNavigation;
-import main.customerPanel.Panels.PeoplePanel;
-import main.customerPanel.objects.CompanyObject;
-import main.customerPanel.objects.PeopleObject;
-import main.customerPanel.objects.UserObject;
+import main.java.main.customerPanel.Panels.PanelNavigation;
+import main.java.main.customerPanel.Panels.PeoplePanel;
+import main.java.main.customerPanel.objects.CompanyObject;
+import main.java.main.customerPanel.objects.PeopleObject;
+import main.java.main.customerPanel.objects.UserObject;
 import test.java.TestBase;
 
 public class Verify_People_Test extends TestBase {

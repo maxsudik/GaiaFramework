@@ -4,9 +4,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import core.logger.TestLog;
-import main.main_ios.Panels.MainPanel;
+import main.java.main.main_ios.Panels.MainPanel;
 
-import main.main_ios.objects.EmployeesObject;
+import main.java.main.main_ios.objects.EmployeesObject;
 import test.java.TestBase;
 
 public class ManagerCreatesSupervisor extends TestBase{

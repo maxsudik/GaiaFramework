@@ -5,10 +5,10 @@ import org.testng.annotations.Test;
 
 import core.helpers.Helper;
 import core.logger.TestLog;
-import main.customerPanel.Panels.PanelNavigation;
-import main.customerPanel.Panels.SitesPanel;
-import main.customerPanel.objects.SiteObject;
-import main.customerPanel.objects.UserObject;
+import main.java.main.customerPanel.Panels.PanelNavigation;
+import main.java.main.customerPanel.Panels.SitesPanel;
+import main.java.main.customerPanel.objects.SiteObject;
+import main.java.main.customerPanel.objects.UserObject;
 import test.java.TestBase;
 
 public class Verify_Site_Test extends TestBase {

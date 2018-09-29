@@ -4,8 +4,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import core.logger.TestLog;
-import main.main_ios.objects.CompanyObjectIOS;
-import main.main_ios.objects.UserObject_Ios;
+import main.java.main.main_ios.objects.CompanyObjectIOS;
+import main.java.main.main_ios.objects.UserObject_Ios;
 import test.java.TestBase;
 
 public class ManagerLogsInAndOnboardsCompany extends TestBase{

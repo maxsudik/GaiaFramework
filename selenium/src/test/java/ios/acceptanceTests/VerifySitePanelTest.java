@@ -7,9 +7,9 @@ import org.testng.annotations.Test;
 
 import core.helpers.Helper;
 import core.logger.TestLog;
-import main.main_ios.Panels.MainPanel;
-import main.main_ios.Panels.SitesPanel;
-import main.main_ios.objects.SiteObject;
+import main.java.main.main_ios.Panels.MainPanel;
+import main.java.main.main_ios.Panels.SitesPanel;
+import main.java.main.main_ios.objects.SiteObject;
 import test.java.TestBase;
 
 public class VerifySitePanelTest extends TestBase {

@@ -6,10 +6,10 @@ import org.testng.annotations.Test;
 
 import core.helpers.Helper;
 import core.logger.TestLog;
-import main.customerPanel.Panels.CompanyPanel;
-import main.customerPanel.Panels.LoginPanel;
-import main.customerPanel.Panels.PanelNavigation;
-import main.customerPanel.objects.UserObject;
+import main.java.main.customerPanel.Panels.CompanyPanel;
+import main.java.main.customerPanel.Panels.LoginPanel;
+import main.java.main.customerPanel.Panels.PanelNavigation;
+import main.java.main.customerPanel.objects.UserObject;
 import test.java.TestBase;
 
 

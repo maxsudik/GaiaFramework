@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 
 import core.helpers.Helper;
 import core.logger.TestLog;
-import main.main_ios.Panels.MainPanel;
-import main.main_ios.objects.UserObject_Ios;
+import main.java.main.main_ios.Panels.MainPanel;
+import main.java.main.main_ios.objects.UserObject_Ios;
 import test.java.TestBase;
 
 public class LoginTest extends TestBase {

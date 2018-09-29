@@ -7,10 +7,10 @@ import org.testng.annotations.Test;
 
 import core.helpers.Helper;
 import core.logger.TestLog;
-import main.main_ios.Panels.MainPanel;
-import main.main_ios.objects.EstimateObject;
-import main.main_ios.objects.EstimateObject.paymentType;
-import main.main_ios.objects.ProductObject;
+import main.java.main.main_ios.Panels.MainPanel;
+import main.java.main.main_ios.objects.EstimateObject;
+import main.java.main.main_ios.objects.EstimateObject.paymentType;
+import main.java.main.main_ios.objects.ProductObject;
 import test.java.TestBase;
 
 public class VerifyEstimatePanelTest extends TestBase {

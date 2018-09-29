@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 
 import core.helpers.Helper;
 import core.logger.TestLog;
-import main.main_ios.Panels.MainPanel;
-import main.main_ios.objects.CustomerObject;
+import main.java.main.main_ios.Panels.MainPanel;
+import main.java.main.main_ios.objects.CustomerObject;
 import test.java.TestBase;
 
 public class VerifyCustomerPanelTest extends TestBase {

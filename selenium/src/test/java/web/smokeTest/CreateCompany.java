@@ -4,8 +4,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import core.logger.TestLog;
-import main.customerPanel.objects.CompanyObject;
-import main.customerPanel.objects.UserObject;
+import main.java.main.customerPanel.objects.CompanyObject;
+import main.java.main.customerPanel.objects.UserObject;
 import test.java.TestBase;
 
 public class CreateCompany extends TestBase{
