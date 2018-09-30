@@ -1,12 +1,12 @@
-package test.java.ios.smokeTest;
+package ios.smokeTest;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import base.TestBase;
 import core.logger.TestLog;
-import main.java.main.main_ios.Panels.MainPanel;
-import main.java.main.main_ios.objects.InstallsObject;
-import test.java.TestBase;
+import main.main_ios.Panels.MainPanel;
+import main.main_ios.objects.InstallsObject;
 
 public class ManagerPaysEstimate extends TestBase{
 	

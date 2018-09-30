@@ -1,11 +1,11 @@
-package main.java.main.main_ios.Panels;
+package main.main_ios.Panels;
 
 import core.helpers.Element;
 import core.helpers.Helper;
 import core.webElement.EnhancedBy;
-import main.java.main.main_ios.GaiaIos;
-import main.java.main.main_ios.objects.EmployeesObject;
-import main.java.main.main_ios.objects.SiteObject;
+import main.main_ios.GaiaIos;
+import main.main_ios.objects.EmployeesObject;
+import main.main_ios.objects.SiteObject;
 
 public class EmployeesPanel {
 

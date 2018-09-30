@@ -1,10 +1,10 @@
-package main.java.main.main_ios.Panels.OnboardingPanels;
+package main.main_ios.Panels.OnboardingPanels;
 
 import core.helpers.Element;
 import core.helpers.Helper;
 import core.webElement.EnhancedBy;
-import main.java.main.main_ios.GaiaIos;
-import main.java.main.main_ios.objects.CompanyObjectIOS;
+import main.main_ios.GaiaIos;
+import main.main_ios.objects.CompanyObjectIOS;
 
 public class CompanyBankInformationPanel {
 	

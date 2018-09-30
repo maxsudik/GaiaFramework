@@ -1,4 +1,4 @@
-package main.java.main.customerPanel.objects;
+package main.customerPanel.objects;
 
 
 public class SiteObject {

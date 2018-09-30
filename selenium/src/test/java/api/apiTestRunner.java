@@ -1,12 +1,12 @@
-package test.java.api;
+package api;
 
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import base.TestBase;
 import core.api.apiRunner;
 import core.api.dataProvider;
-import test.java.TestBase;
 
 public class apiTestRunner extends TestBase  {
 

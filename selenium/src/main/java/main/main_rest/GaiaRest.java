@@ -1,13 +1,13 @@
-package main.java.main.main_rest;
+package main.main_rest;
 
 
 import core.driver.driverProperties.driverType.DriverType;
 import core.driver.objects.DriverObject;
 import io.restassured.RestAssured;
-import main.java.main.main_rest.Panels.CompaniesPanel;
-import main.java.main.main_rest.Panels.LoginPanel;
-import main.java.main.main_rest.Panels.PeoplePanel;
-import main.java.main.main_rest.Panels.SitesPanel;
+import main.main_rest.Panels.CompaniesPanel;
+import main.main_rest.Panels.LoginPanel;
+import main.main_rest.Panels.PeoplePanel;
+import main.main_rest.Panels.SitesPanel;
 
 public class GaiaRest {
 

@@ -1,4 +1,4 @@
-package main.java.main.main_ios.Panels.OnboardingPanels;
+package main.main_ios.Panels.OnboardingPanels;
 
 import org.inferred.freebuilder.FreeBuilder;
 

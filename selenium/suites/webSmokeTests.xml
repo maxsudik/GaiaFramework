@@ -6,14 +6,14 @@
   <test name="Sep 24th">
   
     <classes>
-       <class name="test.java.web.smokeTest.CreateCompany"/>
-       <class name="test.java.web.smokeTest.CreateManager"/>
+       <class name="web.smokeTest.CreateCompany"/>
+       <class name="web.smokeTest.CreateManager"/>
     </classes>
   </test>
   
     <test name="cleanup">
     <classes>
-	   <class name="test.java.web.smokeTest.CleanAfterTest"/> 
+	   <class name="web.smokeTest.CleanAfterTest"/> 
     </classes>
   </test>
 </suite>

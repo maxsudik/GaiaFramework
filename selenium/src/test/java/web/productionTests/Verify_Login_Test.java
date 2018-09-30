@@ -1,15 +1,15 @@
-package test.java.web.productionTests;
+package web.productionTests;
 
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import base.TestBase;
 import core.helpers.Helper;
 import core.logger.TestLog;
-import main.java.common.objects.UserObject;
-import main.java.main.customerPanel.Panels.CompanyPanel;
-import main.java.main.customerPanel.Panels.LoginPanel;
-import test.java.TestBase;
+import common.objects.UserObject;
+import main.customerPanel.Panels.CompanyPanel;
+import main.customerPanel.Panels.LoginPanel;
 
 
 public class Verify_Login_Test extends TestBase {

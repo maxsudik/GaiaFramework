@@ -1,12 +1,12 @@
-package test.java.web.smokeTest;
+package web.smokeTest;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import base.TestBase;
 import core.logger.TestLog;
-import main.java.common.objects.CompanyObject;
-import main.java.common.objects.UserObject;
-import test.java.TestBase;
+import common.objects.CompanyObject;
+import common.objects.UserObject;
 
 public class CreateCompany extends TestBase{
 	

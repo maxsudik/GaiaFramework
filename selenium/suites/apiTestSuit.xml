@@ -6,7 +6,7 @@
   <test name="Sep 24th">
   
     <classes>
-       <class name="test.java.api.apiTestRunner"/>
+       <class name="api.apiTestRunner"/>
     </classes>
   </test>
 </suite>

@@ -1,7 +1,8 @@
-package test.java;
+package base;
+
 
 import core.driver.AbstractDriverTestNG;
-import main.java.main.AppManager;
+import main.AppManager;
 
 
 public class TestBase extends AbstractDriverTestNG {

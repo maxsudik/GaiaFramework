@@ -1,15 +1,15 @@
-package main.java.main.customerPanel;
+package main.customerPanel;
 
 
 
 
 import core.driver.driverProperties.capabilities.webCapability;
 import core.driver.objects.DriverObject;
-import main.java.main.customerPanel.Panels.CompanyPanel;
-import main.java.main.customerPanel.Panels.LoginPanel;
-import main.java.main.customerPanel.Panels.PanelNavigation;
-import main.java.main.customerPanel.Panels.PeoplePanel;
-import main.java.main.customerPanel.Panels.SitesPanel;
+import main.customerPanel.Panels.CompanyPanel;
+import main.customerPanel.Panels.LoginPanel;
+import main.customerPanel.Panels.PanelNavigation;
+import main.customerPanel.Panels.PeoplePanel;
+import main.customerPanel.Panels.SitesPanel;
 
 
 public class CustomerPanel {

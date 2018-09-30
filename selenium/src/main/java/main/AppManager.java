@@ -1,8 +1,8 @@
-package main.java.main;
+package main;
 
-import main.java.main.customerPanel.CustomerPanel;
-import main.java.main.main_ios.GaiaIos;
-import main.java.main.main_rest.GaiaRest;
+import main.customerPanel.CustomerPanel;
+import main.main_ios.GaiaIos;
+import main.main_rest.GaiaRest;
 
 /**
  * Manages all existing apps Abstract driver refers to this manager to call

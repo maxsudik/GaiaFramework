@@ -1,15 +1,15 @@
-package test.java.web.sanityTests;
+package web.sanityTests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import base.TestBase;
 import core.helpers.Helper;
 import core.logger.TestLog;
-import main.java.common.objects.UserObject;
-import main.java.main.customerPanel.Panels.PanelNavigation;
-import main.java.main.customerPanel.Panels.SitesPanel;
-import main.java.main.customerPanel.objects.SiteObject;
-import test.java.TestBase;
+import common.objects.UserObject;
+import main.customerPanel.Panels.PanelNavigation;
+import main.customerPanel.Panels.SitesPanel;
+import main.customerPanel.objects.SiteObject;
 
 public class Verify_Site_Test extends TestBase {
 

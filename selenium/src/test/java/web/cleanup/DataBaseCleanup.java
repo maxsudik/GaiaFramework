@@ -1,12 +1,12 @@
-package test.java.web.cleanup;
+package web.cleanup;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import base.TestBase;
 import core.helpers.DatabaseHelper.MongoDbHelper;
 import core.helpers.DatabaseHelper.MongoObject;
 import core.logger.TestLog;
-import test.java.TestBase;
 
 
 public class DataBaseCleanup extends TestBase {

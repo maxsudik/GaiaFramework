@@ -1,12 +1,12 @@
-package main.java.main.main_rest.Panels;
+package main.main_rest.Panels;
 
 
 import static io.restassured.RestAssured.given;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import main.java.common.objects.UserObject;
-import main.java.main.main_rest.GaiaRest;
+import common.objects.UserObject;
+import main.main_rest.GaiaRest;
 
 public class LoginPanel {
 

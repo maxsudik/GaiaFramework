@@ -1,13 +1,13 @@
-package test.java.ios.acceptanceTests;
+package ios.acceptanceTests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import base.TestBase;
 import core.helpers.Helper;
 import core.logger.TestLog;
-import main.java.main.main_ios.Panels.MainPanel;
-import main.java.main.main_ios.objects.ProductObject;
-import test.java.TestBase;
+import main.main_ios.Panels.MainPanel;
+import main.main_ios.objects.ProductObject;
 
 public class VerifyProductPanelTest extends TestBase {
 

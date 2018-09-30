@@ -1,4 +1,4 @@
-package test.java.ios.acceptanceTests;
+package ios.acceptanceTests;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,11 +7,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
+import base.TestBase;
 import core.helpers.Helper;
 import core.logger.TestLog;
-import main.java.main.main_ios.Panels.ReportsPanel;
-import main.java.main.main_ios.objects.TaskObject;
-import test.java.TestBase;
+import main.main_ios.Panels.ReportsPanel;
+import main.main_ios.objects.TaskObject;
 
 public class SubmitReportTest extends TestBase {
 

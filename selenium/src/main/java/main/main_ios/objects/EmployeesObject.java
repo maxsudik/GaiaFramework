@@ -1,4 +1,4 @@
-package main.java.main.main_ios.objects;
+package main.main_ios.objects;
 
 public class EmployeesObject {
 	

@@ -6,16 +6,16 @@
   <test name="Sep 24th">
   
     <classes>
-       <class name="test.java.ios.smokeTest.ManagerLogsInAndOnboardsCompany"/>
-       <class name="test.java.ios.smokeTest.ManagerRecoversPassword"/> 
-       <class name="test.java.ios.smokeTest.ManagerCreatesSite"/>
-       <class name="test.java.ios.smokeTest.ManagerCreatesSupervisor"/>
-       <class name="test.java.ios.smokeTest.ManagerCreatesInstaller"/>
-       <class name="test.java.ios.smokeTest.ManagerCreatesCustomer"/>
-	   <class name="test.java.ios.smokeTest.ManagerCreatesEquipment"/>
-	   <class name="test.java.ios.smokeTest.ManagerCreatesProduct"/>
-	   <class name="test.java.ios.smokeTest.ManagerCreatesEstimate"/>
-	   <class name="test.java.ios.smokeTest.ManagerCreatesEstimate"/>
+       <class name="ios.smokeTest.ManagerLogsInAndOnboardsCompany"/>
+       <class name="ios.smokeTest.ManagerRecoversPassword"/> 
+       <class name="ios.smokeTest.ManagerCreatesSite"/>
+       <class name="ios.smokeTest.ManagerCreatesSupervisor"/>
+       <class name="ios.smokeTest.ManagerCreatesInstaller"/>
+       <class name="ios.smokeTest.ManagerCreatesCustomer"/>
+	   <class name="ios.smokeTest.ManagerCreatesEquipment"/>
+	   <class name="ios.smokeTest.ManagerCreatesProduct"/>
+	   <class name="ios.smokeTest.ManagerCreatesEstimate"/>
+	   <class name="ios.smokeTest.ManagerCreatesEstimate"/>
      
     </classes>
   </test>

@@ -1,4 +1,4 @@
-package main.java.AdditionalHelper;
+package AdditionalHelper;
 
 
 import java.security.SecureRandom;

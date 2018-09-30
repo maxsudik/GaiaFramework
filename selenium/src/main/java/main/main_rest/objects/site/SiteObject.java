@@ -1,4 +1,4 @@
-package main.java.main.main_rest.objects.site;
+package main.main_rest.objects.site;
 
 import org.inferred.freebuilder.FreeBuilder;
 

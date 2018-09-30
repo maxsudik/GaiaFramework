@@ -1,11 +1,11 @@
-package main.java.main.customerPanel.Panels;
+package main.customerPanel.Panels;
 
 
 import core.helpers.Element;
 import core.helpers.Helper;
 import core.webElement.EnhancedBy;
-import main.java.main.customerPanel.CustomerPanel;
-import main.java.main.customerPanel.objects.SiteObject;
+import main.customerPanel.CustomerPanel;
+import main.customerPanel.objects.SiteObject;
 
 public class SitesPanel {
 

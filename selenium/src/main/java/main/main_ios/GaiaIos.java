@@ -1,25 +1,25 @@
-package main.java.main.main_ios;
+package main.main_ios;
 
 
 import core.driver.driverProperties.driverType.DriverType;
 import core.driver.driverProperties.capabilities.IosCapability;
 import core.driver.objects.DriverObject;
-import main.java.main.main_ios.Panels.CustomersPanel;
-import main.java.main.main_ios.Panels.EmployeesPanel;
-import main.java.main.main_ios.Panels.EquipmentPanel;
-import main.java.main.main_ios.Panels.EstimatePanel;
-import main.java.main.main_ios.Panels.InstallsPanel;
-import main.java.main.main_ios.Panels.LoginPanel;
-import main.java.main.main_ios.Panels.MainPanel;
-import main.java.main.main_ios.Panels.ProductPanel;
-import main.java.main.main_ios.Panels.ReportsPanel;
-import main.java.main.main_ios.Panels.SitesPanel;
-import main.java.main.main_ios.Panels.OnboardingPanels.CompanyAddressPanel;
-import main.java.main.main_ios.Panels.OnboardingPanels.CompanyBankInformationPanel;
-import main.java.main.main_ios.Panels.OnboardingPanels.CreditCardInfoPanel;
-import main.java.main.main_ios.Panels.OnboardingPanels.CreditCardInformationPanel;
-import main.java.main.main_ios.Panels.OnboardingPanels.LegalEntityPanel;
-import main.java.main.main_ios.Panels.OnboardingPanels.ScanCreditCardPanel;
+import main.main_ios.Panels.CustomersPanel;
+import main.main_ios.Panels.EmployeesPanel;
+import main.main_ios.Panels.EquipmentPanel;
+import main.main_ios.Panels.EstimatePanel;
+import main.main_ios.Panels.InstallsPanel;
+import main.main_ios.Panels.LoginPanel;
+import main.main_ios.Panels.MainPanel;
+import main.main_ios.Panels.ProductPanel;
+import main.main_ios.Panels.ReportsPanel;
+import main.main_ios.Panels.SitesPanel;
+import main.main_ios.Panels.OnboardingPanels.CompanyAddressPanel;
+import main.main_ios.Panels.OnboardingPanels.CompanyBankInformationPanel;
+import main.main_ios.Panels.OnboardingPanels.CreditCardInfoPanel;
+import main.main_ios.Panels.OnboardingPanels.CreditCardInformationPanel;
+import main.main_ios.Panels.OnboardingPanels.LegalEntityPanel;
+import main.main_ios.Panels.OnboardingPanels.ScanCreditCardPanel;
 
 
 

@@ -1,10 +1,10 @@
-package main.java.main.main_ios.Panels;
+package main.main_ios.Panels;
 
 import core.helpers.Element;
 import core.helpers.Helper;
 import core.webElement.EnhancedBy;
-import main.java.main.main_ios.GaiaIos;
-import main.java.main.main_ios.objects.EstimateObject;
+import main.main_ios.GaiaIos;
+import main.main_ios.objects.EstimateObject;
 
 public class EstimatePanel {
 

@@ -1,13 +1,13 @@
-package test.java.rest;
+package rest;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import base.TestBase;
 import core.logger.TestLog;
-import main.java.common.objects.CompanyObject;
-import main.java.common.objects.UserObject;
-import main.java.main.main_rest.objects.site.SiteObject;
-import test.java.TestBase;
+import common.objects.CompanyObject;
+import common.objects.UserObject;
+import main.main_rest.objects.site.SiteObject;
 
 public class verifySitesTest extends TestBase {
 
