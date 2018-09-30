@@ -2,10 +2,10 @@ package main.customerPanel.Panels;
 
 
 
+import common.objects.CompanyObject;
 import core.helpers.Element;
 import core.helpers.Helper;
 import core.webElement.EnhancedBy;
-import common.objects.CompanyObject;
 import main.customerPanel.CustomerPanel;
 
 public class CompanyPanel {

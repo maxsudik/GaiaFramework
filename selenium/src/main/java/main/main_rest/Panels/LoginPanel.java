@@ -3,9 +3,9 @@ package main.main_rest.Panels;
 
 import static io.restassured.RestAssured.given;
 
+import common.objects.UserObject;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import common.objects.UserObject;
 import main.main_rest.GaiaRest;
 
 public class LoginPanel {

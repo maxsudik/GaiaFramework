@@ -4,10 +4,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import core.helpers.Helper;
-import core.logger.TestLog;
 import common.objects.CompanyObject;
 import common.objects.UserObject;
+import core.helpers.Helper;
+import core.logger.TestLog;
 import main.customerPanel.Panels.PeoplePanel;
 import main.customerPanel.objects.PeopleObject;
 

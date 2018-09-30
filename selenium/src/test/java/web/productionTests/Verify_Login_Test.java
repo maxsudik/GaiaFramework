@@ -5,9 +5,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import common.objects.UserObject;
 import core.helpers.Helper;
 import core.logger.TestLog;
-import common.objects.UserObject;
 import main.customerPanel.Panels.CompanyPanel;
 import main.customerPanel.Panels.LoginPanel;
 

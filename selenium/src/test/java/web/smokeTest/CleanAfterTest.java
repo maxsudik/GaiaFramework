@@ -6,8 +6,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import core.logger.TestLog;
 import common.objects.UserObject;
+import core.logger.TestLog;
 
 public class CleanAfterTest extends TestBase{
 	

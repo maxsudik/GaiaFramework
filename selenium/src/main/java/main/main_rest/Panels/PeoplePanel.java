@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import common.objects.UserObject;
 import core.logger.TestLog;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import common.objects.UserObject;
 import main.main_rest.GaiaRest;
 import main.main_rest.objects.PeopleObject;
 

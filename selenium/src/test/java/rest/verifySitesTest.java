@@ -4,9 +4,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import core.logger.TestLog;
 import common.objects.CompanyObject;
 import common.objects.UserObject;
+import core.logger.TestLog;
 import main.main_rest.objects.site.SiteObject;
 
 public class verifySitesTest extends TestBase {
