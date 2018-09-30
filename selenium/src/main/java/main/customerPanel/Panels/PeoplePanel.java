@@ -6,8 +6,8 @@ package main.java.main.customerPanel.Panels;
 import core.helpers.Element;
 import core.helpers.Helper;
 import core.webElement.EnhancedBy;
+import main.java.common.objects.CompanyObject;
 import main.java.main.customerPanel.CustomerPanel;
-import main.java.main.customerPanel.objects.CompanyObject;
 import main.java.main.customerPanel.objects.PeopleObject;
 
 public class PeoplePanel {
@@ -78,7 +78,7 @@ public class PeoplePanel {
 	 */
 
 	public void setPeopleFields(PeopleObject people, CompanyObject company) {
-		Helper.selectDropDown(company.name, elements.COMPANY_FIELD, "Select a company", elements.COMPANY_FIELD_OPTION);
+		Helper.selectDropDown(company.name().get(), elements.COMPANY_FIELD, "Select a company", elements.COMPANY_FIELD_OPTION);
 
 		Helper.selectDropDown(people.roles, elements.PEOPLE_ROLES_FIELD, "Select a role", elements.PEOPLE_ROLES_OPTIONS);
 		Helper.setField(elements.PEOPLE_FIRST_NAME_FIELD, people.firstName);

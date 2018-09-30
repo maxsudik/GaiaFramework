@@ -5,8 +5,8 @@ import static io.restassured.RestAssured.given;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import main.java.common.objects.UserObject;
 import main.java.main.main_rest.GaiaRest;
-import main.java.main.main_rest.objects.UserObject;
 
 public class LoginPanel {
 

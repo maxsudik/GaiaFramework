@@ -8,8 +8,12 @@
     <classes>
        <class name="test.java.web.smokeTest.CreateCompany"/>
        <class name="test.java.web.smokeTest.CreateManager"/>
+    </classes>
+  </test>
+  
+    <test name="cleanup">
+    <classes>
 	   <class name="test.java.web.smokeTest.CleanAfterTest"/> 
-     
     </classes>
   </test>
 </suite>

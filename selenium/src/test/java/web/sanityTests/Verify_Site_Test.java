@@ -5,10 +5,10 @@ import org.testng.annotations.Test;
 
 import core.helpers.Helper;
 import core.logger.TestLog;
+import main.java.common.objects.UserObject;
 import main.java.main.customerPanel.Panels.PanelNavigation;
 import main.java.main.customerPanel.Panels.SitesPanel;
 import main.java.main.customerPanel.objects.SiteObject;
-import main.java.main.customerPanel.objects.UserObject;
 import test.java.TestBase;
 
 public class Verify_Site_Test extends TestBase {
@@ -24,7 +24,7 @@ public class Verify_Site_Test extends TestBase {
 	 */
 	@Test
 	public void validate_add_site() {
-		UserObject user = new UserObject().withEmail(UserObject.USER_AUTO_MANAGER).withPassword(UserObject.PASSWORD_AUTO_MANAGER);
+		UserObject user = UserObject.user().withAdminLogin();
 		
 		TestLog.When("I login with manager user");
 		app.customerPanel.login.login(user);

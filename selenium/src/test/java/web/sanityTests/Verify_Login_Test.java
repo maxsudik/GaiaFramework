@@ -6,10 +6,10 @@ import org.testng.annotations.Test;
 
 import core.helpers.Helper;
 import core.logger.TestLog;
+import main.java.common.objects.UserObject;
 import main.java.main.customerPanel.Panels.CompanyPanel;
 import main.java.main.customerPanel.Panels.LoginPanel;
 import main.java.main.customerPanel.Panels.PanelNavigation;
-import main.java.main.customerPanel.objects.UserObject;
 import test.java.TestBase;
 
 
@@ -22,8 +22,8 @@ public class Verify_Login_Test extends TestBase {
 	
 	@Test
 	public void validate_user_logout() {
-		UserObject user = new UserObject().withEmail(UserObject.USER_AUTO_MANAGER).withPassword(UserObject.PASSWORD_AUTO_MANAGER);
-		
+		UserObject user = UserObject.user().withManagerUser();
+
 		TestLog.When("I login with manager user");
 		app.customerPanel.login.login(user);
 		
@@ -39,18 +39,25 @@ public class Verify_Login_Test extends TestBase {
 
 	@Test
 	public void validate_user_login() {
-		UserObject user = new UserObject().withEmail(UserObject.USER_ADMIN).withPassword(UserObject.PASSWORD_ADMIN);
+		UserObject user = UserObject.user().withAdminLogin();
 		
 		TestLog.When("I login with admin user");
 		app.customerPanel.login.login(user);
 		
 		TestLog.Then("I verify company list is displayed");
 		Helper.verifyElementIsDisplayed(CompanyPanel.elements.COMPANY_LIST_SECTION);
+		
+
+		TestLog.When("I logout");
+		app.customerPanel.login.logout();
+		
+		TestLog.Then("I should see the login panel");
+		Helper.verifyElementIsDisplayed(LoginPanel.elements.LOGIN_SUBMIT);	
 	}
 	
 	@Test
 	public void validate_user_login_as_manager() {
-		UserObject user = new UserObject().withEmail(UserObject.USER_AUTO_MANAGER).withPassword(UserObject.PASSWORD_AUTO_MANAGER);
+		UserObject user = UserObject.user().withManagerUser();
 		
 		TestLog.When("I login with manager user");
 		app.customerPanel.login.login(user);
@@ -61,7 +68,7 @@ public class Verify_Login_Test extends TestBase {
 	
 	@Test
 	public void validate_user_login_as_supervisor() { 
-		UserObject user = new UserObject().withEmail(UserObject.USER_AUTO_SUPERVISOR).withPassword(UserObject.PASSWORD_AUTO_SUPERVISOR);
+		UserObject user = UserObject.user().withSupervisorUser();
 		
 		TestLog.When("I login with supervisor user");
 		app.customerPanel.login.login(user);

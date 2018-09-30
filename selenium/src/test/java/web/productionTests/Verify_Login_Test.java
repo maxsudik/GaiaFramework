@@ -6,9 +6,9 @@ import org.testng.annotations.Test;
 
 import core.helpers.Helper;
 import core.logger.TestLog;
+import main.java.common.objects.UserObject;
 import main.java.main.customerPanel.Panels.CompanyPanel;
 import main.java.main.customerPanel.Panels.LoginPanel;
-import main.java.main.customerPanel.objects.UserObject;
 import test.java.TestBase;
 
 
@@ -21,7 +21,7 @@ public class Verify_Login_Test extends TestBase {
 
 	@Test
 	public void validate_user_login_as_manager() {
-		UserObject user = new UserObject().withEmail(UserObject.USER_PRODUCTION_MANAGER).withPassword(UserObject.PASSWORD_PRODUCTION_MANAGER);
+		UserObject user = UserObject.user().withProductionManagerUser();
 		
 		TestLog.When("I login with admin user");
 		app.customerPanel.login.login(user);
@@ -33,7 +33,7 @@ public class Verify_Login_Test extends TestBase {
 	
 	@Test
 	public void validate_user_login_as_supervisor() { 
-		UserObject user = new UserObject().withEmail(UserObject.USER_PRODUCTION_SUPERVISOR).withPassword(UserObject.PASSWORD_PRODUCTION_SUPERVISOR);
+		UserObject user = UserObject.user().withProductionSupervisorUser();
 		
 		TestLog.When("I login with supervisor user");
 		app.customerPanel.login.login(user);

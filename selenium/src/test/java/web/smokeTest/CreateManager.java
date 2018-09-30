@@ -5,45 +5,39 @@ import org.testng.annotations.Test;
 
 import core.helpers.Helper;
 import core.logger.TestLog;
+import main.java.common.objects.CompanyObject;
+import main.java.common.objects.UserObject;
 import main.java.main.customerPanel.Panels.PeoplePanel;
-import main.java.main.customerPanel.objects.CompanyObject;
 import main.java.main.customerPanel.objects.PeopleObject;
-import main.java.main.customerPanel.objects.UserObject;
 import test.java.TestBase;
 
 public class CreateManager extends TestBase{
 	
 	@BeforeMethod
 	public void beforeMethod() throws Exception {
-		setupWebDriver(app.customerPanel.getDriver());
+		setupWebDriver(app.rest.getDriver());
 	}
 	@Test
-	public void createManager() {
-		UserObject user = new UserObject().withEmail(UserObject.USER_ADMIN).withPassword(UserObject.PASSWORD_ADMIN);
+	public void createManager() throws Exception {
+		// create company through api
+		TestLog.And("I create a company");
+		CompanyObject company = app.rest.company.loginAndCreateCompany();
+		
+		// switch to web driver
+		setupWebDriver(app.customerPanel.getDriver());
+		
+		UserObject user = UserObject.user().withAdminLogin();
 
-		TestLog.When("I login with manager user");
+		TestLog.When("I login with admin user");
 		app.customerPanel.login.login(user);
-		
+			
 		TestLog.When("I select people panel");
-		app.customerPanel.navigate.selectEmployee();
+		app.customerPanel.navigate.selectEmployee();					
 		
-		PeopleObject people = new PeopleObject()
-				.withCompanyName(CompanyObject.COMPANY_NAME)
-				.withRoles(PeopleObject.ROLES)
-				.withFirstName(PeopleObject.FIRST_NAME)
-				.withLastName(PeopleObject.LAST_NAME)
-				.withNotes(PeopleObject.NOTES)
-				.withEmail(PeopleObject.EMAIL)
-				.withPassword(PeopleObject.PASSWORD)
-				.withRepeatPassword(PeopleObject.REPEAT_PASSWORD);
-		
-		CompanyObject company = new CompanyObject()
-				.withName(CompanyObject.COMPANY_NAME);
-		
-		TestLog.And("I add person " + PeopleObject.FIRST_NAME);
+		PeopleObject people = new PeopleObject().withDefaultManager(company.name().get());
+		TestLog.And("I add person " + people.firstName);
 		app.customerPanel.people.addPeople(people, company);
 
-		
 		TestLog.Then("Person should be added successfully");
 		Helper.verifyElementIsDisplayed(PeoplePanel.elements.PEOPLE_ADD_SUCCESS);
 	}

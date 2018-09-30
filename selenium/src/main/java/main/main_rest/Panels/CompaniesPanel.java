@@ -10,9 +10,9 @@ import org.json.JSONException;
 import core.logger.TestLog;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import main.java.common.objects.CompanyObject;
+import main.java.common.objects.UserObject;
 import main.java.main.main_rest.GaiaRest;
-import main.java.main.main_rest.objects.CompanyObject;
-import main.java.main.main_rest.objects.UserObject;
 
 public class CompaniesPanel {
 
@@ -98,5 +98,15 @@ public class CompaniesPanel {
 				System.out.println("company deleted:" + companies.get(i).name().get() + " index: " + i);
 			}
 		}
+	}
+	
+	public CompanyObject loginAndCreateCompany() {
+		UserObject user = UserObject.user().withAdminLogin();
+		user = manager.login.login(user);
+		
+		// create company through api 
+		CompanyObject company = CompanyObject.company().withDefaultCompany();
+		company = manager.company.createCompany(user, company);
+		return company;
 	}
 }

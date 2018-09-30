@@ -4,8 +4,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import core.logger.TestLog;
-import main.java.main.customerPanel.objects.CompanyObject;
-import main.java.main.customerPanel.objects.UserObject;
+import main.java.common.objects.CompanyObject;
+import main.java.common.objects.UserObject;
 import test.java.TestBase;
 
 public class CreateCompany extends TestBase{
@@ -18,24 +18,14 @@ public class CreateCompany extends TestBase{
 	@Test
 	public void createCompany() {
 		
-		UserObject user = new UserObject()
-				.withEmail(UserObject.USER_ADMIN)
-				.withPassword(UserObject.PASSWORD_ADMIN);
+		UserObject user = UserObject.user().withAdminLogin();
 		
-		CompanyObject company = new CompanyObject()
-				.withName(CompanyObject.COMPANY_NAME)
-				.withEmail(CompanyObject.COMPANY_EMAIL)
-				.withTax(CompanyObject.COMPANY_TAX_NUMBER)
-				.withType(CompanyObject.COMPANY_TYPE)
-				.withCurrency(CompanyObject.COMPANY_CURRENCY)
-				.withDescription(CompanyObject.COMPANY_DESCRIPTION);
+		CompanyObject company = CompanyObject.company().withDefaultCompany();
 		
 		TestLog.When("I login with manager user");
 		app.customerPanel.login.login(user);
 		
 		TestLog.Then("I create a new company");
-		app.customerPanel.company.addCompany(company);
-		
+		app.customerPanel.company.addCompany(company);	
 	}
-
 }

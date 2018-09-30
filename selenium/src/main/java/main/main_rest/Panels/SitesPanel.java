@@ -11,8 +11,8 @@ import org.json.JSONException;
 import core.logger.TestLog;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import main.java.common.objects.UserObject;
 import main.java.main.main_rest.GaiaRest;
-import main.java.main.main_rest.objects.UserObject;
 import main.java.main.main_rest.objects.site.SiteObject;
 
 public class SitesPanel {

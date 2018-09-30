@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import core.logger.TestLog;
-import main.java.main.main_rest.objects.UserObject;
+import main.java.common.objects.UserObject;
 import test.java.TestBase;
 
 public class removeTestData extends TestBase {

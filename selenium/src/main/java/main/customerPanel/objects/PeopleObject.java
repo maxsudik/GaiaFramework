@@ -1,6 +1,6 @@
 package main.java.main.customerPanel.objects;
 
-
+import core.helpers.Helper;
 
 public class PeopleObject {
 
@@ -12,16 +12,29 @@ public class PeopleObject {
 	public String email;
 	public String password;
 	public String repeatPassword;
-	
+
 	public static final String ROLES = "Manager";
-	public static final String FIRST_NAME = "Manager";
-	public static final String LAST_NAME = "LastName";
+	public static final String FIRST_NAME = "zzz_Manager";
+	public static final String LAST_NAME = "zzz_LastName";
 	public static final String NOTES = "Some notes";
-	public static final String EMAIL = "maksym.sudik+1@fortify.pro";
+	public static final String EMAIL = "maksym.sudik" + Helper.generateRandomString(5) + "@fortify.pro";
 	public static final String PASSWORD = "1111111111";
 	public static final String REPEAT_PASSWORD = "1111111111";
 
-
+	public PeopleObject withDefaultManager(String company) {
+	  String random = Helper.generateRandomString(5);
+	  PeopleObject people = new PeopleObject()
+					.withCompanyName(company)
+					.withRoles("Manager")
+					.withFirstName("zzz_Manager")
+					.withLastName("zzz_LastName")
+					.withNotes("Some notes")
+					.withEmail("maksym.sudik" + random + "@fortify.pro")
+					.withPassword("1111111111")
+					.withRepeatPassword("1111111111");
+		return people;
+	}
+  
 	
 	
 	public PeopleObject withCompanyName(String company) {

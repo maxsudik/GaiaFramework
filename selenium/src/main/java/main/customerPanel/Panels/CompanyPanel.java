@@ -5,8 +5,8 @@ package main.java.main.customerPanel.Panels;
 import core.helpers.Element;
 import core.helpers.Helper;
 import core.webElement.EnhancedBy;
+import main.java.common.objects.CompanyObject;
 import main.java.main.customerPanel.CustomerPanel;
-import main.java.main.customerPanel.objects.CompanyObject;
 
 public class CompanyPanel {
 
@@ -134,11 +134,11 @@ public class CompanyPanel {
 	 * @param company
 	 */
 	public void setCompanyInfoFields(CompanyObject company) {
-		Helper.setField(elements.COMPANYINFO_NAME, company.name);
-		Helper.clearAndSetField(elements.COMPANYINFO_EMAIL, company.email);
-		Helper.setField(elements.COMPANYINFO_TAX_NUMBER, company.tax);
-		Helper.selectDropDown(company.type, elements.COMPANYINFO_TYPE, elements.COMPANYINFO_TYPE_OPTIONS);
-		Helper.selectDropDown(company.currency, elements.COMPANYINFO_CURRENCY, elements.COMPANYINFO_CURRENCY_OPTIONS);	
+		Helper.setField(elements.COMPANYINFO_NAME, company.name().get());
+		Helper.clearAndSetField(elements.COMPANYINFO_EMAIL, company.email().get());
+		Helper.setField(elements.COMPANYINFO_TAX_NUMBER, company.taxNumber().get());
+		Helper.selectDropDown(company.type().get(), elements.COMPANYINFO_TYPE, elements.COMPANYINFO_TYPE_OPTIONS);
+		Helper.selectDropDown(company.currency().get(), elements.COMPANYINFO_CURRENCY, elements.COMPANYINFO_CURRENCY_OPTIONS);	
 	}
 	
 	/**
@@ -147,12 +147,12 @@ public class CompanyPanel {
 	 * @param company
 	 */
 	public void verifyCompany(CompanyObject company) {
-		Helper.verifyIsInList(elements.COMPANY_ROWS, company.name);
+		Helper.verifyIsInList(elements.COMPANY_ROWS, company.name().get());
 	}
 	
 	public void deleteCompanies(CompanyObject company) {
 		
-		Helper.setFieldAndEnter(elements.COMPANY_SEARCH_FIELD, company.name);
+		Helper.setFieldAndEnter(elements.COMPANY_SEARCH_FIELD, company.name().get());
 		Helper.clickAndExpect(elements.COMPANY_DELETE_BUTTON, elements.POP_UP_DELETE_BUTTON);
 		Helper.clickAndExpect(elements.POP_UP_DELETE_BUTTON, elements.COMPANY_SEARCH_FIELD);
 	}
