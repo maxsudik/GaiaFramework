@@ -25,23 +25,4 @@ public class CleanAfterTest extends TestBase{
 		
 		app.rest.company.deleteAllCompanies("zzz_");
 	}
-	
-	@Test
-	public void cleanEmployeesAfterTest() {
-		TestLog.When("I login with admin user");
-		UserObject user = UserObject.user().withAdminLogin();
-		app.rest.login.login(user);
-		
-		app.rest.people.deleteAllPeople("zzz_");
-	}
-	
-	@Test
-	public void deleteAllTestSites() throws JSONException {
-		
-		TestLog.When("I login with admin user");
-		UserObject user = UserObject.user().withAdminLogin();
-		app.rest.login.login(user);
-		
-		app.rest.site.deleteAllSites("zzz_");
-	}
 }

@@ -1,28 +1,45 @@
 package api;
 
 
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import common.objects.UserObject;
 import core.api.apiRunner;
 import core.api.dataProvider;
+import core.logger.TestLog;
 
 
 public class apiTestRunner extends TestBase  {
 
 	@BeforeMethod(alwaysRun = true)
 	public void beforeMethod() throws Exception {
-		//setupWebDriver(app.rest.getDriver());
-
+		setupWebDriver(app.rest.getDriver());
+		
+		TestLog.When("I login with admin user");
+		UserObject user = UserObject.user().withAdminLogin();
+		app.rest.login.login(user);
+		
+		TestLog.And("I delete all companies with prefix zzz_");
+		app.rest.company.deleteAllCompanies("zzz_");
+		TestLog.And("I delete all people with prefix zzz_");
+		app.rest.people.deleteAllPeople("zzz_");
+		TestLog.And("I delete all sites with prefix zzz_");
+		app.rest.site.deleteAllSites("zzz_");
 	}
 	
-	//@Test()
-	public void keywordTest() throws Exception {
-		// setup api driver
-		setupWebDriver(app.rest.getDriver());
-		// Map<String, ApiObject> apiMap = TestObject.getTestInfo().apiMap;
-		// System.out.println("");
+	@AfterMethod(alwaysRun = true)
+	public void afterMethod() throws Exception {
+		
+		TestLog.And("I delete all companies with prefix zzz_");
+		app.rest.company.deleteAllCompanies("zzz_");
+		TestLog.And("I delete all people with prefix zzz_");
+		app.rest.people.deleteAllPeople("zzz_");
+		TestLog.And("I delete all sites with prefix zzz_");
+		app.rest.site.deleteAllSites("zzz_");
+
 	}
 	
 	@Test(dataProvider = "parallelRun", dataProviderClass = dataProvider.class, threadPoolSize = 1, invocationCount = 1)
@@ -31,11 +48,12 @@ public class apiTestRunner extends TestBase  {
 			String RequestHeaders, String TemplateFile, String RequestBody, String OutputParams, String RespCodeExp,
 			String ExpectedResponse, String PartialExpectedResponse, String NotExpectedResponse, String TcComments,
 			String tcName, String tcIndex) throws Exception {
-
+/*
 		apiRunner.TestRunner(TestSuite, TestCaseID, RunFlag, Description,
 			InterfaceType, UriPath, ContentType,  Method,  Option,
 			 RequestHeaders,  TemplateFile,  RequestBody,  OutputParams,  RespCodeExp,
 			 ExpectedResponse,  PartialExpectedResponse,  NotExpectedResponse,  TcComments,
 			 tcName, tcIndex);
+			 */
 	}
 }

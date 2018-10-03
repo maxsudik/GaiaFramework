@@ -1,6 +1,7 @@
 package rest;
 
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import base.TestBase;
@@ -16,6 +17,7 @@ public class verifySitesTest extends TestBase {
 		setupWebDriver(app.rest.getDriver());
 	}
 
+	@Ignore // cannot delete site
 	@Test
 	public void verifyCreateSite() {
 

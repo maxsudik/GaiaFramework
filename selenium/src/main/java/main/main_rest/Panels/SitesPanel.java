@@ -21,42 +21,41 @@ public class SitesPanel {
 
 	public void createSite(SiteObject site, CompanyObject company) {
 
-		manager.company.findCompany(company.name().get());
+		TestObject.getTestInfo().config.put("siteName", site.name().get());
 
-		Config.putValue("siteName", site.name().get());
-
-		ApiObject api = TestObject.getApiDef("createSite");
+		ApiObject api = TestObject.getTestInfo().apiMap.get("createSite");
 		restApiInterface.RestfullApiInterface(api);
 	}
 
 	public void deleteSite(SiteObject site) {
 
-		findSite(site.name().get());
+		findSite(site);
 
-		ApiObject api = TestObject.getApiDef("deleteSite");
+		ApiObject api = TestObject.getTestInfo().apiMap.get("deleteSite");
 		restApiInterface.RestfullApiInterface(api);
 	}
 
-	public void findSite(String siteName) {
-		Config.putValue("siteName", siteName);
-		ApiObject api = TestObject.getApiDef("findSite");
+	public void findSite(SiteObject site) {
+		TestObject.getTestInfo().config.put("siteName", site.name().get());
+		ApiObject api = TestObject.getTestInfo().apiMap.get("findSite");
 		restApiInterface.RestfullApiInterface(api);
 	}
 
 	public void deleteAllSites(String prefix) {
 		// gets all sites
-		ApiObject api = TestObject.getApiDef("getSites");
+		ApiObject api = TestObject.getTestInfo().apiMap.get("getSites");
 		restApiInterface.RestfullApiInterface(api);
 
 		// gets names and ids as list
 		List<String> siteNames = Config.getValueList("siteNames");
+		List<String> siteIds = Config.getValueList("siteIds");
 
 		// deletes all sites with prefix
 		for (int i = 0; i < siteNames.size(); i++) {
 			if (siteNames.get(i).contains(prefix)) {
 				TestLog.logPass("deleting site: " + siteNames.get(i));
-				findSite(siteNames.get(i));
-				api = TestObject.getApiDef("deleteSite");
+				Config.putValue("siteId", siteIds.get(i));
+				api = TestObject.getTestInfo().apiMap.get("deleteSite");
 				restApiInterface.RestfullApiInterface(api);
 			}
 		}

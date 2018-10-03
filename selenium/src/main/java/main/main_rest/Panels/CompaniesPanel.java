@@ -36,17 +36,10 @@ public class CompaniesPanel {
 
 	
 	public void deleteCompany(CompanyObject company) {
-		findCompany(company.name().get());
 
 		ApiObject api = TestObject.getApiDef("deleteCompany");
 		restApiInterface.RestfullApiInterface(api);	
 		
-	}
-	
-	public void findCompany(String companyName) {
-		Config.putValue("companyName", companyName);
-		ApiObject api = TestObject.getApiDef("findCompany");
-		restApiInterface.RestfullApiInterface(api);	
 	}
 	
 	/** deletes all companies with prefix
@@ -60,13 +53,15 @@ public class CompaniesPanel {
       
 		// gets names and ids as list
 		List<String> companyNames = Config.getValueList("companyNames");
+        List<String> companyIds = Config.getValueList("companyIds");
        
         // deletes all companies with prefix
         for(int i = 0; i< companyNames.size(); i++) {
         	if(companyNames.get(i).contains(prefix)) {
         		TestLog.logPass("deleting company: " + companyNames.get(i));
-        		findCompany(companyNames.get(i));
-        		api = TestObject.getApiDef("deleteCompany");
+        		Config.putValue("companyId", companyIds.get(i));
+        	    api =  TestObject.getApiDef("deleteCompany");
+        	    
         		restApiInterface.RestfullApiInterface(api);	
         	}
         }

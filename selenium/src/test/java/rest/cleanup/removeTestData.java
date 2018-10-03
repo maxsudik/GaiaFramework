@@ -3,6 +3,7 @@ package rest.cleanup;
 
 import org.json.JSONException;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import base.TestBase;
@@ -26,9 +27,9 @@ public class removeTestData extends TestBase {
 		
 		app.rest.company.deleteAllCompanies("zzz_");
 
-		//app.rest.company.deleteAllCompanies(user, "zzz_");
 	}
 	
+	@Ignore // 
 	@Test
 	public void deleteAllTestSites() throws JSONException {
 		
@@ -38,7 +39,7 @@ public class removeTestData extends TestBase {
 		
 		app.rest.site.deleteAllSites("zzz_");
 	}
-	
+	@Ignore 
 	@Test
 	public void deleteAllTestPeople() {
 		

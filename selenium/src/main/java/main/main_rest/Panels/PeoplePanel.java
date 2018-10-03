@@ -20,14 +20,13 @@ public class PeoplePanel {
 	}
 
 	public void createPerson(PeopleObject people, CompanyObject company) {
-		manager.company.findCompany(company.name().get());
 		
-		Config.putValue("personFirstName", people.firstName().get());
-		Config.putValue("personLastName", people.lastName().get());
-		Config.putValue("personRoleName", people.roleName().get());
-		Config.putValue("personUsername", people.username().get());
-		Config.putValue("personEmail", people.email().get());
-		Config.putValue("personPassword", people.password().get());
+		TestObject.getTestInfo().config.put("personFirstName", people.firstName().get());
+		TestObject.getTestInfo().config.put("personLastName", people.lastName().get());
+		TestObject.getTestInfo().config.put("personRoleName", people.roleName().get());
+		TestObject.getTestInfo().config.put("personUsername", people.username().get());
+		TestObject.getTestInfo().config.put("personEmail", people.email().get());
+		TestObject.getTestInfo().config.put("personPassword", people.password().get());
 
 
 		ApiObject userAPI = TestObject.getApiDef("createUser");
@@ -35,17 +34,11 @@ public class PeoplePanel {
 	}
 
 	public void deletePerson(PeopleObject people) {
-		findUser(people.username().get());
 		
 		ApiObject api = TestObject.getApiDef("deleteUser");
 		restApiInterface.RestfullApiInterface(api);	
 	}
-	
-	public void findUser(String userName) {
-		Config.putValue("personUsername", userName);
-		ApiObject api = TestObject.getApiDef("findUser");
-		restApiInterface.RestfullApiInterface(api);	
-	}
+
 
 	public void deleteAllPeople(String prefix) {
 		// gets all people
@@ -54,12 +47,13 @@ public class PeoplePanel {
 
 		// gets names and ids as list
 		List<String> peopleNames = Config.getValueList("peopleNames");
+		List<String> peopleIds = Config.getValueList("peopleIds");
 
 		// deletes all people with prefix
 		for (int i = 0; i < peopleNames.size(); i++) {
 			if (peopleNames.get(i).contains(prefix)) {
 				TestLog.logPass("deleting user: " + peopleNames.get(i));
-				findUser(peopleNames.get(i));
+				Config.putValue("personId", peopleIds.get(i));
 				api = TestObject.getApiDef("deleteUser");
 				restApiInterface.RestfullApiInterface(api);
 			}

@@ -13,8 +13,6 @@ public class GaiaRest {
 	// app info
 	
 	public static String APP = "gaiaApi";
-	public static String URL = "https://apidev7.gaialandscape.com/";
-	public static String BASE_PATH ="/api";
 	
 	// panel list
 	public LoginPanel login = new LoginPanel(this);
@@ -25,13 +23,10 @@ public class GaiaRest {
 
 	/**
 	 * sets url and  browser capabilities
-	 * URL from maven or properties file will override the current url
+	 * URL from maven or properties file will override the current values
 	 * @return driver object
 	 */
-	public DriverObject getDriver() {
-		//RestAssured.baseURI = URL;
-	//	RestAssured.basePath = BASE_PATH;
-		
+	public DriverObject getDriver() {	
 		return new DriverObject().withDriverType(DriverType.API)
 				.withApp(APP);
 	}	
