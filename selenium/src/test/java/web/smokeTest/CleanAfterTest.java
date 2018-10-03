@@ -21,18 +21,18 @@ public class CleanAfterTest extends TestBase{
 		TestLog.When("I login with admin user");
 		UserObject user = UserObject.user().withAdminLogin();
 
-		user = app.rest.login.login(user);
+		app.rest.login.login(user);
 		
-		app.rest.company.deleteAllCompanies(user, "zzz_");
+		app.rest.company.deleteAllCompanies("zzz_");
 	}
 	
 	@Test
 	public void cleanEmployeesAfterTest() {
 		TestLog.When("I login with admin user");
 		UserObject user = UserObject.user().withAdminLogin();
-		user = app.rest.login.login(user);
+		app.rest.login.login(user);
 		
-		app.rest.people.deleteAllPeople(user, "zzz_");
+		app.rest.people.deleteAllPeople("zzz_");
 	}
 	
 	@Test
@@ -40,8 +40,8 @@ public class CleanAfterTest extends TestBase{
 		
 		TestLog.When("I login with admin user");
 		UserObject user = UserObject.user().withAdminLogin();
-		user = app.rest.login.login(user);
+		app.rest.login.login(user);
 		
-		app.rest.site.deleteAllSites(user, "zzz_");
+		app.rest.site.deleteAllSites("zzz_");
 	}
 }

@@ -1,5 +1,5 @@
 # global configuration
-UriPath = https://apidev7.gaialandscape.com
+UriPath = https://apidev3.gaialandscape.com
 webUserEmail = test@test.com
 webUserPassword = testPassword
 adminUserEmail = admin
@@ -7,6 +7,7 @@ adminUserPassword = # .Gaia$
 
 parallelTestcasePath = "/api/testcases/"
 sequentialTestcasePath = "/api/testcases/"
+apiKeywordPath = "api/keywords/"
 
 # set file name to run single csv file
 testCaseFile = ""

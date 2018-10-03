@@ -1,67 +1,1 @@
-TestSuite,TestCaseID,RunFlag,Description,InterfaceType,UriPath,ContentType,Method,Option,RequestHeaders,TemplateFile,RequestBody,OutputParams,RespCodeExp,ExpectedResponse,PartialExpectedResponse,NotExpectedResponse,TcComments
-TsCompany,getAdminToken,Y,Retrieve a token from Token Generator,RESTfulAPI,/api/people/login,application/json,POST,,,,"{
-""username"": ""<@adminUserEmail>"",
-""password"": ""<@adminUserPassword>""
-}","login.id:<$accessTokenAdmin>,
-login.userId:<$userId>",200,,"{
-  ""person"": {
-        ""firstName"": ""Gaia"",
-        ""lastName"": ""Administrator"",
-        ""roleName"": ""admin""
-  }
-}
-&&
-_VERIFY_JSON_PART_
-""person.roles.name"": hasItems(""admin""),
-""person.lastName"": equalTo(""Administrator""),
-""person.lastName"": isNotEmpty,
-""person.roles.name"": contains(""admin""),
-""person.roles.name"": containsInAnyOrder(admin),
-""person.roles"": nodeSizeGreaterThan(0),
-""person.sites."": nodeSizeExact(0)
-&& 
-_NOT_EMPTY_
-",,
-TsCompany,createCompany,Y,create company,RESTfulAPI,/api/companies,application/json,POST,token:<@accessTokenAdmin>,,,"{
-""name"":""zzzCompany<@_TIME16>"",
-""email"":""autotestdemo313+<@_TIME16>@gmail.com"",
-""taxNumber"":""33"",
-""type"":""supplier"",
-""currency"":""USD"",
-""description"":""api testing"",
-""productSpreadReduction"":""20""
-}",id:<$companyId>,200,,"{
-  ""name"": ""zzzCompany<@_TIME16>"",
-  ""email"": ""autotestdemo313+<@_TIME16>@gmail.com"",
-  ""licenseLimit"": 1,
-  ""isActive"": false,
-  ""taxNumber"": ""33"",
-  ""description"": ""api testing"",
-  ""type"": ""supplier"",
-  ""currency"": ""USD"",
-  ""productSpreadReduction"": 20,
-  ""points"": 0
-}",_EMPTY_,
-TsCompany,updateCompany,Y,update company,RESTfulAPI,/api/companies/<@companyId>,application/json,PATCH,token:<@accessTokenAdmin>,,,"{
-""name"":""zzzCompanyUpdate<@_TIME16>"",
-""email"":""autotestdemo303+<@_TIME16>@gmail.com"",
-""taxNumber"":""313"",
-""type"":""landscape"",
-""currency"":""CAD"",
-""description"":""api testing updated"",
-""productSpreadReduction"":""40"",
-""website"":""https://www.gaia.com"",
-""address"":{""country"":""Canada"",""state"":""BC"",""city"":""vancouver"",""street"":""main"",""street2"":""victor"",""postalCode"":""v5s4p2""}
-}",,200,,"{
-""name"":""zzzCompanyUpdate<@_TIME16>"",
-""email"":""autotestdemo303+<@_TIME16>@gmail.com"",
-""taxNumber"":""313"",
-""type"":""landscape"",
-""currency"":""CAD"",
-""description"":""api testing updated"",
-""productSpreadReduction"":40,
-""website"":""https://www.gaia.com"",
-""address"":{""country"":""Canada"",""state"":""BC"",""city"":""vancouver"",""street"":""main"",""street2"":""victor"",""postalCode"":""v5s4p2""}
-}",_EMPTY_,
-,,,,,,,,,,,,,,,,,
-TsCompany,deleteCompany,Y,delete company,RESTfulAPI,/api/companies/<@companyId>,application/json,DELETE,token:<@accessTokenAdmin>,,,,,200,,,_EMPTY_,
+TestSuite,TestCaseID,RunFlag,Description,InterfaceType,UriPath,ContentType,Method,Option,RequestHeaders,TemplateFile,RequestBody,OutputParams,RespCodeExp,ExpectedResponse,PartialExpectedResponse,NotExpectedResponse,TcCommentsTsCompany,getToken,Y,Retrieve a token from Token Generator,RESTfulAPI,/api/people/login,application/json,POST,,,,"{""username"": ""<@username>"",""password"": ""<@password>""}","login.id:<$accessToken>,login.userId:<$userId>",200,,,,TsCompany,getCompanies,Y,get company,RESTfulAPI,/api/companies,application/json,GET,token:<@accessToken>,,,,"id:<$companyIds>,name:<$companyNames>",200,,,,TsCompany,createCompany,Y,create company,RESTfulAPI,/api/companies,application/json,POST,token:<@accessToken>,,,"{""name"":""<@companyName>"",""email"":""<@companyEmail>"",""taxNumber"":""<@taxNumber>"",""type"":""<@companyType>"",""currency"":""<@companyCurrency>"",""description"":""<@companyDescription>"",""productSpreadReduction"":""20""}",id:<$companyId>,200,,,,TsCompany,findCompany,Y,find company by company name,RESTfulAPI,/api/companies/findOne,application/json,GET,token:<@accessToken>,,,"{""name"":""<@companyName>""}",id:<$companyId>,200,,,,TsCompany,deleteCompany,Y,delete company,RESTfulAPI,/api/companies/<@companyId>,application/json,DELETE,token:<@accessToken>,,,,,200,,,,,,,,,,,,,,,,,,,,,TsCompany,getUsers,Y,get user,RESTfulAPI,/api/people,application/json,GET,token:<@accessToken>,,,,"id:<$peopleIds>,name:<$peopleNames>",200,,,,TsCompany,createUser,Y,create user,RESTfulAPI,/api/people,application/json,POST,token:<@accessToken>,,,"{""firstName"":""<@personFirstName>"",""lastName"":""<@personLastName>"",""roleName"":""<@personRoleName>"",""username"":""<@personUsername>"",""email"":""<@personEmail>"",""password"":""<@personPassword>"",""companyId"":""<@companyId>""}",id:<$personId>,200,,,,TsCompany,findUser,Y,find user by username,RESTfulAPI,/api/people/findOne,application/json,GET,token:<@accessToken>,,,"{""username"":""<@personUsername>""}",id:<$personId>,200,,,,TsCompany,deleteUser,Y,delete user,RESTfulAPI,/api/people/<@personId>,application/json,DELETE,token:<@accessToken>,,,,,200,,,,,,,,,,,,,,,,,,,,,TsCompany,getSites,Y,get sites,RESTfulAPI,/api/sites,application/json,GET,token:<@accessToken>,,,,"id:<$siteIds>,name:<$siteNames>",200,,,,TsCompany,createSite,Y,create site,RESTfulAPI,/api/sites,application/json,POST,token:<@accessToken>,,,"{""name"":""<@siteName>"",""companyId"":""<@companyId>""}",id:<$siteId>,200,,,,TsCompany,findSite,Y,find site by username,RESTfulAPI,/api/sites/findOne,application/json,GET,token:<@accessToken>,,,"{""name"":""<@siteName>""}",id:<$siteId>,200,,,,TsCompany,deleteSite,Y,delete site,RESTfulAPI,/api/sites/<@siteId>,application/json,DELETE,token:<@accessToken>,,,,,200,,,,

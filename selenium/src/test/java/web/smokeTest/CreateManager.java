@@ -34,7 +34,7 @@ public class CreateManager extends TestBase{
 		TestLog.When("I select people panel");
 		app.customerPanel.navigate.selectEmployee();					
 		
-		PeopleObject people = new PeopleObject().withDefaultManager(company.name().get());
+		PeopleObject people = new PeopleObject().withDefaultManager("");
 		TestLog.And("I add person " + people.firstName);
 		app.customerPanel.people.addPeople(people, company);
 

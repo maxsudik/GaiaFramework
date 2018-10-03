@@ -1,46 +1,25 @@
 package main.main_rest.Panels;
 
 
-import static io.restassured.RestAssured.given;
-
 import common.objects.UserObject;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
+import core.api.Interfaces.restApiInterface;
+import core.api.Objects.ApiObject;
+import core.configReader.Config;
+import core.driver.objects.TestObject;
 import main.main_rest.GaiaRest;
 
 public class LoginPanel {
-
-	// category
-	public interface search {}
 	
 	GaiaRest manager; 	
 	public LoginPanel(GaiaRest manager) {
 		this.manager = manager;
 	}
 	
-	public static class apis {
-	
-		public static String LOGIN_API = "/people/login";
-		
-	}
-	
-	/**
-	 * set login info and returns login id
-	 * 
-	 * @param user
-	 */
-	public UserObject login(UserObject user) {
-		Response response = 
-				given()
-					.contentType(ContentType.JSON)
-					.body(user)
-				.when()
-					.post(apis.LOGIN_API)
-				.then()
-					.contentType(ContentType.JSON).statusCode(200).extract().response();
-       
-		String id = response.path("login.id");
-		user = UserObject.Builder.from(user).loginId(id).buildPartial();
-		return user;	
+	public void login(UserObject user) {
+		Config.putValue("username", user.username().get());
+		Config.putValue("password", user.password().get());
+
+		ApiObject login = TestObject.getApiDef("getToken");
+		restApiInterface.RestfullApiInterface(login);	
 	}
 }

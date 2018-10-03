@@ -1,17 +1,28 @@
 package api;
 
 
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.TestBase;
 import core.api.apiRunner;
 import core.api.dataProvider;
 
+
 public class apiTestRunner extends TestBase  {
 
-	@BeforeClass(alwaysRun = true)
+	@BeforeMethod(alwaysRun = true)
 	public void beforeMethod() throws Exception {
+		//setupWebDriver(app.rest.getDriver());
+
+	}
+	
+	//@Test()
+	public void keywordTest() throws Exception {
+		// setup api driver
+		setupWebDriver(app.rest.getDriver());
+		// Map<String, ApiObject> apiMap = TestObject.getTestInfo().apiMap;
+		// System.out.println("");
 	}
 	
 	@Test(dataProvider = "parallelRun", dataProviderClass = dataProvider.class, threadPoolSize = 1, invocationCount = 1)

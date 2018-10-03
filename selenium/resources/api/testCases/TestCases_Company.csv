@@ -1,8 +1,7 @@
-TestSuite,TestCaseID,RunFlag,Description,InterfaceType,UriPath,ContentType,Method,Option,RequestHeaders,TemplateFile,RequestBody,OutputParams,RespCodeExp,ExpectedResponse,PartialExpectedResponse,NotExpectedResponse,TcComments
-TsCompany,getAdminToken,Y,Retrieve a token from Token Generator,RESTfulAPI,/api/people/login,application/json,POST,,,,"{
+TestSuite,TestCaseID,RunFlag,Description,InterfaceType,UriPath,ContentType,Method,Option,RequestHeaders,TemplateFile,RequestBody,OutputParams,RespCodeExp,ExpectedResponse,PartialExpectedResponse,NotExpectedResponse,TcCommentsTsCompany,getAdminToken,Y,Retrieve a token from Token Generator,RESTfulAPI,/api/people/login,application/json,POST,,,,"{
 ""username"": ""<@adminUserEmail>"",
 ""password"": ""<@adminUserPassword>""
-}","login.id:<$accessTokenAdmin>,
+}","person.roles.id:<@roles>,login.id:<$accessTokenAdmin>,
 login.userId:<$userId>",200,,"{
   ""person"": {
         ""firstName"": ""Gaia"",
@@ -21,8 +20,7 @@ _VERIFY_JSON_PART_
 ""person.sites."": nodeSizeExact(0)
 && 
 _NOT_EMPTY_
-",,
-TsCompany,createCompany,Y,create company,RESTfulAPI,/api/companies,application/json,POST,token:<@accessTokenAdmin>,,,"{
+",,TsCompany,createCompany,Y,create company,RESTfulAPI,/api/companies,application/json,POST,token:<@accessTokenAdmin>,,,"{
 ""name"":""zzzCompany<@_TIME16>"",
 ""email"":""autotestdemo313+<@_TIME16>@gmail.com"",
 ""taxNumber"":""33"",
@@ -41,8 +39,7 @@ TsCompany,createCompany,Y,create company,RESTfulAPI,/api/companies,application/j
   ""currency"": ""USD"",
   ""productSpreadReduction"": 20,
   ""points"": 0
-}",_EMPTY_,
-TsCompany,createCompanyNoToken,Y,create company no token,RESTfulAPI,/api/companies,application/json,POST,NO_TOKEN,,,"{
+}",_EMPTY_,TsCompany,createCompanyNoToken,Y,create company no token,RESTfulAPI,/api/companies,application/json,POST,NO_TOKEN,,,"{
 ""name"":""zzzCompanyInvalid<@_TIME16>"",
 ""email"":""autotestdemo313+<@_TIME16>@gmail.com"",
 ""taxNumber"":""33"",
@@ -50,8 +47,7 @@ TsCompany,createCompanyNoToken,Y,create company no token,RESTfulAPI,/api/compani
 ""currency"":""USD"",
 ""description"":""api testing"",
 ""productSpreadReduction"":""20""
-}",,401,,"{""error"":{""statusCode"":401,""name"":""Error"",""message"":""Authorization Required""}}",_EMPTY_,
-TsCompany,createCompanyInvalidToken,Y,create company invalid token,RESTfulAPI,/api/companies,application/json,POST,INVALID_TOKEN,,,"{
+}",,401,,"{""error"":{""statusCode"":401,""name"":""Error"",""message"":""Authorization Required""}}",_EMPTY_,TsCompany,createCompanyInvalidToken,Y,create company invalid token,RESTfulAPI,/api/companies,application/json,POST,INVALID_TOKEN,,,"{
 ""name"":""zzzCompanyInvalid<@_TIME16>"",
 ""email"":""autotestdemo313+<@_TIME16>@gmail.com"",
 ""taxNumber"":""33"",
@@ -59,9 +55,7 @@ TsCompany,createCompanyInvalidToken,Y,create company invalid token,RESTfulAPI,/a
 ""currency"":""USD"",
 ""description"":""api testing"",
 ""productSpreadReduction"":""20""
-}",,401,,"{""error"":{""statusCode"":401,""name"":""Error"",""message"":""Authorization Required""}}",_EMPTY_,
-,,,,,,,,,,,,,,,,,
-TsCompany,updateCompany,Y,update company,RESTfulAPI,/api/companies/<@companyId>,application/json,PATCH,token:<@accessTokenAdmin>,,,"{
+}",,401,,"{""error"":{""statusCode"":401,""name"":""Error"",""message"":""Authorization Required""}}",_EMPTY_,,,,,,,,,,,,,,,,,,TsCompany,updateCompany,Y,update company,RESTfulAPI,/api/companies/<@companyId>,application/json,PATCH,token:<@accessTokenAdmin>,,,"{
 ""name"":""zzzCompanyUpdate<@_TIME16>"",
 ""email"":""autotestdemo303+<@_TIME16>@gmail.com"",
 ""taxNumber"":""313"",
@@ -81,6 +75,4 @@ TsCompany,updateCompany,Y,update company,RESTfulAPI,/api/companies/<@companyId>,
 ""productSpreadReduction"":40,
 ""website"":""https://www.gaia.com"",
 ""address"":{""country"":""Canada"",""state"":""BC"",""city"":""vancouver"",""street"":""main"",""street2"":""victor"",""postalCode"":""v5s4p2""}
-}",_EMPTY_,
-,,,,,,,,,,,,,,,,,
-TsCompany,deleteCompany,Y,delete company,RESTfulAPI,/api/companies/<@companyId>,application/json,DELETE,token:<@accessTokenAdmin>,,,,,200,,,_EMPTY_,
+}",_EMPTY_,,,,,,,,,,,,,,,,,,TsCompany,deleteCompany,Y,delete company,RESTfulAPI,/api/companies/<@companyId>,application/json,DELETE,token:<@accessTokenAdmin>,,,,,200,,,_EMPTY_,

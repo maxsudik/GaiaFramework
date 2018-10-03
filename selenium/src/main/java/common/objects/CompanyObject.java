@@ -50,6 +50,7 @@ public abstract class CompanyObject {
 				.taxNumber(DEFAULT_TAX_NUMBER)
 				.type("landscape")
 				.currency("CAD")
+				.description("automation user")
 			    .buildPartial();
 	}
 }

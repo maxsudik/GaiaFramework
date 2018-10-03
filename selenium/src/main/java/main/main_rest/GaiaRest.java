@@ -3,7 +3,6 @@ package main.main_rest;
 
 import core.driver.driverProperties.driverType.DriverType;
 import core.driver.objects.DriverObject;
-import io.restassured.RestAssured;
 import main.main_rest.Panels.CompaniesPanel;
 import main.main_rest.Panels.LoginPanel;
 import main.main_rest.Panels.PeoplePanel;
@@ -30,8 +29,8 @@ public class GaiaRest {
 	 * @return driver object
 	 */
 	public DriverObject getDriver() {
-		RestAssured.baseURI = URL;
-		RestAssured.basePath = BASE_PATH;
+		//RestAssured.baseURI = URL;
+	//	RestAssured.basePath = BASE_PATH;
 		
 		return new DriverObject().withDriverType(DriverType.API)
 				.withApp(APP);

@@ -1,24 +1,17 @@
 package main.main_rest.Panels;
 
-import static io.restassured.RestAssured.given;
+import java.util.List;
 
-import java.util.ArrayList;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-
-import common.objects.UserObject;
+import common.objects.CompanyObject;
+import core.api.Interfaces.restApiInterface;
+import core.api.Objects.ApiObject;
+import core.configReader.Config;
+import core.driver.objects.TestObject;
 import core.logger.TestLog;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import main.main_rest.GaiaRest;
 import main.main_rest.objects.PeopleObject;
 
 public class PeoplePanel {
-
-	// category
-	public interface search {
-	}
 
 	GaiaRest manager;
 
@@ -26,76 +19,49 @@ public class PeoplePanel {
 		this.manager = manager;
 	}
 
-	public static class apis {
+	public void createPerson(PeopleObject people, CompanyObject company) {
+		manager.company.findCompany(company.name().get());
+		
+		Config.putValue("personFirstName", people.firstName().get());
+		Config.putValue("personLastName", people.lastName().get());
+		Config.putValue("personRoleName", people.roleName().get());
+		Config.putValue("personUsername", people.username().get());
+		Config.putValue("personEmail", people.email().get());
+		Config.putValue("personPassword", people.password().get());
 
-		public static String PEOPLE_API = "/people";
+
+		ApiObject userAPI = TestObject.getApiDef("createUser");
+		restApiInterface.RestfullApiInterface(userAPI);	
 	}
 
-	public PeopleObject createPerson(UserObject user, PeopleObject people) {
-		Response response = given().header("Authorization", user.loginId().get()).contentType(ContentType.JSON)
-				.body(people).when().post(apis.PEOPLE_API).then().contentType(ContentType.JSON).extract().response();
-
-		String id = response.path("id");
-		people = PeopleObject.Builder.from(people).id(id).buildPartial();
-
-		return people;
+	public void deletePerson(PeopleObject people) {
+		findUser(people.username().get());
+		
+		ApiObject api = TestObject.getApiDef("deleteUser");
+		restApiInterface.RestfullApiInterface(api);	
+	}
+	
+	public void findUser(String userName) {
+		Config.putValue("personUsername", userName);
+		ApiObject api = TestObject.getApiDef("findUser");
+		restApiInterface.RestfullApiInterface(api);	
 	}
 
-	public void deletePerson(UserObject user, PeopleObject people) {
+	public void deleteAllPeople(String prefix) {
+		// gets all people
+		ApiObject api = TestObject.getApiDef("getUsers");
+		restApiInterface.RestfullApiInterface(api);
 
-		given().header("Authorization", user.loginId().get()).contentType(ContentType.JSON).body(people).when()
-				.delete(apis.PEOPLE_API + "/" + people.id().get()).then().contentType(ContentType.JSON).statusCode(200)
-				.extract().response();
-	}
+		// gets names and ids as list
+		List<String> peopleNames = Config.getValueList("peopleNames");
 
-	public ArrayList<PeopleObject> getAllPeople(UserObject user) {
-		JSONArray people = new JSONArray();
-		try {
-			Response response = given().header("Authorization", user.loginId().get()).contentType(ContentType.JSON)
-					.when().get(apis.PEOPLE_API).then().contentType(ContentType.JSON).statusCode(200).extract()
-					.response();
-
-			people = new JSONArray(response.body().asString());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return getPeopleFromJson(people);
-	}
-
-	public PeopleObject getPersonFromJson(JSONArray people) {
-		return getPeopleFromJson(people).get(0);
-	}
-
-	public ArrayList<PeopleObject> getPeopleFromJson(JSONArray people) {
-		ArrayList<PeopleObject> personList = new ArrayList<PeopleObject>();
-		try {
-			for (int i = 0; i < people.length(); i++) {
-				PeopleObject person;
-
-				person = new PeopleObject.Builder().firstName(people.getJSONObject(i).getString("firstName"))
-						.lastName(people.getJSONObject(i).getString("lastName"))
-						.roleName(people.getJSONObject(i).getString("roleName"))
-						.username(people.getJSONObject(i).getString("username"))
-						.email(people.getJSONObject(i).getString("email")).id(people.getJSONObject(i).getString("id"))
-						.buildPartial();
-				personList.add(person);
-			}
-
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-
-		return personList;
-	}
-
-	public void deleteAllPeople(UserObject user, String criteria) {
-		ArrayList<PeopleObject> people = getAllPeople(user);
-
-		for (int i = 0; i < people.size(); i++) {
-			if (people.get(i).firstName().get().toLowerCase().contains(criteria)) {
-				deletePerson(user, people.get(i));
-				TestLog.And("I delete person: " + people.get(i).firstName().get());
-				System.out.println("person deleted:" + people.get(i).firstName().get() + " index: " + i);
+		// deletes all people with prefix
+		for (int i = 0; i < peopleNames.size(); i++) {
+			if (peopleNames.get(i).contains(prefix)) {
+				TestLog.logPass("deleting user: " + peopleNames.get(i));
+				findUser(peopleNames.get(i));
+				api = TestObject.getApiDef("deleteUser");
+				restApiInterface.RestfullApiInterface(api);
 			}
 		}
 	}

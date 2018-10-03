@@ -20,13 +20,13 @@ public class verifyCompaniesTest extends TestBase {
 
 		TestLog.When("I login with admin user");
 		UserObject user = UserObject.user().withAdminLogin();
-		user = app.rest.login.login(user);
+		app.rest.login.login(user);
 
 		CompanyObject company = CompanyObject.company().withDefaultCompany();
 		TestLog.And("I create company '" + company.name().get() + "'");
-		company = app.rest.company.createCompany(user, company);
+		app.rest.company.createCompany(company);
 
 		TestLog.Then("I delete the company '" + company.name().get() + "'");
-		app.rest.company.deleteCompany(user, company);
+		app.rest.company.deleteCompany(company);
 	}
 }
