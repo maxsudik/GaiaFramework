@@ -3,7 +3,6 @@ package rest.cleanup;
 
 import org.json.JSONException;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import base.TestBase;
@@ -29,7 +28,6 @@ public class removeTestData extends TestBase {
 
 	}
 	
-	@Ignore // 
 	@Test
 	public void deleteAllTestSites() throws JSONException {
 		
@@ -39,9 +37,9 @@ public class removeTestData extends TestBase {
 		
 		app.rest.site.deleteAllSites("zzz_");
 	}
-	@Ignore 
+	 
 	@Test
-	public void deleteAllTestPeople() {
+	public void deleteAllTestPeople() throws JSONException {
 		
 		TestLog.When("I login with admin user");
 		UserObject user = UserObject.user().withAdminLogin();

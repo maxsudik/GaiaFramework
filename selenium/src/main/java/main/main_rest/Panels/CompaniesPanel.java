@@ -1,6 +1,6 @@
 package main.main_rest.Panels;
 
-import java.util.List;
+import org.json.JSONException;
 
 import common.objects.CompanyObject;
 import common.objects.UserObject;
@@ -8,7 +8,7 @@ import core.api.Interfaces.restApiInterface;
 import core.api.Objects.ApiObject;
 import core.configReader.Config;
 import core.driver.objects.TestObject;
-import core.logger.TestLog;
+import core.helpers.Helper;
 import main.main_rest.GaiaRest;
 
 public class CompaniesPanel {
@@ -45,27 +45,12 @@ public class CompaniesPanel {
 	/** deletes all companies with prefix
 	 * 
 	 * @param prefix
+	 * @throws JSONException 
 	 */
-	public void deleteAllCompanies(String prefix)  {
-		// gets all companies
-		ApiObject api = TestObject.getApiDef("getCompanies");
-		restApiInterface.RestfullApiInterface(api);	
-      
-		// gets names and ids as list
-		List<String> companyNames = Config.getValueList("companyNames");
-        List<String> companyIds = Config.getValueList("companyIds");
-       
-        // deletes all companies with prefix
-        for(int i = 0; i< companyNames.size(); i++) {
-        	if(companyNames.get(i).contains(prefix)) {
-        		TestLog.logPass("deleting company: " + companyNames.get(i));
-        		Config.putValue("companyId", companyIds.get(i));
-        	    api =  TestObject.getApiDef("deleteCompany");
-        	    
-        		restApiInterface.RestfullApiInterface(api);	
-        	}
-        }
+	public void deleteAllCompanies(String prefix) throws JSONException  {
+		Helper.runApiContaining("name", "zzz_","getCompanies",  "id","companyId","deleteCompany");
 	}
+
 
 	public CompanyObject loginAndCreateCompany() {
 		UserObject user = UserObject.user().withAdminLogin();

@@ -1,6 +1,6 @@
 # global configuration
 global_timeout_seconds=60
-parallel_test_count = 1
+parallel_test_count = 2
 retry_count = 1
 isSingleSignIn = false
 launchReportAfterTest = false

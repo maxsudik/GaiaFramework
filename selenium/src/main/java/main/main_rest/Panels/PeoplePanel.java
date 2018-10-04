@@ -1,13 +1,12 @@
 package main.main_rest.Panels;
 
-import java.util.List;
+import org.json.JSONException;
 
 import common.objects.CompanyObject;
 import core.api.Interfaces.restApiInterface;
 import core.api.Objects.ApiObject;
-import core.configReader.Config;
 import core.driver.objects.TestObject;
-import core.logger.TestLog;
+import core.helpers.Helper;
 import main.main_rest.GaiaRest;
 import main.main_rest.objects.PeopleObject;
 
@@ -40,23 +39,8 @@ public class PeoplePanel {
 	}
 
 
-	public void deleteAllPeople(String prefix) {
-		// gets all people
-		ApiObject api = TestObject.getApiDef("getUsers");
-		restApiInterface.RestfullApiInterface(api);
+	public void deleteAllPeople(String prefix) throws JSONException {
+		Helper.runApiContaining("firstName", "zzz_","getUsers", "id","personId","deleteUser");
 
-		// gets names and ids as list
-		List<String> peopleNames = Config.getValueList("peopleNames");
-		List<String> peopleIds = Config.getValueList("peopleIds");
-
-		// deletes all people with prefix
-		for (int i = 0; i < peopleNames.size(); i++) {
-			if (peopleNames.get(i).contains(prefix)) {
-				TestLog.logPass("deleting user: " + peopleNames.get(i));
-				Config.putValue("personId", peopleIds.get(i));
-				api = TestObject.getApiDef("deleteUser");
-				restApiInterface.RestfullApiInterface(api);
-			}
-		}
 	}
 }
