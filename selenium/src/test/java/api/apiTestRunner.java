@@ -7,9 +7,9 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import common.objects.UserObject;
-import core.api.apiRunner;
 import core.api.dataProvider;
 import core.logger.TestLog;
+import main.main_api.apiManager;
 
 
 public class apiTestRunner extends TestBase  {
@@ -54,6 +54,7 @@ public class apiTestRunner extends TestBase  {
 		TestLog.When("I end test");
 	}
 	
+	
 	@Test(dataProvider = "parallelRun", dataProviderClass = dataProvider.class, threadPoolSize = 1, invocationCount = 1)
 	public void parallelApiRunner(String TestSuite, String TestCaseID, String RunFlag, String Description,
 			String InterfaceType, String UriPath, String ContentType, String Method, String Option,
@@ -61,7 +62,7 @@ public class apiTestRunner extends TestBase  {
 			String ExpectedResponse, String PartialExpectedResponse, String NotExpectedResponse, String TcComments,
 			String tcName, String tcIndex) throws Exception {
 
-		apiRunner.TestRunner(TestSuite, TestCaseID, RunFlag, Description,
+		apiManager.TestRunner(TestSuite, TestCaseID, RunFlag, Description,
 			InterfaceType, UriPath, ContentType,  Method,  Option,
 			 RequestHeaders,  TemplateFile,  RequestBody,  OutputParams,  RespCodeExp,
 			 ExpectedResponse,  PartialExpectedResponse,  NotExpectedResponse,  TcComments,
