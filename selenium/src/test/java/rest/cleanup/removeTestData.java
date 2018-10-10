@@ -1,12 +1,13 @@
-package test.java.rest.cleanup;
+package rest.cleanup;
 
 
+import org.json.JSONException;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import base.TestBase;
+import common.objects.UserObject;
 import core.logger.TestLog;
-import main.main_rest.objects.UserObject;
-import test.java.TestBase;
 
 public class removeTestData extends TestBase {
 
@@ -16,32 +17,34 @@ public class removeTestData extends TestBase {
 	}
 	
 	@Test
-	public void deleteAllTestCompanies() {
+	public void deleteAllTestCompanies() throws JSONException {
 		
 		TestLog.When("I login with admin user");
-		UserObject user = new UserObject().withAdminLogin();
-		user = app.rest.login.login(user);
+		UserObject user = UserObject.user().withAdminLogin();
+
+		app.rest.login.login(user);
 		
-		app.rest.company.deleteAllCompanies(user, "zzz_");
+		app.rest.company.deleteAllCompanies("zzz_");
+
 	}
 	
 	@Test
-	public void deleteAllTestSites() {
+	public void deleteAllTestSites() throws JSONException {
 		
 		TestLog.When("I login with admin user");
-		UserObject user = new UserObject().withAdminLogin();
-		user = app.rest.login.login(user);
+		UserObject user = UserObject.user().withAdminLogin();
+		app.rest.login.login(user);
 		
-		app.rest.site.deleteAllSites(user, "zzz_");
+		app.rest.site.deleteAllSites("zzz_");
 	}
-	
+	 
 	@Test
-	public void deleteAllTestPeople() {
+	public void deleteAllTestPeople() throws JSONException {
 		
 		TestLog.When("I login with admin user");
-		UserObject user = new UserObject().withAdminLogin();
-		user = app.rest.login.login(user);
+		UserObject user = UserObject.user().withAdminLogin();
+		app.rest.login.login(user);
 		
-		app.rest.people.deleteAllPeople(user, "zzz_");
+		app.rest.people.deleteAllPeople("zzz_");
 	}
 }

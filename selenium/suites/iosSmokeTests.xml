@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Smoke Test">
+
+  <test name="Sep 24th">
+  
+    <classes>
+       <class name="ios.smokeTest.ManagerLogsInAndOnboardsCompany"/>
+       <class name="ios.smokeTest.ManagerRecoversPassword"/> 
+       <class name="ios.smokeTest.ManagerCreatesSite"/>
+       <class name="ios.smokeTest.ManagerCreatesSupervisor"/>
+       <class name="ios.smokeTest.ManagerCreatesInstaller"/>
+       <class name="ios.smokeTest.ManagerCreatesCustomer"/>
+	   <class name="ios.smokeTest.ManagerCreatesEquipment"/>
+	   <class name="ios.smokeTest.ManagerCreatesProduct"/>
+	   <class name="ios.smokeTest.ManagerCreatesEstimate"/>
+	   <class name="ios.smokeTest.ManagerCreatesEstimate"/>
+     
+    </classes>
+  </test>
+</suite>

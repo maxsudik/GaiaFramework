@@ -1,0 +1,21 @@
+# global configuration
+UriPath = https://apidev3.gaialandscape.com
+webUserEmail = test@test.com
+webUserPassword = testPassword
+adminUserEmail = admin
+adminUserPassword = # .Gaia$
+
+parallelTestcasePath = "/api/testcases/"
+sequentialTestcasePath = "/api/testcases/"
+apiKeywordPath = "api/keywords/"
+
+# set file name to run single csv file
+testCaseFile = ""
+testCase = ""
+
+# Database Server
+DBDRIVER = org.postgresql.Driver
+DBUrl=jdbc:postgresql://localhost:5432
+DBName=testdb
+DBUsername=postgres
+DBPassword=123

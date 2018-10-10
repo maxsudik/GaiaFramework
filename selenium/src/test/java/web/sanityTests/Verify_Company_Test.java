@@ -1,17 +1,17 @@
-package test.java.web.sanityTests;
+package web.sanityTests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import base.TestBase;
+import common.objects.CompanyObject;
+import common.objects.UserObject;
 import core.helpers.Helper;
 import core.logger.TestLog;
 import main.customerPanel.Panels.CompanyPanel;
 import main.customerPanel.Panels.PanelNavigation;
 import main.customerPanel.Panels.PeoplePanel;
-import main.customerPanel.objects.CompanyObject;
 import main.customerPanel.objects.PeopleObject;
-import main.customerPanel.objects.UserObject;
-import test.java.TestBase;
 
 public class Verify_Company_Test extends TestBase {
 
@@ -22,36 +22,36 @@ public class Verify_Company_Test extends TestBase {
 
 	@Test
 	public void validate_add_company() {
-		UserObject user = new UserObject().withEmail(UserObject.USER_ADMIN).withPassword(UserObject.PASSWORD_ADMIN);
+		UserObject user = UserObject.user().withAdminLogin();
 		
 		TestLog.When("I login with admin user");
 		app.customerPanel.login.login(user);
 
 		// add company
-		CompanyObject company = new CompanyObject().withCreateDefaultCompany();
-		TestLog.Then("I add company " + company.companyName);
+		CompanyObject company = CompanyObject.company().withDefaultCompany();
+		TestLog.Then("I add company " + company.name().get());
 		app.customerPanel.company.addCompany(company);
 		
-		TestLog.Then("company " + company.companyName + " should be added successfully");
-		Helper.verifyContainsIsInList(CompanyPanel.elements.COMPANY_ROWS, company.companyName);
+		TestLog.Then("company " + company.name().get() + " should be added successfully");
+		Helper.verifyContainsIsInList(CompanyPanel.elements.COMPANY_ROWS, company.name().get());
 	}
 	
 	@Test
 	public void validate_edit_company() {
-		UserObject user = new UserObject().withEmail(UserObject.USER_ADMIN).withPassword(UserObject.PASSWORD_ADMIN);
+		UserObject user = UserObject.user().withAdminLogin();
 		
 		// login
 		TestLog.When("I login with admin user");
 		app.customerPanel.login.login(user);
 
 		// create company
-		CompanyObject company = new CompanyObject().withCreateDefaultCompany();
-		TestLog.Then("I add company " + company.companyName);
+		CompanyObject company = CompanyObject.company().withDefaultCompany();
+		TestLog.Then("I add company " + company.name().get());
 		app.customerPanel.company.addCompany(company);
 		
 		// verify company
-		TestLog.Then("company " + company.companyName + " should be added successfully");
-		Helper.verifyContainsIsInList(CompanyPanel.elements.COMPANY_ROWS, company.companyName);
+		TestLog.Then("company " + company.name().get() + " should be added successfully");
+		Helper.verifyContainsIsInList(CompanyPanel.elements.COMPANY_ROWS, company.name().get());
 		
 		// select people panel
 		TestLog.When("I select people panel");
@@ -67,29 +67,11 @@ public class Verify_Company_Test extends TestBase {
 				.withLastName(lastName)
 				.withNotes("test note")
 				.withRoles(PeoplePanel.MANAGER)
-				.withUserName(userName)
 				.withEmail(email)
 				.withPassword("12345TestUser@")
-				.withCompany(company.companyName);
+				.withCompanyName(company.name().get());
 
 		TestLog.And("I add person " + firstName);
-		app.customerPanel.people.addPeople(people);
-		
-		// relogin  as admin
-		TestLog.Then("I relogin as admin user " +  people.userName);
-		user.email = people.userName;
-		user.password = people.password;
-		app.customerPanel.login.relogin(user);
-		
-		TestLog.When("I navigate to company panel");
-		app.customerPanel.navigate.selectPanel(PanelNavigation.COMPANY_PANEL);
-		
-		TestLog.Then("I set add the additional info for the company " + company.companyName);
-		app.customerPanel.company.editCompany(company.withEditDefaultCompany());
-		
-		
-		
-		
-		
+		app.customerPanel.people.addPeople(people, company);		
 	}
 }

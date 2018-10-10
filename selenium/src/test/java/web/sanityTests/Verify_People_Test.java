@@ -1,15 +1,16 @@
-package test.java.web.sanityTests;
+package web.sanityTests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import base.TestBase;
+import common.objects.CompanyObject;
+import common.objects.UserObject;
 import core.helpers.Helper;
 import core.logger.TestLog;
 import main.customerPanel.Panels.PanelNavigation;
 import main.customerPanel.Panels.PeoplePanel;
 import main.customerPanel.objects.PeopleObject;
-import main.customerPanel.objects.UserObject;
-import test.java.TestBase;
 
 public class Verify_People_Test extends TestBase {
 
@@ -24,7 +25,8 @@ public class Verify_People_Test extends TestBase {
 	 */
 	@Test
 	public void validate_add_people() {
-		UserObject user = new UserObject().withEmail(UserObject.USER_AUTO_MANAGER).withPassword(UserObject.PASSWORD_AUTO_MANAGER);
+		UserObject user = UserObject.user().withManagerUser();
+		CompanyObject company = CompanyObject.company().withDefaultCompany();
 		
 		TestLog.When("I login with manager user");
 		app.customerPanel.login.login(user);
@@ -43,13 +45,12 @@ public class Verify_People_Test extends TestBase {
 				.withLastName(lastName)
 				.withNotes("test note")
 				.withRoles(PeoplePanel.MANAGER)
-				.withUserName(userName)
 				.withEmail(email)
 				.withPassword("12345TestUser@")
-				.withCompany("AutoInc");
+				.withCompanyName("AutoInc");
 
 		TestLog.And("I add person " + firstName);
-		app.customerPanel.people.addPeople(people);
+		app.customerPanel.people.addPeople(people, company);
 		
 		TestLog.Then("Person should be added successfully");
 		Helper.verifyElementIsDisplayed(PeoplePanel.elements.PEOPLE_ADD_SUCCESS);

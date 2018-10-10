@@ -1,14 +1,14 @@
-package test.java.ios.sanityTests;
+package ios.sanityTests;
 
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import base.TestBase;
 import core.helpers.Helper;
 import core.logger.TestLog;
 import main.main_ios.Panels.MainPanel;
 import main.main_ios.objects.UserObject_Ios;
-import test.java.TestBase;
 
 public class LoginTest extends TestBase {
 

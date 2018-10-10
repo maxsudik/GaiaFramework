@@ -1,11 +1,11 @@
-package test.java.ios.smokeTest;
+package ios.smokeTest;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import base.TestBase;
 import core.logger.TestLog;
 import main.main_ios.objects.UserObject_Ios;
-import test.java.TestBase;
 
 public class ManagerRecoversPassword extends TestBase {
 	
